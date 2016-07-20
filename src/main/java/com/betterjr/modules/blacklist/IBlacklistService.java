@@ -14,5 +14,13 @@ public interface IBlacklistService {
      * @return
      */
     public String webQueryBlacklist(Map<String, Object> anMap, String anFlag, int anPageNum, int anPageSize);
+    
+    /**
+     * 平台用户黑名单录入
+     * 
+     * @param anMap
+     * @return
+     */
+    public String webAddBlacklist(Map<String, Object> anMap);
 
 }
