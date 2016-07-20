@@ -39,4 +39,12 @@ public interface IBlacklistService {
      */
     public String webSaveActivateBlacklist(Long anId);
 
+    /**
+     * 平台用户黑名单注销
+     * 
+     * @param anId
+     * @return
+     */
+    public String webSaveCancelBlacklist(Long anId);
+
 }
