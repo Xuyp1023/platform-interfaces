@@ -31,4 +31,12 @@ public interface IBlacklistService {
      */
     public String webSaveModifyBlacklist(Map<String, Object> anMap);
 
+    /**
+     * 平台用户黑名单激活
+     * 
+     * @param anId
+     * @return
+     */
+    public String webSaveActivateBlacklist(Long anId);
+
 }
