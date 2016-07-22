@@ -10,4 +10,11 @@
 
 	<artifactId>platform-interfaces</artifactId>
 
+	<dependencies>
+		<dependency>
+			<groupId>com.betterjr</groupId>
+			<artifactId>framework</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+	</dependencies>
 </project>
