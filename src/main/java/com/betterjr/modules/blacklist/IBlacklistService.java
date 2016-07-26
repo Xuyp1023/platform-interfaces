@@ -27,9 +27,10 @@ public interface IBlacklistService {
      * 平台用户黑名单修改
      * 
      * @param anMap
+     * @param id
      * @return
      */
-    public String webSaveModifyBlacklist(Map<String, Object> anMap);
+    public String webSaveModifyBlacklist(Map<String, Object> anMap, Long id);
 
     /**
      * 平台用户黑名单激活
@@ -54,5 +55,15 @@ public interface IBlacklistService {
      * @return
      */
     public int webSaveDeleteBlacklist(Long anId);
+
+    /**
+     * 检查是否存在黑名单(参数不能同时为空)
+     * 
+     * @param anName:机构名称或姓名
+     * @param anIdentNo:证件号码
+     * @param anLawName:法人
+     * @return
+     */
+    public boolean checkBlacklistExists(String anName, String anIdentNo, String anLawName);
 
 }
