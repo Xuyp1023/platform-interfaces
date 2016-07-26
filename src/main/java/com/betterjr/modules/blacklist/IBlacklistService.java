@@ -30,7 +30,7 @@ public interface IBlacklistService {
      * @param id
      * @return
      */
-    public String webSaveModifyBlacklist(Map<String, Object> anMap, Long id);
+    public String webSaveModifyBlacklist(Map<String, Object> anMap, Long anId);
 
     /**
      * 平台用户黑名单激活
