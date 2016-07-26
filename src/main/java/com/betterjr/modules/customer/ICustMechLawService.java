@@ -47,7 +47,7 @@ public interface ICustMechLawService {
      * @param anId
      * @return
      */
-    public String webFindChangeApply(Long anCustNo, Long anId);
+    public String webFindChangeApply(Long anId);
     
     /**
      * 确认变更公司法人信息-变更正式表
@@ -60,13 +60,23 @@ public interface ICustMechLawService {
     public String webConfirmChangeApply(Long anChangeId, Long anCustNo, Long anId);
     
     /**
-     * 
+     * 取消变更
      * @param anChangeId
      * @param anCustNo
      * @param anId
      * @return
      */
     public String webCancelChangeApply(Long anChangeId, Long anCustNo, Long anId);
+    
+    /**
+     * 查询变更列表
+     * @param custNo
+     * @param flag
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    public String webQueryChangeApply(Long custNo, int flag, int pageNum, int pageSize);
     
     /**
      * 代录公司法人信息-代录临时流水表
