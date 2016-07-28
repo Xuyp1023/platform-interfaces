@@ -26,11 +26,12 @@ public interface CustomerConstants {
     String TMP_STATUS_USEING = "1";
     String TMP_STATUS_USED = "2";
 
-    // 流水类型:0 代录 1 变更 2 暂存  3 初始信息
+    // 流水类型:0 代录 1 变更 2 暂存  3 初始信息  4 代录暂存 
     String TMP_TYPE_INSTEAD = "0";
     String TMP_TYPE_CHANGE = "1";
     String TMP_TYPE_TEMPSTORE = "2";
     String TMP_TYPE_INITDATA = "3";
+    String TMP_TYPE_INSTEADSTORE = "4";
 
     // 流水操作类型:0 新增 1 修改 2 删除 3 未改变
     String TMP_OPER_TYPE_ADD = "0";
