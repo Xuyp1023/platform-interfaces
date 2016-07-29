@@ -1,108 +1,90 @@
+// ============================================================================
+// Copyright (c) 1998-2016 BYTTER Limited. All rights reserved.
+// ============================================================================
+// CURRENT VERSION V2.0
+// ============================================================================
+// CHANGE LOG
+// V2.0 : 2016-07-27, liuwl, TASK-003
+// ============================================================================
 package com.betterjr.modules.customer;
 
 import java.util.Map;
 
 /**
  * 法人
+ * 
  * @author liuwl
  *
  */
 public interface ICustMechLawService {
-
     /**
-     * 查询公司法人信息
+     * 法人信息-查询详情
+     * 
      * @param anCustNo
      * @return
      */
     public String webFindLawInfo(Long anCustNo);
-    
+
     /**
+     * 法人信息-变更详情
      * 
-     * @param anCustMechLaw
-     * @param anId
-     * @return
-     */
-    public Object saveLawInfo(Object anCustMechLaw, Long anId);
-    
-    /**
-     * 
-     * @param anCustMechLaw
-     * @param anId
-     * @return
-     */
-    public Object addLawInfo(Object anCustMechLaw, Long anId);
-    
-    /**
-     * 变更公司法人信息-变更临时流水表
-     * @param anParam
-     * @param anCustNo
-     * @param anId
-     * @return
-     */
-    public String webAddChangeApply(Map<String, Object> anParam, Long anCustNo, Long anId);
-    
-    /**
-     * 查询变更公司法人信息-变更临时流水表
-     * @param anCustNo
      * @param anId
      * @return
      */
     public String webFindChangeApply(Long anId);
-    
-    /**
-     * 确认变更公司法人信息-变更正式表
-     * 流水表->正式表
-     * @param anChangeId
-     * @param anCustNo
-     * @param anId
-     * @return
-     */
-    public String webConfirmChangeApply(Long anChangeId, Long anCustNo, Long anId);
-    
-    /**
-     * 取消变更
-     * @param anChangeId
-     * @param anCustNo
-     * @param anId
-     * @return
-     */
-    public String webCancelChangeApply(Long anChangeId, Long anCustNo, Long anId);
-    
-    /**
-     * 查询变更列表
-     * @param custNo
-     * @param flag
-     * @param pageNum
-     * @param pageSize
-     * @return
-     */
-    public String webQueryChangeApply(Long custNo, int flag, int pageNum, int pageSize);
-    
-    /**
-     * 代录公司法人信息-代录临时流水表
-     * @param anParam
-     * @param anCustNo
-     * @param anId
-     * @return
-     */
-    public String webAddInsteadRecord(Map<String, Object> anParam, Long anCustNo, Long anId);
-    
-    /**
-     * 确认代录公司法人信息-代录正式表
-     * 流水表->正式表
-     * @param anInsteadId
-     * @param anCustNo
-     * @param anId
-     * @return
-     */
-    public String webConfirmInsteadRecord(Long anInsteadId, Long anCustNo, Long anId);
 
     /**
+     * 法人信息-变更列表
      * 
-     * @param anInsteadId
      * @param anCustNo
-     * @param anId
+     * @param anFlag
+     * @param anPageNum
+     * @param anPageSize
      * @return
      */
-    public String webCancelInsteadRecord(Long anInsteadId, Long anCustNo, Long anId);
+    public String webQueryChangeApply(Long anCustNo, int anFlag, int anPageNum, int anPageSize);
+
+    /**
+     * 法人信息-变更申请
+     * 
+     * @param anParam
+     * @param anCustNo
+     * @return
+     */
+    public String webAddChangeApply(Map<String, Object> anParam, String anFileList);
+
+    /**
+     * 法人信息-变更修改
+     * 
+     * @param anParam
+     * @param anApplyId
+     * @return
+     */
+    public String webSaveChangeApply(Map<String, Object> anParam, Long anApplyId, String anFileList);
+
+    /**
+     * 法人信息-代录添加
+     * 
+     * @param anParam
+     * @param anInsteadRecordId
+     * @return
+     */
+    public String webAddInsteadRecord(Map<String, Object> anParam, Long anInsteadRecordId, String anFileList);
+
+    /**
+     * 法人信息-代录修改
+     * 
+     * @param anParam
+     * @param anInsteadRecordId
+     * @return
+     */
+    public String webSaveInsteadRecord(Map<String, Object> anParam, Long anInsteadRecordId, String anFileList);
+
+    /**
+     * 法人信息-代录详情
+     * 
+     * @param anInsteadRecordId
+     * @return
+     */
+    public String webFindInsteadRecord(Long anInsteadRecordId);
 }

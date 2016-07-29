@@ -10,47 +10,33 @@ package com.betterjr.modules.customer;
 
 import java.util.Map;
 
-import com.betterjr.modules.customer.entity.CustMechBase;
-
 /**
  * 公司基本信息服务
+ * 
  * @author liuwl
  *
  */
 public interface ICustMechBaseService {
     /**
-     * 查询公司基本信息
+     * 公司基本信息-查询详情
+     * 
      * @param anCustNo
      * @return
      */
     public String webFindBaseInfo(Long anCustNo);
-    
+
     /**
-     * 添加公司基本信息
-     * @param anCustMechBase
-     * @param anCustNo
-     * @return
-     */
-    public CustMechBase addBaseInfo(CustMechBase anCustMechBase, Long anCustNo);
-    
-    /**
-     * 保存公司基本信息
-     * @param anCustMechBase
-     * @param anCustNo
-     * @return
-     */
-    public CustMechBase saveBaseInfo(CustMechBase anCustMechBase, Long anCustNo);
-    
-    /**
-     * 查询公司基本信息变更详情
+     * 公司基本信息-变更详情
+     * 
      * @param anCustNo
      * @param anTempId
      * @return
      */
     public String webFindChangeApply(Long anId);
-    
+
     /**
-     * 查询变更申请列表
+     * 公司基本信息-变更列表
+     * 
      * @param anCustNo
      * @param anFlag
      * @param anPageNum
@@ -58,29 +44,49 @@ public interface ICustMechBaseService {
      * @return
      */
     public String webQueryChangeApply(Long anCustNo, int anFlag, int anPageNum, int anPageSize);
-    
+
     /**
-     * 添加变更申请
+     * 公司基本信息-变更申请
+     * 
      * @param anParam
      * @param anCustNo
      * @return
      */
-    public String webAddChangeApply(Map<String, Object> anParam, Long anCustNo);
-    
+    public String webAddChangeApply(Map<String, Object> anParam, String anFileList);
+
     /**
-     * 代录公司基本信息
+     * 公司基本信息-变更修改
+     * 
      * @param anParam
-     * @param anCustNo
+     * @param anApplyId
      * @return
      */
-    public String webAddInsteadRecord(Map<String, Object> anParam, Long anInsteadRecordId);
-    
+    public String webSaveChangeApply(Map<String, Object> anParam, Long anApplyId, String anFileList);
+
     /**
-     * 查询公司基本信息
+     * 公司基本信息-代录添加
+     * 
+     * @param anParam
+     * @param anInsteadRecordId
+     * @return
+     */
+    public String webAddInsteadRecord(Map<String, Object> anParam, Long anInsteadRecordId, String anFileList);
+
+    /**
+     * 公司基本信息-代录修改
+     * 
+     * @param anParam
+     * @param anInsteadRecordId
+     * @return
+     */
+    public String webSaveInsteadRecord(Map<String, Object> anParam, Long anInsteadRecordId, String anFileList);
+
+    /**
+     * 公司基本信息-代录详情
+     * 
      * @param anCustNo
      * @param anTempId
      * @return
      */
-    public String webFindInsteadRecord(Long anId);
-    
+    public String webFindInsteadRecord(Long anInsteadRecordId);
 }
