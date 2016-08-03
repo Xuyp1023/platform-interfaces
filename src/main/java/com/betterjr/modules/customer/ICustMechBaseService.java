@@ -8,7 +8,10 @@
 // ============================================================================
 package com.betterjr.modules.customer;
 
+import java.util.Collection;
 import java.util.Map;
+
+import com.betterjr.modules.account.entity.CustInfo;
 
 /**
  * 公司基本信息服务
@@ -17,6 +20,18 @@ import java.util.Map;
  *
  */
 public interface ICustMechBaseService {
+    /**
+     * 查询当前操作员下的所有机构-对WEB提供
+     * @return
+     */
+    public String webQueryCustInfo();
+    
+    /**
+     * 查询当前操作员下的所有机构
+     * @return
+     */
+    public Collection<CustInfo> queryCustInfo();
+    
     /**
      * 公司基本信息-查询详情
      * 
