@@ -27,12 +27,6 @@ public interface ICustMechBaseService {
     public String webQueryCustInfo();
     
     /**
-     * 查询当前操作员下的所有机构
-     * @return
-     */
-    public Collection<CustInfo> queryCustInfo();
-    
-    /**
      * 公司基本信息-查询详情
      * 
      * @param anCustNo
