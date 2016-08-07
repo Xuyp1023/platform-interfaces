@@ -23,7 +23,7 @@ public interface ICustMechManagerService {
      * @param anCustNo
      * @return
      */
-    public String webFindManager(Long anId, Long anCustNo);
+    public String webFindManager(Long anId);
     
     /**
      * 变更高管-变更临时流水表
@@ -34,7 +34,66 @@ public interface ICustMechManagerService {
      * @param anOperType
      * @return
      */
-    public String webAddChangeApply(Map<String, Object> anParam, Long anCustNo, Long anId, Long anOperType);
+    public String webAddChangeApply(Map<String, Object> anParam, Long anCustNo);
+    
+    /**
+     * 添加一条流水信息
+     * @return
+     */
+    public String webAddInsteadManagerTmp(Map<String, Object> anParam);
+    
+    /**
+     * 保存一条流水信息修改
+     * @return
+     */
+    public String webSaveInsteadManagerTmp(Map<String, Object> anParam, Long anId);
+    
+    /**
+     * 删除一条信息
+     * @param anId
+     * @return
+     */
+    public String webDelInsteadManagerTmp(Map<String, Object> anParam);
+    
+    /**
+     * 添加一条流水信息
+     * @return
+     */
+    public String webAddChangeManagerTmp(Map<String, Object> anParam);
+    
+    /**
+     * 保存一条流水信息修改
+     * @return
+     */
+    public String webSaveChangeManagerTmp(Map<String, Object> anParam, Long anId);
+    
+    /**
+     * 删除一条信息
+     * @param anId
+     * @return
+     */
+    public String webDelChangeManagerTmp(Map<String, Object> anParam);
+    
+    /**
+     * 查询已录入未使用流水列表
+     * @param anCustNo
+     * @return
+     */
+    public String webQueryManagerTmpList(Long anCustNo);
+    
+    /**
+     * 删除已录入未使用流水列表
+     * @param anCustNo
+     * @return
+     */
+    public String webDelManagerTmpList(Long anCustNo);
+    
+    /**
+     * 检测是否有未使用流水
+     * @param anCustNo
+     * @return
+     */
+    public String webCheckManagerTmpList(Long anCustNo);
     
     /**
      * 查询变更高管详情-变更临时流水表
@@ -112,11 +171,4 @@ public interface ICustMechManagerService {
      */
     public String webCancelInsteadRecord(Long anInsteadId, Long anCustNo);
     
-    /**
-     * 
-     * @param anMap
-     * @return
-     */
-    public String webAddManager(Map<String, Object> anMap);
-
 }

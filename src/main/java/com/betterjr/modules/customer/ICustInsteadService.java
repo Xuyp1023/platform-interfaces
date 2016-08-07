@@ -30,6 +30,11 @@ public interface ICustInsteadService {
     public String webQueryInsteadApplyList(Map<String, Object> anParam, int anFlag, int anPageNum, int anPageSize);
     
     /**
+     * 查询代录申请列表 全部
+     */
+    public String webQueryInsteadApplyOwnList(Map<String, Object> anParam, int anFlag, int anPageNum, int anPageSize);
+    
+    /**
      * 查询代录申请列表  待审核
      * @return
      */
@@ -66,7 +71,19 @@ public interface ICustInsteadService {
     public String webAuditRejectInsteadApply(Long anId, String anReason);
     
     /**
-     * 代录申请 代录完成提交复核
+     * 代录申请 复核提交
+     * @return
+     */
+    public String webSubmitReviewInsteadApply(Long anId);
+    
+    /**
+     * 代录申请 确认提交
+     * @return
+     */
+    public String webSubmitConfirmInsteadApply(Long anId);
+    
+    /**
+     * 代录申请 录入提交
      * @param anId
      * @return
      */
