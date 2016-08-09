@@ -11,47 +11,73 @@ import java.util.Map;
 public interface ICustOpenAccountService {
 
     /**
-     * 开户资料提交,客户操作员录入开户资料后点击提交按钮触发
+     * 开户资料读取
+     * 
+     * @return
+     */
+    public String webFindOpenAccountInfo();
+
+    /**
+     * 开户资料暂存
+     * 
+     * @param anMap
+     * @return
+     */
+    public String webSaveOpenAccountInfo(Map<String, Object> anMap);
+
+    /**
+     * 开户申请
      * 
      * @param anMap
      * @param anId
-     * @param anFileList
      * @return
      */
-    public String webSaveOpenAccount(Map<String, Object> anMap, Long anId, String anFileList);
+    public String webSaveOpenAccountApply(Map<String, Object> anMap, Long anId);
 
     /**
-     * 读取暂存开户资料,适用于客户操作员点击开户菜单加载开户暂存信息
+     * 开户申请待审批列表
      * 
+     * @param anFlag
+     * @param anPageNum
+     * @param anPageSize
      * @return
      */
-    public String webFindOpenAccountTemp();
+    public String webQueryOpenAccountApply(String anFlag, int anPageNum, int anPageSize);
 
     /**
-     * 平台操作员查看代录时暂存的开户资料
+     * 开户审核生效
      * 
-     * @param anInsteadRecordId:代录ID
+     * @param anId
+     * @param anAuditOpinion
      * @return
      */
-    public String webFindOpenAccountTempByInsteadId(Long anInsteadRecordId);
+    public String webSaveAuditOpenAccountApply(Long anId, String anAuditOpinion);
 
     /**
-     * 开户资料暂存,适用于客户操作员开户时暂存按钮
+     * 开户申请驳回
+     * 
+     * @param anId
+     * @param anAuditOpinion
+     * @return
+     */
+    public String webSaveRefuseOpenAccountApply(Long anId, String anAuditOpinion);
+
+    /**
+     * 代录开户资料暂存
      * 
      * @param anMap
+     * @param anInsteadId:代录ID
      * @param anFileList
      * @return
      */
-    public String webSaveOpenAccountTemp(Map<String, Object> anMap, String anFileList);
+    public String webSaveOpenAccountInfoByInstead(Map<String, Object> anMap, Long anInsteadId);
 
     /**
-     * 开户资料暂存,适用于平台操作员开户代录时暂存
+     * 代录开户资料读取
      * 
-     * @param anMap
-     * @param anInsteadRecordId:代录ID
-     * @param anFileList
+     * @param anInsteadId:代录ID
      * @return
      */
-    public String webSaveOpenAccountInsteadTemp(Map<String, Object> anMap, Long anInsteadRecordId, String anFileList);
+    public String webFindOpenAccountInfoByInsteadId(Long anInsteadId);
 
 }
