@@ -26,74 +26,31 @@ public interface ICustMechManagerService {
     public String webFindManager(Long anId);
     
     /**
-     * 变更高管-变更临时流水表
-     * anOperType: 0 新增  1 修改  2 删除
-     * @param anParam
+     * 查询代录临时流水
      * @param anCustNo
-     * @param anId
-     * @param anOperType
+     * @return
+     */
+    public String webFindManagerTmp(Long anId);
+    
+    /**
+     * 修改代录临时流水
+     * @param anParam
+     * @param anId 
+     * @return
+     */
+    public String webSaveManagerTmp(Map<String, Object> anParam, Long anId);
+    
+    /**
+     * 变更高管-添加变更申请
      * @return
      */
     public String webAddChangeApply(Map<String, Object> anParam, Long anCustNo);
     
     /**
-     * 添加一条流水信息
+     * 变更高管-修改变更申请
      * @return
      */
-    public String webAddInsteadManagerTmp(Map<String, Object> anParam);
-    
-    /**
-     * 保存一条流水信息修改
-     * @return
-     */
-    public String webSaveInsteadManagerTmp(Map<String, Object> anParam, Long anId);
-    
-    /**
-     * 删除一条信息
-     * @param anId
-     * @return
-     */
-    public String webDelInsteadManagerTmp(Map<String, Object> anParam);
-    
-    /**
-     * 添加一条流水信息
-     * @return
-     */
-    public String webAddChangeManagerTmp(Map<String, Object> anParam);
-    
-    /**
-     * 保存一条流水信息修改
-     * @return
-     */
-    public String webSaveChangeManagerTmp(Map<String, Object> anParam, Long anId);
-    
-    /**
-     * 删除一条信息
-     * @param anId
-     * @return
-     */
-    public String webDelChangeManagerTmp(Map<String, Object> anParam);
-    
-    /**
-     * 查询已录入未使用流水列表
-     * @param anCustNo
-     * @return
-     */
-    public String webQueryManagerTmpList(Long anCustNo);
-    
-    /**
-     * 删除已录入未使用流水列表
-     * @param anCustNo
-     * @return
-     */
-    public String webDelManagerTmpList(Long anCustNo);
-    
-    /**
-     * 检测是否有未使用流水
-     * @param anCustNo
-     * @return
-     */
-    public String webCheckManagerTmpList(Long anCustNo);
+    public String webSaveChangeApply(Map<String, Object> anParam, Long anApplyId);
     
     /**
      * 查询变更高管详情-变更临时流水表
@@ -101,50 +58,94 @@ public interface ICustMechManagerService {
      * @param anId
      * @return
      */
-    public String webFindChangeApply(Long anCustNo, Long anId);
+    public String webFindChangeApply(Long anId);
     
     /**
-     * 查询高管变更列表-临时流水表+正式表
+     * 查询高管变更列表
      * @param anCustNo
      * @return
      */
-    public String webQueryChangeApply(Long anCustNo);
+    public String webQueryChangeApply(Long anCustNo, int anFlag, int anPageNum, int anPageSize);
     
     /**
-     * 确认变更高管-变更正式表
-     * 临时流水表->正式表
-     * @param anChangeId
-     * @param anCustNo
+     * 变更添加   记录添加的记录
      * @return
      */
-    public String webConfirmChangeApply(Long anChangeId, Long anCustNo);
+    public String webAddChangeManagerTmp(Map<String, Object> anParam);
     
     /**
-     * 作废变更高管-变更正式表
-     * @param anChangeId
-     * @param anCustNo
+     * 变更修改   记录从正式表修改的记录
      * @return
      */
-    public String webCancelChangeApply(Long anChangeId, Long anCustNo);
+    public String webSaveChangeManagerTmp(Map<String, Object> anParam);
     
     /**
-     * 代录高管-代录临时流水表
-     * anOperType: 0 新增  1 修改  2 删除
-     * @param anParam
-     * @param anCustNo
+     * 变更删除   记录从正式表删除的记录
      * @param anId
-     * @param anOperType
      * @return
      */
-    public String webAddInsteadRecord(Map<String, Object> anParam, Long anCustNo, Long anId, Long anOperType);
+    public String webDelChangeManagerTmp(Long anRefId);
     
     /**
-     * 查询高管代录列表-临时流水表+正式表
+     * 作废变更
+     * @param anId
+     * @return
+     */
+    public String webCancelChangeManagerTmp(Long anId);
+    
+    /**
+     * 查询 变更 已录入未使用记录
+     * @param anCustNo
+     * @return
+     */
+    public String webQueryNewChangeManagerTmp(Long anCustNo);
+    
+    /**
+     * 代录添加  记录新添加的代录记录
+     * @return
+     */
+    public String webAddInsteadManagerTmp(Map<String, Object> anParam);
+    
+    /**
+     * 代录修改   记录从正式表中修改的记录
+     * @return
+     */
+    public String webSaveInsteadManagerTmp(Map<String, Object> anParam, Long anId);
+    
+    /**
+     * 代录删除   记录从正式表删除的记录
+     * @param anId
+     * @return
+     */
+    public String webDelInsteadManagerTmp(Long anRefId);
+    
+    /**
+     * 作废变更
+     * @param anId
+     * @return
+     */
+    public String webCancelInsteadManagerTmp(Long anId);
+    
+    /**
+     * 查询 代录 已录入未使用记录
+     * @param anCustNo
+     * @return
+     */
+    public String webQueryNewInsteadManagerTmp(Long anCustNo);
+    
+    /**
+     * 添加代录记录
+     * @return
+     */
+    public String webAddInsteadRecord(Map<String, Object> anParam, Long anInsteadRecordId);
+    
+    /**
+     * 修改代录记录
      * @param anInsteadId
      * @param anCustNo
      * @return
      */
-    public String webQueryInsteadRecord(Long anInsteadId, Long anCustNo);
+    public String webSaveInsteadRecord(Map<String, Object> anParam, Long anInsteadRecordId);
     
     /**
      * 查询高管代表详情-临时流水表 
@@ -152,23 +153,7 @@ public interface ICustMechManagerService {
      * @param anId
      * @return
      */
-    public String webFindInsteadRecord(Long anCustNo, Long anId);
+    public String webFindInsteadRecord(Long anInsteadRecordId);
     
-    /**
-     * 确认代录高管-代录正式表
-     * 临时流水表->正式表
-     * @param anInsteadId
-     * @param anCustNo
-     * @return
-     */
-    public String webConfirmInsteadRecord(Long anInsteadId, Long anCustNo);
-    
-    /**
-     * 作废代录高管-代录临时表
-     * @param anInsteadId
-     * @param anCustNo
-     * @return
-     */
-    public String webCancelInsteadRecord(Long anInsteadId, Long anCustNo);
     
 }
