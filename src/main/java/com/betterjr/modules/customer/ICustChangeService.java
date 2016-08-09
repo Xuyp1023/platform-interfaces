@@ -30,5 +30,5 @@ public interface ICustChangeService {
      * 变更申请 作废
      * @return
      */
-    public String webCancelChangeApply(Long anId);
+    public String webCancelChangeApply(Long anId, String anReason);
 }

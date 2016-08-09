@@ -83,8 +83,8 @@ public interface ICustMechLawService {
     /**
      * 法人信息-代录详情
      * 
-     * @param anInsteadRecordId
+     * @param anId
      * @return
      */
-    public String webFindInsteadRecord(Long anInsteadRecordId);
+    public String webFindInsteadRecord(Long anId);
 }
