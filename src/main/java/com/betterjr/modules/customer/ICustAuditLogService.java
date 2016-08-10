@@ -11,28 +11,28 @@ public interface ICustAuditLogService {
      * @param anBusinId
      * @return
      */
-    public String webQueryAuditLogOpenAccountList(Long anBusinId, int anFlag, int anPageNum, int anPageSize);
+    public String webQueryAuditLogOpenAccountList(Long anBusinId);
     
     /**
      * 查询代录申请审核记录列表
      * @param anBusinId
      * @return
      */
-    public String webQueryAuditLogInsteadApplyList(Long anBusinId, int anFlag, int anPageNum, int anPageSize);
+    public String webQueryAuditLogInsteadApplyList(Long anBusinId);
     
     /**
      * 查询代录记录审核记录列表
      * @param anBusinId
      * @return
      */
-    public String webQueryAuditLogInsteadRecordList(Long anBusinId, int anFlag, int anPageNum, int anPageSize);
+    public String webQueryAuditLogInsteadRecordList(Long anBusinId);
     
     /**
      * 查询变更申请审核记录列表
      * @param anBusinId
      * @return
      */
-    public String webQueryAuditLogChangeApplyList(Long anBusinId, int anFlag, int anPageNum, int anPageSize);
+    public String webQueryAuditLogChangeApplyList(Long anBusinId);
     
     /**
      * 审核记录详情
