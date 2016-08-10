@@ -14,6 +14,7 @@ import com.betterjr.common.utils.reflection.ReflectionUtils;
 5.启动人
 6.当前处理人
 7.当前任务
+8.businessId
  * @author hewei
  *
  */
@@ -24,7 +25,8 @@ public class FlowStatus implements Serializable{
     Date lastUpdateTime;
     String createOperator;
     String operator;
-    String currentTaskName;
+    String currentTaskName;//等于流程节点名称
+    Long businessId;
     
     public String getFlowName() {
         return flowName;
@@ -69,6 +71,12 @@ public class FlowStatus implements Serializable{
         this.currentTaskName = currentTaskName;
     }
     
+    public Long getBusinessId() {
+        return businessId;
+    }
+    public void setBusinessId(Long businessId) {
+        this.businessId = businessId;
+    }
     public String toString(){
         StringBuilder sb=new StringBuilder();
         try {
