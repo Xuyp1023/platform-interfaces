@@ -7,6 +7,7 @@ import com.betterjr.mapper.pagehelper.Page;
 import com.betterjr.modules.workflow.data.FlowInput;
 import com.betterjr.modules.workflow.data.FlowStatus;
 import com.betterjr.modules.workflow.data.TaskAuditHistory;
+import com.betterjr.modules.workflow.entity.CustFlowNode;
 
 
 public interface IFlowService {
@@ -29,7 +30,7 @@ public interface IFlowService {
     public String webQueryHistoryWorkTask(Map<String, Object> anMap, int anFlag, int anPageNum, int anPageSize);
     
     /**
-     * 流程监控-查询
+     * 查询监控人所属流程
      */
     public String webQueryWorkTaskByMonitor(Map<String, Object> anMap, int anFlag, int anPageNum, int anPageSize) ;
     
@@ -39,17 +40,27 @@ public interface IFlowService {
     public String webSaveProcessAudit(String[] operators);
     
     /**
-     * 当前流程已经执行的流程节点详情
-     * @param businessId
-     * @return
+     * 新增流程节点
      */
-    public List<TaskAuditHistory> getExecutedHistory(Long businessId);
+    public String webAddFlowNode(Map<String, Object> anMap);
+    
     /**
-     * 当前流程已经执行的流程节点名称
+     * 编辑流程节点
+     */
+    public String webSaveFlowNode(Map<String, Object> anMap);
+    
+    /**
+     * 当前流程已经执行的历史详情
      * @param businessId
      * @return
      */
-    public List<String> getExecutedNodes(Long businessId);
+    public String webQueryExecutedHistory(Long businessId);
+    /**
+     * 当前流程当前节点之前的流程节点详情
+     * @param businessId
+     * @return
+     */
+    public String webQueryExecutedNodes(Long businessId);
     /**
      * 执行任务
      * @param input
@@ -65,13 +76,15 @@ public interface IFlowService {
      * @param page
      * @return
      */
-    public Page<FlowStatus> queryCurrentUserWorkTask(Page<FlowStatus> page);
+    public Page<FlowStatus> queryCurrentUserWorkTask(Page page,FlowStatus search);
     /**
-     * 当前用户审批历史数据
+     * 当前用户审批历史数据,
      * @param page
      * @return
      */
-    public Page<FlowStatus> queryCurrentUserHistoryWorkTask(Page<FlowStatus> page);
-
-
+    public Page<FlowStatus> queryCurrentUserHistoryWorkTask(Page page,FlowStatus search);
+    /**
+     * 根据流程类型得到所有节点
+     */
+    public List<CustFlowNode> findFlowNodesByType(String flowType); 
 }

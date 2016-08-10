@@ -14,7 +14,12 @@ import com.betterjr.common.utils.reflection.ReflectionUtils;
 5.审批时间
  */
 public class TaskAuditHistory implements Serializable{
-	private String flowNodeName;
+	/**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+    private String flowNodeName;
+	private Long flowNodeId;
 	private String operator;
 	private FlowCommand command;
 	private String reason;
@@ -50,7 +55,13 @@ public class TaskAuditHistory implements Serializable{
 		this.auditDate = auditDate;
 	}
 	
-	public String toString(){
+	public Long getFlowNodeId() {
+        return flowNodeId;
+    }
+    public void setFlowNodeId(Long flowNodeId) {
+        this.flowNodeId = flowNodeId;
+    }
+    public String toString(){
 	    StringBuilder sb=new StringBuilder();
         try {
             ReflectionUtils.fieldToString(sb, this);
