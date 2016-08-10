@@ -23,7 +23,7 @@ public interface ICustOpenAccountService {
      * @param anMap
      * @return
      */
-    public String webSaveOpenAccountInfo(Map<String, Object> anMap);
+    public String webSaveOpenAccountInfo(Map<String, Object> anMap, String anFileList);
 
     /**
      * 开户申请
@@ -32,7 +32,7 @@ public interface ICustOpenAccountService {
      * @param anId
      * @return
      */
-    public String webSaveOpenAccountApply(Map<String, Object> anMap, Long anId);
+    public String webSaveOpenAccountApply(Map<String, Object> anMap, Long anId, String anFileList);
 
     /**
      * 开户申请待审批列表
@@ -63,14 +63,14 @@ public interface ICustOpenAccountService {
     public String webSaveRefuseOpenAccountApply(Long anId, String anAuditOpinion);
 
     /**
-     * 代录开户资料暂存
+     * 代录开户资料提交
      * 
      * @param anMap
      * @param anInsteadId:代录ID
      * @param anFileList
      * @return
      */
-    public String webSaveOpenAccountInfoByInstead(Map<String, Object> anMap, Long anInsteadId);
+    public String webSaveOpenAccountInfoByInstead(Map<String, Object> anMap, Long anInsteadId, String anFileList);
 
     /**
      * 代录开户资料读取
