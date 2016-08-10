@@ -106,4 +106,20 @@ public interface ICustRelationService {
      */
     public String webQueryFactorKeyAndValue(Long anCustNo);
 
+    /**
+     * 客户与电子合同服务商关系查询
+     * 
+     * @param anCustNo
+     * @return
+     */
+    public String webQueryProviderRelation(Long anCustNo);
+
+    /**
+     * 客户与保理机构关系查询
+     * 
+     * @param anCustNo
+     * @return
+     */
+    public String webQueryFactorRelation(Long anCustNo);
+
 }
