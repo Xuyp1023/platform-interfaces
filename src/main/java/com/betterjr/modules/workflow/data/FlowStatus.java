@@ -1,5 +1,6 @@
 package com.betterjr.modules.workflow.data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.betterjr.common.utils.reflection.ReflectionUtils;
@@ -16,7 +17,7 @@ import com.betterjr.common.utils.reflection.ReflectionUtils;
  * @author hewei
  *
  */
-public class FlowStatus {
+public class FlowStatus implements Serializable{
     String flowName;
     String flowType;
     Date createTime;

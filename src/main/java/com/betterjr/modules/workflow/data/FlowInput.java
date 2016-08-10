@@ -1,5 +1,6 @@
 package com.betterjr.modules.workflow.data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Map;
 
@@ -18,7 +19,7 @@ import com.google.common.collect.Maps;
 6.回滚目标节点（为空则默认为回滚至上一步）
 7.审批意见
  */
-public class FlowInput {
+public class FlowInput implements Serializable{
     public static final String CommandPara="command";
     public static final String TypePara="type";
     public static final String MoneyPara="money";

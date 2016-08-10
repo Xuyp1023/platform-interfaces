@@ -1,5 +1,6 @@
 package com.betterjr.modules.workflow.data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.betterjr.common.utils.reflection.ReflectionUtils;
@@ -12,7 +13,7 @@ import com.betterjr.common.utils.reflection.ReflectionUtils;
 4.审批意见
 5.审批时间
  */
-public class TaskAuditHistory {
+public class TaskAuditHistory implements Serializable{
 	private String flowNodeName;
 	private String operator;
 	private FlowCommand command;

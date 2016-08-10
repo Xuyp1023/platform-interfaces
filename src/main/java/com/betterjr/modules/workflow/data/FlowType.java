@@ -1,6 +1,8 @@
 package com.betterjr.modules.workflow.data;
 
-public enum FlowType {
+import java.io.Serializable;
+
+public enum FlowType implements Serializable{
     Account("账户类业务"),Trade("交易类业务"),WithdrawAccount("账户类业务撤单"),WithdrawTrade("交易类业务撤单");
     
     private String displayName;
