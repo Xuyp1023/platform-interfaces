@@ -27,6 +27,12 @@ public interface ICustMechBaseService {
     public String webQueryCustInfo();
     
     /**
+     * 通过键值对方式 value - name
+     * @return
+     */
+    public String webQueryCustInfoSelect(); 
+    
+    /**
      * 公司基本信息-查询详情
      * 
      * @param anCustNo
