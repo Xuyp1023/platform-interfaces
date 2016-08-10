@@ -1,6 +1,8 @@
 package com.betterjr.modules.workflow.data;
 
-public enum FlowNodeRole {
+import java.io.Serializable;
+
+public enum FlowNodeRole implements Serializable{
     Financer("融资方"),Core("核心企业"),Factoring("保理方");
     
     private String displayName;
