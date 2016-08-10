@@ -83,27 +83,27 @@ public interface ICustMechManagerService {
     /**
      * 代录添加  记录新添加的代录记录
      */
-    public String webAddInsteadManagerTmp(Map<String, Object> anParam);
+    public String webAddInsteadManagerTmp(Map<String, Object> anParam, Long anInsteadRecordId);
     
     /**
      * 代录修改   记录从正式表中修改的记录
      */
-    public String webSaveInsteadManagerTmp(Map<String, Object> anParam, Long anId);
+    public String webSaveInsteadManagerTmp(Map<String, Object> anParam, Long anInsteadRecordId);
     
     /**
      * 代录删除   记录从正式表删除的记录
      */
-    public String webDelInsteadManagerTmp(Long anRefId);
+    public String webDelInsteadManagerTmp(Long anRefId, Long anInsteadRecordId);
     
     /**
      * 作废变更
      */
-    public String webCancelInsteadManagerTmp(Long anId);
+    public String webCancelInsteadManagerTmp(Long anId, Long anInsteadRecordId);
     
     /**
      * 查询 代录 已录入未使用记录
      */
-    public String webQueryInsteadManagerTmp(Long anCustNo);
+    public String webQueryInsteadManagerTmp(Long anInsteadRecordId);
     
     /**
      * 添加代录记录
