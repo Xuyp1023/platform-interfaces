@@ -25,7 +25,8 @@ public class FlowStatus implements Serializable{
     Date lastUpdateTime;
     String createOperator;
     String operator;
-    String currentTaskName;//等于流程节点名称
+    String currentNodeName;//等于流程节点自定义名称
+    Long currentNodeId;//节点id 
     Long businessId;
     
     public String getFlowName() {
@@ -64,18 +65,23 @@ public class FlowStatus implements Serializable{
     public void setOperator(String operator) {
         this.operator = operator;
     }
-    public String getCurrentTaskName() {
-        return currentTaskName;
+    public String getCurrentNodeName() {
+        return currentNodeName;
     }
-    public void setCurrentTaskName(String currentTaskName) {
-        this.currentTaskName = currentTaskName;
+    public void setCurrentNodeName(String currentNodeName) {
+        this.currentNodeName = currentNodeName;
     }
-    
     public Long getBusinessId() {
         return businessId;
     }
     public void setBusinessId(Long businessId) {
         this.businessId = businessId;
+    }
+    public Long getCurrentNodeId() {
+        return currentNodeId;
+    }
+    public void setCurrentNodeId(Long currentNodeId) {
+        this.currentNodeId = currentNodeId;
     }
     public String toString(){
         StringBuilder sb=new StringBuilder();
