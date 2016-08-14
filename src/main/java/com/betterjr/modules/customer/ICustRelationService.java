@@ -25,12 +25,9 @@ public interface ICustRelationService {
      * 开通保理业务融资审批流程
      * 
      * @param anCustNo
-     * @param anFlag
-     * @param anPageNum
-     * @param anPageSize
      * @return
      */
-    public String webQueryAuditWorkflow(Long anCustNo, String anFlag, int anPageNum, int anPageSize);
+    public String webQueryAuditWorkflow(Long anCustNo);
 
     /**
      * 客户白名单受理列表

@@ -64,6 +64,6 @@ public interface IBlacklistService {
      * @param anLawName:法人
      * @return
      */
-    public boolean checkBlacklistExists(String anName, String anIdentNo, String anLawName);
+    public String webCheckBlacklistExists(String anName, String anIdentNo, String anLawName);
 
 }
