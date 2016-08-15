@@ -101,6 +101,12 @@ public interface IFlowService {
      */
     public Page<FlowStatus> queryCurrentUserWorkTask(Page page,FlowStatus search);
     /**
+     * 当前需要审批的任务-流程
+     * @param page
+     * @return
+     */
+    public Page<FlowStatus> queryCurrentWorkTask(Page page,FlowStatus search);
+    /**
      * 当前用户审批历史数据,
      * @param page
      * @return
