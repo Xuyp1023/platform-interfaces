@@ -2,18 +2,27 @@ package com.betterjr.modules.workflow.entity;
 
 import com.betterjr.common.annotation.*;
 import com.betterjr.common.entity.BetterjrEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Access(AccessType.FIELD)
 @Entity
 @Table(name = "t_cust_flow_step_approvers")
 public class CustFlowStepApprovers implements BetterjrEntity {
+    public static final String selectKey="CustFlowStepApprovers.id";
     public static final Integer MaxWeight=100;
     public static final Integer MinWeight=1;
     /**
-     * 流程step编号
+     * 编号
      */
     @Id
+    @Column(name = "ID",  columnDefinition="INTEGER" )
+    @MetaData( value="编号", comments = "编号")
+    private Long id;
+    /**
+     * 流程step编号
+     */
     @Column(name = "L_STEP_ID",  columnDefinition="INTEGER" )
     @MetaData( value="流程step编号", comments = "流程step编号")
     private Long stepId;
@@ -21,7 +30,6 @@ public class CustFlowStepApprovers implements BetterjrEntity {
     /**
      * 审批人编号
      */
-    @Id
     @Column(name = "L_OPERID",  columnDefinition="INTEGER" )
     @MetaData( value="审批人编号", comments = "审批人编号")
     private Long auditOperId;
@@ -49,6 +57,7 @@ public class CustFlowStepApprovers implements BetterjrEntity {
     private Integer weight;
     
     @Transient
+    @JsonIgnore
     private CustFlowMoney money;
     
     private static final long serialVersionUID = 1469677920734L;
@@ -100,7 +109,8 @@ public class CustFlowStepApprovers implements BetterjrEntity {
     public void setAuditOperName(String auditOperName) {
         this.auditOperName = auditOperName;
     }
-
+    
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

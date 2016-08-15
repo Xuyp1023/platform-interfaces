@@ -2,6 +2,9 @@ package com.betterjr.modules.workflow.entity;
 
 import com.betterjr.common.annotation.*;
 import com.betterjr.common.entity.BetterjrEntity;
+import com.betterjr.modules.workflow.data.AuditType;
+import com.betterjr.modules.workflow.data.FlowNodeRole;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
 
@@ -11,6 +14,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "t_cust_flow_steps")
 public class CustFlowStep implements BetterjrEntity,Comparable{
+    public static final String selectKey="CustFlowStep.id";
     /**
      * 流程step编号
      */
@@ -39,12 +43,19 @@ public class CustFlowStep implements BetterjrEntity,Comparable{
     @Column(name = "L_NODE_ID",  columnDefinition="INTEGER" )
     @MetaData( value="节点编号", comments = "节点编号")
     private Long nodeId;
+    
+    /**
+     * 节点角色
+     */
+    @Column(name = "C_NODE_ROLE",  columnDefinition="VARCHAR" )
+    @MetaData( value="节点角色", comments = "节点角色")
+    private String nodeRole;
 
     /**
      * 审批方式 01 串行 02 并行
      */
     @Column(name = "C_AUDIT_TYPE",  columnDefinition="VARCHAR" )
-    @MetaData( value="审批方式 01 串行 02 并行", comments = "审批方式 01 串行 02 并行")
+    @MetaData( value="审批方式 serial, 串行 parallel 并行", comments = "审批方式 serial, 串行 parallel 并行")
     private String auditType;
 
     /**
@@ -57,6 +68,7 @@ public class CustFlowStep implements BetterjrEntity,Comparable{
     @Transient
     private List<CustFlowStepApprovers> stepApprovers;
     @Transient
+    @JsonIgnore
     private CustFlowNode stepNode;
 
     private static final long serialVersionUID = 1469677920734L;
@@ -85,6 +97,14 @@ public class CustFlowStep implements BetterjrEntity,Comparable{
         this.nodeName = nodeName == null ? null : nodeName.trim();
     }
 
+    public String getNodeRole() {
+        return nodeRole;
+    }
+
+    public void setNodeRole(String nodeRole) {
+        this.nodeRole = nodeRole;
+    }
+
     public Long getNodeId() {
         return nodeId;
     }
@@ -98,8 +118,10 @@ public class CustFlowStep implements BetterjrEntity,Comparable{
     }
 
     public void setAuditType(String auditType) {
-        this.auditType = auditType == null ? null : auditType.trim();
+        this.auditType = auditType ;
     }
+    
+
 
     public Integer getOrderNum() {
         return orderNum;
@@ -134,6 +156,7 @@ public class CustFlowStep implements BetterjrEntity,Comparable{
         sb.append(", id=").append(id);
         sb.append(", flowBaseId=").append(flowBaseId);
         sb.append(", nodeName=").append(nodeName);
+        sb.append(", nodeRole=").append(nodeRole);
         sb.append(", nodeId=").append(nodeId);
         sb.append(", auditType=").append(auditType);
         sb.append(", orderNum=").append(orderNum);

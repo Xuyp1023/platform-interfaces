@@ -50,17 +50,40 @@ public interface IFlowService {
     public String webSaveFlowNode(Map<String, Object> anMap);
     
     /**
+     * 删除流程节点
+     */
+    public String webDeleteFlowNode(Map<String, Object> anMap);
+    
+    /**
      * 当前流程已经执行的历史详情
      * @param businessId
      * @return
      */
-    public String webQueryExecutedHistory(Long businessId);
+    public String webFindExecutedHistory(Long businessId);
     /**
      * 当前流程当前节点之前的流程节点详情
      * @param businessId
      * @return
      */
-    public String webQueryExecutedNodes(Long businessId);
+    public String webFindExecutedNodes(Long businessId);
+    
+    /**
+     * 查询金额分段
+     * 
+     * @param businessId
+     * @return
+     */
+    public String webFindMoneyClass();
+    /**
+     * 查询系统节点
+     * @param businessId
+     * @return
+     */
+    public String webFindSysNode(String flowType);
+    /**
+     * 根据流程类型得到所有节点
+     */
+    public String webFindFlowNodesByType(String flowType); 
     /**
      * 执行任务
      * @param input
