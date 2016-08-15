@@ -15,7 +15,7 @@ public interface ICustTaxService {
      * @param anCustNo
      * @return
      */
-    public String webAddTaxRecord(Map<String, Object> anParam, Long anCustNo);
+    public String webAddTaxRecord(Map<String, Object> anParam, String anFileList);
 
     /**
      * 
@@ -23,14 +23,14 @@ public interface ICustTaxService {
      * @param anId
      * @return
      */
-    public String webFindTaxRecord(Long anCustNo, Long anId);
+    public String webFindTaxRecord(Long anId);
 
     /**
      * 
      * @param anCustNo
      * @return
      */
-    public String webQueryTaxRecordList(Long anCustNo);
+    public String webQueryTaxRecordList(Long anCustNo, String anFlag, int anPageSize, int anPagenum);
 
     /**
      * 
@@ -39,5 +39,5 @@ public interface ICustTaxService {
      * @param anId
      * @return
      */
-    public String webSaveTaxRecord(Map<String, Object> anParam, Long anCustNo, Long anId);
+    public String webSaveTaxRecord(Map<String, Object> anParam, Long anId, String anFlieList);
 }
