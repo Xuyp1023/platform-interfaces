@@ -25,6 +25,13 @@ public interface ICustInsteadService {
     public String webSaveInsteadApply(Map<String, Object> anParam, Long anApplyId, String anFileList);
     
     /**
+     * 代录申请-详情
+     * @param anApplyId
+     * @return
+     */
+    public String webFindInsteadApply(Long anApplyId);
+    
+    /**
      * 查询代录申请列表 全部
      */
     public String webQueryInsteadApplyList(Map<String, Object> anParam, int anFlag, int anPageNum, int anPageSize);
