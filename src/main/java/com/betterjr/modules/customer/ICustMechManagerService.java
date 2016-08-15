@@ -28,7 +28,7 @@ public interface ICustMechManagerService {
     /**
      * 修改代录临时流水
      */
-    public String webSaveManagerTmp(Map<String, Object> anParam, Long anId);
+    public String webSaveManagerTmp(Map<String, Object> anParam, Long anId, String anFileList);
     
     /**
      * 变更高管-添加变更申请
@@ -53,12 +53,12 @@ public interface ICustMechManagerService {
     /**
      * 变更添加   记录添加的记录
      */
-    public String webAddChangeManagerTmp(Map<String, Object> anParam);
+    public String webAddChangeManagerTmp(Map<String, Object> anParam, String anFileList);
     
     /**
      * 变更修改   记录从正式表修改的记录
      */
-    public String webSaveChangeManagerTmp(Map<String, Object> anParam);
+    public String webSaveChangeManagerTmp(Map<String, Object> anParam, String anFileList);
     
     /**
      * 变更删除   记录从正式表删除的记录
@@ -83,12 +83,12 @@ public interface ICustMechManagerService {
     /**
      * 代录添加  记录新添加的代录记录
      */
-    public String webAddInsteadManagerTmp(Map<String, Object> anParam, Long anInsteadRecordId);
+    public String webAddInsteadManagerTmp(Map<String, Object> anParam, Long anInsteadRecordId, String anFileList);
     
     /**
      * 代录修改   记录从正式表中修改的记录
      */
-    public String webSaveInsteadManagerTmp(Map<String, Object> anParam, Long anInsteadRecordId);
+    public String webSaveInsteadManagerTmp(Map<String, Object> anParam, Long anInsteadRecordId, String anFileList);
     
     /**
      * 代录删除   记录从正式表删除的记录
