@@ -14,7 +14,7 @@ public interface ICustMechFinanceService {
      * @param anCustNo
      * @return
      */
-    public String webAddFinanceInfo(Map<String, Object> anParam, Long anCustNo);
+    public String webAddFinanceInfo(Map<String, Object> anParam, Long anCustNo, String anFileList);
 
     /**
      * 
@@ -29,7 +29,7 @@ public interface ICustMechFinanceService {
      * @param anCustNo
      * @return
      */
-    public String webQueryFinanceList(Long anCustNo);
+    public String webQueryFinanceList(Long anCustNo, String anFlag, int anPageNum, int anPageSize);
 
     /**
      * 
@@ -38,5 +38,5 @@ public interface ICustMechFinanceService {
      * @param anId
      * @return
      */
-    public String webSaveFinanceInfo(Map<String, Object> anParam, Long anCustNo, Long anId);
+    public String webSaveFinanceInfo(Map<String, Object> anParam, Long anCustNo, Long anId, String anFileList);
 }
