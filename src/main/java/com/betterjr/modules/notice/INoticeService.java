@@ -29,14 +29,19 @@ public interface INoticeService {
     public String webFindNotice(Long anId);
     
     /**
+     * 设置文档已读 
+     */
+    public String webSetReadNotice(Long anId);
+    
+    /**
      * 添加公告
      */
-    public String webAddNotice(Map<String, Object> anParam);
+    public String webAddNotice(Map<String, Object> anParam, String anTargetCust, String anFileList);
     
     /**
      * 修改公告
      */
-    public String webSaveNotice(Map<String, Object> anParam);
+    public String webSaveNotice(Map<String, Object> anParam, Long anId, String anTargetCust, String anFileList);
     
     /**
      * 发布公告
