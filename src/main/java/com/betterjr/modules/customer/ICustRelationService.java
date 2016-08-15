@@ -112,11 +112,28 @@ public interface ICustRelationService {
     public String webQueryProviderRelation(Long anCustNo);
 
     /**
-     * 客户与保理机构关系查询
+     * 客户关系查询
      * 
      * @param anCustNo
      * @return
      */
-    public String webQueryFactorRelation(Long anCustNo);
+    public String webQueryCustRelation(Long anCustNo);
+
+    /**
+     * 保理机构与核心企业关系查询
+     * 
+     * @param anFactorNo
+     * @return
+     */
+    public String webQueryFacotrCoreRelation(Long anFactorNo);
+
+    /**
+     * 保理机构关系客户查询
+     * 
+     * @param anFactorNo
+     * @param anCreditType
+     * @return
+     */
+    public String webQueryFactorCustRelation(Long anFactorNo, String anCreditType);
 
 }
