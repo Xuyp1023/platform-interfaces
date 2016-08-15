@@ -8,6 +8,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "t_cust_flow_node")
 public class CustFlowNode extends CustFlowSysNode implements BetterjrEntity {
+    
+    public static final String selectKey="CustFlowNode.id";
     /**
      * 节点编号
      */

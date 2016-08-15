@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "t_cust_flow_base")
 public class CustFlowBase implements BetterjrEntity {
+    public static final String selectKey="CustFlowBase.id";
     /**
      * 流程编号
      */
