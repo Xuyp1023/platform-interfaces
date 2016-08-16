@@ -28,7 +28,20 @@ public interface IFlowService {
      * @return
      */
     public String webQueryHistoryWorkTask(Map<String, Object> anMap, int anFlag, int anPageNum, int anPageSize);
-    
+
+    /**
+     * 所有需要审批的任务-当前用户
+     * @param page
+     * @return
+     */
+    public String webQueryCurrentUserWorkTask(Map<String, Object> anMap, int anFlag, int anPageNum, int anPageSize);
+    /**
+     * 所有审批历史数据-当前用户
+     * @param page
+     * @return
+     */
+    public String webQueryCurrentUserHistoryWorkTask(Map<String, Object> anMap, int anFlag, int anPageNum, int anPageSize);
+
     /**
      * 查询监控人所属流程
      */
