@@ -34,12 +34,12 @@ public interface INoticeService {
     /**
      * 设置公告已删除
      */
-    public String webSetDeletedNotice(Long anId);
+    public String webSetDeletedNotice(Long anId, Long anCustNo);
     
     /**
      * 设置公告已读 
      */
-    public String webSetReadNotice(Long anId);
+    public String webSetReadNotice(Long anId, Long anCustNo);
     
     /**
      * 查看机构发布的公告列表
