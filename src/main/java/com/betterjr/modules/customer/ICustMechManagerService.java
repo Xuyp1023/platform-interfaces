@@ -93,7 +93,7 @@ public interface ICustMechManagerService {
     /**
      * 代录删除   记录从正式表删除的记录
      */
-    public String webDelInsteadManagerTmp(Long anRefId, Long anInsteadRecordId);
+    public String webDeleteInsteadManagerTmp(Long anRefId, Long anInsteadRecordId);
     
     /**
      * 作废变更
