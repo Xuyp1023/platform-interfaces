@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.betterjr.mapper.pagehelper.Page;
+import com.betterjr.modules.workflow.data.CustFlowNodeData;
 import com.betterjr.modules.workflow.data.FlowInput;
 import com.betterjr.modules.workflow.data.FlowStatus;
 import com.betterjr.modules.workflow.data.TaskAuditHistory;
@@ -16,6 +17,10 @@ public interface IFlowService {
      * @param base
      */
     public String webSaveProcess(Map base) ;
+    /**
+     * 读取流程配置，根据流程类型
+     */
+    public String webFindProcessByType(String flowType);
     /**
      * 所有需要审批的任务
      * @param page
@@ -50,7 +55,7 @@ public interface IFlowService {
     /*
      * 流程监控-修改流程审批人
      */
-    public String webSaveProcessAudit(String[] operators);
+    public String webChangeProcessAudit(String[] actorIds,String flowOrderId);
     
     /**
      * 新增流程节点
@@ -128,5 +133,5 @@ public interface IFlowService {
     /**
      * 根据流程类型得到所有节点
      */
-    public List<CustFlowNode> findFlowNodesByType(String flowType); 
+    public List<CustFlowNodeData> findFlowNodesByType(String flowType); 
 }

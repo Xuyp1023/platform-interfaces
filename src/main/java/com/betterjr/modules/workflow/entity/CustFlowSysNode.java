@@ -14,7 +14,6 @@ public class CustFlowSysNode implements BetterjrEntity {
     @Id
     @Column(name = "ID",  columnDefinition="INTEGER" )
     @MetaData( value="系统节点编号", comments = "系统节点编号")
-    @Transient
     private Long id;
 
     /**
@@ -22,7 +21,6 @@ public class CustFlowSysNode implements BetterjrEntity {
      */
     @Column(name = "C_FLOW_TYPE_NAME",  columnDefinition="VARCHAR" )
     @MetaData( value="类型名称", comments = "类型名称")
-    @Transient
     private String flowTypeName;
 
     /**
@@ -30,7 +28,6 @@ public class CustFlowSysNode implements BetterjrEntity {
      */
     @Column(name = "C_FLOW_TYPE",  columnDefinition="VARCHAR" )
     @MetaData( value="流程类型", comments = "流程类型")
-    @Transient
     private String flowType;
 
     /**
@@ -38,7 +35,6 @@ public class CustFlowSysNode implements BetterjrEntity {
      */
     @Column(name = "C_NODE_NAME",  columnDefinition="VARCHAR" )
     @MetaData( value="系统节点名称", comments = "系统节点名称")
-    @Transient
     private String nodeName;
     
     /**
@@ -46,7 +42,6 @@ public class CustFlowSysNode implements BetterjrEntity {
      */
     @Column(name = "C_NODE_ROLE",  columnDefinition="VARCHAR" )
     @MetaData( value="系统节点角色", comments = "系统节点角色")
-    @Transient
     private String nodeRole;
 
     private static final long serialVersionUID = 1469677920732L;
