@@ -15,22 +15,14 @@ public interface ICustMechTradeService {
      * @param anCustNo
      * @return
      */
-    public String webAddTradeRecord(Map<String, Object> anParam, Long anCustNo);
-
-    /**
-     * 
-     * @param anCustNo
-     * @param anId
-     * @return
-     */
-    public String webFindTradeRecord(Long anCustNo, Long anId);
+    public String webAddTradeRecord(Map<String, Object> anParam, String anFileList);
 
     /**
      * 
      * @param anCustNo
      * @return
      */
-    public String webQueryTradeRecordList(Long anCustNo);
+    public String webQueryTradeRecordList(Long anCustNo, String anFlag, int anPageNum, int anPageSize);
 
     /**
      * 
@@ -39,5 +31,5 @@ public interface ICustMechTradeService {
      * @param anId
      * @return
      */
-    public String webSaveTradeRecord(Map<String, Object> anParam, Long anCustNo, Long anId);
+    public String webSaveDeleteTradeRecord(Long anId);
 }
