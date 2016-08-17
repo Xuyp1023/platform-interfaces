@@ -14,22 +14,14 @@ public interface ICustFinancingService {
      * @param anCustNo
      * @return
      */
-    public String webAddFinancing(Map<String, Object> anParam, Long anCustNo);
-
-    /**
-     * 
-     * @param anCustNo
-     * @param anId
-     * @return
-     */
-    public String webFindFinancing(Long anCustNo, Long anId);
+    public String webAddFinancing(Map<String, Object> anParam);
 
     /**
      * 
      * @param anCustNo
      * @return
      */
-    public String webQueryFinancingList(Long anCustNo);
+    public String webQueryFinancingList(Long anCustNo, String anFlag, int anPageNum, int anPageSize);
 
     /**
      * 
@@ -38,5 +30,7 @@ public interface ICustFinancingService {
      * @param anId
      * @return
      */
-    public String webSaveFinancing(Map<String, Object> anParam, Long anCustNo, Long anId);
+    public String webSaveFinancing(Map<String, Object> anParam, Long anId);
+    
+    public String webSaveDeleteFinancing(Long anId);
 }
