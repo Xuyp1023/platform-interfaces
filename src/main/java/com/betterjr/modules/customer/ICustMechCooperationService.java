@@ -14,22 +14,15 @@ public interface ICustMechCooperationService {
      * @param anCustNo
      * @return
      */
-    public String webAddCooperation(Map<String, Object> anParam, Long anCustNo);
+    public String webAddCooperation(Map<String, Object> anParam);
 
-    /**
-     * 
-     * @param anCustNo
-     * @param anId
-     * @return
-     */
-    public String webFindCooperation(Long anCustNo, Long anId);
 
     /**
      * 
      * @param anCustNo
      * @return
      */
-    public String webQueryCooperationList(Long anCustNo);
+    public String webQueryCooperationList(Long anCustNo, String anFlag, int anPageNum, int anPageSize);
 
     /**
      * 
@@ -38,5 +31,8 @@ public interface ICustMechCooperationService {
      * @param anId
      * @return
      */
-    public String webSaveCooperation(Map<String, Object> anParam, Long anCustNo, Long anId);
+    public String webSaveCooperation(Map<String, Object> anParam, Long anId);
+
+
+    public String webSaveDeleteCooperation(Long anId);
 }
