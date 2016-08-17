@@ -96,6 +96,22 @@ public interface ICustRelationService {
     public String webQueryCoreKeyAndValue(Long anCustNo);
 
     /**
+     * 供应商下拉列表查询,使用于核心企业查询
+     * 
+     * @param anCoreCustNo
+     * @return
+     */
+    public String webQuerySupplierByCore(Long anCoreCustNo);
+
+    /**
+     * 经销商下拉列表查询,使用于核心企业查询
+     * 
+     * @param anCoreCustNo
+     * @return
+     */
+    public String webQuerySellerByCore(Long anCoreCustNo);
+
+    /**
      * 保理机构下拉列表查询,适用于供应商/经销商/核心企业相关查询
      * 
      * @param anCustNo
