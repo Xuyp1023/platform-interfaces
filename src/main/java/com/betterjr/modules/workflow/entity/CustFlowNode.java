@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Access(AccessType.FIELD)
 @Entity
 @Table(name = "t_cust_flow_node")
-public class CustFlowNode extends CustFlowSysNode implements BetterjrEntity {
+public class CustFlowNode implements BetterjrEntity {
     
     public static final String selectKey="CustFlowNode.id";
     /**

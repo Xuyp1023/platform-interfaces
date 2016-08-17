@@ -3,6 +3,7 @@ package com.betterjr.modules.workflow.entity;
 import com.betterjr.common.annotation.*;
 import com.betterjr.common.entity.BetterjrEntity;
 import com.betterjr.modules.workflow.data.AuditType;
+import com.betterjr.modules.workflow.data.CustFlowNodeData;
 import com.betterjr.modules.workflow.data.FlowNodeRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -69,7 +70,7 @@ public class CustFlowStep implements BetterjrEntity,Comparable{
     private List<CustFlowStepApprovers> stepApprovers;
     @Transient
     @JsonIgnore
-    private CustFlowNode stepNode;
+    private CustFlowNodeData stepNode;
 
     private static final long serialVersionUID = 1469677920734L;
 
@@ -139,11 +140,11 @@ public class CustFlowStep implements BetterjrEntity,Comparable{
         this.stepApprovers = stepApprovers;
     }
 
-    public CustFlowNode getStepNode() {
+    public CustFlowNodeData getStepNode() {
         return stepNode;
     }
 
-    public void setStepNode(CustFlowNode stepNode) {
+    public void setStepNode(CustFlowNodeData stepNode) {
         this.stepNode = stepNode;
     }
 
