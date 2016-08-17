@@ -21,7 +21,7 @@ public interface ICustMechManagerService {
     public String webFindManager(Long anId);
     
     /**
-     * 查询代录临时流水
+     * 查询高管流水详情
      */
     public String webFindManagerTmp(Long anId);
     
@@ -43,7 +43,7 @@ public interface ICustMechManagerService {
     /**
      * 查询变更高管详情-变更临时流水表
      */
-    public String webFindChangeApply(Long anId);
+    public String webFindChangeApply(Long anApplyId, Long anTmpId);
     
     /**
      * 查询高管变更列表
@@ -63,7 +63,7 @@ public interface ICustMechManagerService {
     /**
      * 变更删除   记录从正式表删除的记录
      */
-    public String webDelChangeManagerTmp(Long anRefId);
+    public String webDeleteChangeManagerTmp(Long anRefId);
     
     /**
      * 作废变更
