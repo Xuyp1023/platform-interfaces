@@ -274,25 +274,6 @@ public class CustFileItem implements BetterjrEntity {
         return false;
     }
 
-    public File getRealFile(String anBasePath) {
-        String tmpStr = fileRealPath(anBasePath);
-        if (tmpStr != null) {
-            File ff = new File(tmpStr);
-            if (ff.exists() && ff.isFile()) {
-                System.out.println(tmpStr);
-                return ff;
-            }
-        }
-        return null;
-    }
 
-    public String fileRealPath(String anBasePath) {
-        if (BetterStringUtils.isNotBlank(anBasePath)) {
-            return anBasePath.replaceAll("\\.\\.", "");
-        }
-        else {
-            return null;
-        }
-    }
 
 }
