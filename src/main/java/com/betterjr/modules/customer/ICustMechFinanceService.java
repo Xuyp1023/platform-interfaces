@@ -39,4 +39,6 @@ public interface ICustMechFinanceService {
      * @return
      */
     public String webSaveFinanceInfo(Map<String, Object> anParam, Long anCustNo, Long anId, String anFileList);
+
+    public String webSaveDeleteFinanceInfo(Long anId);
 }
