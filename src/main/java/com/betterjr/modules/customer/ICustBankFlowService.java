@@ -14,22 +14,14 @@ public interface ICustBankFlowService {
      * @param anCustNo
      * @return
      */
-    public String webAddBankFlowRecord(Map<String, Object> anParam, Long anCustNo);
-
-    /**
-     * 
-     * @param anCustNo
-     * @param anId
-     * @return
-     */
-    public String webFindBankFlowRecord(Long anCustNo, Long anId);
+    public String webAddBankFlowRecord(Map<String, Object> anParam, String anFileList);
 
     /**
      * 
      * @param anCustNo
      * @return
      */
-    public String webQueryBankFlowRecordList(Long anCustNo);
+    public String webQueryBankFlowRecordList(Long anCustNo, String anFlag, int anPageNum, int anPageSize);
 
     /**
      * 
@@ -38,5 +30,5 @@ public interface ICustBankFlowService {
      * @param anId
      * @return
      */
-    public String webSaveBankFlowRecord(Map<String, Object> anParam, Long anCustNo, Long anId);
+    public String webSaveDeleteBankFlowRecord(Long anId);
 }
