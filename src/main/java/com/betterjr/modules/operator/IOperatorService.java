@@ -35,11 +35,18 @@ public interface IOperatorService {
     public String webQueryCustOperator(Map<String,String> anMap,int pageNum,int pageSize);
     
     /****
-     * 获取菜单信息
+     * 获取左侧菜单信息
      * @param menuId
      * @return
      */
-    public String webFindSysMenuByMenuId(Integer anMenuId,String anRoleName);
+    public String webFindSysMenuByMenuId(Integer anMenuId);
+    
+    /****
+     * 获取根据角色获取菜单
+     * @param menuId
+     * @return
+     */
+    public String webFindSysMenuByMenuRole(String anRoleName);
     
     /****
      * 获取所有菜单信息
@@ -55,4 +62,11 @@ public interface IOperatorService {
      * @return
      */
     public String webAddMenuRole(String anRoleId,String anRoleName,String anMenuIdArr);
+    
+    /***
+     * 查询操作员
+     * @param operatorId
+     * @return
+     */
+    public String webFindOperatorById(Long operatorId);
 }

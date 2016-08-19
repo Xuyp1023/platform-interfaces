@@ -28,7 +28,7 @@ public interface IRoleService {
      * @param anId
      * @return
      */
-    public String webDelRole(String anRoleId);
+    public String webDelRole(Long anRoleId);
     
     /***
      * 分页查询角色信息
