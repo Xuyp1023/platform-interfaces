@@ -4,7 +4,9 @@ import java.io.File;
 
 import com.betterjr.common.annotation.*;
 import com.betterjr.common.entity.BetterjrEntity;
+import com.betterjr.common.selectkey.SerialGenerator;
 import com.betterjr.common.utils.BetterStringUtils;
+import com.betterjr.common.utils.FileUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -272,6 +274,15 @@ public class CustFileItem implements BetterjrEntity {
         }
 
         return false;
+    }
+    
+    public void initDuplicateConflictValue(CustFileItem anFileItem) {
+        this.id = (SerialGenerator.getLongValue("CustFileItem.id"));
+        this.fileLength = anFileItem.getFileLength();
+        this.fileInfoType = anFileItem.getFileInfoType();
+        this.filePath = anFileItem.getFilePath();
+        this.fileName = anFileItem.getFileName();
+        this.fileType = anFileItem.getFileType();
     }
 
 
