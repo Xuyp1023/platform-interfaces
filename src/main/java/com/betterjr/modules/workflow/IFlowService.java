@@ -103,6 +103,14 @@ public interface IFlowService {
      */
     public String webFindFlowNodesByType(String flowType); 
     /**
+     * 显示流程图当前节点tips（操作人，抵达时间）
+     */
+    public String webFindTipsJson(String businessId, String taskName);
+    /**
+     * 显示流程图
+     */
+    public String webFindFlowJson(String processId, String businessId);
+    /**
      * 执行任务
      * @param input
      */
