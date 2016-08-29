@@ -100,6 +100,16 @@ public class CustFlowMoney implements BetterjrEntity {
     	return builder.toString();
     }
     
+    public String toDisplayName(){
+        StringBuilder builder=new StringBuilder();
+        builder.append(" > ").append(this.auditMinAmount.longValue());
+        if(this.auditMaxAmount.compareTo(MaxAmount)!=0){
+            builder.append(" , ");
+            builder.append(" <= ").append(this.auditMaxAmount.longValue());
+        }
+        return builder.toString();
+    }
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

@@ -18,6 +18,8 @@ import com.google.common.collect.Maps;
 5.业务id
 6.回滚目标节点（为空则默认为回滚至上一步）
 7.审批意见
+8.核心企业机构
+9.融资方机构
  */
 public class FlowInput implements Serializable{
     public static final String CommandPara="command";
@@ -27,6 +29,8 @@ public class FlowInput implements Serializable{
     public static final String BusinessIdPara="businessId";
     public static final String RollbackNodeIdPara="rollbackNodeId";
     public static final String ReasonPara="reason";
+    public static final String CoreOperOrgPara="coreOperOrg";
+    public static final String FinancerOperOrgPara="financerOperOrg";
    
    
 	private FlowCommand command; //审批必填
@@ -36,6 +40,8 @@ public class FlowInput implements Serializable{
 	private Long businessId;//启动&审批必填
 	private String rollbackNodeId;//审批可选
 	private String reason;//审批可选
+	private String coreOperOrg;//启动必填
+	private String financerOperOrg;//启动必填
 
 	
 	public FlowCommand getCommand() {
@@ -83,6 +89,18 @@ public class FlowInput implements Serializable{
         this.type = type;
     }
 
+    public String getCoreOperOrg() {
+        return coreOperOrg;
+    }
+    public void setCoreOperOrg(String coreOperOrg) {
+        this.coreOperOrg = coreOperOrg;
+    }
+    public String getFinancerOperOrg() {
+        return financerOperOrg;
+    }
+    public void setFinancerOperOrg(String financerOperOrg) {
+        this.financerOperOrg = financerOperOrg;
+    }
     public Map<String, Object> toExecMap(){
 	    Map<String, Object> map = Maps.newHashMap();
 	    map.put(FlowInput.CommandPara, this.getCommand()==null?null:this.getCommand().name());
@@ -100,6 +118,8 @@ public class FlowInput implements Serializable{
         map.put(FlowInput.BusinessIdPara, this.getBusinessId());
         map.put(FlowInput.MoneyPara, this.getMoney());
         map.put(FlowInput.OperatorPara, this.getOperator());
+        map.put(FlowInput.FinancerOperOrgPara, this.getFinancerOperOrg());
+        map.put(FlowInput.CoreOperOrgPara, this.getCoreOperOrg());
         return map;
     }
 	

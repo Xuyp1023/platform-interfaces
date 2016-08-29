@@ -30,6 +30,16 @@ public class CustFlowInstanceBusiness implements BetterjrEntity{
     @MetaData( value="业务Id", comments = "业务Id")
     private Long businessId;
     
+    //融资方机构
+    @Column(name = "C_FINANCER_OPERORG",  columnDefinition="VARCHAR" )
+    @MetaData( value="融资方机构", comments = "融资方机构")
+    private String financerOperOrg;
+    
+    //核心企业机构
+    @Column(name = "C_CORE_OPERORG",  columnDefinition="VARCHAR" )
+    @MetaData( value="核心企业机构", comments = "核心企业机构")
+    private String coreOperOrg;
+    
     @Column(name = "T_UPDATE",  columnDefinition="DATETIME" )
     @MetaData( value="更新时间", comments = "更新时间")
     private Date updateTime;
@@ -53,5 +63,18 @@ public class CustFlowInstanceBusiness implements BetterjrEntity{
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+    public String getFinancerOperOrg() {
+        return financerOperOrg;
+    }
+    public void setFinancerOperOrg(String financerOperOrg) {
+        this.financerOperOrg = financerOperOrg;
+    }
+    public String getCoreOperOrg() {
+        return coreOperOrg;
+    }
+    public void setCoreOperOrg(String coreOperOrg) {
+        this.coreOperOrg = coreOperOrg;
+    }
+
     
 }
