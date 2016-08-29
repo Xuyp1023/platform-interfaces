@@ -29,6 +29,10 @@ public class FlowStatus implements Serializable{
     Long currentNodeId;//节点id 
     Long businessId;
     
+    //查询启动时间 起止
+    String GTFlowDate;
+    String LTFlowDate;
+    
     public String getFlowName() {
         return flowName;
     }
@@ -82,6 +86,18 @@ public class FlowStatus implements Serializable{
     }
     public void setCurrentNodeId(Long currentNodeId) {
         this.currentNodeId = currentNodeId;
+    }
+    public String getGTFlowDate() {
+        return GTFlowDate;
+    }
+    public void setGTFlowDate(String gTFlowDate) {
+        GTFlowDate = gTFlowDate;
+    }
+    public String getLTFlowDate() {
+        return LTFlowDate;
+    }
+    public void setLTFlowDate(String lTFlowDate) {
+        LTFlowDate = lTFlowDate;
     }
     public String toString(){
         StringBuilder sb=new StringBuilder();

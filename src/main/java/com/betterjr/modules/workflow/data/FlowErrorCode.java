@@ -1,6 +1,8 @@
 package com.betterjr.modules.workflow.data;
 
-public enum FlowErrorCode {
+import java.io.Serializable;
+
+public enum FlowErrorCode implements Serializable{
     ExistsNodeName(41000);
     int code;
     FlowErrorCode(int anCode){

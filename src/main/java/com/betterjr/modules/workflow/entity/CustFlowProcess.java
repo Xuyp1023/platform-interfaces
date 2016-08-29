@@ -1,9 +1,10 @@
 package com.betterjr.modules.workflow.entity;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-public class CustFlowProcess {
+public class CustFlowProcess implements Serializable{
 
     private CustFlowBase base;
     private List<CustFlowStep> stepList;

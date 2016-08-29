@@ -109,7 +109,7 @@ public interface IFlowService {
     /**
      * 显示流程图
      */
-    public String webFindFlowJson(String processId, String businessId);
+    public String webFindFlowJson(String businessId);
     /**
      * 执行任务
      * @param input

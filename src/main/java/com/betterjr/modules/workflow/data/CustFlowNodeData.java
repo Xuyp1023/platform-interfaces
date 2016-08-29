@@ -1,9 +1,11 @@
 package com.betterjr.modules.workflow.data;
 
+import java.io.Serializable;
+
 import com.betterjr.common.mapper.BeanMapper;
 import com.betterjr.modules.workflow.entity.CustFlowNode;
 
-public class CustFlowNodeData {
+public class CustFlowNodeData implements Serializable{
 
     /**
      * 节点编号
