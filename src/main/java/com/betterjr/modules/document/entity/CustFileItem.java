@@ -5,8 +5,10 @@ import java.io.File;
 import com.betterjr.common.annotation.*;
 import com.betterjr.common.entity.BetterjrEntity;
 import com.betterjr.common.selectkey.SerialGenerator;
+import com.betterjr.common.utils.BetterDateUtils;
 import com.betterjr.common.utils.BetterStringUtils;
 import com.betterjr.common.utils.FileUtils;
+import com.betterjr.modules.account.entity.CustOperatorInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -87,6 +89,64 @@ public class CustFileItem implements BetterjrEntity {
     @Column(name = "C_FILEINFOTYPE", columnDefinition = "VARCHAR")
     @MetaData(value = "文件信息类型", comments = "文件信息类")
     private String fileInfoType;
+    
+    
+    /**
+     * 创建人(操作员)ID号
+     */
+    @JsonIgnore
+    @Column(name = "L_REG_OPERID", columnDefinition = "INTEGER")
+    @MetaData(value = "创建人(操作员)ID号", comments = "创建人(操作员)ID号")
+    private Long regOperId;
+
+    /**
+     * 创建人(操作员)姓名
+     */
+    @JsonIgnore
+    @Column(name = "C_REG_OPERNAME", columnDefinition = "VARCHAR")
+    @MetaData(value = "创建人(操作员)姓名", comments = "创建人(操作员)姓名")
+    private String regOperName;
+
+    /**
+     * 修改人(操作员)ID号
+     */
+    @JsonIgnore
+    @Column(name = "L_MODI_OPERID", columnDefinition = "INTEGER")
+    @MetaData(value = "修改人(操作员)ID号", comments = "修改人(操作员)ID号")
+    private Long modiOperId;
+
+    /**
+     * 修改人(操作员)姓名
+     */
+    @JsonIgnore
+    @Column(name = "C_MODI_OPERNAME", columnDefinition = "VARCHAR")
+    @MetaData(value = "修改人(操作员)姓名", comments = "修改人(操作员)姓名")
+    private String modiOperName;
+
+    /**
+     * 修改日期
+     */
+    @JsonIgnore
+    @Column(name = "D_MODI_DATE", columnDefinition = "VARCHAR")
+    @MetaData(value = "修改日期", comments = "修改日期")
+    private String modiDate;
+
+    /**
+     * 修改时间
+     */
+    @JsonIgnore
+    @Column(name = "T_MODI_TIME", columnDefinition = "VARCHAR")
+    @MetaData(value = "修改时间", comments = "修改时间")
+    private String modiTime;
+
+    /**
+     * 操作机构
+     */
+    @JsonIgnore
+    @Column(name = "C_OPERORG", columnDefinition = "VARCHAR")
+    @MetaData(value = "操作机构", comments = "操作机构")
+    private String operOrg;    
+    
 
     @Transient
     private CustFileInfo fileInfo;
@@ -185,6 +245,62 @@ public class CustFileItem implements BetterjrEntity {
         this.regTime = regTime == null ? null : regTime.trim();
     }
 
+    public Long getRegOperId() {
+        return regOperId;
+    }
+
+    public void setRegOperId(Long anRegOperId) {
+        regOperId = anRegOperId;
+    }
+
+    public String getRegOperName() {
+        return regOperName;
+    }
+
+    public void setRegOperName(String anRegOperName) {
+        regOperName = anRegOperName;
+    }
+
+    public Long getModiOperId() {
+        return modiOperId;
+    }
+
+    public void setModiOperId(Long anModiOperId) {
+        modiOperId = anModiOperId;
+    }
+
+    public String getModiOperName() {
+        return modiOperName;
+    }
+
+    public void setModiOperName(String anModiOperName) {
+        modiOperName = anModiOperName;
+    }
+
+    public String getModiDate() {
+        return modiDate;
+    }
+
+    public void setModiDate(String anModiDate) {
+        modiDate = anModiDate;
+    }
+
+    public String getModiTime() {
+        return modiTime;
+    }
+
+    public void setModiTime(String anModiTime) {
+        modiTime = anModiTime;
+    }
+
+    public String getOperOrg() {
+        return operOrg;
+    }
+
+    public void setOperOrg(String anOperOrg) {
+        operOrg = anOperOrg;
+    }
+
     public File getAbsoFile() {
         return this.absoFile;
     }
@@ -206,8 +322,15 @@ public class CustFileItem implements BetterjrEntity {
         sb.append(", fileNo=").append(fileNo);
         sb.append(", filePath=").append(filePath);
         sb.append(", fileLength=").append(fileLength);
+        sb.append(", regOperId=").append(regOperId);
+        sb.append(", regOperName=").append(regOperName);
         sb.append(", regDate=").append(regDate);
         sb.append(", regTime=").append(regTime);
+        sb.append(", modiOperId=").append(modiOperId);
+        sb.append(", modiOperName=").append(modiOperName);
+        sb.append(", modiDate=").append(modiDate);
+        sb.append(", modiTime=").append(modiTime);
+        sb.append(", operOrg=").append(operOrg);
         sb.append(", fileInfoType=").append(fileInfoType);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
@@ -233,8 +356,15 @@ public class CustFileItem implements BetterjrEntity {
                 && (this.getFileNo() == null ? other.getFileNo() == null : this.getFileNo().equals(other.getFileNo()))
                 && (this.getFilePath() == null ? other.getFilePath() == null : this.getFilePath().equals(other.getFilePath()))
                 && (this.getFileLength() == null ? other.getFileLength() == null : this.getFileLength().equals(other.getFileLength()))
+                && (this.getRegOperId() == null ? other.getRegOperId() == null : this.getRegOperId().equals(other.getRegOperId()))
+                && (this.getRegOperName() == null ? other.getRegOperName() == null : this.getRegOperName().equals(other.getRegOperName()))
                 && (this.getRegDate() == null ? other.getRegDate() == null : this.getRegDate().equals(other.getRegDate()))
                 && (this.getRegTime() == null ? other.getRegTime() == null : this.getRegTime().equals(other.getRegTime()))
+                && (this.getModiOperId() == null ? other.getModiOperId() == null : this.getModiOperId().equals(other.getModiOperId()))
+                && (this.getModiOperName() == null ? other.getModiOperName() == null : this.getModiOperName().equals(other.getModiOperName()))
+                && (this.getModiDate() == null ? other.getModiDate() == null : this.getModiDate().equals(other.getModiDate()))
+                && (this.getModiTime() == null ? other.getModiTime() == null : this.getModiTime().equals(other.getModiTime()))
+                && (this.getOperOrg() == null ? other.getOperOrg() == null : this.getOperOrg().equals(other.getOperOrg()))
                 && (this.getFileInfoType() == null ? other.getFileInfoType() == null : this.getFileInfoType().equals(other.getFileInfoType()));
     }
 
@@ -249,8 +379,15 @@ public class CustFileItem implements BetterjrEntity {
         result = prime * result + ((getFileNo() == null) ? 0 : getFileNo().hashCode());
         result = prime * result + ((getFilePath() == null) ? 0 : getFilePath().hashCode());
         result = prime * result + ((getFileLength() == null) ? 0 : getFileLength().hashCode());
+        result = prime * result + ((getRegOperId() == null) ? 0 : getRegOperId().hashCode());
+        result = prime * result + ((getRegOperName() == null) ? 0 : getRegOperName().hashCode());
         result = prime * result + ((getRegDate() == null) ? 0 : getRegDate().hashCode());
         result = prime * result + ((getRegTime() == null) ? 0 : getRegTime().hashCode());
+        result = prime * result + ((getModiOperId() == null) ? 0 : getModiOperId().hashCode());
+        result = prime * result + ((getModiOperName() == null) ? 0 : getModiOperName().hashCode());
+        result = prime * result + ((getModiDate() == null) ? 0 : getModiDate().hashCode());
+        result = prime * result + ((getModiTime() == null) ? 0 : getModiTime().hashCode());
+        result = prime * result + ((getOperOrg() == null) ? 0 : getOperOrg().hashCode());
         result = prime * result + ((getFileInfoType() == null) ? 0 : getFileInfoType().hashCode());
         return result;
     }
@@ -283,6 +420,25 @@ public class CustFileItem implements BetterjrEntity {
         this.filePath = anFileItem.getFilePath();
         this.fileName = anFileItem.getFileName();
         this.fileType = anFileItem.getFileType();
+    }
+
+    public void initAddValue(CustOperatorInfo anOperator) {
+        this.regDate = BetterDateUtils.getNumDate();
+        this.regTime = BetterDateUtils.getNumTime();
+        this.regOperId = anOperator.getId();
+        this.regOperName = anOperator.getName();
+        this.modiDate = BetterDateUtils.getNumDate();
+        this.modiTime = BetterDateUtils.getNumTime();
+        this.modiOperId = anOperator.getId();
+        this.modiOperName = anOperator.getName();
+        this.operOrg = anOperator.getName();
+    }
+
+    public void initModifyValue(CustOperatorInfo anOperator) {
+        this.modiDate = BetterDateUtils.getNumDate();
+        this.modiTime = BetterDateUtils.getNumTime();
+        this.modiOperId = anOperator.getId();
+        this.modiOperName = anOperator.getName();
     }
 
 

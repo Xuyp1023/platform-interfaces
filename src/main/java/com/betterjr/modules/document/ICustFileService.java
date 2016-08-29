@@ -135,7 +135,17 @@ public interface ICustFileService {
      * @param anBatchNo
      *            文件批次号
      */
-    public void deleteFileItem(Long anId, Long anBatchNo);
+    public String webDeleteFileItem(Long anId, Long anBatchNo);
+    
+    /**
+     * 删除附件，具体逻辑是如果存在并匹配上了，就可以设置batchNo为负值，便于今后查询
+     * 
+     * @param anId
+     *            文件ID号
+     * @param anBatchNo
+     *            文件批次号
+     */
+    public boolean deleteFileItem(Long anId, Long anBatchNo);
     
     /**
      * 得到文件存储的basePath
