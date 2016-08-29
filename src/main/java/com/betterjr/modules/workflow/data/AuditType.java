@@ -1,5 +1,7 @@
 package com.betterjr.modules.workflow.data;
 
-public enum AuditType {
+import java.io.Serializable;
+
+public enum AuditType implements Serializable{
     serial,parallel;
 }
