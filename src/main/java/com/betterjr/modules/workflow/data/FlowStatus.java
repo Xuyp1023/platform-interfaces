@@ -3,6 +3,7 @@ package com.betterjr.modules.workflow.data;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.betterjr.common.utils.reflection.ReflectionUtils;
 
 /**
@@ -21,7 +22,9 @@ import com.betterjr.common.utils.reflection.ReflectionUtils;
 public class FlowStatus implements Serializable{
     String flowName;
     String flowType;
+    @JSONField(format="yyyy-MM-dd")
     Date createTime;
+    @JSONField(format="yyyy-MM-dd")
     Date lastUpdateTime;
     String createOperator;
     String operator;
