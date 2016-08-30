@@ -3,6 +3,7 @@ package com.betterjr.modules.workflow.data;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.betterjr.common.utils.reflection.ReflectionUtils;
 
 /*
@@ -23,6 +24,8 @@ public class TaskAuditHistory implements Serializable{
 	private String operator;
 	private FlowCommand command;
 	private String reason;
+	
+	@JSONField(format="yyyy-MM-dd")
 	private Date auditDate;
 	public String getFlowNodeName() {
 		return flowNodeName;
