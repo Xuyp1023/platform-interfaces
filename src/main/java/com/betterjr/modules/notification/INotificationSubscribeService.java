@@ -11,10 +11,15 @@ public interface INotificationSubscribeService {
     /**
      * 查询消息订阅列表  
      */
-    public String webQuerySubscribeByCustNo(Long anCustNo);
+    public String webQuerySubscribeByCustNo(Long anCustNo, int anFlag, int anPageNum, int anPageSize);
     
     /**
-     * 保存消息订阅  
+     * 取消消息订阅  
      */
-    public String webSaveSubscribe(Map<String, Object> anParam, Long anCustNo);
+    public String webCancelSubscribe(Long anCustNo, Long anChannelProfileId);
+    
+    /**
+     * 确认消息订阅  
+     */
+    public String webConfirmSubscribe(Long anCustNo, Long anChannelProfileId);
 }
