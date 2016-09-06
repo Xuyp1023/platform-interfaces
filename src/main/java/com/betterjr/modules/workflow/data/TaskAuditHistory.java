@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.betterjr.common.mapper.CustDateToStrJsonSerializer;
 import com.betterjr.common.utils.reflection.ReflectionUtils;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /*
  * 流程审批历史：
@@ -25,7 +27,7 @@ public class TaskAuditHistory implements Serializable{
 	private FlowCommand command;
 	private String reason;
 	
-	@JSONField(format="yyyy-MM-dd")
+	@JsonSerialize(using = CustDateToStrJsonSerializer.class)
 	private Date auditDate;
 	public String getFlowNodeName() {
 		return flowNodeName;

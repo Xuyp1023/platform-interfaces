@@ -16,6 +16,7 @@ public class CustFlowStepApprovers implements BetterjrEntity {
     /**
      * 编号
      */
+    @JsonIgnore
     @Id
     @Column(name = "ID",  columnDefinition="INTEGER" )
     @MetaData( value="编号", comments = "编号")

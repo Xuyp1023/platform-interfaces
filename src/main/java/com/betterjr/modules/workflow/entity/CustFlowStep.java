@@ -19,6 +19,7 @@ public class CustFlowStep implements BetterjrEntity,Comparable{
     /**
      * 流程step编号
      */
+    @JsonIgnore
     @Id
     @Column(name = "ID",  columnDefinition="INTEGER" )
     @MetaData( value="流程step编号", comments = "流程step编号")
@@ -62,6 +63,7 @@ public class CustFlowStep implements BetterjrEntity,Comparable{
     /**
      * step顺序
      */
+    @OrderBy()
     @Column(name = "N_ORDER_NUM",  columnDefinition="INTEGER" )
     @MetaData( value="step顺序", comments = "step顺序")
     private Integer orderNum;

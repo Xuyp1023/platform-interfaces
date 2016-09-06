@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.betterjr.common.mapper.CustDateJsonSerializer;
+import com.betterjr.common.mapper.CustDateToStrJsonSerializer;
 import com.betterjr.common.utils.reflection.ReflectionUtils;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * 流程状态
@@ -22,9 +25,9 @@ import com.betterjr.common.utils.reflection.ReflectionUtils;
 public class FlowStatus implements Serializable{
     String flowName;
     String flowType;
-    @JSONField(format="yyyy-MM-dd")
+    @JsonSerialize(using = CustDateToStrJsonSerializer.class)
     Date createTime;
-    @JSONField(format="yyyy-MM-dd")
+    @JsonSerialize(using = CustDateToStrJsonSerializer.class)
     Date lastUpdateTime;
     String createOperator;
     String operator;
