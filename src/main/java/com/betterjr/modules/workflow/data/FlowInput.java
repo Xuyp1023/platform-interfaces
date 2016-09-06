@@ -4,8 +4,13 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Map;
 
+import org.codehaus.jackson.map.DeserializationConfig;
 import org.snaker.engine.helper.JsonHelper;
 
+import com.betterjr.common.mapper.BeanMapper;
+import com.betterjr.common.mapper.JsonMapper;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.google.common.collect.Maps;
 
 /*
@@ -42,7 +47,7 @@ public class FlowInput implements Serializable{
 	private String reason;//审批可选
 	private String coreOperOrg;//启动必填
 	private String financerOperOrg;//启动必填
-
+	
 	
 	public FlowCommand getCommand() {
 		return command;
@@ -124,7 +129,9 @@ public class FlowInput implements Serializable{
     }
 	
 	public static FlowInput toObject(String variable){
-	    return JsonHelper.fromJson(variable, FlowInput.class);
+	    JsonMapper mapper=new JsonMapper();
+	    mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+	    return mapper.fromJson(variable, FlowInput.class);
 	}
 
 }
