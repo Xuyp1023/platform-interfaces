@@ -63,6 +63,7 @@ public class CustFlowStep implements BetterjrEntity,Comparable{
     /**
      * step顺序
      */
+    @OrderBy()
     @Column(name = "N_ORDER_NUM",  columnDefinition="INTEGER" )
     @MetaData( value="step顺序", comments = "step顺序")
     private Integer orderNum;
