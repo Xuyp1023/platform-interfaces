@@ -46,7 +46,7 @@ public interface IOperatorService {
      * @param menuId
      * @return
      */
-    public String webFindSysMenuByMenuRole(String anRoleName);
+    public String webFindSysMenuByMenuRole(String anRoleId);
     
     /****
      * 获取所有菜单信息
