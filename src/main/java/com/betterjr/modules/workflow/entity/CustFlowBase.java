@@ -3,6 +3,9 @@ package com.betterjr.modules.workflow.entity;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.betterjr.common.annotation.*;
 import com.betterjr.common.entity.BetterjrEntity;
+import com.betterjr.common.mapper.CustDateToStrJsonSerializer;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.util.Date;
 import java.util.List;
@@ -17,6 +20,7 @@ public class CustFlowBase implements BetterjrEntity {
     /**
      * 流程编号
      */
+    @JsonIgnore
     @Id
     @Column(name = "ID",  columnDefinition="INTEGER" )
     @MetaData( value="流程编号", comments = "流程编号")
@@ -53,7 +57,7 @@ public class CustFlowBase implements BetterjrEntity {
     /**
      * 注册日期
      */
-    @JSONField(format="yyyy-MM-dd")
+    @JsonSerialize(using = CustDateToStrJsonSerializer.class)
     @Column(name = "T_REGDATE",  columnDefinition="DateTime" )
     @MetaData( value="注册日期", comments = "注册日期")
     private Date regDate;
@@ -61,7 +65,7 @@ public class CustFlowBase implements BetterjrEntity {
     /**
      * 修改日期
      */
-    @JSONField(format="yyyy-MM-dd")
+    @JsonSerialize(using = CustDateToStrJsonSerializer.class)
     @Column(name = "T_MODIDATE",  columnDefinition="DateTime" )
     @MetaData( value="修改日期", comments = "修改日期")
     private Date modiDate;
