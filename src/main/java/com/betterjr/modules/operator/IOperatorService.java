@@ -69,4 +69,8 @@ public interface IOperatorService {
      * @return
      */
     public String webFindOperatorById(Long operatorId);
+    /****
+     * 获取当前登录机构下的所有操作员
+     */
+    public String webFindCustOperator();
 }
