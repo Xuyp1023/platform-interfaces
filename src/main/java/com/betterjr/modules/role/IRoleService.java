@@ -43,4 +43,10 @@ public interface IRoleService {
      * @return
      */
     public String webFindRole();
+    
+    /****
+     * 查询默认角色
+     * @return
+     */
+    public String webQueryRoleDefault();
 }
