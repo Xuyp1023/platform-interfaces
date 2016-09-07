@@ -36,10 +36,5 @@ public interface INotificationService {
     /**
      * 发送消息接口
      */
-    public boolean sendNotification(NotificationModel anNotificationModel);
-    
-    /**
-     * 发送微信消息
-     */
-    public boolean sendWechat(WechatModel anWechatModel);
+    public boolean sendNotification(NotificationModel anNotificationModel);    
 }
