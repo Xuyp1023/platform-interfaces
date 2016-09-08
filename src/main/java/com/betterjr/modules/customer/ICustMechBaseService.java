@@ -8,10 +8,7 @@
 // ============================================================================
 package com.betterjr.modules.customer;
 
-import java.util.Collection;
 import java.util.Map;
-
-import com.betterjr.modules.account.entity.CustInfo;
 
 /**
  * 公司基本信息服务
@@ -21,17 +18,24 @@ import com.betterjr.modules.account.entity.CustInfo;
  */
 public interface ICustMechBaseService {
     /**
+     * 检查当前登陆用户是否为平台
+     */
+    public String webCheckOrgType(String anRole);
+
+    /**
      * 查询当前操作员下的所有机构-对WEB提供
+     * 
      * @return
      */
     public String webQueryCustInfo();
-    
+
     /**
      * 通过键值对方式 value - name
+     * 
      * @return
      */
-    public String webQueryCustInfoSelect(); 
-    
+    public String webQueryCustInfoSelect();
+
     /**
      * 公司基本信息-查询详情
      * 
