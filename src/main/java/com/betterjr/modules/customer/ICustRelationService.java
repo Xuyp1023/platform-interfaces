@@ -155,6 +155,6 @@ public interface ICustRelationService {
     /**
      * @return
      */
-    public String webQueryFactorList();
+    public String webQueryFactorRelation(Long anCustNo);
 
 }
