@@ -12,7 +12,7 @@ import java.util.Map;
 
 /**
  * 公司基本信息服务
- * 
+ *
  * @author liuwl
  *
  */
@@ -24,21 +24,21 @@ public interface ICustMechBaseService {
 
     /**
      * 查询当前操作员下的所有机构-对WEB提供
-     * 
+     *
      * @return
      */
     public String webQueryCustInfo();
 
     /**
      * 通过键值对方式 value - name
-     * 
+     *
      * @return
      */
     public String webQueryCustInfoSelect();
 
     /**
      * 公司基本信息-查询详情
-     * 
+     *
      * @param anCustNo
      * @return
      */
@@ -46,7 +46,7 @@ public interface ICustMechBaseService {
 
     /**
      * 公司基本信息-变更详情
-     * 
+     *
      * @param anCustNo
      * @param anTempId
      * @return
@@ -55,7 +55,7 @@ public interface ICustMechBaseService {
 
     /**
      * 公司基本信息-变更列表
-     * 
+     *
      * @param anCustNo
      * @param anFlag
      * @param anPageNum
@@ -66,7 +66,7 @@ public interface ICustMechBaseService {
 
     /**
      * 公司基本信息-变更申请
-     * 
+     *
      * @param anParam
      * @param anCustNo
      * @return
@@ -75,7 +75,7 @@ public interface ICustMechBaseService {
 
     /**
      * 公司基本信息-变更修改
-     * 
+     *
      * @param anParam
      * @param anApplyId
      * @return
@@ -84,7 +84,7 @@ public interface ICustMechBaseService {
 
     /**
      * 公司基本信息-代录添加
-     * 
+     *
      * @param anParam
      * @param anInsteadRecordId
      * @return
@@ -93,7 +93,7 @@ public interface ICustMechBaseService {
 
     /**
      * 公司基本信息-代录修改
-     * 
+     *
      * @param anParam
      * @param anInsteadRecordId
      * @return
@@ -102,10 +102,15 @@ public interface ICustMechBaseService {
 
     /**
      * 公司基本信息-代录详情
-     * 
+     *
      * @param anCustNo
      * @param anTempId
      * @return
      */
     public String webFindInsteadRecord(Long anInsteadRecordId);
+
+    /**
+     * @return
+     */
+    public String webFindWechatLoginInfo();
 }
