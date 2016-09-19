@@ -10,6 +10,8 @@ package com.betterjr.modules.customer;
 
 import java.util.Map;
 
+import com.betterjr.modules.customer.entity.CustMechBase;
+
 /**
  * 公司基本信息服务
  *
@@ -43,6 +45,15 @@ public interface ICustMechBaseService {
      * @return
      */
     public String webFindBaseInfo(Long anCustNo);
+
+    /**
+     * 公司基本信息-查询详情
+     *
+     * @param anCustNo
+     * @return
+     */
+    public CustMechBase findBaseInfo(Long anCustNo);
+
 
     /**
      * 公司基本信息-变更详情

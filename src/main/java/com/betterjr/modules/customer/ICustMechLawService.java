@@ -10,24 +10,34 @@ package com.betterjr.modules.customer;
 
 import java.util.Map;
 
+import com.betterjr.modules.customer.entity.CustMechLaw;
+
 /**
  * 法人
- * 
+ *
  * @author liuwl
  *
  */
 public interface ICustMechLawService {
     /**
      * 法人信息-查询详情
-     * 
+     *
      * @param anCustNo
      * @return
      */
     public String webFindLawInfo(Long anCustNo);
 
     /**
+     * 法人信息-查询详情
+     *
+     * @param anCustNo
+     * @return
+     */
+    public CustMechLaw findLawInfo(Long anCustNo);
+
+    /**
      * 法人信息-变更详情
-     * 
+     *
      * @param anId
      * @return
      */
@@ -35,7 +45,7 @@ public interface ICustMechLawService {
 
     /**
      * 法人信息-变更列表
-     * 
+     *
      * @param anCustNo
      * @param anFlag
      * @param anPageNum
@@ -46,7 +56,7 @@ public interface ICustMechLawService {
 
     /**
      * 法人信息-变更申请
-     * 
+     *
      * @param anParam
      * @param anCustNo
      * @return
@@ -55,7 +65,7 @@ public interface ICustMechLawService {
 
     /**
      * 法人信息-变更修改
-     * 
+     *
      * @param anParam
      * @param anApplyId
      * @return
@@ -64,7 +74,7 @@ public interface ICustMechLawService {
 
     /**
      * 法人信息-代录添加
-     * 
+     *
      * @param anParam
      * @param anInsteadRecordId
      * @return
@@ -73,7 +83,7 @@ public interface ICustMechLawService {
 
     /**
      * 法人信息-代录修改
-     * 
+     *
      * @param anParam
      * @param anInsteadRecordId
      * @return
@@ -82,7 +92,7 @@ public interface ICustMechLawService {
 
     /**
      * 法人信息-代录详情
-     * 
+     *
      * @param anId
      * @return
      */
