@@ -4,7 +4,7 @@ import java.util.Map;
 
 /**
  * 开户流水
- * 
+ *
  * @author liuwl
  *
  */
@@ -12,14 +12,21 @@ public interface ICustOpenAccountService {
 
     /**
      * 开户资料读取
-     * 
+     *
      * @return
      */
     public String webFindOpenAccountInfo();
 
     /**
+     * 开户资料读取
+     *
+     * @return
+     */
+    public String webFindOpenAccountInfo(Long anId);
+
+    /**
      * 开户资料暂存
-     * 
+     *
      * @param anMap
      * @return
      */
@@ -27,7 +34,7 @@ public interface ICustOpenAccountService {
 
     /**
      * 开户申请
-     * 
+     *
      * @param anMap
      * @param anId
      * @return
@@ -36,7 +43,7 @@ public interface ICustOpenAccountService {
 
     /**
      * 开户申请待审批列表
-     * 
+     *
      * @param anFlag
      * @param anPageNum
      * @param anPageSize
@@ -46,7 +53,7 @@ public interface ICustOpenAccountService {
 
     /**
      * 开户审核生效
-     * 
+     *
      * @param anId
      * @param anAuditOpinion
      * @return
@@ -55,7 +62,7 @@ public interface ICustOpenAccountService {
 
     /**
      * 开户申请驳回
-     * 
+     *
      * @param anId
      * @param anAuditOpinion
      * @return
@@ -64,7 +71,7 @@ public interface ICustOpenAccountService {
 
     /**
      * 代录开户资料提交
-     * 
+     *
      * @param anMap
      * @param anInsteadId:代录ID
      * @param anFileList
@@ -74,7 +81,7 @@ public interface ICustOpenAccountService {
 
     /**
      * 代录开户资料读取
-     * 
+     *
      * @param anInsteadId:代录ID
      * @return
      */
@@ -82,7 +89,7 @@ public interface ICustOpenAccountService {
 
     /**
      * 开户审批流程查询
-     * 
+     *
      * @param anCustNo
      * @return
      */
@@ -90,7 +97,7 @@ public interface ICustOpenAccountService {
 
     /**
      * 开户审批流程查询
-     * 
+     *
      * @param anOpenAccountId
      * @return
      */
