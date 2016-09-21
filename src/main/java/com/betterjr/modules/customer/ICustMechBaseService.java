@@ -32,6 +32,20 @@ public interface ICustMechBaseService {
     public String webQueryCustInfo();
 
     /**
+     * 查询平台所有下的所有有效机构-对WEB提供
+     *
+     * @return
+     */
+    public String webQueryValidCustInfo(Map<String, Object> anParam, int anFlag, int anPageNum, int anPageSize);
+
+    /**
+     * 查询当前操作员下的所有机构-对WEB提供
+     *
+     * @return
+     */
+    public String webQueryInvalidCustInfo(Map<String, Object> anParam, int anFlag, int anPageNum, int anPageSize);
+
+    /**
      * 通过键值对方式 value - name
      *
      * @return
