@@ -1,5 +1,9 @@
 package com.betterjr.modules.customer;
 
+import java.util.List;
+
+import com.betterjr.modules.customer.data.CustRelationData;
+
 public interface ICustRelationService {
 
     /**
@@ -151,6 +155,14 @@ public interface ICustRelationService {
      * @return
      */
     public String webQueryFactorCustRelation(Long anFactorNo, String anCreditType);
+    
+    /****
+     * 查询客户号根据类型返回关联关系信息
+     * @param anCustNo 关系客户号
+     * @param anCreditType 关系类型
+     * @return 关系列表
+     */
+    public List<CustRelationData> webQueryCustRelationData(Long anCustNo,String anCreditType);
 
     /**
      * @return
