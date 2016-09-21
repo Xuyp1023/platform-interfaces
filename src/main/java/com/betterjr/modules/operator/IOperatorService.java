@@ -73,4 +73,13 @@ public interface IOperatorService {
      * 获取当前登录机构下的所有操作员
      */
     public String webFindCustOperator();
+    
+    /****
+     * 修改密码
+     * @param anNewPasswd 新密码
+     * @param anOkPasswd  确认密码
+     * @param anPasswd 原密码
+     * @return
+     */
+    public String webUpdatePassword(String anNewPasswd,String anOkPasswd,String anPasswd);
 }
