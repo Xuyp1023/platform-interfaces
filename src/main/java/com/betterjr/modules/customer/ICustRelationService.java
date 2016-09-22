@@ -1,8 +1,12 @@
 package com.betterjr.modules.customer;
 
+
 import java.util.List;
 
 import com.betterjr.modules.customer.data.CustRelationData;
+
+import com.betterjr.modules.customer.entity.CustRelation;
+
 
 public interface ICustRelationService {
 
@@ -156,6 +160,7 @@ public interface ICustRelationService {
      */
     public String webQueryFactorCustRelation(Long anFactorNo, String anCreditType);
     
+
     /****
      * 查询客户号根据类型返回关联关系信息
      * @param anCustNo 关系客户号
@@ -168,5 +173,31 @@ public interface ICustRelationService {
      * @return
      */
     public String webQueryFactorRelation(Long anCustNo);
+
+    /**
+     * 检查客户保理, 
+     * 客户只能是供应商|经销商|核心企业
+     * relateType为 ： 0,2,3
+     * 
+     * @param anCustNo
+     *            客户号
+     * @param anRelateCustno
+     *            保理公司编号，对应接口中定义的relateCustno
+     * @param anPartnerCustNo
+     *            客户在保理公司的客户号
+     * @return
+     */
+    public CustRelation findOneRelation(Long anCustNo, Long anRelateCustno,String anPartnerCustNo);
+    
+    /**
+     * 更新关联关系的状态
+     * 
+     * @param anCustNo
+     * @param anScfId
+     * @param anStatus
+     * @param anFactorNo
+     */
+    public boolean saveFactorRelationStatus(Long anCustNo, String anScfId, String anStatus, String anFactorNo);
+
 
 }
