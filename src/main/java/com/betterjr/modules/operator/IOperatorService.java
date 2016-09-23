@@ -82,4 +82,13 @@ public interface IOperatorService {
      * @return
      */
     public String webUpdatePassword(String anNewPasswd,String anOkPasswd,String anPasswd);
+    
+    /***
+     * 密码重置
+     * @param id
+     * @param password
+     * @param okPasswd
+     * @return
+     */
+    public String webChangeUserPassword(Long anId, String anPassword, String anOkPasswd);
 }
