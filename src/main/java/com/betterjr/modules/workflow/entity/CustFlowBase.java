@@ -20,7 +20,7 @@ public class CustFlowBase implements BetterjrEntity {
     /**
      * 流程编号
      */
-    @JsonIgnore
+//    @JsonIgnore
     @Id
     @Column(name = "ID",  columnDefinition="INTEGER" )
     @MetaData( value="流程编号", comments = "流程编号")
