@@ -19,7 +19,7 @@ public class CustFlowStep implements BetterjrEntity,Comparable{
     /**
      * 流程step编号
      */
-    @JsonIgnore
+    //@JsonIgnore
     @Id
     @Column(name = "ID",  columnDefinition="INTEGER" )
     @MetaData( value="流程step编号", comments = "流程step编号")
