@@ -184,10 +184,10 @@ public class CustRelation implements BetterjrEntity {
     private String operOrg;
 
     /**
-     * 状态，0未处理，1正常，2申请中， 3取消中，4取消
+     * 状态，状态，0未开通，1已申请，2已受理， 3已审核，4已驳回
      */
     @Column(name = "C_BUSIN_STATUS", columnDefinition = "CHAR")
-    @MetaData(value = "状态", comments = "状态，0未处理，1正常，2申请中， 3取消中，4取消")
+    @MetaData(value = "状态", comments = "状态，状态，0未开通，1已申请，2已受理， 3已审核，4已驳回")
     private String businStatus;
 
     @Column(name = "C_LAST_STATUS", columnDefinition = "CHAR")
