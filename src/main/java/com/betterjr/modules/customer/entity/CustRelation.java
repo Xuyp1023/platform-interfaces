@@ -197,9 +197,9 @@ public class CustRelation implements BetterjrEntity {
     /**
      * 合作方系统客户编号
      */
-    @Column(name = "L_PARTNER_CUSTNO", columnDefinition = "CHAR")
+    @Column(name = "C_RELATE_CUSTCORP", columnDefinition = "CHAR")
     @MetaData(value = "合作方系统客户编号", comments = "合作方系统客户编号")
-    private Long partnerCustNo;
+    private Long relateCustCorp;
 
     private static final long serialVersionUID = 1468812783874L;
 
@@ -395,12 +395,13 @@ public class CustRelation implements BetterjrEntity {
         this.lastStatus = lastStatus == null ? null : lastStatus.trim();
     }
 
-    public Long getPartnerCustNo() {
-        return partnerCustNo;
+
+    public Long getRelateCustCorp() {
+        return this.relateCustCorp;
     }
 
-    public void setPartnerCustNo(Long anPartnerCustNo) {
-        partnerCustNo = anPartnerCustNo;
+    public void setRelateCustCorp(Long anRelateCustCorp) {
+        this.relateCustCorp = anRelateCustCorp;
     }
 
     @Override
