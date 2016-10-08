@@ -77,7 +77,7 @@ public interface ICustOpenAccountService {
      * @param anFileList
      * @return
      */
-    public String webSaveOpenAccountInfoByInstead(Map<String, Object> anMap, Long anInsteadId, String anFileList);
+    public String webSaveOpenAccountInfoByInstead(Map<String, Object> anMap, Long anInsteadRecordId, String anFileList);
 
     /**
      * 代录开户资料读取
