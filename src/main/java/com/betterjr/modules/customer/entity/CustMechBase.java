@@ -1170,6 +1170,7 @@ public class CustMechBase implements BetterjrEntity {
         this.lawValidDate = anMechBaseTmp.getLawValidDate();
         this.mobile = anMechBaseTmp.getMobile();
         this.orgCode = anMechBaseTmp.getOrgCode();
+        this.regCapital = anMechBaseTmp.getRegCapital();
         this.paidCapital = anMechBaseTmp.getPaidCapital();
         this.person = anMechBaseTmp.getPerson();
         this.phone = anMechBaseTmp.getPhone();
