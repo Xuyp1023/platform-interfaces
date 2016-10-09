@@ -30,28 +30,28 @@ public class CustMechBaseTmp implements BetterjrEntity {
     @Column(name = "ID", columnDefinition = "INTEGER")
     @MetaData(value = "编号", comments = "编号")
     private Long id;
-    
+
     /**
      * 代录记录/变更申请 编号
      */
     @Column(name = "L_PARENTID",  columnDefinition="INTEGER" )
     @MetaData( value="代录记录/变更申请 编号", comments = "代录记录/变更申请 编号")
     private Long parentId;
-    
+
     /**
      * 客户编号
      */
     @Column(name = "L_CUSTNO",  columnDefinition="INTEGER" )
     @MetaData( value="客户编号", comments = "客户编号")
     private Long custNo;
-    
+
     /**
      * 客户全称
      */
     @Column(name = "C_CUSTNAME",  columnDefinition="VARCHAR" )
     @MetaData( value="客户全称", comments = "客户全称")
     private String custName;
-    
+
     /**
      * 数据版本号
      */
@@ -83,7 +83,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
     @Column(name = "C_CORP_TYPE",  columnDefinition="VARCHAR" )
     @MetaData( value="企业类型", comments = "企业类型: 0国有企业 1集体所有制企业 2私营企业 3股份制企业 4联营企业 5外商投资企业 6港澳台投资企业 7股份合作企业")
     private String corpType;
-    
+
     /**
      * 国有属性；国务院国资委管辖、地方国资委管辖、其他国有企业、非国有
      */
@@ -290,7 +290,6 @@ public class CustMechBaseTmp implements BetterjrEntity {
     /**
      * 邮编
      */
-    @JsonIgnore
     @Column(name = "C_ZIPCODE", columnDefinition = "VARCHAR")
     @MetaData(value = "邮编", comments = "邮编")
     private String zipCode;
@@ -482,7 +481,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return id;
     }
 
-    public void setId(Long anId) {
+    public void setId(final Long anId) {
         id = anId;
     }
 
@@ -490,15 +489,15 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return custNo;
     }
 
-    public void setCustNo(Long anCustNo) {
+    public void setCustNo(final Long anCustNo) {
         custNo = anCustNo;
     }
-    
+
     public String getCustName() {
         return custName;
     }
 
-    public void setCustName(String anCustName) {
+    public void setCustName(final String anCustName) {
         custName = anCustName;
     }
 
@@ -506,7 +505,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return version;
     }
 
-    public void setVersion(Long version) {
+    public void setVersion(final Long version) {
         this.version = version;
     }
 
@@ -514,7 +513,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return engName;
     }
 
-    public void setEngName(String engName) {
+    public void setEngName(final String engName) {
         this.engName = engName == null ? null : engName.trim();
     }
 
@@ -522,7 +521,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(final String category) {
         this.category = category == null ? null : category.trim();
     }
 
@@ -530,7 +529,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return corpType;
     }
 
-    public void setCorpType(String anCorpType) {
+    public void setCorpType(final String anCorpType) {
         corpType = anCorpType;
     }
 
@@ -538,7 +537,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return nationType;
     }
 
-    public void setNationType(String nationType) {
+    public void setNationType(final String nationType) {
         this.nationType = nationType == null ? null : nationType.trim();
     }
 
@@ -546,7 +545,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return capitalType;
     }
 
-    public void setCapitalType(String capitalType) {
+    public void setCapitalType(final String capitalType) {
         this.capitalType = capitalType == null ? null : capitalType.trim();
     }
 
@@ -554,7 +553,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return lawName;
     }
 
-    public void setLawName(String lawName) {
+    public void setLawName(final String lawName) {
         this.lawName = lawName == null ? null : lawName.trim();
     }
 
@@ -562,7 +561,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return lawPhone;
     }
 
-    public void setLawPhone(String lawPhone) {
+    public void setLawPhone(final String lawPhone) {
         this.lawPhone = lawPhone == null ? null : lawPhone.trim();
     }
 
@@ -570,7 +569,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return lawIdentNo;
     }
 
-    public void setLawIdentNo(String lawIdentNo) {
+    public void setLawIdentNo(final String lawIdentNo) {
         this.lawIdentNo = lawIdentNo == null ? null : lawIdentNo.trim();
     }
 
@@ -578,7 +577,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return lawIdentType;
     }
 
-    public void setLawIdentType(String lawIdentType) {
+    public void setLawIdentType(final String lawIdentType) {
         this.lawIdentType = lawIdentType == null ? null : lawIdentType.trim();
     }
 
@@ -586,7 +585,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return lawValidDate;
     }
 
-    public void setLawValidDate(String lawValidDate) {
+    public void setLawValidDate(final String lawValidDate) {
         this.lawValidDate = lawValidDate == null ? null : lawValidDate.trim();
     }
 
@@ -594,7 +593,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return regAddress;
     }
 
-    public void setRegAddress(String regAddress) {
+    public void setRegAddress(final String regAddress) {
         this.regAddress = regAddress == null ? null : regAddress.trim();
     }
 
@@ -602,7 +601,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return corpVocation;
     }
 
-    public void setCorpVocation(String corpVocation) {
+    public void setCorpVocation(final String corpVocation) {
         this.corpVocation = corpVocation == null ? null : corpVocation.trim();
     }
 
@@ -610,7 +609,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return corpProperty;
     }
 
-    public void setCorpProperty(String corpProperty) {
+    public void setCorpProperty(final String corpProperty) {
         this.corpProperty = corpProperty == null ? null : corpProperty.trim();
     }
 
@@ -618,7 +617,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return invest;
     }
 
-    public void setInvest(String invest) {
+    public void setInvest(final String invest) {
         this.invest = invest == null ? null : invest.trim();
     }
 
@@ -626,7 +625,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return instType;
     }
 
-    public void setInstType(String instType) {
+    public void setInstType(final String instType) {
         this.instType = instType == null ? null : instType.trim();
     }
 
@@ -634,7 +633,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return custClass;
     }
 
-    public void setCustClass(String custClass) {
+    public void setCustClass(final String custClass) {
         this.custClass = custClass == null ? null : custClass.trim();
     }
 
@@ -642,7 +641,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return orgCode;
     }
 
-    public void setOrgCode(String orgCode) {
+    public void setOrgCode(final String orgCode) {
         this.orgCode = orgCode == null ? null : orgCode.trim();
     }
 
@@ -650,7 +649,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return businLicence;
     }
 
-    public void setBusinLicence(String businLicence) {
+    public void setBusinLicence(final String businLicence) {
         this.businLicence = businLicence == null ? null : businLicence.trim();
     }
 
@@ -658,7 +657,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return businLicenceRegDate;
     }
 
-    public void setBusinLicenceRegDate(String businLicenceRegDate) {
+    public void setBusinLicenceRegDate(final String businLicenceRegDate) {
         this.businLicenceRegDate = businLicenceRegDate == null ? null : businLicenceRegDate.trim();
     }
 
@@ -666,7 +665,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return businLicenceValidDate;
     }
 
-    public void setBusinLicenceValidDate(String businLicenceValidDate) {
+    public void setBusinLicenceValidDate(final String businLicenceValidDate) {
         this.businLicenceValidDate = businLicenceValidDate == null ? null : businLicenceValidDate.trim();
     }
 
@@ -674,7 +673,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return regCapital;
     }
 
-    public void setRegCapital(String regCapital) {
+    public void setRegCapital(final String regCapital) {
         this.regCapital = regCapital == null ? null : regCapital.trim();
     }
 
@@ -682,7 +681,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return paidCapital;
     }
 
-    public void setPaidCapital(String paidCapital) {
+    public void setPaidCapital(final String paidCapital) {
         this.paidCapital = paidCapital == null ? null : paidCapital.trim();
     }
 
@@ -690,7 +689,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return person;
     }
 
-    public void setPerson(Long person) {
+    public void setPerson(final Long person) {
         this.person = person;
     }
 
@@ -698,7 +697,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return premisesArea;
     }
 
-    public void setPremisesArea(BigDecimal premisesArea) {
+    public void setPremisesArea(final BigDecimal premisesArea) {
         this.premisesArea = premisesArea;
     }
 
@@ -706,7 +705,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return premisesYear;
     }
 
-    public void setPremisesYear(Long premisesYear) {
+    public void setPremisesYear(final Long premisesYear) {
         this.premisesYear = premisesYear;
     }
 
@@ -714,7 +713,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return premisesType;
     }
 
-    public void setPremisesType(String premisesType) {
+    public void setPremisesType(final String premisesType) {
         this.premisesType = premisesType == null ? null : premisesType.trim();
     }
 
@@ -722,7 +721,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return premisesAddress;
     }
 
-    public void setPremisesAddress(String premisesAddress) {
+    public void setPremisesAddress(final String premisesAddress) {
         this.premisesAddress = premisesAddress == null ? null : premisesAddress.trim();
     }
 
@@ -730,7 +729,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return businScope;
     }
 
-    public void setBusinScope(String businScope) {
+    public void setBusinScope(final String businScope) {
         this.businScope = businScope == null ? null : businScope.trim();
     }
 
@@ -738,7 +737,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return setupDate;
     }
 
-    public void setSetupDate(String setupDate) {
+    public void setSetupDate(final String setupDate) {
         this.setupDate = setupDate == null ? null : setupDate.trim();
     }
 
@@ -746,7 +745,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return address;
     }
 
-    public void setAddress(String anAddress) {
+    public void setAddress(final String anAddress) {
         address = anAddress;
     }
 
@@ -754,7 +753,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return zipCode;
     }
 
-    public void setZipCode(String zipCode) {
+    public void setZipCode(final String zipCode) {
         this.zipCode = zipCode == null ? null : zipCode.trim();
     }
 
@@ -762,7 +761,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(final String phone) {
         this.phone = phone == null ? null : phone.trim();
     }
 
@@ -770,7 +769,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return fax;
     }
 
-    public void setFax(String fax) {
+    public void setFax(final String fax) {
         this.fax = fax == null ? null : fax.trim();
     }
 
@@ -778,7 +777,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return mobile;
     }
 
-    public void setMobile(String mobile) {
+    public void setMobile(final String mobile) {
         this.mobile = mobile == null ? null : mobile.trim();
     }
 
@@ -786,7 +785,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email == null ? null : email.trim();
     }
 
@@ -794,7 +793,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return wechat;
     }
 
-    public void setWechat(String wechat) {
+    public void setWechat(final String wechat) {
         this.wechat = wechat == null ? null : wechat.trim();
     }
 
@@ -802,7 +801,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return qq;
     }
 
-    public void setQq(String qq) {
+    public void setQq(final String qq) {
         this.qq = qq == null ? null : qq.trim();
     }
 
@@ -810,7 +809,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return webaddr;
     }
 
-    public void setWebaddr(String webaddr) {
+    public void setWebaddr(final String webaddr) {
         this.webaddr = webaddr == null ? null : webaddr.trim();
     }
 
@@ -818,7 +817,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return corpName;
     }
 
-    public void setCorpName(String corpName) {
+    public void setCorpName(final String corpName) {
         this.corpName = corpName == null ? null : corpName.trim();
     }
 
@@ -826,7 +825,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return cityNo;
     }
 
-    public void setCityNo(String cityNo) {
+    public void setCityNo(final String cityNo) {
         this.cityNo = cityNo == null ? null : cityNo.trim();
     }
 
@@ -834,7 +833,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return batchNo;
     }
 
-    public void setBatchNo(Long batchNo) {
+    public void setBatchNo(final Long batchNo) {
         this.batchNo = batchNo;
     }
 
@@ -842,7 +841,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return regOperId;
     }
 
-    public void setRegOperId(Long regOperId) {
+    public void setRegOperId(final Long regOperId) {
         this.regOperId = regOperId;
     }
 
@@ -850,7 +849,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return regOperName;
     }
 
-    public void setRegOperName(String regOperName) {
+    public void setRegOperName(final String regOperName) {
         this.regOperName = regOperName == null ? null : regOperName.trim();
     }
 
@@ -858,7 +857,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return regDate;
     }
 
-    public void setRegDate(String regDate) {
+    public void setRegDate(final String regDate) {
         this.regDate = regDate == null ? null : regDate.trim();
     }
 
@@ -866,7 +865,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return regTime;
     }
 
-    public void setRegTime(String regTime) {
+    public void setRegTime(final String regTime) {
         this.regTime = regTime == null ? null : regTime.trim();
     }
 
@@ -874,7 +873,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return modiOperId;
     }
 
-    public void setModiOperId(Long modiOperId) {
+    public void setModiOperId(final Long modiOperId) {
         this.modiOperId = modiOperId;
     }
 
@@ -882,7 +881,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return modiOperName;
     }
 
-    public void setModiOperName(String modiOperName) {
+    public void setModiOperName(final String modiOperName) {
         this.modiOperName = modiOperName == null ? null : modiOperName.trim();
     }
 
@@ -890,7 +889,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return modiDate;
     }
 
-    public void setModiDate(String modiDate) {
+    public void setModiDate(final String modiDate) {
         this.modiDate = modiDate == null ? null : modiDate.trim();
     }
 
@@ -898,7 +897,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return modiTime;
     }
 
-    public void setModiTime(String modiTime) {
+    public void setModiTime(final String modiTime) {
         this.modiTime = modiTime == null ? null : modiTime.trim();
     }
 
@@ -906,7 +905,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return operOrg;
     }
 
-    public void setOperOrg(String operOrg) {
+    public void setOperOrg(final String operOrg) {
         this.operOrg = operOrg == null ? null : operOrg.trim();
     }
 
@@ -914,7 +913,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return businStatus;
     }
 
-    public void setBusinStatus(String businStatus) {
+    public void setBusinStatus(final String businStatus) {
         this.businStatus = businStatus == null ? null : businStatus.trim();
     }
 
@@ -922,7 +921,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return lastStatus;
     }
 
-    public void setLastStatus(String lastStatus) {
+    public void setLastStatus(final String lastStatus) {
         this.lastStatus = lastStatus == null ? null : lastStatus.trim();
     }
 
@@ -930,7 +929,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return refId;
     }
 
-    public void setRefId(Long refId) {
+    public void setRefId(final Long refId) {
         this.refId = refId;
     }
 
@@ -938,7 +937,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return tmpType;
     }
 
-    public void setTmpType(String tmpType) {
+    public void setTmpType(final String tmpType) {
         this.tmpType = tmpType == null ? null : tmpType.trim();
     }
 
@@ -946,7 +945,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return tmpOperType;
     }
 
-    public void setTmpOperType(String tmpOperType) {
+    public void setTmpOperType(final String tmpOperType) {
         this.tmpOperType = tmpOperType == null ? null : tmpOperType.trim();
     }
 
@@ -954,13 +953,13 @@ public class CustMechBaseTmp implements BetterjrEntity {
         return parentId;
     }
 
-    public void setParentId(Long anParentId) {
+    public void setParentId(final Long anParentId) {
         parentId = anParentId;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
@@ -1030,7 +1029,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
     }
 
     @Override
-    public boolean equals(Object that) {
+    public boolean equals(final Object that) {
         if (this == that) {
             return true;
         }
@@ -1040,7 +1039,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         if (getClass() != that.getClass()) {
             return false;
         }
-        CustMechBaseTmp other = (CustMechBaseTmp) that;
+        final CustMechBaseTmp other = (CustMechBaseTmp) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
                 && (this.getParentId() == null ? other.getParentId() == null : this.getParentId().equals(other.getParentId()))
                 && (this.getCustNo() == null ? other.getCustNo() == null : this.getCustNo().equals(other.getCustNo()))
@@ -1065,9 +1064,9 @@ public class CustMechBaseTmp implements BetterjrEntity {
                 && (this.getOrgCode() == null ? other.getOrgCode() == null : this.getOrgCode().equals(other.getOrgCode()))
                 && (this.getBusinLicence() == null ? other.getBusinLicence() == null : this.getBusinLicence().equals(other.getBusinLicence()))
                 && (this.getBusinLicenceRegDate() == null ? other.getBusinLicenceRegDate() == null
-                        : this.getBusinLicenceRegDate().equals(other.getBusinLicenceRegDate()))
+                : this.getBusinLicenceRegDate().equals(other.getBusinLicenceRegDate()))
                 && (this.getBusinLicenceValidDate() == null ? other.getBusinLicenceValidDate() == null
-                        : this.getBusinLicenceValidDate().equals(other.getBusinLicenceValidDate()))
+                : this.getBusinLicenceValidDate().equals(other.getBusinLicenceValidDate()))
                 && (this.getRegCapital() == null ? other.getRegCapital() == null : this.getRegCapital().equals(other.getRegCapital()))
                 && (this.getPaidCapital() == null ? other.getPaidCapital() == null : this.getPaidCapital().equals(other.getPaidCapital()))
                 && (this.getPerson() == null ? other.getPerson() == null : this.getPerson().equals(other.getPerson()))
@@ -1075,7 +1074,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
                 && (this.getPremisesYear() == null ? other.getPremisesYear() == null : this.getPremisesYear().equals(other.getPremisesYear()))
                 && (this.getPremisesType() == null ? other.getPremisesType() == null : this.getPremisesType().equals(other.getPremisesType()))
                 && (this.getPremisesAddress() == null ? other.getPremisesAddress() == null
-                        : this.getPremisesAddress().equals(other.getPremisesAddress()))
+                : this.getPremisesAddress().equals(other.getPremisesAddress()))
                 && (this.getBusinScope() == null ? other.getBusinScope() == null : this.getBusinScope().equals(other.getBusinScope()))
                 && (this.getSetupDate() == null ? other.getSetupDate() == null : this.getSetupDate().equals(other.getSetupDate()))
                 && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
@@ -1172,12 +1171,12 @@ public class CustMechBaseTmp implements BetterjrEntity {
         result = prime * result + ((getTmpOperType() == null) ? 0 : getTmpOperType().hashCode());
         return result;
     }
-    
-    public void initAddValue(String anTmpType, Long anCustNo) {
+
+    public void initAddValue(final String anTmpType, final Long anCustNo) {
         this.initAddValue(anTmpType, CustomerConstants.TMP_STATUS_NEW, anCustNo);
     }
-    
-    public void initAddValue(String anTmpType, String anBusinStatus, Long anCustNo) {
+
+    public void initAddValue(final String anTmpType, final String anBusinStatus, final Long anCustNo) {
         this.id = SerialGenerator.getLongValue("CustMechBaseTmp.id");
 
         this.regOperId = UserUtils.getOperatorInfo().getId();
@@ -1191,11 +1190,11 @@ public class CustMechBaseTmp implements BetterjrEntity {
         this.modiTime = BetterDateUtils.getNumTime();
 
         this.operOrg = UserUtils.getOperatorInfo().getOperOrg();
-        
+
         this.businStatus = anBusinStatus;
         this.custNo = anCustNo;
         this.tmpType = anTmpType;
-        
+
         this.tmpOperType = CustomerConstants.TMP_OPER_TYPE_MODIFY;// 单表只有修改操作
     }
 
@@ -1203,10 +1202,10 @@ public class CustMechBaseTmp implements BetterjrEntity {
      * 使用正式表数据建立流水数据
      * @param anCustMechBase
      */
-    public void initAddValue(CustMechBase anCustMechBase, String anTmpType, String anBusinStatus) {
+    public void initAddValue(final CustMechBase anCustMechBase, final String anTmpType, final String anBusinStatus) {
         // 初始化公共字段
         initAddValue(anTmpType, anBusinStatus, anCustMechBase.getCustNo());
-        
+
         // 从CustMechBase 取参数值
         this.custName = anCustMechBase.getCustName();
         this.address = anCustMechBase.getAddress();
@@ -1245,16 +1244,16 @@ public class CustMechBaseTmp implements BetterjrEntity {
         this.wechat = anCustMechBase.getWechat();
         this.zipCode = anCustMechBase.getZipCode();
     }
-    
+
     public void initModifyValue(final String anBusinStatus) {
         this.modiOperId = UserUtils.getOperatorInfo().getId();
         this.modiOperName = UserUtils.getOperatorInfo().getName();
         this.modiDate = BetterDateUtils.getNumDate();
         this.modiTime = BetterDateUtils.getNumTime();
-        
+
         this.businStatus = anBusinStatus;
     }
-    
+
     public void initModifyValue(final CustMechBaseTmp anCustMechBaseTmp) {
         this.modiOperId = UserUtils.getOperatorInfo().getId();
         this.modiOperName = UserUtils.getOperatorInfo().getName();
@@ -1262,7 +1261,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         this.modiTime = BetterDateUtils.getNumTime();
         /*
         this.custNo = anCustMechBaseTmp.getCustNo();
-        */
+         */
         this.custName = anCustMechBaseTmp.getCustName();
         this.address = anCustMechBaseTmp.getAddress();
         this.businLicence = anCustMechBaseTmp.getBusinLicence();
@@ -1299,7 +1298,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         this.webaddr = anCustMechBaseTmp.getWebaddr();
         this.wechat = anCustMechBaseTmp.getWechat();
         this.zipCode = anCustMechBaseTmp.getZipCode();
-        
+
         this.businStatus = anCustMechBaseTmp.getBusinStatus();
     }
 }
