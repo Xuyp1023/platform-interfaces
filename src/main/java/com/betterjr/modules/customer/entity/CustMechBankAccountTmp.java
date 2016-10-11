@@ -911,5 +911,6 @@ public class CustMechBankAccountTmp implements BetterjrEntity {
         this.bankName = anBankAccount.getBankName();
         this.isDefault = anBankAccount.getIsDefault();
         this.cityNo = anBankAccount.getCityNo();
+        this.custNo = anBankAccount.getCustNo();
     }
 }
