@@ -13,6 +13,9 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
+
+import com.betterjr.common.config.ParamNames;
 //import com.betterjr.common.config.ParamNames;
 import com.betterjr.common.data.KeyAndValueObject;
 import com.betterjr.common.exception.BettjerIOException;
@@ -23,6 +26,7 @@ import com.betterjr.common.utils.BetterStringUtils;
 import com.betterjr.common.utils.FileUtils;
 import com.betterjr.common.utils.MimeTypesHelper;
 import com.betterjr.modules.document.entity.CustFileItem;
+import com.betterjr.modules.sys.service.SysConfigService;
 //import com.betterjr.modules.sys.service.SysConfigService;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -83,7 +87,6 @@ public abstract class CustFileClientUtils {
         OutputStream os = null;
         String msg = null;
         try {
-//            String basePath = SysConfigService.getString(ParamNames.OPENACCO_FILE_DOWNLOAD_PATH);
             if (anFileItem != null) {
                 File file = FileUtils.getRealFile(basePath + anFileItem.getFilePath());
                 if (file != null) {
@@ -106,11 +109,11 @@ public abstract class CustFileClientUtils {
                     return;
                 }
                 else {
-                    msg = "下载文件不存在！";
+                    msg = "file does not exist";
                 }
             }
             else {
-                msg = "没有获得下载文件的任何信息";
+                msg = "No information was obtained for the download file";
             }
         }
         catch (IOException e) {
@@ -214,6 +217,7 @@ public abstract class CustFileClientUtils {
 
             XMLWorker worker = new XMLWorker(pipeline, true);
             XMLParser p = new XMLParser(worker);
+            System.out.println(anSb.toString());
             StringReader reader = new StringReader(anSb.toString());
             p.parse(reader);
             p.flush();
