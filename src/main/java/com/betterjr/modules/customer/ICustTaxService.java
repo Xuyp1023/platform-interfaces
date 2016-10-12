@@ -30,7 +30,7 @@ public interface ICustTaxService {
      * @param anCustNo
      * @return
      */
-    public String webQueryTaxRecordList(Long anCustNo, String anFlag, int anPageSize, int anPagenum);
+    public String webQueryTaxRecordList(Long anCustNo, String anFlag, int anPagenum, int anPageSize);
 
     /**
      * 
