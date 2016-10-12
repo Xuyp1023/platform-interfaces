@@ -12,6 +12,7 @@ import com.betterjr.common.entity.BetterjrEntity;
 import com.betterjr.common.selectkey.SerialGenerator;
 import com.betterjr.common.utils.BetterDateUtils;
 import com.betterjr.common.utils.UserUtils;
+import com.betterjr.modules.customer.constants.CustomerConstants;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Access(AccessType.FIELD)
@@ -901,6 +902,7 @@ public class CustMechBankAccountTmp implements BetterjrEntity {
         this.operOrg = UserUtils.getOperatorInfo().getOperOrg();
         this.businStatus = anBusinStatus;
         this.tmpType = anTmpType;
+        this.tmpOperType = CustomerConstants.TMP_OPER_TYPE_ADD;
 
         this.identType = anBankAccount.getIdentType();
         this.identNo = anBankAccount.getIdentNo();
