@@ -160,6 +160,14 @@ public interface ICustRelationService {
      */
     public String webQueryFactorCustRelation(Long anFactorNo, String anCreditType);
     
+    /**
+     * 查询保理结构所有关系客户
+     * 
+     * @param anFactorNo
+     * @return
+     */
+    public String webQueryFactorAllCust(Long anFactorNo);
+    
 
     /****
      * 查询客户号根据类型返回关联关系信息
