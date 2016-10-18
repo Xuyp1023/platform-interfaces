@@ -1,11 +1,13 @@
 package com.betterjr.modules.document.utils;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.StringReader;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,9 +15,6 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
-
-import com.betterjr.common.config.ParamNames;
 //import com.betterjr.common.config.ParamNames;
 import com.betterjr.common.data.KeyAndValueObject;
 import com.betterjr.common.exception.BettjerIOException;
@@ -26,7 +25,6 @@ import com.betterjr.common.utils.BetterStringUtils;
 import com.betterjr.common.utils.FileUtils;
 import com.betterjr.common.utils.MimeTypesHelper;
 import com.betterjr.modules.document.entity.CustFileItem;
-import com.betterjr.modules.sys.service.SysConfigService;
 //import com.betterjr.modules.sys.service.SysConfigService;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -43,27 +41,25 @@ import com.itextpdf.tool.xml.pipeline.end.PdfWriterPipeline;
 import com.itextpdf.tool.xml.pipeline.html.HtmlPipeline;
 import com.itextpdf.tool.xml.pipeline.html.HtmlPipelineContext;
 
-import java.util.*;
-
 public abstract class CustFileClientUtils {
     private static final Logger logger = LoggerFactory.getLogger(CustFileClientUtils.class);
 
     /**
      * 将上传的文件持续化。
-     * 
+     *
      * @param anFileInfo
      * @param anInput
      * @return
      */
-    public static boolean saveFileStream(KeyAndValueObject anFileInfo, InputStream anInput) {
-        File tmpFile = (File) anFileInfo.getValue();
+    public static boolean saveFileStream(final KeyAndValueObject anFileInfo, final InputStream anInput) {
+        final File tmpFile = (File) anFileInfo.getValue();
         FileOutputStream outStream = null;
         try {
             outStream = new FileOutputStream(tmpFile);
             IOUtils.copy(anInput, outStream);
             return true;
         }
-        catch (IOException ex) {
+        catch (final IOException ex) {
             tmpFile.delete();
             return false;
         }
@@ -74,21 +70,21 @@ public abstract class CustFileClientUtils {
 
     /**
      * 下载文件
-     * 
+     *
      * @param response
      * @param anFileItem
      */
-    public static void fileDownload(HttpServletResponse response, CustFileItem anFileItem,String basePath) {
+    public static void fileDownload(final HttpServletResponse response, final CustFileItem anFileItem,final String basePath) {
 
         fileDownloadWithOpenType(response, anFileItem, null,basePath);
     }
 
-    public static void fileDownloadWithOpenType(HttpServletResponse response, CustFileItem anFileItem, String anOpenType,String basePath) {
+    public static void fileDownloadWithOpenType(final HttpServletResponse response, final CustFileItem anFileItem, final String anOpenType,final String basePath) {
         OutputStream os = null;
         String msg = null;
         try {
             if (anFileItem != null) {
-                File file = FileUtils.getRealFile(basePath + anFileItem.getFilePath());
+                final File file = FileUtils.getRealFile(basePath + anFileItem.getFilePath());
                 if (file != null) {
                     String openType = anOpenType;
                     if (BetterStringUtils.isBlank(openType)) {
@@ -99,8 +95,8 @@ public abstract class CustFileClientUtils {
                             openType = "attachment";
                         }
                     }
-                    String fileName = anFileItem.getFileName();
-                    StringBuilder sb = new StringBuilder(100);
+                    final String fileName = anFileItem.getFileName();
+                    final StringBuilder sb = new StringBuilder(100);
                     sb.append(openType).append("; ").append("filename=").append(java.net.URLEncoder.encode(fileName, "UTF-8"));
                     os = response.getOutputStream();
                     response.setHeader("Content-Disposition", sb.toString());
@@ -116,7 +112,7 @@ public abstract class CustFileClientUtils {
                 msg = "No information was obtained for the download file";
             }
         }
-        catch (IOException e) {
+        catch (final IOException e) {
             logger.error("下载文件失败，请检查；" + anFileItem, e);
             msg = "出现IO异常，请稍后再试!";
         }
@@ -127,7 +123,7 @@ public abstract class CustFileClientUtils {
                 try {
                     response.getWriter().append(msg);
                 }
-                catch (IOException e) {
+                catch (final IOException e) {
                     e.printStackTrace();
                 }
             }
@@ -135,10 +131,42 @@ public abstract class CustFileClientUtils {
         }
     }
 
-    public static void directExportPDF(String anOutFileName, Map<String, Object> anParam, HttpServletResponse response, String anModeFile,
-            String anModeName) {
-        FreemarkerService markerService = SpringContextHolder.getBean(FreemarkerService.class);
-        StringBuffer data = markerService.processTemplateByFileNameUnderModule(anModeFile, anParam, anModeName);
+
+    public static void fileDownloadWithFileName(final HttpServletResponse anResponse, final  byte[] anData, final String anFileName) {
+        String msg = null;
+        OutputStream os = null;
+        try (InputStream is = new ByteArrayInputStream(anData)){
+            final StringBuilder sb = new StringBuilder(100);
+            sb.append("attachment").append("; ").append("filename=").append(java.net.URLEncoder.encode(anFileName, "UTF-8"));
+            os = anResponse.getOutputStream();
+            anResponse.setHeader("Content-Disposition", sb.toString());
+            anResponse.setContentType("cer");
+            IOUtils.copy(is, os);
+            return;
+        }
+        catch (final IOException e) {
+            logger.error("下载文件失败，请检查；" + anFileName, e);
+            msg = "出现IO异常，请稍后再试!";
+        }
+        finally {
+            if (msg != null) {
+                anResponse.reset();
+                anResponse.setContentType("text/html;UTF-8");
+                try {
+                    anResponse.getWriter().append(msg);
+                }
+                catch (final IOException e) {
+                    logger.error("关闭文件流失败；" + anFileName, e);
+                }
+            }
+            IOUtils.closeQuietly(os);
+        }
+    }
+
+    public static void directExportPDF(final String anOutFileName, final Map<String, Object> anParam, final HttpServletResponse response, final String anModeFile,
+            final String anModeName) {
+        final FreemarkerService markerService = SpringContextHolder.getBean(FreemarkerService.class);
+        final StringBuffer data = markerService.processTemplateByFileNameUnderModule(anModeFile, anParam, anModeName);
         String msg = null;
         try {
             response.reset();
@@ -146,10 +174,10 @@ public abstract class CustFileClientUtils {
             response.setHeader("Content-Disposition", "attachment; filename=" + java.net.URLEncoder.encode(anOutFileName, "UTF-8"));
             exportPDF(data, response.getOutputStream());
         }
-        catch (IOException e) {
+        catch (final IOException e) {
             msg = "出现文件异常，请稍后再试!";
         }
-        catch (BettjerIOException e) {
+        catch (final BettjerIOException e) {
             msg = e.getMessage();
         }
         finally {
@@ -159,7 +187,7 @@ public abstract class CustFileClientUtils {
                     response.setContentType("text/html;UTF-8");
                     response.getWriter().append(msg);
                 }
-                catch (IOException e) {
+                catch (final IOException e) {
                     logger.error("directExportPDF can't output exception message", e);
                 }
             }
@@ -168,24 +196,24 @@ public abstract class CustFileClientUtils {
 
     /**
      * 根据保存的文件信息，产生PDF文件。
-     * 
+     *
      * @param anSb
      * @param anFileInfo
      * @return
      */
-    public static boolean exportPDF(StringBuffer anSb, KeyAndValueObject anFileInfo) {
-        File tmpFile = (File) anFileInfo.getValue();
+    public static boolean exportPDF(final StringBuffer anSb, final KeyAndValueObject anFileInfo) {
+        final File tmpFile = (File) anFileInfo.getValue();
         OutputStream out = null;
         try {
             out = new FileOutputStream(tmpFile);
             exportPDF(anSb, out);
             return true;
         }
-        catch (BytterTradeException ex) {
+        catch (final BytterTradeException ex) {
 
             throw ex;
         }
-        catch (Exception ex) {
+        catch (final Exception ex) {
             logger.error("exportPDF has error", ex);
             return false;
         }
@@ -199,8 +227,8 @@ public abstract class CustFileClientUtils {
      * @param anSb
      * @param anOut
      */
-    public static void exportPDF(StringBuffer anSb, OutputStream anOut) {
-        Document document = new Document(PageSize.A4, 0, 0, 0, 0);
+    public static void exportPDF(final StringBuffer anSb, final OutputStream anOut) {
+        final Document document = new Document(PageSize.A4, 0, 0, 0, 0);
         document.setMargins(0, 0, 0, 0);
         System.out.println(anSb.toString());
         PdfWriter pdfwriter = null;
@@ -209,16 +237,16 @@ public abstract class CustFileClientUtils {
             pdfwriter.setViewerPreferences(PdfWriter.HideToolbar);
             document.open();
             document.newPage();
-            HtmlPipelineContext htmlContext = new HtmlPipelineContext(null);
+            final HtmlPipelineContext htmlContext = new HtmlPipelineContext(null);
 
             htmlContext.setTagFactory(Tags.getHtmlTagProcessorFactory());
-            CSSResolver cssResolver = XMLWorkerHelper.getInstance().getDefaultCssResolver(true);
-            Pipeline pipeline = new CssResolverPipeline(cssResolver, new HtmlPipeline(htmlContext, new PdfWriterPipeline(document, pdfwriter)));
+            final CSSResolver cssResolver = XMLWorkerHelper.getInstance().getDefaultCssResolver(true);
+            final Pipeline pipeline = new CssResolverPipeline(cssResolver, new HtmlPipeline(htmlContext, new PdfWriterPipeline(document, pdfwriter)));
 
-            XMLWorker worker = new XMLWorker(pipeline, true);
-            XMLParser p = new XMLParser(worker);
+            final XMLWorker worker = new XMLWorker(pipeline, true);
+            final XMLParser p = new XMLParser(worker);
             System.out.println(anSb.toString());
-            StringReader reader = new StringReader(anSb.toString());
+            final StringReader reader = new StringReader(anSb.toString());
             p.parse(reader);
             p.flush();
         }
