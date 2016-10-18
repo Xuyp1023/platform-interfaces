@@ -2,16 +2,21 @@ package com.betterjr.modules.document.entity;
 
 import java.io.File;
 
-import com.betterjr.common.annotation.*;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.betterjr.common.annotation.MetaData;
 import com.betterjr.common.entity.BetterjrEntity;
 import com.betterjr.common.selectkey.SerialGenerator;
 import com.betterjr.common.utils.BetterDateUtils;
 import com.betterjr.common.utils.BetterStringUtils;
-import com.betterjr.common.utils.FileUtils;
 import com.betterjr.modules.account.entity.CustOperatorInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import javax.persistence.*;
 
 @Access(AccessType.FIELD)
 @Entity
@@ -56,7 +61,7 @@ public class CustFileItem implements BetterjrEntity {
     /**
      * 保存文件路径，相对路径
      */
-    
+
     @JsonIgnore
     @Column(name = "C_FILEPATH", columnDefinition = "VARCHAR")
     @MetaData(value = "保存文件路径", comments = "保存文件路径，相对路径")
@@ -84,13 +89,13 @@ public class CustFileItem implements BetterjrEntity {
     private String regTime;
 
     /**
-     * 
+     *
      */
     @Column(name = "C_FILEINFOTYPE", columnDefinition = "VARCHAR")
     @MetaData(value = "文件信息类型", comments = "文件信息类")
     private String fileInfoType;
-    
-    
+
+
     /**
      * 创建人(操作员)ID号
      */
@@ -145,23 +150,23 @@ public class CustFileItem implements BetterjrEntity {
     @JsonIgnore
     @Column(name = "C_OPERORG", columnDefinition = "VARCHAR")
     @MetaData(value = "操作机构", comments = "操作机构")
-    private String operOrg;    
-    
+    private String operOrg;
+
 
     @Transient
     private CustFileInfo fileInfo;
 
-    @Transient 
+    @Transient
     @JsonIgnore
     private File absoFile;
-    
+
     private static final long serialVersionUID = 1440667936398L;
 
     public CustFileInfo getFileInfo() {
         return this.fileInfo;
     }
 
-    public void setFileInfo(CustFileInfo anFileInfo) {
+    public void setFileInfo(final CustFileInfo anFileInfo) {
         this.fileInfo = anFileInfo;
     }
 
@@ -169,7 +174,7 @@ public class CustFileItem implements BetterjrEntity {
         return this.fileInfoType;
     }
 
-    public void setFileInfoType(String anFileInfoType) {
+    public void setFileInfoType(final String anFileInfoType) {
         this.fileInfoType = anFileInfoType;
     }
 
@@ -177,7 +182,7 @@ public class CustFileItem implements BetterjrEntity {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -185,7 +190,7 @@ public class CustFileItem implements BetterjrEntity {
         return batchNo;
     }
 
-    public void setBatchNo(Long batchNo) {
+    public void setBatchNo(final Long batchNo) {
         this.batchNo = batchNo;
     }
 
@@ -193,7 +198,7 @@ public class CustFileItem implements BetterjrEntity {
         return fileName;
     }
 
-    public void setFileName(String fileName) {
+    public void setFileName(final String fileName) {
         this.fileName = fileName == null ? null : fileName.trim();
     }
 
@@ -201,7 +206,7 @@ public class CustFileItem implements BetterjrEntity {
         return fileType;
     }
 
-    public void setFileType(String fileType) {
+    public void setFileType(final String fileType) {
         this.fileType = fileType == null ? null : fileType.trim();
     }
 
@@ -209,7 +214,7 @@ public class CustFileItem implements BetterjrEntity {
         return fileNo;
     }
 
-    public void setFileNo(String fileNo) {
+    public void setFileNo(final String fileNo) {
         this.fileNo = fileNo == null ? null : fileNo.trim();
     }
 
@@ -217,7 +222,7 @@ public class CustFileItem implements BetterjrEntity {
         return filePath;
     }
 
-    public void setFilePath(String filePath) {
+    public void setFilePath(final String filePath) {
         this.filePath = filePath == null ? null : filePath.trim();
     }
 
@@ -225,7 +230,7 @@ public class CustFileItem implements BetterjrEntity {
         return fileLength;
     }
 
-    public void setFileLength(Long fileLength) {
+    public void setFileLength(final Long fileLength) {
         this.fileLength = fileLength;
     }
 
@@ -233,7 +238,7 @@ public class CustFileItem implements BetterjrEntity {
         return regDate;
     }
 
-    public void setRegDate(String regDate) {
+    public void setRegDate(final String regDate) {
         this.regDate = regDate == null ? null : regDate.trim();
     }
 
@@ -241,7 +246,7 @@ public class CustFileItem implements BetterjrEntity {
         return regTime;
     }
 
-    public void setRegTime(String regTime) {
+    public void setRegTime(final String regTime) {
         this.regTime = regTime == null ? null : regTime.trim();
     }
 
@@ -249,7 +254,7 @@ public class CustFileItem implements BetterjrEntity {
         return regOperId;
     }
 
-    public void setRegOperId(Long anRegOperId) {
+    public void setRegOperId(final Long anRegOperId) {
         regOperId = anRegOperId;
     }
 
@@ -257,7 +262,7 @@ public class CustFileItem implements BetterjrEntity {
         return regOperName;
     }
 
-    public void setRegOperName(String anRegOperName) {
+    public void setRegOperName(final String anRegOperName) {
         regOperName = anRegOperName;
     }
 
@@ -265,7 +270,7 @@ public class CustFileItem implements BetterjrEntity {
         return modiOperId;
     }
 
-    public void setModiOperId(Long anModiOperId) {
+    public void setModiOperId(final Long anModiOperId) {
         modiOperId = anModiOperId;
     }
 
@@ -273,7 +278,7 @@ public class CustFileItem implements BetterjrEntity {
         return modiOperName;
     }
 
-    public void setModiOperName(String anModiOperName) {
+    public void setModiOperName(final String anModiOperName) {
         modiOperName = anModiOperName;
     }
 
@@ -281,7 +286,7 @@ public class CustFileItem implements BetterjrEntity {
         return modiDate;
     }
 
-    public void setModiDate(String anModiDate) {
+    public void setModiDate(final String anModiDate) {
         modiDate = anModiDate;
     }
 
@@ -289,7 +294,7 @@ public class CustFileItem implements BetterjrEntity {
         return modiTime;
     }
 
-    public void setModiTime(String anModiTime) {
+    public void setModiTime(final String anModiTime) {
         modiTime = anModiTime;
     }
 
@@ -297,7 +302,7 @@ public class CustFileItem implements BetterjrEntity {
         return operOrg;
     }
 
-    public void setOperOrg(String anOperOrg) {
+    public void setOperOrg(final String anOperOrg) {
         operOrg = anOperOrg;
     }
 
@@ -305,13 +310,13 @@ public class CustFileItem implements BetterjrEntity {
         return this.absoFile;
     }
 
-    public void setAbsoFile(File anAbsoFile) {
+    public void setAbsoFile(final File anAbsoFile) {
         this.absoFile = anAbsoFile;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
@@ -338,7 +343,7 @@ public class CustFileItem implements BetterjrEntity {
     }
 
     @Override
-    public boolean equals(Object that) {
+    public boolean equals(final Object that) {
         if (this == that) {
             return true;
         }
@@ -348,7 +353,7 @@ public class CustFileItem implements BetterjrEntity {
         if (getClass() != that.getClass()) {
             return false;
         }
-        CustFileItem other = (CustFileItem) that;
+        final CustFileItem other = (CustFileItem) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
                 && (this.getBatchNo() == null ? other.getBatchNo() == null : this.getBatchNo().equals(other.getBatchNo()))
                 && (this.getFileName() == null ? other.getFileName() == null : this.getFileName().equals(other.getFileName()))
@@ -402,8 +407,8 @@ public class CustFileItem implements BetterjrEntity {
             anType = this.fileType;
         }
         if (BetterStringUtils.isNotBlank(anType)) {
-            String[] arrStr = new String[] { "image", "text", "html", "plain" };
-            for (String tmpStr : arrStr) {
+            final String[] arrStr = new String[] { "image", "text", "html", "plain" };
+            for (final String tmpStr : arrStr) {
                 if (anType.indexOf(tmpStr) > -1) {
                     return true;
                 }
@@ -412,8 +417,8 @@ public class CustFileItem implements BetterjrEntity {
 
         return false;
     }
-    
-    public void initDuplicateConflictValue(CustFileItem anFileItem) {
+
+    public void initDuplicateConflictValue(final CustFileItem anFileItem) {
         this.id = (SerialGenerator.getLongValue("CustFileItem.id"));
         this.fileLength = anFileItem.getFileLength();
         this.fileInfoType = anFileItem.getFileInfoType();
@@ -422,7 +427,7 @@ public class CustFileItem implements BetterjrEntity {
         this.fileType = anFileItem.getFileType();
     }
 
-    public void initAddValue(CustOperatorInfo anOperator) {
+    public void initAddValue(final CustOperatorInfo anOperator) {
         this.regDate = BetterDateUtils.getNumDate();
         this.regTime = BetterDateUtils.getNumTime();
         this.regOperId = anOperator.getId();
@@ -431,10 +436,10 @@ public class CustFileItem implements BetterjrEntity {
         this.modiTime = BetterDateUtils.getNumTime();
         this.modiOperId = anOperator.getId();
         this.modiOperName = anOperator.getName();
-        this.operOrg = anOperator.getName();
+        this.operOrg = anOperator.getOperOrg();
     }
 
-    public void initModifyValue(CustOperatorInfo anOperator) {
+    public void initModifyValue(final CustOperatorInfo anOperator) {
         this.modiDate = BetterDateUtils.getNumDate();
         this.modiTime = BetterDateUtils.getNumTime();
         this.modiOperId = anOperator.getId();
