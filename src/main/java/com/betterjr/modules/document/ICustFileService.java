@@ -151,5 +151,10 @@ public interface ICustFileService {
      * 得到文件存储的basePath
      */
     public String findFileBasePath();
+
+    /**
+     * 根据fileList和现有batchNo更新,会删除已删除的文件
+     */
+    public Long updateAndDelCustFileItemInfo(String anFileList, Long anBatchNo);
     
 }
