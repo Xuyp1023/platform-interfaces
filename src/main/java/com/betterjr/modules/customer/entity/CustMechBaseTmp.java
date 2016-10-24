@@ -1,7 +1,5 @@
 package com.betterjr.modules.customer.entity;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
@@ -241,16 +239,16 @@ public class CustMechBaseTmp implements BetterjrEntity {
     /**
      * 经营面积（平方米）
      */
-    @Column(name = "F_PREMISES_AREA", columnDefinition = "DOUBLE")
+    @Column(name = "C_PREMISES_AREA", columnDefinition = "VARCHAR")
     @MetaData(value = "经营面积（平方米）", comments = "经营面积（平方米）")
-    private BigDecimal premisesArea;
+    private String premisesArea;
 
     /**
      * 经营场地所有权年限(年)
      */
-    @Column(name = "N_PREMISES_YEAR", columnDefinition = "INTEGER")
+    @Column(name = "C_PREMISES_YEAR", columnDefinition = "VARCHAR")
     @MetaData(value = "经营场地所有权年限(年)", comments = "经营场地所有权年限(年)")
-    private Long premisesYear;
+    private String premisesYear;
 
     /**
      * 经营场地类型
@@ -693,19 +691,19 @@ public class CustMechBaseTmp implements BetterjrEntity {
         this.person = person;
     }
 
-    public BigDecimal getPremisesArea() {
+    public String getPremisesArea() {
         return premisesArea;
     }
 
-    public void setPremisesArea(final BigDecimal premisesArea) {
+    public void setPremisesArea(final String premisesArea) {
         this.premisesArea = premisesArea;
     }
 
-    public Long getPremisesYear() {
+    public String getPremisesYear() {
         return premisesYear;
     }
 
-    public void setPremisesYear(final Long premisesYear) {
+    public void setPremisesYear(final String premisesYear) {
         this.premisesYear = premisesYear;
     }
 
