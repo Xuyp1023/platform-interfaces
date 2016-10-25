@@ -213,6 +213,15 @@ public interface ICustRelationService {
      * @param anFactorNo
      */
     public boolean saveFactorRelationStatus(Long anCustNo, String anScfId, String anStatus, String anFactorNo);
+    
+    /**
+     * 按银行账户信息查询供应商与核心企业关系
+     * 
+     * @param anBankAccountName
+     * @param anBankAccount
+     * @return
+     */
+    public Long findCustNoByBankInfo(String anBankAccountName, String anBankAccount);
 
 
 }
