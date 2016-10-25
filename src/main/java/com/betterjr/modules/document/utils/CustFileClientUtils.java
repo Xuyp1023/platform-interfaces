@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
 import com.betterjr.common.data.KeyAndValueObject;
 import com.betterjr.common.exception.BettjerIOException;
 import com.betterjr.common.exception.BytterTradeException;
+import com.betterjr.common.selectkey.SerialGenerator;
 import com.betterjr.common.service.FreemarkerService;
 import com.betterjr.common.service.SpringContextHolder;
 import com.betterjr.common.utils.BetterStringUtils;
@@ -257,5 +258,39 @@ public abstract class CustFileClientUtils {
             document.close();
             pdfwriter.close();
         }
+    }
+
+    private static CustFileItem createDefFileItem(final KeyAndValueObject anFileInfo, final String anWorkType, final String anFileName) {
+        final CustFileItem fileItem = new CustFileItem();
+        fileItem.setId(SerialGenerator.getLongValue("CustFileItem.id"));
+        final File tmpFile = (File) anFileInfo.getValue();
+        fileItem.setAbsoFile(tmpFile);
+        fileItem.setFileLength(tmpFile.length());
+        fileItem.setFilePath(anFileInfo.getStrKey());
+        fileItem.setFileInfoType(anWorkType);
+        fileItem.setFileName(anFileName);
+        fileItem.setBatchNo(0L);
+        fileItem.setFileType(FileUtils.extractFileExt(anFileName));
+
+        return fileItem;
+    }
+
+    /**
+     * 创建上传文件的信息
+     *
+     * @param anFileInfo
+     *            文件路径信息
+     * @param anWorkType
+     *            文档业务类型
+     * @param anFileName
+     *            文件名称
+     * @param anFileType
+     *            文件类型
+     * @return
+     */
+    public static CustFileItem createUploadFileItem(final KeyAndValueObject anFileInfo, final String anWorkType, final String anFileName) {
+        final CustFileItem fileItem = createDefFileItem(anFileInfo, anWorkType, anFileName);
+
+        return fileItem;
     }
 }

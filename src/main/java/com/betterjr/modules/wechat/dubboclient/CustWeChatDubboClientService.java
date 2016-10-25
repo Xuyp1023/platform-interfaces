@@ -261,4 +261,13 @@ public class CustWeChatDubboClientService {
     public CustWeChatInfo saveNewWeChatInfo(final String anAppId, final String anOpenId, final int anSubscribeStatus) {
         return wechatService.saveNewWeChatInfo(anAppId, anOpenId, anSubscribeStatus);
     }
+
+    /**
+     * @param anUrl
+     * @return
+     */
+    public Object getJSSignature(final String anUrl) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }
