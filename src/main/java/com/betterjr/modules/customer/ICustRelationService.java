@@ -181,6 +181,13 @@ public interface ICustRelationService {
      * @return
      */
     public String webQueryFactorRelation(Long anCustNo);
+    
+    /**
+     * 微信端,获取当前客户的保理公司
+     * 
+     * @return
+     */
+    public String webQueryFactorRelation();
 
     /**
      * 检查客户保理, 
