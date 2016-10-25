@@ -26,8 +26,8 @@ import com.betterjr.modules.wechat.data.message.VoiceMsg;
 import com.betterjr.modules.wechat.data.push.SentAllJobEvent;
 import com.betterjr.modules.wechat.data.push.SentTmlJobEvent;
 import com.betterjr.modules.wechat.dubboclient.CustWeChatDubboClientService;
-import com.betterjr.modules.wechat.handler.QrcodeHandler;
-import com.betterjr.modules.wechat.handler.QrcodeHandlerFactory;
+import com.betterjr.modules.wechat.handler.qrcode.QrcodeHandler;
+import com.betterjr.modules.wechat.handler.qrcode.QrcodeHandlerFactory;
 
 /**
  * 微信消息,事件处理器(实际生产中需要重写)

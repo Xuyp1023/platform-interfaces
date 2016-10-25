@@ -5,7 +5,7 @@
 // CHANGE LOG
 // V2.0 : 2016年9月18日, liuwl, creation
 // ============================================================================
-package com.betterjr.modules.wechat.handler;
+package com.betterjr.modules.wechat.handler.qrcode;
 
 import com.betterjr.modules.wechat.data.event.BasicEvent;
 import com.betterjr.modules.wechat.data.message.BasicMsg;
