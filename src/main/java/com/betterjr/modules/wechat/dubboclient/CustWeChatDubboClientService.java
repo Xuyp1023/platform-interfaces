@@ -33,6 +33,7 @@ import com.betterjr.modules.wechat.data.api.QRTicket;
 import com.betterjr.modules.wechat.data.event.BasicEvent;
 import com.betterjr.modules.wechat.entity.CustWeChatInfo;
 import com.betterjr.modules.wechat.util.WechatAPIImpl;
+import com.betterjr.modules.wechat.util.WechatSign;
 
 /**
  * WeChat dubbo client service
@@ -267,7 +268,10 @@ public class CustWeChatDubboClientService {
      * @return
      */
     public Object getJSSignature(final String anUrl) {
-        // TODO Auto-generated method stub
-        return null;
+        final WechatAPIImpl wechatApi = WechatAPIImpl.create(this.getMpAccount());
+        final String jsTicket = wechatApi.getJSTicket();
+        final Map<String, String> result = WechatSign.sign(jsTicket, anUrl);
+        result.put("appId", mpAccount.getAppId());
+        return result;
     }
 }
