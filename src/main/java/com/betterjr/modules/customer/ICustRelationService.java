@@ -2,6 +2,7 @@ package com.betterjr.modules.customer;
 
 
 import java.util.List;
+import java.util.Map;
 
 import com.betterjr.modules.customer.data.CustRelationData;
 
@@ -222,6 +223,19 @@ public interface ICustRelationService {
      * @return
      */
     public Long findCustNoByBankInfo(String anBankAccountName, String anBankAccount);
+    
 
+    /**
+     * 根据从核心企业上传的客户信息，保存客户与核心企业的关系；数据来自对象 CoreSupplierInfo <BR>
+     * 处理逻辑：检查核心企业编码加上其余的熟悉 先检查客户号是否存在，如果存在，根据核心企业编码和客户号来检查，<BR>
+     * 如果记录存在，则更新核心企业的内部编码 如果不存在，则根据核心企业内部编码来检查，如果存在则忽略；如果不存在，<BR>
+     * 则根据企业名称来检查，如果都不存在，则增加记录
+     * 
+     * @param anValues 上传来的数据
+     * @param anCoreCustName 核心企业名称
+     * @param anCoreCustNo 核心企业编码
+     * @return
+     */
+    public boolean saveAndCheckCust(Map<String, Object> anValues, String anCoreCustName, Long anCoreCustNo);
 
 }
