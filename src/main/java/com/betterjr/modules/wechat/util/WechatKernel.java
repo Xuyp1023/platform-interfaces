@@ -93,9 +93,9 @@ public class WechatKernel {
         this.params = params;
         // if (log.isDebugEnabled()) {
         final Set<Entry<String, String>> es = params.entrySet();
-        log.info("微信服务器请求参数列表.");
+        log.debug("微信服务器请求参数列表.");
         for (final Entry<String, String> e : es) {
-            log.info(e.getKey() + " = " + e.getValue());
+            log.debug(e.getKey() + " = " + e.getValue());
         }
         // }
     }

@@ -1,15 +1,18 @@
 package com.betterjr.modules.wechat.data.api;
 
+import java.io.Serializable;
+
 import com.betterjr.common.utils.BetterStringUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * 微信JSSDK凭证
- * 
+ *
  * @author zhoucy
  */
-public class JSTicket {
+public class JSTicket implements Serializable {
+    private static final long serialVersionUID = -1969807385919207534L;
 
     /**
      * 调用微信JS接口的临时票据
@@ -21,7 +24,7 @@ public class JSTicket {
      */
     @JsonProperty(value = "expires_in")
     private long expiresIn;
-    
+
     @JsonIgnore
     private long orginExpireSec;
 
@@ -29,21 +32,21 @@ public class JSTicket {
         return ticket;
     }
 
-    public void setTicket(String ticket) {
+    public void setTicket(final String ticket) {
         this.ticket = ticket;
     }
 
     public long getExpiresIn() {
         return expiresIn;
     }
-    
+
     public long getOrginExpireSec() {
         return orginExpireSec;
     }
 
-    public void setExpiresIn(long expiresIn) {
-    	this.orginExpireSec = expiresIn;
-    	this.expiresIn = System.currentTimeMillis() + (expiresIn - 60) * 1000;
+    public void setExpiresIn(final long expiresIn) {
+        this.orginExpireSec = expiresIn;
+        this.expiresIn = System.currentTimeMillis() + (expiresIn - 60) * 1000;
     }
 
     public boolean isAvailable() {
