@@ -102,4 +102,11 @@ public interface ICustWeChatService {
      */
     CustWeChatInfo saveNewWeChatInfo(String anAppId, String anOpenId, int anSubscribeStatus);
 
+    /**
+     * @param anFileTypeName
+     * @param anFileMediaId
+     * @return
+     */
+    Object fileUpload(String anFileTypeName, String anFileMediaId);
+
 }

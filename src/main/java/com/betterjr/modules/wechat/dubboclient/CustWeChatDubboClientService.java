@@ -274,4 +274,13 @@ public class CustWeChatDubboClientService {
         result.put("appId", mpAccount.getAppId());
         return result;
     }
+
+    /**
+     * @param anFileTypeName
+     * @param anFileMediaId
+     * @return
+     */
+    public Object fileUpload(final String anFileTypeName, final String anFileMediaId) {
+        return wechatService.fileUpload(anFileTypeName, anFileMediaId);
+    }
 }
