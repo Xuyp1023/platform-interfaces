@@ -15,6 +15,7 @@ import com.betterjr.common.selectkey.SerialGenerator;
 import com.betterjr.common.utils.BetterDateUtils;
 import com.betterjr.common.utils.UserUtils;
 import com.betterjr.modules.customer.constants.CustomerConstants;
+import com.betterjr.modules.account.entity.CustOperatorInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -540,5 +541,17 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
        this.businStatus = CustomerConstants.RELATE_STATUS_UNDO;
        this.relateCustno = anCoreCustNo;
        this.relateCustname = anCoreCustName;
+       }
+       
+    public void initWeChatValue(CustOperatorInfo anOperator) {
+        this.id = SerialGenerator.getLongValue("CustRelation.id");
+        this.operId = anOperator.getId();
+        this.operName = anOperator.getName();
+        this.operOrg = anOperator.getOperOrg();
+        
+        this.regOperId = anOperator.getId();
+        this.regOperName = anOperator.getName();
+        this.regDate = BetterDateUtils.getNumDate();
+        this.regTime = BetterDateUtils.getNumTime();
     }
 }
