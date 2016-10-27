@@ -168,7 +168,7 @@ public class CustMechBankAccount implements BetterjrEntity {
     /**
      * 区/县名称
      */
-    @JsonIgnore    
+    @JsonIgnore
     @Column(name = "C_COUNTY_NAME", columnDefinition = "VARCHAR")
     @MetaData(value = "区/县名称", comments = "区/县名称")
     private String countyName;
@@ -267,7 +267,7 @@ public class CustMechBankAccount implements BetterjrEntity {
     @MetaData(value = "账户状态（0 正常  1 销户中  2 销户", comments = "账户状态（0 正常  1 销户中  2 销户，3冻结，4待复核）")
     private String accoStatus;
 
-    
+
     @Column(name = "C_BUSIN_STATUS", columnDefinition = "CHAR")
     @MetaData(value = "", comments = "")
     private String businStatus;
@@ -297,7 +297,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -305,7 +305,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return version;
     }
 
-    public void setVersion(Long version) {
+    public void setVersion(final Long version) {
         this.version = version;
     }
 
@@ -313,7 +313,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return isDefault;
     }
 
-    public void setIsDefault(Boolean isDefault) {
+    public void setIsDefault(final Boolean isDefault) {
         this.isDefault = isDefault;
     }
 
@@ -321,7 +321,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return tradeAcco;
     }
 
-    public void setTradeAcco(String tradeAcco) {
+    public void setTradeAcco(final String tradeAcco) {
         this.tradeAcco = tradeAcco == null ? null : tradeAcco.trim();
     }
 
@@ -329,7 +329,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return bankNo;
     }
 
-    public void setBankNo(String bankNo) {
+    public void setBankNo(final String bankNo) {
         this.bankNo = bankNo == null ? null : bankNo.trim();
     }
 
@@ -337,7 +337,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return bankName;
     }
 
-    public void setBankName(String bankName) {
+    public void setBankName(final String bankName) {
         this.bankName = bankName == null ? null : bankName.trim();
     }
 
@@ -345,7 +345,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return bankAcco;
     }
 
-    public void setBankAcco(String bankAcco) {
+    public void setBankAcco(final String bankAcco) {
         this.bankAcco = bankAcco == null ? null : bankAcco.trim();
     }
 
@@ -353,7 +353,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return bankAccoName;
     }
 
-    public void setBankAccoName(String bankAccoName) {
+    public void setBankAccoName(final String bankAccoName) {
         this.bankAccoName = bankAccoName == null ? null : bankAccoName.trim();
     }
 
@@ -361,7 +361,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return bankBranch;
     }
 
-    public void setBankBranch(String bankBranch) {
+    public void setBankBranch(final String bankBranch) {
         this.bankBranch = bankBranch == null ? null : bankBranch.trim();
     }
 
@@ -369,7 +369,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return netNo;
     }
 
-    public void setNetNo(String netNo) {
+    public void setNetNo(final String netNo) {
         this.netNo = netNo == null ? null : netNo.trim();
     }
 
@@ -377,7 +377,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return payCenter;
     }
 
-    public void setPayCenter(String payCenter) {
+    public void setPayCenter(final String payCenter) {
         this.payCenter = payCenter == null ? null : payCenter.trim();
     }
 
@@ -385,7 +385,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return endFrozenDate;
     }
 
-    public void setEndFrozenDate(String endFrozenDate) {
+    public void setEndFrozenDate(final String endFrozenDate) {
         this.endFrozenDate = endFrozenDate == null ? null : endFrozenDate.trim();
     }
 
@@ -393,7 +393,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return contractNo;
     }
 
-    public void setContractNo(String contractNo) {
+    public void setContractNo(final String contractNo) {
         this.contractNo = contractNo == null ? null : contractNo.trim();
     }
 
@@ -401,7 +401,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return authStatus;
     }
 
-    public void setAuthStatus(String authStatus) {
+    public void setAuthStatus(final String authStatus) {
         this.authStatus = authStatus == null ? null : authStatus.trim();
     }
 
@@ -409,7 +409,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return signStatus;
     }
 
-    public void setSignStatus(String signStatus) {
+    public void setSignStatus(final String signStatus) {
         this.signStatus = signStatus == null ? null : signStatus.trim();
     }
 
@@ -417,7 +417,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return identType;
     }
 
-    public void setIdentType(String identType) {
+    public void setIdentType(final String identType) {
         this.identType = identType == null ? null : identType.trim();
     }
 
@@ -425,7 +425,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return identNo;
     }
 
-    public void setIdentNo(String identNo) {
+    public void setIdentNo(final String identNo) {
         this.identNo = identNo == null ? null : identNo.trim();
     }
 
@@ -433,7 +433,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return flag;
     }
 
-    public void setFlag(String flag) {
+    public void setFlag(final String flag) {
         this.flag = flag == null ? null : flag.trim();
     }
 
@@ -441,7 +441,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return bakupAcco;
     }
 
-    public void setBakupAcco(String bakupAcco) {
+    public void setBakupAcco(final String bakupAcco) {
         this.bakupAcco = bakupAcco == null ? null : bakupAcco.trim();
     }
 
@@ -449,7 +449,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return countyName;
     }
 
-    public void setCountyName(String countyName) {
+    public void setCountyName(final String countyName) {
         this.countyName = countyName == null ? null : countyName.trim();
     }
 
@@ -457,7 +457,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return cityName;
     }
 
-    public void setCityName(String cityName) {
+    public void setCityName(final String cityName) {
         this.cityName = cityName == null ? null : cityName.trim();
     }
 
@@ -465,7 +465,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return cityNo;
     }
 
-    public void setCityNo(String cityNo) {
+    public void setCityNo(final String cityNo) {
         this.cityNo = cityNo == null ? null : cityNo.trim();
     }
 
@@ -473,7 +473,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return regOperId;
     }
 
-    public void setRegOperId(Long regOperId) {
+    public void setRegOperId(final Long regOperId) {
         this.regOperId = regOperId;
     }
 
@@ -481,7 +481,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return regOperName;
     }
 
-    public void setRegOperName(String regOperName) {
+    public void setRegOperName(final String regOperName) {
         this.regOperName = regOperName == null ? null : regOperName.trim();
     }
 
@@ -489,7 +489,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return regDate;
     }
 
-    public void setRegDate(String regDate) {
+    public void setRegDate(final String regDate) {
         this.regDate = regDate == null ? null : regDate.trim();
     }
 
@@ -497,7 +497,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return regTime;
     }
 
-    public void setRegTime(String regTime) {
+    public void setRegTime(final String regTime) {
         this.regTime = regTime == null ? null : regTime.trim();
     }
 
@@ -505,7 +505,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return modiOperId;
     }
 
-    public void setModiOperId(Long modiOperId) {
+    public void setModiOperId(final Long modiOperId) {
         this.modiOperId = modiOperId;
     }
 
@@ -513,7 +513,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return modiOperName;
     }
 
-    public void setModiOperName(String modiOperName) {
+    public void setModiOperName(final String modiOperName) {
         this.modiOperName = modiOperName == null ? null : modiOperName.trim();
     }
 
@@ -521,7 +521,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return modiDate;
     }
 
-    public void setModiDate(String modiDate) {
+    public void setModiDate(final String modiDate) {
         this.modiDate = modiDate == null ? null : modiDate.trim();
     }
 
@@ -529,7 +529,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return modiTime;
     }
 
-    public void setModiTime(String modiTime) {
+    public void setModiTime(final String modiTime) {
         this.modiTime = modiTime == null ? null : modiTime.trim();
     }
 
@@ -537,7 +537,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return operOrg;
     }
 
-    public void setOperOrg(String operOrg) {
+    public void setOperOrg(final String operOrg) {
         this.operOrg = operOrg == null ? null : operOrg.trim();
     }
 
@@ -545,7 +545,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return accoStatus;
     }
 
-    public void setAccoStatus(String accoStatus) {
+    public void setAccoStatus(final String accoStatus) {
         this.accoStatus = accoStatus == null ? null : accoStatus.trim();
     }
 
@@ -553,7 +553,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return businStatus;
     }
 
-    public void setBusinStatus(String businStatus) {
+    public void setBusinStatus(final String businStatus) {
         this.businStatus = businStatus == null ? null : businStatus.trim();
     }
 
@@ -561,7 +561,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return lastStatus;
     }
 
-    public void setLastStatus(String lastStatus) {
+    public void setLastStatus(final String lastStatus) {
         this.lastStatus = lastStatus == null ? null : lastStatus.trim();
     }
 
@@ -569,7 +569,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         return custNo;
     }
 
-    public void setCustNo(Long custNo) {
+    public void setCustNo(final Long custNo) {
         this.custNo = custNo;
     }
 
@@ -577,13 +577,13 @@ public class CustMechBankAccount implements BetterjrEntity {
         return batchNo;
     }
 
-    public void setBatchNo(Long batchNo) {
+    public void setBatchNo(final Long batchNo) {
         this.batchNo = batchNo;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
@@ -629,7 +629,7 @@ public class CustMechBankAccount implements BetterjrEntity {
     }
 
     @Override
-    public boolean equals(Object that) {
+    public boolean equals(final Object that) {
         if (this == that) {
             return true;
         }
@@ -639,7 +639,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         if (getClass() != that.getClass()) {
             return false;
         }
-        CustMechBankAccount other = (CustMechBankAccount) that;
+        final CustMechBankAccount other = (CustMechBankAccount) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
                 && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
                 && (this.getIsDefault() == null ? other.getIsDefault() == null : this.getIsDefault().equals(other.getIsDefault()))
@@ -720,8 +720,8 @@ public class CustMechBankAccount implements BetterjrEntity {
         result = prime * result + ((getBatchNo() == null) ? 0 : getBatchNo().hashCode());
         return result;
     }
-    
-    public void initAddValue(Long anCustNo, String anCustName, Long anRegOperId, String anRegOperName, String anOperOrg) {
+
+    public void initAddValue(final Long anCustNo, final String anCustName, final Long anRegOperId, final String anRegOperName, final String anOperOrg) {
         this.id = SerialGenerator.getLongValue("CustMechBankAccount.id");
 
         this.regOperId = anRegOperId;
@@ -731,8 +731,14 @@ public class CustMechBankAccount implements BetterjrEntity {
         this.regDate = BetterDateUtils.getNumDate();
         this.regTime = BetterDateUtils.getNumTime();
 
-        this.modiOperId = UserUtils.getOperatorInfo().getId();
-        this.modiOperName = UserUtils.getOperatorInfo().getName();
+        if (UserUtils.getOperatorInfo() != null) {
+            this.modiOperId = UserUtils.getOperatorInfo().getId();
+            this.modiOperName = UserUtils.getOperatorInfo().getName();
+        }else{
+            this.modiOperId = anRegOperId;
+            this.modiOperName = anRegOperName;
+        }
+
         this.modiDate = BetterDateUtils.getNumDate();
         this.modiTime = BetterDateUtils.getNumTime();
 
@@ -741,19 +747,19 @@ public class CustMechBankAccount implements BetterjrEntity {
         this.businStatus = "0";
     }
 
-    public void initAddValue(CustMechBankAccountTmp anBankAccountTmp) {
+    public void initAddValue(final CustMechBankAccountTmp anBankAccountTmp) {
         this.id = SerialGenerator.getLongValue("CustMechBankAccount.id");
-        
+
         this.regOperId = UserUtils.getOperatorInfo().getId();
         this.regOperName = UserUtils.getOperatorInfo().getName();
         this.regDate = BetterDateUtils.getNumDate();
         this.regTime = BetterDateUtils.getNumTime();
-        
+
         this.modiOperId = UserUtils.getOperatorInfo().getId();
         this.modiOperName = UserUtils.getOperatorInfo().getName();
         this.modiDate = BetterDateUtils.getNumDate();
         this.modiTime = BetterDateUtils.getNumTime();
-        
+
         this.custNo = anBankAccountTmp.getCustNo();
         this.identType = anBankAccountTmp.getIdentType();
         this.identNo = anBankAccountTmp.getIdentNo();
@@ -764,7 +770,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         this.bankName = anBankAccountTmp.getBankName();
         this.isDefault = anBankAccountTmp.getIsDefault();
         this.cityNo = anBankAccountTmp.getCityNo();
-                                                                
+
         this.operOrg = UserUtils.getOperatorInfo().getOperOrg();
         this.businStatus = "0";
     }
@@ -774,7 +780,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         this.identType = anBankAccount.getIdentType();
         this.identNo = anBankAccount.getIdentNo();
         this.batchNo = anBankAccount.getBatchNo();
-        
+
         this.batchNo = anBankAccount.getBatchNo();
         this.bankAcco = anBankAccount.getBankAcco();
         this.bankAccoName = anBankAccount.getBankAccoName();
@@ -782,14 +788,14 @@ public class CustMechBankAccount implements BetterjrEntity {
         this.bankName = anBankAccount.getBankName();
         this.isDefault = anBankAccount.getIsDefault();
         this.cityNo = anBankAccount.getCityNo();
-        
+
         this.modiOperId = UserUtils.getOperatorInfo().getId();
         this.modiOperName = UserUtils.getOperatorInfo().getName();
         this.modiDate = BetterDateUtils.getNumDate();
         this.modiTime = BetterDateUtils.getNumTime();
     }
 
-    public void initModifyValue(CustMechBankAccountTmp anBankAccountTmp) {
+    public void initModifyValue(final CustMechBankAccountTmp anBankAccountTmp) {
         this.custNo = anBankAccountTmp.getCustNo();
         this.identType = anBankAccountTmp.getIdentType();
         this.identNo = anBankAccountTmp.getIdentNo();
@@ -800,7 +806,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         this.bankName = anBankAccountTmp.getBankName();
         this.isDefault = anBankAccountTmp.getIsDefault();
         this.cityNo = anBankAccountTmp.getCityNo();
-        
+
         this.modiOperId = UserUtils.getOperatorInfo().getId();
         this.modiOperName = UserUtils.getOperatorInfo().getName();
         this.modiDate = BetterDateUtils.getNumDate();

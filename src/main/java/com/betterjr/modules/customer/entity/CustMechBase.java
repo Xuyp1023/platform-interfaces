@@ -1089,8 +1089,8 @@ public class CustMechBase implements BetterjrEntity {
         this.regOperName = anRegOperName;
         this.operOrg = anOperOrg;
 
-        this.modiOperId = UserUtils.getOperatorInfo().getId();
-        this.modiOperName = UserUtils.getOperatorInfo().getName();
+        this.modiOperId = UserUtils.getOperatorInfo() != null? UserUtils.getOperatorInfo().getId() : anRegOperId;
+        this.modiOperName = UserUtils.getOperatorInfo() != null? UserUtils.getOperatorInfo().getName() : anRegOperName;
         this.modiDate = BetterDateUtils.getNumDate();
         this.modiTime = BetterDateUtils.getNumTime();
     }
@@ -1183,8 +1183,10 @@ public class CustMechBase implements BetterjrEntity {
         this.zipCode = anMechBaseTmp.getZipCode();
         this.batchNo = anMechBaseTmp.getBatchNo();
 
-        this.modiOperId = UserUtils.getOperatorInfo().getId();
-        this.modiOperName = UserUtils.getOperatorInfo().getName();
+        if (UserUtils.getOperatorInfo() != null) {
+            this.modiOperId = UserUtils.getOperatorInfo().getId();
+            this.modiOperName = UserUtils.getOperatorInfo().getName();
+        }
         this.modiDate = BetterDateUtils.getNumDate();
         this.modiTime = BetterDateUtils.getNumTime();
     }
