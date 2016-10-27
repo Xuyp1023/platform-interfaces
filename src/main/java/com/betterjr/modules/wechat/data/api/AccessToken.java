@@ -52,7 +52,7 @@ public class AccessToken implements Serializable {
     public void setExpiresIn(final long expiresIn) {
         // 考虑到服务器时间同步,故将刷新时间提前60秒.
         this.orginExpireSec = expiresIn;
-        this.expiresIn = System.currentTimeMillis() + (expiresIn - 60) * 1000;
+        this.expiresIn = System.currentTimeMillis() + (expiresIn / 2) * 1000;
     }
 
     public long getOrginExpireSec() {
