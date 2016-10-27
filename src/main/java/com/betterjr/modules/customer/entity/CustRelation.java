@@ -13,6 +13,7 @@ import com.betterjr.common.mapper.CustDateJsonSerializer;
 import com.betterjr.common.selectkey.SerialGenerator;
 import com.betterjr.common.utils.BetterDateUtils;
 import com.betterjr.common.utils.UserUtils;
+import com.betterjr.modules.account.entity.CustOperatorInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -530,5 +531,17 @@ public class CustRelation implements BetterjrEntity {
 
         this.businStatus = anCustRelation.getBusinStatus();
         this.operOrg = anCustRelation.getOperOrg();
+    }
+    
+    public void initWeChatValue(CustOperatorInfo anOperator) {
+        this.id = SerialGenerator.getLongValue("CustRelation.id");
+        this.operId = anOperator.getId();
+        this.operName = anOperator.getName();
+        this.operOrg = anOperator.getOperOrg();
+        
+        this.regOperId = anOperator.getId();
+        this.regOperName = anOperator.getName();
+        this.regDate = BetterDateUtils.getNumDate();
+        this.regTime = BetterDateUtils.getNumTime();
     }
 }

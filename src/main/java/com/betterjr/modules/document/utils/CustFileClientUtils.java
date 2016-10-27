@@ -44,6 +44,11 @@ import com.itextpdf.tool.xml.pipeline.html.HtmlPipelineContext;
 
 public abstract class CustFileClientUtils {
     private static final Logger logger = LoggerFactory.getLogger(CustFileClientUtils.class);
+    
+    public static Long findBatchNo() {
+
+        return SerialGenerator.getLongValue("CustFileInfo.id");
+    }
 
     /**
      * 将上传的文件持续化。
