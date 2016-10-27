@@ -14,6 +14,7 @@ import com.betterjr.common.mapper.CustDateJsonSerializer;
 import com.betterjr.common.selectkey.SerialGenerator;
 import com.betterjr.common.utils.BetterDateUtils;
 import com.betterjr.common.utils.UserUtils;
+import com.betterjr.modules.account.entity.CustOperatorInfo;
 import com.betterjr.modules.customer.constants.CustomerConstants;
 import com.betterjr.modules.account.entity.CustOperatorInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -202,8 +203,16 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
      */
     @Column(name = "C_RELATE_CUSTCORP", columnDefinition = "CHAR")
     @MetaData(value = "合作方系统客户编号", comments = "合作方系统客户编号")
-    private Long relateCustCorp;
+    private String relateCustCorp;
 
+    /**
+     * 合作方系统客户编号
+     */
+    @JsonIgnore
+    @Column(name = "C_PARTNER_CUSTNO", columnDefinition = "VARCHAR")
+    @MetaData(value = "合作方系统客户编号", comments = "合作方系统客户编号")
+    private String partnerCustNo;
+    
     private static final long serialVersionUID = 1468812783874L;
 
     public Long getId() {
@@ -397,14 +406,21 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
     public void setLastStatus(String lastStatus) {
         this.lastStatus = lastStatus == null ? null : lastStatus.trim();
     }
-
-
-    public Long getRelateCustCorp() {
+ 
+    public String getRelateCustCorp() {
         return this.relateCustCorp;
     }
 
-    public void setRelateCustCorp(Long anRelateCustCorp) {
+    public void setRelateCustCorp(String anRelateCustCorp) {
         this.relateCustCorp = anRelateCustCorp;
+    }
+
+    public String getPartnerCustNo() {
+        return this.partnerCustNo;
+    }
+
+    public void setPartnerCustNo(String anPartnerCustNo) {
+        this.partnerCustNo = anPartnerCustNo;
     }
 
     @Override
@@ -513,12 +529,13 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
 
     public void initAddValue() {
         this.id = SerialGenerator.getLongValue("CustRelation.id");
-        this.operId = UserUtils.getOperatorInfo().getId();
-        this.operName = UserUtils.getOperatorInfo().getName();
-        this.operOrg = UserUtils.getOperatorInfo().getOperOrg();
-
-        this.regOperId = UserUtils.getOperatorInfo().getId();
-        this.regOperName = UserUtils.getOperatorInfo().getName();
+        CustOperatorInfo operator = UserUtils.getOperatorInfo();
+        initValue(operator);
+        if (operator != null){
+            this.operId = operator.getId();
+            this.operName = operator.getName();
+            this.operOrg = operator.getOperOrg();
+        }
         this.regDate = BetterDateUtils.getNumDate();
         this.regTime = BetterDateUtils.getNumTime();
     }
@@ -526,8 +543,11 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
     public void initModifyValue(final CustRelation anCustRelation) {
         this.id = anCustRelation.getId();
 
-        this.modiOperId = UserUtils.getOperatorInfo().getId();
-        this.modiOperName = UserUtils.getOperatorInfo().getName();
+        CustOperatorInfo operator = UserUtils.getOperatorInfo();
+        if (operator != null){
+            this.modiOperId = operator.getId();
+            this.modiOperName = operator.getName();
+        }
         this.modiDate = BetterDateUtils.getNumDate();
         this.modiTime = BetterDateUtils.getNumTime();
 
