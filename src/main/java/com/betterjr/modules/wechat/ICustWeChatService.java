@@ -109,4 +109,6 @@ public interface ICustWeChatService {
      */
     Object fileUpload(String anFileTypeName, String anFileMediaId);
 
+
+
 }

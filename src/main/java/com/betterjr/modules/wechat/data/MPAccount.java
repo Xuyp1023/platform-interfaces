@@ -52,6 +52,11 @@ public class MPAccount implements Serializable {
      */
     private boolean pass;
 
+    /**
+     * 微信服务地址
+     */
+    private String wechatUrl;
+
     public String getMpId() {
         return mpId;
     }
@@ -116,6 +121,15 @@ public class MPAccount implements Serializable {
         this.pass = pass;
     }
 
+
+    public String getWechatUrl() {
+        return wechatUrl;
+    }
+
+    public void setWechatUrl(final String anWechatUrl) {
+        wechatUrl = anWechatUrl;
+    }
+
     @Override
     public String toString() {
         return "MPAccount [mpId="
@@ -134,6 +148,8 @@ public class MPAccount implements Serializable {
                 + mpType
                 + ", pass="
                 + pass
+                + ", wechatUrl="
+                + wechatUrl
                 + "]";
     }
 }
