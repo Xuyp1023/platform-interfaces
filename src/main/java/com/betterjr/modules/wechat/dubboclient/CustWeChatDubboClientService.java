@@ -9,6 +9,7 @@ package com.betterjr.modules.wechat.dubboclient;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
@@ -23,6 +24,8 @@ import com.betterjr.common.utils.BTAssert;
 import com.betterjr.common.utils.JedisUtils;
 import com.betterjr.common.utils.UserUtils;
 import com.betterjr.modules.account.entity.CustOperatorInfo;
+import com.betterjr.modules.document.ICustFileService;
+import com.betterjr.modules.document.entity.CustFileItem;
 import com.betterjr.modules.wechat.ICustWeChatService;
 import com.betterjr.modules.wechat.constants.WechatConstants;
 import com.betterjr.modules.wechat.data.EventType;
@@ -46,9 +49,11 @@ public class CustWeChatDubboClientService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
 
-
     @Reference(interfaceClass = ICustWeChatService.class)
     ICustWeChatService wechatService;
+
+    @Reference(interfaceClass=ICustFileService.class)
+    private ICustFileService custFileService;
 
     private MPAccount mpAccount = null;
 
@@ -227,7 +232,9 @@ public class CustWeChatDubboClientService {
      * @return
      */
     public Follower findFollower(final String anOpenId) {
-        BTAssert.notNull(anOpenId, "openId 不允许为空！");
+        if (anOpenId == null) {
+            return null;
+        }
         final WechatAPIImpl wechatApi = WechatAPIImpl.create(this.getMpAccount());
         final Follower follower = wechatApi.getFollower(anOpenId, null);
 
@@ -283,4 +290,35 @@ public class CustWeChatDubboClientService {
     public Object fileUpload(final String anFileTypeName, final String anFileMediaId) {
         return wechatService.fileUpload(anFileTypeName, anFileMediaId);
     }
+
+    /**
+     * @return
+     */
+    public String getWechatUrl() {
+        return mpAccount.getWechatUrl();
+    }
+
+    /**
+     * @param anBatchNo
+     * @return
+     */
+    public List<CustFileItem> findCustFiles(final Long anBatchNo) {
+        return custFileService.findCustFiles(anBatchNo);
+    }
+
+    /**
+     * @param anId
+     * @return
+     */
+    public CustFileItem fileDownload(final Long anId) {
+        return custFileService.findOne(anId);
+    }
+
+    /**
+     * @return
+     */
+    public String findFileBasePath() {
+        return custFileService.findFileBasePath();
+    }
+
 }
