@@ -534,9 +534,6 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
             this.operId = operator.getId();
             this.operName = operator.getName();
             this.operOrg = operator.getOperOrg();
-    
-            this.regOperId = operator.getId();
-            this.regOperName = operator.getName();
         }
         this.regDate = BetterDateUtils.getNumDate();
         this.regTime = BetterDateUtils.getNumTime();
