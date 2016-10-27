@@ -46,7 +46,7 @@ public class JSTicket implements Serializable {
 
     public void setExpiresIn(final long expiresIn) {
         this.orginExpireSec = expiresIn;
-        this.expiresIn = System.currentTimeMillis() + (expiresIn - 60) * 1000;
+        this.expiresIn = System.currentTimeMillis() + (expiresIn / 2) * 1000;
     }
 
     public boolean isAvailable() {
