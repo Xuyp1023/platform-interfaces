@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.betterjr.modules.customer.data.CustRelationData;
-
 import com.betterjr.modules.customer.entity.CustRelation;
 
 
@@ -160,15 +159,15 @@ public interface ICustRelationService {
      * @return
      */
     public String webQueryFactorCustRelation(Long anFactorNo, String anCreditType);
-    
+
     /**
      * 查询保理结构所有关系客户
-     * 
+     *
      * @param anFactorNo
      * @return
      */
     public String webQueryFactorAllCust(Long anFactorNo);
-    
+
 
     /****
      * 查询客户号根据类型返回关联关系信息
@@ -183,11 +182,14 @@ public interface ICustRelationService {
      */
     public String webQueryFactorRelation(Long anCustNo);
 
+
+    public String webQueryOpenedFactor(Long anCustNo);
+
     /**
-     * 检查客户保理, 
+     * 检查客户保理,
      * 客户只能是供应商|经销商|核心企业
      * relateType为 ： 0,2,3
-     * 
+     *
      * @param anCustNo
      *            客户号
      * @param anRelateCustno
@@ -197,58 +199,58 @@ public interface ICustRelationService {
      * @return
      */
     public CustRelation findOneRelation(Long anCustNo, Long anRelateCustno,String anPartnerCustNo);
-    
+
     /**
      * 更新关联关系的状态
-     * 
+     *
      * @param anCustNo
      * @param anScfId
      * @param anStatus
      * @param anFactorNo
      */
     public boolean saveFactorRelationStatus(Long anCustNo, String anScfId, String anStatus, String anFactorNo);
-    
+
     /**
      * 按银行账户信息查询供应商与核心企业关系
-     * 
+     *
      * @param anBankAccountName
      * @param anBankAccount
      * @return
      */
     public Long findCustNoByBankInfo(String anBankAccountName, String anBankAccount);
-    
+
 
     /**
      * 根据从核心企业上传的客户信息，保存客户与核心企业的关系；数据来自对象 CoreSupplierInfo <BR>
      * 处理逻辑：检查核心企业编码加上其余的熟悉 先检查客户号是否存在，如果存在，根据核心企业编码和客户号来检查，<BR>
      * 如果记录存在，则更新核心企业的内部编码 如果不存在，则根据核心企业内部编码来检查，如果存在则忽略；如果不存在，<BR>
      * 则根据企业名称来检查，如果都不存在，则增加记录
-     * 
+     *
      * @param anValues 上传来的数据
      * @param anCoreCustName 核心企业名称
      * @param anCoreCustNo 核心企业编码
      * @return
      */
     public boolean saveAndCheckCust(Map<String, Object> anValues, String anCoreCustName, Long anCoreCustNo);
-    
+
     /**
      * 微信端,获取当前客户的保理公司
-     * 
+     *
      * @return
      */
     public String webQueryFactorRelation();
-    
+
     /**
      * 微信端查询当前客户信息
-     * 
+     *
      * @return
      */
     public String webFindWechatCurrentCustInfo();
-    
+
 
     /**
      * 微信端开通保理融资业务申请
-     * 
+     *
      * @param anCustNo
      * @param anFactorCustList
      * @return
