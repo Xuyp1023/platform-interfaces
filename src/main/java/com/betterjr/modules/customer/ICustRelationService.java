@@ -182,13 +182,6 @@ public interface ICustRelationService {
      * @return
      */
     public String webQueryFactorRelation(Long anCustNo);
-    
-    /**
-     * 微信端,获取当前客户的保理公司
-     * 
-     * @return
-     */
-    public String webQueryFactorRelation();
 
     /**
      * 检查客户保理, 
@@ -237,5 +230,29 @@ public interface ICustRelationService {
      * @return
      */
     public boolean saveAndCheckCust(Map<String, Object> anValues, String anCoreCustName, Long anCoreCustNo);
+    
+    /**
+     * 微信端,获取当前客户的保理公司
+     * 
+     * @return
+     */
+    public String webQueryFactorRelation();
+    
+    /**
+     * 微信端查询当前客户信息
+     * 
+     * @return
+     */
+    public String webFindWechatCurrentCustInfo();
+    
+
+    /**
+     * 微信端开通保理融资业务申请
+     * 
+     * @param anCustNo
+     * @param anFactorCustList
+     * @return
+     */
+    public String webSaveCustRelation(Long anCustNo, String anFactorCustList);
 
 }
