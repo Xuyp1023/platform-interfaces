@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.betterjr.common.config.SpringPropertyResourceReader;
 import com.betterjr.common.exception.BytterException;
 import com.betterjr.common.selectkey.SerialGenerator;
 import com.betterjr.common.utils.BTAssert;
@@ -252,7 +253,7 @@ public class CustWeChatDubboClientService {
      * @return
      */
     public String getAppId() {
-        return mpAccount.getAppId();
+        return getMpAccount().getAppId();
     }
 
     public CustWeChatInfo saveWeChatInfo(final CustWeChatInfo anWeChatInfo) {
@@ -295,7 +296,7 @@ public class CustWeChatDubboClientService {
      * @return
      */
     public String getWechatUrl() {
-        return mpAccount.getWechatUrl();
+        return getMpAccount().getWechatUrl();
     }
 
     /**
@@ -319,6 +320,13 @@ public class CustWeChatDubboClientService {
      */
     public String findFileBasePath() {
         return custFileService.findFileBasePath();
+    }
+
+    /**
+     *
+     */
+    public String getSysMode() {
+        return SpringPropertyResourceReader.getProperty("sys.mode", "prod");
     }
 
 }
