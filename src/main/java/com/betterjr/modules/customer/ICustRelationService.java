@@ -4,6 +4,8 @@ package com.betterjr.modules.customer;
 import java.util.List;
 import java.util.Map;
 
+import com.betterjr.common.annotation.NoSession;
+import com.betterjr.common.data.SimpleDataEntity;
 import com.betterjr.modules.customer.data.CustRelationData;
 
 import com.betterjr.modules.customer.entity.CustRelation;
@@ -203,6 +205,7 @@ public interface ICustRelationService {
      *            客户在保理公司的客户号
      * @return
      */
+    @NoSession
     public CustRelation findOneRelation(Long anCustNo, Long anRelateCustno,String anPartnerCustNo);
     
     /**
@@ -213,6 +216,7 @@ public interface ICustRelationService {
      * @param anStatus
      * @param anFactorNo
      */
+    @NoSession
     public boolean saveFactorRelationStatus(Long anCustNo, String anScfId, String anStatus, String anFactorNo);
     
     /**
@@ -222,6 +226,7 @@ public interface ICustRelationService {
      * @param anBankAccount
      * @return
      */
+    @NoSession
     public Long findCustNoByBankInfo(String anBankAccountName, String anBankAccount);
     
 
@@ -236,6 +241,97 @@ public interface ICustRelationService {
      * @param anCoreCustNo 核心企业编码
      * @return
      */
+    
+    @NoSession
     public boolean saveAndCheckCust(Map<String, Object> anValues, String anCoreCustName, Long anCoreCustNo);
 
+    /**
+     * 保存保理公司与企业之间的关系
+     * 
+     * @param anRelation
+     */
+    @NoSession
+    public void saveOrUpdateCustFactor(CustRelation anRelation);
+    
+    /**
+     * 根据保理公司客户号，查找系统中的客户号
+     * 
+     * @param anScfId
+     *            保理公司客户号
+     * @param anAgencyNo
+     *            保理公司编码
+     * @return
+     */
+    @NoSession
+    public Long findCustNoByScfId(String anScfId, String anAgencyNo);
+    
+
+    /**
+     * 根据客户号获得在保理公司的关联号
+     * @param anCustNo 我方系统客户号
+     * @param anAgencyNo 保理公司编码
+     * @return
+     */
+    @NoSession
+    public String findScfIdByCustNo(Long anCustNo, String anAgencyNo);
+    
+    /**
+     * 查询核心企业关联的保理机构，用于获取核心企业额度信息
+     * @param anAgencyNo
+     * @return
+     */
+    @NoSession
+    public List<CustRelation> findFactorRelaByCoreCustNo(String anAgencyNo);
+    
+
+    /**
+     * 查询状态为处理中的业务，包括1：已申请和5：取消中的关联关系
+     * 
+     * @return
+     */
+    @NoSession
+    public List<CustRelation> findFactorRelaByRough(String anAgencyNo);
+    
+    /**
+     * 查询需要调用远程开户接口的信息
+     * @return
+     */
+    @NoSession
+    public List<CustRelation> findAppAccountRequest();
+    
+    /**
+     * 根据ID，查找单个关联信息
+     * @param anRelationId
+     * @return
+     */
+    @NoSession
+    public CustRelation findByRelationId(Long anRelationId);
+
+    /**
+     * 判断开户的是否是核心企业；客户类型：1 供应商开户 2 核心企业开户
+     * 
+     * @param anCustNo 企业编码
+     * @param anAgencyNo 合作机构代码
+     * @return
+     */
+    @NoSession
+    public String checkCoreCustomer(Long anCustNo, String anAgencyNo);
+    
+    /**
+     *保存远程调用的接口信息 
+     * @param anId 关系ID
+     * @param anScfId 远端的客户信息
+     * @param anStatus 处理状态
+     */    
+    @NoSession
+    public void saveFactorRelationInfo(Long anId, String anScfId, String anStatus);
+    
+
+    /**
+     * 保理机构客户查询,适用于根据核心企业，查询关联保理机构的供应商或经销商
+     *
+     * @param anCoreCustNo
+     * @return
+     */
+    public String webQuerySimpleDataByFactorAndCore(final Long anCoreCustNo);    
 }

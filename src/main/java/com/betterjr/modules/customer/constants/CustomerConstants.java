@@ -166,4 +166,7 @@ public interface CustomerConstants {
      */
     String CUSTOMER_TYPE_PERSONAL = "1";
     
+    String CUSTOMER_OPEN_SCF_ACCOUNT ="CUSTOMER_OPEN_SCF_ACCOUNT";
+    
+    String CUSTOMER_ADUIT_OPEN_SCF_ACCOUNT ="CUSTOMER_ADUIT_OPEN_SCF_ACCOUNT";
 }
