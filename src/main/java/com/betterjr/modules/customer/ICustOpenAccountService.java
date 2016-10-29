@@ -2,6 +2,8 @@ package com.betterjr.modules.customer;
 
 import java.util.Map;
 
+import com.betterjr.common.annotation.NoSession;
+
 /**
  * 开户流水
  *
@@ -102,5 +104,12 @@ public interface ICustOpenAccountService {
      * @return
      */
     public String webQueryAuditWorkflowById(Long anOpenAccountId);
-
+    
+    /**
+     *读取开户的临时文件信息，用于远程开通业务
+     * @param anCustNo 客户编号
+     * @return
+     */
+    @NoSession
+    public Map<String, Object> findOpenTempAccountInfo(Long anCustNo);
 }
