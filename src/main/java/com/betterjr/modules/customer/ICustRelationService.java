@@ -355,6 +355,12 @@ public interface ICustRelationService {
      * @param anCoreCustNo
      * @return
      */
-    public String webQuerySimpleDataByFactorAndCore(final Long anCoreCustNo);    
+    public String webQuerySimpleDataByFactorAndCore(final Long anCoreCustNo);
+
+    /**
+     * 查询核心企业下面所有客户
+     * 
+     */
+    public String webQueryCoreCust(Long anCoreCustNo);    
 
 }
