@@ -314,14 +314,7 @@ public class CustWeChatDubboClientService {
     public CustFileItem fileDownload(final Long anId) {
         return custFileService.findOne(anId);
     }
-
-    /**
-     * @return
-     */
-    public String findFileBasePath() {
-        return custFileService.findFileBasePath();
-    }
-
+ 
     /**
      *
      */

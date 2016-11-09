@@ -25,6 +25,7 @@ import com.betterjr.common.utils.BetterStringUtils;
 import com.betterjr.common.utils.FileUtils;
 import com.betterjr.common.utils.MimeTypesHelper;
 import com.betterjr.modules.document.data.DownloadFileInfo;
+import com.betterjr.modules.document.data.FileStoreType;
 import com.betterjr.modules.document.entity.CustFileItem;
 import com.betterjr.modules.sys.service.SysConfigService;
 import com.itextpdf.text.Document;
@@ -60,26 +61,19 @@ public abstract class CustFileUtils {
      *            签名的文件路径
      * @return
      */
-
-    public static Long findBatchNo() {
-
-        return SerialGenerator.getLongValue("CustFileInfo.id");
-    }
-
-    public static CustFileItem createSignDocFileItem(KeyAndValueObject anFileInfo, String anWorkType, String anFileName) {
-        CustFileItem fileItem = createDefFileItem(anFileInfo, anWorkType, anFileName);
+ 
+    public static CustFileItem createSignDocFileItem(String anFilePath, long anSize, String anWorkType, String anFileName) {
+        CustFileItem fileItem = createDefFileItem(anFilePath, anSize, anWorkType, anFileName);
         fileItem.setBatchNo(findBatchNo());
 
         return fileItem;
     }
 
-    private static CustFileItem createDefFileItem(KeyAndValueObject anFileInfo, String anWorkType, String anFileName) {
+    private static CustFileItem createDefFileItem(String anFilePath, long anSize, String anWorkType, String anFileName) {
         CustFileItem fileItem = new CustFileItem();
         fileItem.setId(SerialGenerator.getLongValue("CustFileItem.id"));
-        File tmpFile = (File) anFileInfo.getValue();
-        fileItem.setAbsoFile(tmpFile);
-        fileItem.setFileLength(tmpFile.length());
-        fileItem.setFilePath(anFileInfo.getStrKey());
+        fileItem.setFileLength(anSize);
+        fileItem.setFilePath(anFilePath);
         fileItem.setFileInfoType(anWorkType);
         fileItem.setFileName(anFileName);
         fileItem.setBatchNo(0L);
@@ -114,12 +108,79 @@ public abstract class CustFileUtils {
      *            文件类型
      * @return
      */
-    public static CustFileItem createUploadFileItem(KeyAndValueObject anFileInfo, String anWorkType, String anFileName) {
-        CustFileItem fileItem = createDefFileItem(anFileInfo, anWorkType, anFileName);
+    public static CustFileItem createUploadFileItem(String anFilePath, long anSize, String anWorkType, String anFileName) {
+        CustFileItem fileItem = createDefFileItem(anFilePath, anSize, anWorkType, anFileName);
 
         return fileItem;
     }
-    
+
+    private static final FileStoreType fileStoreType = FileStoreType.OSS_STORE;
+    public static Long findBatchNo() {
+
+        return SerialGenerator.getLongValue("CustFileInfo.id");
+    }
+
+    /**
+     * 将上传的文件持续化。
+     *
+     * @param anFileInfo
+     * @param anInput
+     * @return
+     */
+    public static boolean saveFileStream(final KeyAndValueObject anFileInfo, final InputStream anInput) {
+        final File tmpFile = (File) anFileInfo.getValue();
+        FileOutputStream outStream = null;
+        try {
+            outStream = new FileOutputStream(tmpFile);
+            IOUtils.copy(anInput, outStream);
+            return true;
+        }
+        catch (final IOException ex) {
+            tmpFile.delete();
+            return false;
+        }
+        finally {
+            IOUtils.closeQuietly(outStream);
+        }
+    }
+ 
+    /**
+     * 输出PDF文件
+     * @param anSb
+     * @param anOut
+     */
+    public static void exportPDF(final StringBuffer anSb, final OutputStream anOut) {
+        final Document document = new Document(PageSize.A4, 0, 0, 0, 0);
+        document.setMargins(0, 0, 0, 0);
+        System.out.println(anSb.toString());
+        PdfWriter pdfwriter = null;
+        try {
+            pdfwriter = PdfWriter.getInstance(document, anOut);
+            pdfwriter.setViewerPreferences(PdfWriter.HideToolbar);
+            document.open();
+            document.newPage();
+            final HtmlPipelineContext htmlContext = new HtmlPipelineContext(null);
+
+            htmlContext.setTagFactory(Tags.getHtmlTagProcessorFactory());
+            final CSSResolver cssResolver = XMLWorkerHelper.getInstance().getDefaultCssResolver(true);
+            final Pipeline pipeline = new CssResolverPipeline(cssResolver, new HtmlPipeline(htmlContext, new PdfWriterPipeline(document, pdfwriter)));
+
+            final XMLWorker worker = new XMLWorker(pipeline, true);
+            final XMLParser p = new XMLParser(worker);
+            System.out.println(anSb.toString());
+            final StringReader reader = new StringReader(anSb.toString());
+            p.parse(reader);
+            p.flush();
+        }
+        catch (IOException | DocumentException ex) {
+            throw new BytterTradeException(30002, "产生PDF报告文件出现异常，请稍后再试", ex);
+        }
+        finally {
+            document.close();
+            pdfwriter.close();
+        }
+    }
+ 
     
     public static DownloadFileInfo sendToDownloadFileService(CustFileItem anFileItem, Long anCustNo, String anPartnerCode, String anBusingType){
         DownloadFileInfo fileInfo = BeanMapper.map(anFileItem, DownloadFileInfo.class);

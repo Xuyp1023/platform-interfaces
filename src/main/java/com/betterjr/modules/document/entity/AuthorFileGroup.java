@@ -1,7 +1,16 @@
 package com.betterjr.modules.document.entity;
 
+import com.alibaba.rocketmq.common.protocol.header.QueryMessageRequestHeader;
 import com.betterjr.common.annotation.*;
 import com.betterjr.common.entity.BetterjrEntity;
+import com.betterjr.common.selectkey.SerialGenerator;
+import com.betterjr.common.utils.BetterDateUtils;
+import com.betterjr.common.utils.BetterStringUtils;
+import com.betterjr.common.utils.QueryTermBuilder;
+import com.betterjr.modules.document.data.FileStoreType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.Map;
 
 import javax.persistence.*;
 
@@ -18,7 +27,7 @@ public class AuthorFileGroup implements BetterjrEntity {
     private String fileInfoType;
 
     /**
-     * 业务代码
+     * 业务代码 00：其它文件，01账户文件,02交易文件
      */
     @Column(name = "C_BUSINFLAG",  columnDefinition="VARCHAR" )
     @MetaData( value="业务代码", comments = "业务代码；取文件的分割")
@@ -52,8 +61,32 @@ public class AuthorFileGroup implements BetterjrEntity {
     @MetaData(value = "缺少的消息提示", comments = "缺少的消息提示")
     private String deficiencyInfo;
 
+    /**
+     * 存儲路徑
+     */
+    @JsonIgnore
+    @Column(name = "c_storepath", columnDefinition = "VARCHAR")
+    @MetaData(value = "存储路径", comments = "存储路径")
+    private String storePath;
+
+    /**
+     * 0:文件系统，1:阿里云
+     */
+    @JsonIgnore
+    @Column(name = "C_STORETYPE", columnDefinition = "VARCHAR")
+    @MetaData(value = "0:文件系统，1:阿里云", comments = "0:文件系统，1:阿里云")
+    private String storeType;
+
     private static final long serialVersionUID = 1440667936389L;
  
+    public String getStoreType() {
+        return this.storeType;
+    }
+
+    public void setStoreType(String anStoreType) {
+        this.storeType = anStoreType;
+    }
+
     public String getBusinFlag() {
         return businFlag;
     }
@@ -113,6 +146,8 @@ public class AuthorFileGroup implements BetterjrEntity {
         sb.append(", description=").append(description);
         sb.append(", deficiencyInfo=").append(deficiencyInfo);
         sb.append(", groupStatus=").append(groupStatus);
+        sb.append(", storeType=").append(storeType);
+        sb.append(", storePath=").append(storePath);
         sb.append("]");
         return sb.toString();
     }
@@ -134,7 +169,17 @@ public class AuthorFileGroup implements BetterjrEntity {
             && (this.getWorkRang() == null ? other.getWorkRang() == null : this.getWorkRang().equals(other.getWorkRang()))
             && (this.getBusinFlag() == null ? other.getBusinFlag() == null : this.getBusinFlag().equals(other.getBusinFlag()))
             && (this.getDeficiencyInfo() == null ? other.getDeficiencyInfo() == null : this.getDeficiencyInfo().equals(other.getDeficiencyInfo()))
+            && (this.getStoreType() == null ? other.getStoreType() == null : this.getStoreType().equals(other.getStoreType()))
+            && (this.getStorePath() == null ? other.getStorePath() == null : this.getStorePath().equals(other.getStorePath()))
             && (this.getGroupStatus() == null ? other.getGroupStatus() == null : this.getGroupStatus().equals(other.getGroupStatus()));
+    }
+
+    public String getStorePath() {
+        return this.storePath;
+    }
+
+    public void setStorePath(String anStorePath) {
+        this.storePath = anStorePath;
     }
 
     @Override
@@ -147,6 +192,46 @@ public class AuthorFileGroup implements BetterjrEntity {
         result = prime * result + ((getBusinFlag() == null) ? 0 : getBusinFlag().hashCode());
         result = prime * result + ((getDeficiencyInfo() == null) ? 0 : getDeficiencyInfo().hashCode());
         result = prime * result + ((getGroupStatus() == null) ? 0 : getGroupStatus().hashCode());
+        result = prime * result + ((getStoreType() == null) ? 0 : getStoreType().hashCode());
+        result = prime * result + ((getStorePath() == null) ? 0 : getStorePath().hashCode());
         return result;
+    }
+    
+    public AuthorFileGroup(){
+        
+    }
+    
+    public AuthorFileGroup(String anBusinClass, String anFileInfoType){
+        this.businFlag = anBusinClass;
+        this.fileInfoType = anFileInfoType;
+    }
+    
+    private static String findStorePath(String anBusinFlag){
+        String tmpStr =(String) QueryTermBuilder.newInstance().put("00", "other").put("01", "account").put("02", "trade").build().get(anBusinFlag);
+        if (BetterStringUtils.isBlank(tmpStr)){
+            tmpStr = "other";
+        }
+        return tmpStr;
+    }
+    
+    /**
+     * 查找文件创建路径信息
+     * @return
+     */
+    public String findCreateFilePath(FileStoreType anStoreType){
+       StringBuilder sb = new StringBuilder();
+       if (anStoreType != FileStoreType.OSS_STORE){
+           sb.append("/");
+       }
+       sb.append(BetterDateUtils.getNumDate()).append("/");
+       sb.append(findStorePath(this.businFlag)).append("/");
+       if (BetterStringUtils.isNotBlank(this.storePath)){
+          sb.append(this.storePath).append("/"); 
+       }
+       if (BetterStringUtils.isNotBlank(fileInfoType)){
+          sb.append(this.fileInfoType).append("/");
+       }
+       sb.append(SerialGenerator.uuid());
+       return sb.toString();
     }
 }
