@@ -152,13 +152,24 @@ public class CustFileItem implements BetterjrEntity {
     @MetaData(value = "操作机构", comments = "操作机构")
     private String operOrg;
 
+    /**
+     * 0:文件系统，1:阿里云
+     */
+    @JsonIgnore
+    @Column(name = "C_STORETYPE", columnDefinition = "VARCHAR")
+    @MetaData(value = "0:文件系统，1:阿里云", comments = "0:文件系统，1:阿里云")
+    private String storeType;
 
     @Transient
     private CustFileInfo fileInfo;
+ 
+    public String getStoreType() {
+        return this.storeType;
+    }
 
-    @Transient
-    @JsonIgnore
-    private File absoFile;
+    public void setStoreType(String anStoreType) {
+        this.storeType = anStoreType;
+    }
 
     private static final long serialVersionUID = 1440667936398L;
 
@@ -305,15 +316,7 @@ public class CustFileItem implements BetterjrEntity {
     public void setOperOrg(final String anOperOrg) {
         operOrg = anOperOrg;
     }
-
-    public File getAbsoFile() {
-        return this.absoFile;
-    }
-
-    public void setAbsoFile(final File anAbsoFile) {
-        this.absoFile = anAbsoFile;
-    }
-
+ 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
@@ -439,13 +442,10 @@ public class CustFileItem implements BetterjrEntity {
         this.operOrg = anOperator.getOperOrg();
     }
 
-    public void initModifyValue(final CustOperatorInfo anOperator) {
-        this.modiDate = BetterDateUtils.getNumDate();
+    public void initModifyValue(CustOperatorInfo anOperator){
+         this.modiDate = BetterDateUtils.getNumDate();
         this.modiTime = BetterDateUtils.getNumTime();
         this.modiOperId = anOperator.getId();
         this.modiOperName = anOperator.getName();
     }
-
-
-
 }

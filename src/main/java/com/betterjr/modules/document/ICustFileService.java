@@ -7,6 +7,7 @@ import java.util.Set;
 
 import com.betterjr.common.data.KeyAndValueObject;
 import com.betterjr.modules.document.data.AccountAduitData;
+import com.betterjr.modules.document.data.FileStoreType;
 import com.betterjr.modules.document.entity.CustFileAduit;
 import com.betterjr.modules.document.entity.CustFileItem;
 
@@ -120,12 +121,13 @@ public interface ICustFileService {
      */
     public List<CustFileItem> findCustFilesByBatch(List<Long> anBatchNoList);
     
+    public CustFileItem saveAndUpdateFileItem(String filePath,Long fileLength, String anWorkType, String anFileName, FileStoreType anStoreType, boolean anWithBatchNo);    
     /**
      * 保存文件信息，如果存在就更新，不存在就增加
      * @param anFileItem
      * @return
      */
-    public String webSaveAndUpdateFileItem(String filePath,Long fileLength, String anWorkType, String anFileName);
+    public String webSaveAndUpdateFileItem(String filePath,Long fileLength, String anWorkType, String anFileName, FileStoreType anStoreType);
     
     /**
      * 删除附件，具体逻辑是如果存在并匹配上了，就可以设置batchNo为负值，便于今后查询
@@ -146,15 +148,10 @@ public interface ICustFileService {
      *            文件批次号
      */
     public boolean deleteFileItem(Long anId, Long anBatchNo);
-    
-    /**
-     * 得到文件存储的basePath
-     */
-    public String findFileBasePath();
-
+     
     /**
      * 根据fileList和现有batchNo更新,会删除已删除的文件
      */
     public Long updateAndDelCustFileItemInfo(String anFileList, Long anBatchNo);
-    
+     
 }
