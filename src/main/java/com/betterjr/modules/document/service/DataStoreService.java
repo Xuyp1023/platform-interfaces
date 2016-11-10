@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.dubbo.config.annotation.Reference;
@@ -17,8 +19,15 @@ import com.betterjr.modules.document.entity.CustFileItem;
 import com.betterjr.modules.document.utils.FileManager;
 import com.betterjr.modules.document.utils.FileManagerFactory;
 
+/**
+ * 根据文档的业务类型，将文档保存到不同的存储设备上
+ * 
+ * @author zhoucy
+ *
+ */
 @Service
 public class DataStoreService {
+    private static final Logger logger = LoggerFactory.getLogger(DataStoreService.class);
     @Reference(interfaceClass = ICustFileService.class)
     private ICustFileService fileItemService;
 
@@ -129,12 +138,19 @@ public class DataStoreService {
     }
 
     private CustFileItem subSaveStreamToStore(InputStream anStream, String anFileInfoType, String anFileName, boolean anWithBatchNo) {
-        FileStoreType storeType = this.fileGroupService.findFileStoreType(anFileInfoType);
-        FileManager fileManager = FileManagerFactory.create(storeType, fileGroupService);
-        String tmpFilePath = this.fileGroupService.findCreateFilePath(anFileInfoType);
-        if (fileManager.save(tmpFilePath, anStream)){
-            long dataSize = fileManager.findSize(tmpFilePath);
-            return fileItemService.saveAndUpdateFileItem(tmpFilePath, dataSize, anFileInfoType, anFileName, storeType, anWithBatchNo);
+        try {
+            FileStoreType storeType = this.fileGroupService.findFileStoreType(anFileInfoType);
+            FileManager fileManager = FileManagerFactory.create(storeType, fileGroupService);
+            String tmpFilePath = this.fileGroupService.findCreateFilePath(anFileInfoType);
+            logger.info("save stream info is storeType:" + storeType +", tmpFilePath=" + tmpFilePath);
+            if (fileManager.save(tmpFilePath, anStream)) {
+                logger.info("data store is storeType:" + storeType +", tmpFilePath=" + tmpFilePath);
+                long dataSize = fileManager.findSize(tmpFilePath);
+                return fileItemService.saveAndUpdateFileItem(tmpFilePath, dataSize, anFileInfoType, anFileName, storeType, anWithBatchNo);
+            }
+        }
+        catch (Exception ex) {
+            logger.error("保存文件出现异常！", ex);
         }
         return null;
     }

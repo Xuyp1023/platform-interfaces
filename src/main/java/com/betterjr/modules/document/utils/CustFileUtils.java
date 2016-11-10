@@ -152,8 +152,7 @@ public abstract class CustFileUtils {
     public static void exportPDF(final StringBuffer anSb, final OutputStream anOut) {
         final Document document = new Document(PageSize.A4, 0, 0, 0, 0);
         document.setMargins(0, 0, 0, 0);
-        System.out.println(anSb.toString());
-        PdfWriter pdfwriter = null;
+        PdfWriter pdfwriter = null; 
         try {
             pdfwriter = PdfWriter.getInstance(document, anOut);
             pdfwriter.setViewerPreferences(PdfWriter.HideToolbar);

@@ -22,6 +22,7 @@ public class AuthorFileGroup implements BetterjrEntity {
     /**
      * 文件信息类型
      */
+    @Id
     @Column(name = "C_FILEINFOTYPE",  columnDefinition="VARCHAR" )
     @MetaData( value="文件信息类型", comments = "文件信息类")
     private String fileInfoType;
