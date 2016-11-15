@@ -1,5 +1,7 @@
 package com.betterjr.modules.customer;
 
+import java.util.Map;
+
 public interface ICustOpenAccountService2 {
     
     /**
@@ -31,5 +33,15 @@ public interface ICustOpenAccountService2 {
      * 检查手机号码是否已注册
      */
     public String webCheckCustExistsByMobileNo(String anMobileNo);
+
+    /**
+     * 开户申请提交
+     */
+    public String webSaveOpenAccountApply(Map<String, Object> anMap, String anFileList);
+
+    /**
+     * 开户信息修改保存
+     */
+    public String webSaveModifyOpenAccount(Map<String, Object> anAnMap, Long anId, String anFileList);
 
 }
