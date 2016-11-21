@@ -44,4 +44,14 @@ public interface ICustOpenAccountService2 {
      */
     public String webSaveModifyOpenAccount(Map<String, Object> anAnMap, Long anId, String anFileList);
 
+    /**
+     * 代录开户资料申请提交
+     */
+    public String webSaveOpenAccountInfoByInstead(Map<String, Object> anMap, Long anInsteadRecordId, String anFileList);
+
+    /**
+     * 开户资料暂存
+     */
+    public String webSaveOpenAccountInfo(Map<String, Object> anMap, Long anId, String anFileList);
+
 }
