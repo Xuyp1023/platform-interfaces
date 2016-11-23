@@ -5,6 +5,7 @@ import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import com.betterjr.common.annotation.MetaData;
@@ -139,6 +140,7 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
     @JsonSerialize(using = CustDateJsonSerializer.class)
     @Column(name = "D_REG_DATE", columnDefinition = "VARCHAR")
     @MetaData(value = "创建日期", comments = "创建日期")
+    @OrderBy("DESC")
     private String regDate;
 
     /**
@@ -146,6 +148,7 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
      */
     @Column(name = "T_REG_TIME", columnDefinition = "VARCHAR")
     @MetaData(value = "创建时间", comments = "创建时间")
+    @OrderBy("DESC")
     private String regTime;
 
     /**
