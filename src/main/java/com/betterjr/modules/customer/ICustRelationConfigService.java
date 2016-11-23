@@ -8,7 +8,7 @@ public interface ICustRelationConfigService {
      * @param anCustNo
      * @return
      */
-    public String webFindCustInfo(String anCustType,Long anCustNo);
+    public String webFindCustInfo(String anCustType,Long anCustNo,String anCustName);
     
     public String webFindCustType();
     
@@ -19,13 +19,20 @@ public interface ICustRelationConfigService {
      * @param anRelationCustNo 关联客户号
      * @return
      */
-    public String webAddCustRelation(String anCustType,Long anCustNo,Long anRelationCustNo);
+    public String webAddCustRelation(String anCustType,Long anCustNo,String anRelationCustStr);
     
     /****
      * 分页查询客户关系信息
      * @param anCustNo
      * @return
      */
-    public String webQueryCustRelation(Long anCustNo,String anFlag,int anPageNum,int anPageSize);
+    public String webQueryCustRelation(Long anCustNo,String anFlag,int anPageNum,int anPageSize,String anRelationType);
+    
+    /****
+     * 查询当前客户的类型 
+     * @param anCustNo 客户号
+     * @return
+     */
+    public String webFindCustTypeByCustNo();
     
 }
