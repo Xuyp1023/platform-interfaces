@@ -37,7 +37,7 @@ public interface ICustOpenAccountService2 {
     /**
      * 开户申请提交
      */
-    public String webSaveOpenAccountApply(Map<String, Object> anMap, String anFileList);
+    public String webSaveOpenAccountApply(Map<String, Object> anMap, Long anOperId, String anFileList);
 
     /**
      * 开户信息修改保存
@@ -53,5 +53,15 @@ public interface ICustOpenAccountService2 {
      * 开户资料暂存
      */
     public String webSaveOpenAccountInfo(Map<String, Object> anMap, Long anId, String anFileList);
+
+    /**
+     * 查询开户资料
+     */
+    public String webFindAccountTmpInfo(String anOpenId);
+    
+    /**
+     * 根据开户id和文件id保存附件
+     */
+    public String webSaveSingleFileLink(Long anId,String anFileTypeName, String anFileMediaId);
 
 }
