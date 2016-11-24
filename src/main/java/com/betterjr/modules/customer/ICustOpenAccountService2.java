@@ -64,4 +64,8 @@ public interface ICustOpenAccountService2 {
      */
     public String webSaveSingleFileLink(Long anId,String anFileTypeName, String anFileMediaId);
 
+    /**
+     * 根据batchNo生成对应文件类型Map Json对象(微信使用)
+     */
+    public String webFindAccountFileByBatChNo(Long anBatchNo);
 }
