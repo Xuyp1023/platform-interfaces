@@ -68,4 +68,6 @@ public interface ICustOpenAccountService2 {
      * 根据batchNo生成对应文件类型Map Json对象(微信使用)
      */
     public String webFindAccountFileByBatChNo(Long anBatchNo);
+    
+    public String findOpenAccountStatus(String anOpenId);
 }
