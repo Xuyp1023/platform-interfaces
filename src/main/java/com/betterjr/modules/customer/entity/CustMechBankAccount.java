@@ -285,6 +285,13 @@ public class CustMechBankAccount implements BetterjrEntity {
     private Long custNo;
 
     /**
+     * 开户许可证核准号
+     */
+    @Column(name = "C_OPEN_LICENSE", columnDefinition = "CHAR")
+    @MetaData(value = "开户许可证核准号", comments = "开户许可证核准号")
+    private Long openLicense;
+    
+    /**
      * 附件
      */
     @Column(name = "N_BATCHNO", columnDefinition = "INTEGER")
@@ -581,6 +588,14 @@ public class CustMechBankAccount implements BetterjrEntity {
         this.batchNo = batchNo;
     }
 
+    public Long getOpenLicense() {
+        return this.openLicense;
+    }
+
+    public void setOpenLicense(Long anOpenLicense) {
+        this.openLicense = anOpenLicense;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
@@ -623,6 +638,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         sb.append(", lastStatus=").append(lastStatus);
         sb.append(", custNo=").append(custNo);
         sb.append(", batchNo=").append(batchNo);
+        sb.append(", openLicense=").append(openLicense);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -675,6 +691,7 @@ public class CustMechBankAccount implements BetterjrEntity {
                 && (this.getBusinStatus() == null ? other.getBusinStatus() == null : this.getBusinStatus().equals(other.getBusinStatus()))
                 && (this.getLastStatus() == null ? other.getLastStatus() == null : this.getLastStatus().equals(other.getLastStatus()))
                 && (this.getCustNo() == null ? other.getCustNo() == null : this.getCustNo().equals(other.getCustNo()))
+                && (this.getOpenLicense() == null ? other.getOpenLicense() == null : this.getOpenLicense().equals(other.getOpenLicense()))
                 && (this.getBatchNo() == null ? other.getBatchNo() == null : this.getBatchNo().equals(other.getBatchNo()));
     }
 
@@ -717,6 +734,7 @@ public class CustMechBankAccount implements BetterjrEntity {
         result = prime * result + ((getBusinStatus() == null) ? 0 : getBusinStatus().hashCode());
         result = prime * result + ((getLastStatus() == null) ? 0 : getLastStatus().hashCode());
         result = prime * result + ((getCustNo() == null) ? 0 : getCustNo().hashCode());
+        result = prime * result + ((getOpenLicense() == null) ? 0 : getOpenLicense().hashCode());
         result = prime * result + ((getBatchNo() == null) ? 0 : getBatchNo().hashCode());
         return result;
     }
