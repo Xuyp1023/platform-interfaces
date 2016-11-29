@@ -1,5 +1,7 @@
 package com.betterjr.modules.customer;
 
+import java.util.Map;
+
 public interface ICustInsteadService2 {
     /**
      * PC申请代录
@@ -11,7 +13,7 @@ public interface ICustInsteadService2 {
      * 微信申请代录
      * @return
      */
-    public String webWechatAddInsteadApply(String anCustName, Long anId, String anFileList);
+    public String webWechatAddInsteadApply(Map<String, Object> anMap, Long anId, String anFileList);
 
     /**
      * 查询代录申请
