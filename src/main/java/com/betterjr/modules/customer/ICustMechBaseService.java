@@ -8,8 +8,10 @@
 // ============================================================================
 package com.betterjr.modules.customer;
 
+import java.util.Collection;
 import java.util.Map;
 
+import com.betterjr.modules.account.entity.CustInfo;
 import com.betterjr.modules.customer.entity.CustMechBase;
 
 /**
@@ -53,12 +55,18 @@ public interface ICustMechBaseService {
     public String webQueryCustInfoSelect();
 
     /**
+     * 通过操作员取其拥有公司信息
+     * @return
+     */
+    public Collection<CustInfo> queryCustInfoByOperId(final Long anOperId);
+
+    /**
      * 公司基本信息-查询详情
      *
      * @param anCustNo
      * @return
      */
-    public String webFindBaseInfo(Long anCustNo);
+    public String webFindBaseInfo(final Long anCustNo);
 
     /**
      * 公司基本信息-查询详情
