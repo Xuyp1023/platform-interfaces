@@ -70,4 +70,19 @@ public interface ICustOpenAccountService2 {
     public String webFindAccountFileByBatChNo(Long anBatchNo);
     
     public String findOpenAccountStatus(String anOpenId);
+
+    /**
+     * 发送手机短信验证码
+     */
+    public String webSendValidMessage(String anMobileNo);
+    
+    /**
+     * 根据operOrg查询apply状态
+     */
+    public String webFindInsteadApplyStatus();
+
+    /**
+     * 查询开户信息 根据operOrg
+     */
+    public String webFindOpenAccoutnTmp();
 }
