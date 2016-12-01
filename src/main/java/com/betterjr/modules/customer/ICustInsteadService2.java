@@ -19,4 +19,9 @@ public interface ICustInsteadService2 {
      * 查询代录申请
      */
     public String webFindInsteadApplyByAccountTmpId(Long anId);
+
+    /**
+     * 代录激活操作
+     */
+    public String webSaveActiveOpenAccount(Long anId);
 }

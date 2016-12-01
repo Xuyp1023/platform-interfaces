@@ -428,6 +428,7 @@ public class CustFileItem implements BetterjrEntity {
         this.filePath = anFileItem.getFilePath();
         this.fileName = anFileItem.getFileName();
         this.fileType = anFileItem.getFileType();
+        this.storeType = anFileItem.getStoreType();
     }
 
     public void initAddValue(final CustOperatorInfo anOperator) {

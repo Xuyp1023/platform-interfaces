@@ -85,4 +85,9 @@ public interface ICustOpenAccountService2 {
      * 查询开户信息 根据operOrg
      */
     public String webFindOpenAccoutnTmp();
+
+    /**
+     * 删除附件(微信)
+     */
+    public String webDeleteSingleFile(Long anId);
 }
