@@ -504,12 +504,20 @@ public class CustWeChatInfo extends BetterBaseEntity implements BetterjrEntity {
 
     @Override
     public void setModiOperName(String anValue) {
-
+        this.modiOperName = anValue;
     }
 
     @Override
     public void setModiOperId(Long anValue) {
+        
+    }
 
+    public String getModiOperName() {
+        return this.modiOperName;
+    }
+
+    public Long getModiOperId() {
+        return this.modiOperId;
     }
 
     public CustWeChatInfo() {
