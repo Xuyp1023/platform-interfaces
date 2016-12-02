@@ -29,11 +29,12 @@ public interface CustomerConstants {
     String AUDIT_RESULT_REJECT = "1";
     String AUDIT_RESULT_CANCEL = "2";
 
-    // 流水使用状态: 0未使用  1使用中  2已使用 3驳回
+    // 流水使用状态: 0未使用  1使用中  2已使用 3驳回4自主开户
     String TMP_STATUS_NEW = "0";
     String TMP_STATUS_USEING = "1";
     String TMP_STATUS_USED = "2";
     String TMP_STATUS_REFUSE = "3";
+    String TMP_STATUS_OWN = "4";
 
     // 流水类型:0 代录 1 变更 2 暂存  3 初始信息
     String TMP_TYPE_INSTEAD = "0";
