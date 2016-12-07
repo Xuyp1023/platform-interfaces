@@ -155,4 +155,20 @@ public interface ICustInsteadService {
      */
     public String webCancelInsteadRecord(Long anId, String anReason);
 
+    /**
+     * 微信申请代录
+     * @return
+     */
+    public String webWechatAddInsteadApply(Map<String, Object> anMap, Long anId, String anFileList);
+    
+    /**
+     * 查询代录申请
+     */
+    public String webFindInsteadApplyByAccountTmpId(Long anId);
+
+    /**
+     * 代录激活操作
+     */
+    public String webSaveActiveOpenAccount(Long anId);
+
 }
