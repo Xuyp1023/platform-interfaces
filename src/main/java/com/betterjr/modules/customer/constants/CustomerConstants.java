@@ -69,6 +69,11 @@ public interface CustomerConstants {
     // 申请类型：0开户代录，1变更代录
     String INSTEAD_APPLY_TYPE_OPENACCOUNT = "0";
     String INSTEAD_APPLY_TYPE_CHANGE = "1";
+    
+    // 开户申请类型:0:PC自主开户,1:PC平台代录,2:微信平台代录
+    String OPEN_ACCOUNT_TYPE_PC_OWN = "0";
+    String OPEN_ACCOUNT_TYPE_PC_INSTEAD = "1";
+    String OPEN_ACCOUNT_TYPE_WECHAT_INSTEAD = "2";
 
     // 代录申请状态：0未受理 1已审核待录入 2审核驳回 3已录入待复核 4已复核待确认 5复核驳回 6 确认通过 7 确认驳回 8 资料作废
     String INSTEAD_APPLY_STATUS_NEW = "0";
