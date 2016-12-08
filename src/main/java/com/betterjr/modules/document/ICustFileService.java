@@ -153,5 +153,19 @@ public interface ICustFileService {
      * 根据fileList和现有batchNo更新,会删除已删除的文件
      */
     public Long updateAndDelCustFileItemInfo(String anFileList, Long anBatchNo);
+    
+    /***
+     * 添加客户审核附件
+     * @param anCustFileAduit
+     * @return
+     */
+    public boolean addCustFileAduit(CustFileAduit anCustFileAduit);
+    
+    /***
+     * 删除审核表中的附件关联
+     * @param anId
+     * @return
+     */
+    public boolean delCustFileAduit(Long anId);
      
 }
