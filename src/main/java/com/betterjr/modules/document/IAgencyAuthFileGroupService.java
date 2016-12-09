@@ -82,4 +82,11 @@ public interface IAgencyAuthFileGroupService {
      * @return
      */
     public String findDemoFilePath(String anAgencyNo, String anFileInfoType);
+    
+    /***
+     * 根据不同条件查询返回文件类型对象
+     * @param anMap 条件
+     * @return
+     */
+    public AgencyAuthorFileGroup findAuthorFileGroupByMap(Map<String, Object> anMap);
 }

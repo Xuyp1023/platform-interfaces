@@ -162,7 +162,21 @@ public class CustFileItem implements BetterjrEntity {
 
     @Transient
     private CustFileInfo fileInfo;
+    
+    /***
+     * 文件类型名称
+     */
+    @Transient
+    private String fileDescription;
  
+    public String getFileDescription() {
+        return this.fileDescription;
+    }
+
+    public void setFileDescription(String anFileDescription) {
+        this.fileDescription = anFileDescription;
+    }
+
     public String getStoreType() {
         return this.storeType;
     }

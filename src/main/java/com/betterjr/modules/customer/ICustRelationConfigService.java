@@ -35,4 +35,45 @@ public interface ICustRelationConfigService {
      */
     public String webFindCustTypeByCustNo();
     
+    /***
+     * 查询电子合同服务商客户
+     * @return
+     */
+    public String webFindElecAgreementServiceCust();
+    
+    /***
+     * 查询临时审核文件
+     * @param anFactorNo
+     * @param anCustNo
+     * @return
+     */
+    public String webFindCustAduitTempFile(Long anRelateCustNo,Long anCustNo);
+    
+    /***
+     * 保存临时文件
+     * @param anRelateCustNo
+     * @param anCustNo
+     * @param anFileTypeName
+     * @param anFileMediaId
+     * @return
+     */
+    public String webAddCustAduitTempFile(Long anRelateCustNo,Long anCustNo,String anFileTypeName, String anFileMediaId,String anCustType);
+    
+    /****
+     * 删除附件
+     * @param anId
+     * @return
+     */
+    public String webSaveDeleteCustAduitTempFile(Long anId);
+    
+    /*****
+     * 添加保理关联关系
+     * @param anFactorCustType 保理客户所属类型
+     * @param anWosCustType 电子服务客户所属类型
+     * @param anCustNo 客户号
+     * @param anFactorCustNo 关联保理公司的客户号
+     * @param anRelationCustNo 关联电子合同服务的客户号
+     * @return
+     */
+    public String webAddFactorCustRelation(String anFactorCustType,String anWosCustType,Long anCustNo,String anFactorCustStr,String anWosCustStr);
 }
