@@ -171,4 +171,9 @@ public interface ICustInsteadService {
      */
     public String webSaveActiveOpenAccount(Long anId);
 
+    /**
+     * PC申请代录开户成功
+     */
+    public String webAddOpenAccountInsteadApply(String anCustName, Long anOperId, String anFileList);
+
 }
