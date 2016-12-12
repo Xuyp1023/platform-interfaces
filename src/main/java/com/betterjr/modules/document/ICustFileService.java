@@ -153,5 +153,12 @@ public interface ICustFileService {
      * 根据fileList和现有batchNo更新,会删除已删除的文件
      */
     public Long updateAndDelCustFileItemInfo(String anFileList, Long anBatchNo);
+
+
+    /**
+     * 根据id 查询文件
+     * @param anIds id以逗号隔开
+     */
+    public List<CustFileItem> findFileListByIds(String[] anIds);
      
 }

@@ -4,10 +4,14 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
 import java.util.Map;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.imaging.util.IoUtils;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -158,5 +162,50 @@ public class FileWebClientUtils {
         String tmpWorkPath = anFileGroupService.findCreateFilePath(anFileInfoType);
         
         return tmpWorkPath;
+    }
+
+
+    public static void fileMultipleDownload(DataStoreService anDataStoreService, HttpServletResponse anResponse, List<CustFileItem> anFileItemList, String anFileName) {
+        ZipOutputStream out = null;
+        String msg = null;
+        //设置下载名称
+        if(BetterStringUtils.isBlank(anFileName)) {
+            anFileName = "packedFile";
+        }
+        try {
+            //文件设置为下载保存
+            anResponse.setHeader("Content-Disposition", "attachment; filename="+java.net.URLEncoder.encode( anFileName + ".zip", "UTF-8"));
+            anResponse.setContentType("zip");
+            //建立zip
+            out = new ZipOutputStream(anResponse.getOutputStream());
+            for(CustFileItem anFile : anFileItemList) {
+                if(anDataStoreService.exists(anFile)) {
+                    //放入压缩文件项
+                    out.putNextEntry(new ZipEntry(anFile.getFileName()));
+                    //写入数据
+                    IOUtils.copy(anDataStoreService.loadFromStore(anFile), out);
+                    out.closeEntry();
+                }
+            }
+        }
+        catch (IOException e) {
+            logger.error("下载文件失败，请检查；", e);
+            msg = "出现IO异常，请稍后再试!";
+        }
+        finally {
+            if (msg != null) {
+                anResponse.reset();
+                anResponse.setContentType("text/html;UTF-8");
+                try {
+                    anResponse.getWriter().append(msg);
+                }
+                catch (final IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            //关闭流
+            IOUtils.closeQuietly(out);
+        }
+        
     }
 }
