@@ -167,5 +167,12 @@ public interface ICustFileService {
      * @return
      */
     public boolean delCustFileAduit(Long anId);
+
+
+    /**
+     * 根据id 查询文件
+     * @param anIds id以逗号隔开
+     */
+    public List<CustFileItem> findFileListByIds(String[] anIds);
      
 }
