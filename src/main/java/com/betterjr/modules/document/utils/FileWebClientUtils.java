@@ -11,7 +11,6 @@ import java.util.zip.ZipOutputStream;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.imaging.util.IoUtils;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,9 +20,7 @@ import com.betterjr.common.exception.BettjerIOException;
 import com.betterjr.common.service.FreemarkerService;
 import com.betterjr.common.service.SpringContextHolder;
 import com.betterjr.common.utils.BetterStringUtils;
-import com.betterjr.common.utils.FileUtils;
 import com.betterjr.common.utils.MimeTypesHelper;
-import com.betterjr.common.web.AjaxObject;
 import com.betterjr.modules.document.IAgencyAuthFileGroupService;
 import com.betterjr.modules.document.data.FileStoreType;
 import com.betterjr.modules.document.entity.CustFileItem;
