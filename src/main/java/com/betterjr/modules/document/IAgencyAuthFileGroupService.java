@@ -101,4 +101,11 @@ public interface IAgencyAuthFileGroupService {
      * @return
      */
     public CheckDataResult findFileTypePermit(String anFileInfoType, String anFileType);
+    
+    /**
+     * 
+     * @param anFileInfoType
+     * @return
+     */
+    public String webFindFileTypePermitInfo(String anFileInfoType);
 }
