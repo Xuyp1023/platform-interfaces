@@ -3,6 +3,7 @@ package com.betterjr.modules.document;
 import java.util.List;
 import java.util.Map;
 
+import com.betterjr.common.data.CheckDataResult;
 import com.betterjr.modules.document.data.FileStoreType;
 import com.betterjr.modules.document.data.OSSConfigInfo;
 import com.betterjr.modules.document.entity.AgencyAuthorFileGroup;
@@ -89,4 +90,15 @@ public interface IAgencyAuthFileGroupService {
      * @return
      */
     public AgencyAuthorFileGroup findAuthorFileGroupByMap(Map<String, Object> anMap);
+
+    /**
+     * 检查存储的文件类型是否允许
+     * 
+     * @param anFileInfoType
+     *            文件业务类型
+     * @param anFileType
+     *            文件类型
+     * @return
+     */
+    public CheckDataResult findFileTypePermit(String anFileInfoType, String anFileType);
 }

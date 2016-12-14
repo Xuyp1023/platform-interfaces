@@ -11,6 +11,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.betterjr.common.data.CheckDataResult;
+import com.betterjr.common.exception.BytterTradeException;
+import com.betterjr.common.utils.FileUtils;
 import com.betterjr.common.web.AjaxObject;
 import com.betterjr.modules.document.IAgencyAuthFileGroupService;
 import com.betterjr.modules.document.ICustFileService;
@@ -140,6 +143,11 @@ public class DataStoreService {
     private CustFileItem subSaveStreamToStore(InputStream anStream, String anFileInfoType, String anFileName, boolean anWithBatchNo) {
         try {
             FileStoreType storeType = this.fileGroupService.findFileStoreType(anFileInfoType);
+           String tmpExt = FileUtils.extractFileExt(anFileName);
+            CheckDataResult checkResult = this.fileGroupService.findFileTypePermit(anFileInfoType, tmpExt);
+            if (checkResult.isOk() == false){
+                throw new BytterTradeException(123456, "保存的文件类型是【"+ tmpExt +"】, 系统允许的文件类型是【"+checkResult.getMessage()+"】， 请检查！");
+            }
             FileManager fileManager = FileManagerFactory.create(storeType, fileGroupService);
             String tmpFilePath = this.fileGroupService.findCreateFilePath(anFileInfoType);
             logger.info("save stream info is storeType:" + storeType +", tmpFilePath=" + tmpFilePath);
