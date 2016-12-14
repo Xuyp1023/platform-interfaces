@@ -78,6 +78,14 @@ public class AuthorFileGroup implements BetterjrEntity {
     @MetaData(value = "0:文件系统，1:阿里云", comments = "0:文件系统，1:阿里云")
     private String storeType;
 
+    /**
+     * 该类型允许的文件类型，多个使用逗号分隔，默认是全部平台允许的类型
+     */
+    @JsonIgnore
+    @Column(name = "c_permit_filetype", columnDefinition = "VARCHAR")
+    @MetaData(value = "该类型允许的文件类型，多个使用逗号分隔，默认是全部平台允许的类型", comments = "该类型允许的文件类型，多个使用逗号分隔，默认是全部平台允许的类型")
+    private String permitFileTypes;
+    
     private static final long serialVersionUID = 1440667936389L;
  
     public String getStoreType() {
@@ -136,6 +144,14 @@ public class AuthorFileGroup implements BetterjrEntity {
         this.deficiencyInfo = anDeficiencyInfo;
     }
 
+    public String getPermitFileTypes() {
+        return this.permitFileTypes;
+    }
+
+    public void setPermitFileTypes(String anPermitFileTypes) {
+        this.permitFileTypes = anPermitFileTypes;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -149,6 +165,7 @@ public class AuthorFileGroup implements BetterjrEntity {
         sb.append(", groupStatus=").append(groupStatus);
         sb.append(", storeType=").append(storeType);
         sb.append(", storePath=").append(storePath);
+        sb.append(", permitFileTypes=").append(permitFileTypes);
         sb.append("]");
         return sb.toString();
     }
@@ -172,6 +189,7 @@ public class AuthorFileGroup implements BetterjrEntity {
             && (this.getDeficiencyInfo() == null ? other.getDeficiencyInfo() == null : this.getDeficiencyInfo().equals(other.getDeficiencyInfo()))
             && (this.getStoreType() == null ? other.getStoreType() == null : this.getStoreType().equals(other.getStoreType()))
             && (this.getStorePath() == null ? other.getStorePath() == null : this.getStorePath().equals(other.getStorePath()))
+            && (this.getPermitFileTypes() == null ? other.getPermitFileTypes() == null : this.getPermitFileTypes().equals(other.getPermitFileTypes()))
             && (this.getGroupStatus() == null ? other.getGroupStatus() == null : this.getGroupStatus().equals(other.getGroupStatus()));
     }
 
@@ -195,6 +213,7 @@ public class AuthorFileGroup implements BetterjrEntity {
         result = prime * result + ((getGroupStatus() == null) ? 0 : getGroupStatus().hashCode());
         result = prime * result + ((getStoreType() == null) ? 0 : getStoreType().hashCode());
         result = prime * result + ((getStorePath() == null) ? 0 : getStorePath().hashCode());
+        result = prime * result + ((getPermitFileTypes() == null) ? 0 : getPermitFileTypes().hashCode());
         return result;
     }
     
@@ -234,5 +253,19 @@ public class AuthorFileGroup implements BetterjrEntity {
        }
        sb.append(SerialGenerator.uuid());
        return sb.toString();
+    }
+    
+    /**
+     *检查该业务类型允许的文件类型 
+     * @param anFileType 文件类型
+     * @return
+     */
+    public boolean checkFileType(String anFileType){
+       if (BetterStringUtils.isBlank(this.permitFileTypes) || BetterStringUtils.isBlank(anFileType)){
+ 
+           return true;
+       }
+       
+       return this.permitFileTypes.indexOf(anFileType) > -1;
     }
 }
