@@ -168,6 +168,12 @@ public class CustFileItem implements BetterjrEntity {
      */
     @Transient
     private String fileDescription;
+    /***
+     * 是否通过
+     */
+    @Transient
+    private String businStatus;
+    
  
     public String getFileDescription() {
         return this.fileDescription;
@@ -331,6 +337,14 @@ public class CustFileItem implements BetterjrEntity {
         operOrg = anOperOrg;
     }
  
+    public String getBusinStatus() {
+        return this.businStatus;
+    }
+
+    public void setBusinStatus(String anBusinStatus) {
+        this.businStatus = anBusinStatus;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();

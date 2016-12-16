@@ -108,4 +108,12 @@ public interface IAgencyAuthFileGroupService {
      * @return
      */
     public String webFindFileTypePermitInfo(String anFileInfoType);
+    
+    /***
+     * 查询文件类型对象
+     * @param anFileInfoType
+     * @return
+     */
+    public AuthorFileGroup findAuthFileGroup(String anFileInfoType);
+    
 }

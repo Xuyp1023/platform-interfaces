@@ -3,9 +3,7 @@ package com.betterjr.modules.document;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-import com.betterjr.common.data.KeyAndValueObject;
 import com.betterjr.modules.document.data.AccountAduitData;
 import com.betterjr.modules.document.data.FileStoreType;
 import com.betterjr.modules.document.entity.CustFileAduit;
@@ -174,5 +172,13 @@ public interface ICustFileService {
      * @param anIds id以逗号隔开
      */
     public List<CustFileItem> findFileListByIds(String[] anIds);
+     
+    /****
+     * 审核通过查询的附件来源为审核正式表
+     * @param anCustNo
+     * @param anRelateCustNo
+     * @return
+     */
+    public List<CustFileItem> findCustFileAduit(Long anCustNo,Long anRelateCustNo);
      
 }

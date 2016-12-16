@@ -2,6 +2,7 @@ package com.betterjr.modules.document.entity;
 
 import com.betterjr.common.entity.BetterjrEntity;
 import com.betterjr.common.utils.BetterDateUtils;
+import com.betterjr.common.utils.UserUtils;
 
 import javax.persistence.*;
 
@@ -178,9 +179,16 @@ public class CustFileAduitTemp implements BetterjrEntity {
         return sb.toString();
     }
     
-    public void initValue(CustFileAduitTemp custFileAduit){
+    public void initValue(){
         this.fileCount=1l;
         this.regDate=BetterDateUtils.getNumDate();
         this.regTime=BetterDateUtils.getNumTime();
+    }
+    
+    public void saveInitValue(){
+        this.modiDate=BetterDateUtils.getNumDate();
+        this.aduitorNo=UserUtils.getOperatorInfo().getOperCode();
+        this.modiDate=BetterDateUtils.getNumDate();
+        this.authorTime=BetterDateUtils.getNumDate();
     }
 }
