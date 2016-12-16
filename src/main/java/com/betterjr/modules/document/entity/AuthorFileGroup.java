@@ -82,7 +82,7 @@ public class AuthorFileGroup implements BetterjrEntity {
      * 该类型允许的文件类型，多个使用逗号分隔，默认是全部平台允许的类型
      */
     @JsonIgnore
-    @Column(name = "c_permit_filetype", columnDefinition = "VARCHAR")
+    @Column(name = "c_permit_filetypes", columnDefinition = "VARCHAR")
     @MetaData(value = "该类型允许的文件类型，多个使用逗号分隔，默认是全部平台允许的类型", comments = "该类型允许的文件类型，多个使用逗号分隔，默认是全部平台允许的类型")
     private String permitFileTypes;
     

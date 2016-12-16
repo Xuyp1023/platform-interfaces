@@ -157,6 +157,9 @@ public class DataStoreService {
                 return fileItemService.saveAndUpdateFileItem(tmpFilePath, dataSize, anFileInfoType, anFileName, storeType, anWithBatchNo);
             }
         }
+        catch (BytterTradeException ex) {
+            throw ex;
+        }
         catch (Exception ex) {
             logger.error("保存文件出现异常！", ex);
         }
