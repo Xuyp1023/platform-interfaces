@@ -1,5 +1,7 @@
 package com.betterjr.modules.customer;
 
+import java.util.Map;
+
 public interface ICustRelationConfigService {
 
     /***
@@ -47,7 +49,7 @@ public interface ICustRelationConfigService {
      * @param anCustNo
      * @return
      */
-    public String webFindCustAduitTempFile(Long anRelateCustNo,Long anCustNo);
+    public String webFindCustAduitTempFile(Long anRelateCustNo);
     
     /***
      * 保存临时文件
@@ -57,7 +59,7 @@ public interface ICustRelationConfigService {
      * @param anFileMediaId
      * @return
      */
-    public String webAddCustAduitTempFile(Long anRelateCustNo,Long anCustNo,String anFileTypeName, String anFileMediaId,String anCustType);
+    public String webAddCustAduitTempFile(Long anRelateCustNo,String anFileTypeName, String anFileMediaId,String anCustType);
     
     /****
      * 删除附件
@@ -75,5 +77,35 @@ public interface ICustRelationConfigService {
      * @param anRelationCustNo 关联电子合同服务的客户号
      * @return
      */
-    public String webAddFactorCustRelation(String anFactorCustType,String anWosCustType,Long anCustNo,String anFactorCustStr,String anWosCustStr);
+    public String webAddFactorCustRelation(String anFactorCustType,String anWosCustType,String anFactorCustStr,String anWosCustStr);
+    
+    /***
+     * 查询保理业务申请基础数据
+     * @param anCustNo 申请客户号
+     * @return
+     */
+    public String webFindFactorBusinessRequestData(Long anCustNo);
+    
+    /***
+     * 添加客户文件关系
+     * @param anRelationCustNo 关联的客户号
+     * @param anFileIds 上传的文件列表(以,分隔)
+     * @param anCustType 客户类型
+     */
+    public String webSaveCustAduitTempFile(Long anRelateCustNo,String anFileIds,String anCustType);
+    
+    /***
+     * 查询关联临时文件
+     * @param anCustNo 关联客户号
+     * @return
+     */
+    public String webFindRelateAduitTempFile(Long anCustNo);
+    
+    public String webSaveAcceptAduit(Map<String, Object> anMap);
+    /***
+     * 查询审核/受理记录
+     * @param anCustNo
+     * @return
+     */
+    public String webFindCustRelateAduitRecord(Long anCustNo);
 }

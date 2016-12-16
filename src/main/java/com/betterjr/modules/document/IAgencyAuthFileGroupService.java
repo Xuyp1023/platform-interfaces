@@ -89,4 +89,11 @@ public interface IAgencyAuthFileGroupService {
      * @return
      */
     public AgencyAuthorFileGroup findAuthorFileGroupByMap(Map<String, Object> anMap);
+    
+    /***
+     * 查询文件类型对象
+     * @param anFileInfoType
+     * @return
+     */
+    public AuthorFileGroup findAuthFileGroup(String anFileInfoType);
 }

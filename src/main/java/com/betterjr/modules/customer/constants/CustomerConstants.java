@@ -94,6 +94,13 @@ public interface CustomerConstants {
     String INSTEAD_RECORD_STATUS_CONFIRM_PASS = "4";
     String INSTEAD_RECORD_STATUS_CONFIRM_REJECT = "5";
     String INSTEAD_RECORD_STATUS_CANCEL = "6";
+    
+    // 状态，0未开通，1已申请，2已受理， 3已审核，4已驳回
+    String RELATION_STATUS_NO="0";
+    String RELATION_STATUS_REQUEST="1";
+    String RELATION_STATUS_ACCEPT="2";
+    String RELATION_STATUS_ADUIT="3";
+    String RELATION_STATUS_BACK="4";
 
     // 字段
     String ID = "id";

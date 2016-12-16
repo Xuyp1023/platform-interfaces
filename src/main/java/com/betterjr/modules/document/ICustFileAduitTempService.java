@@ -37,4 +37,27 @@ public interface ICustFileAduitTempService {
      */
     public boolean saveDeleteFileAduitTemp(Long anId);
     
+    /***
+     * 添加客户文件关系
+     * @param anRelationCustNo 关联的客户号
+     * @param fileIds 上传的文件列表(以,分隔)
+     */
+    public void saveCustFileAduitTemp(Long anCustNo,Long anRelateCustNo,String anFileIds,String anCustType);
+    
+    /***
+     * 查询关系审核附件
+     * @param anCustNo
+     * @return
+     */
+    public List<CustFileItem> findRelateAduitTempFile(Long anCustNo);
+    
+    /***
+     * 保存附件关系
+     * @param anPassFiles 审核通过的文件列表
+     * @param anFailFiles 审核不通过的文件列表
+     */
+    public void saveAcceptFileTemp(String anPassFiles,String anFailFiles);
+
+    public void saveAduitFile(Long anCustNo,Long anRelateCustNo);
+    
 }
