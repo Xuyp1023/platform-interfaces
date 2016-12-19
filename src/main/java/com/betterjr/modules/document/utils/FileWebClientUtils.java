@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipEntry;
@@ -17,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.betterjr.common.exception.BettjerIOException;
+import com.betterjr.common.selectkey.SerialGenerator;
 import com.betterjr.common.service.FreemarkerService;
 import com.betterjr.common.service.SpringContextHolder;
 import com.betterjr.common.utils.BetterStringUtils;
@@ -174,11 +176,12 @@ public class FileWebClientUtils {
             anResponse.setHeader("Content-Disposition", "attachment; filename="+java.net.URLEncoder.encode( anFileName + ".zip", "UTF-8"));
             anResponse.setContentType("zip");
             //建立zip
-            out = new ZipOutputStream(anResponse.getOutputStream());
+            out = new ZipOutputStream(anResponse.getOutputStream(), Charset.forName("UTF-8"));
             for(CustFileItem anFile : anFileItemList) {
                 if(anDataStoreService.exists(anFile)) {
-                    //放入压缩文件项
-                    out.putNextEntry(new ZipEntry(anFile.getFileName()));
+                    //放入压缩文件项,为避免文件名重复，后面加入随机串
+                    String tmpFileName = anFile.getFileName().substring(0, anFile.getFileName().lastIndexOf("."));
+                    out.putNextEntry(new ZipEntry(tmpFileName + SerialGenerator.randomBase62(4) + "." + anFile.getFileType()));
                     //写入数据
                     IOUtils.copy(anDataStoreService.loadFromStore(anFile), out);
                     out.closeEntry();
