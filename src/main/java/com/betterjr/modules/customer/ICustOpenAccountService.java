@@ -185,5 +185,11 @@ public interface ICustOpenAccountService {
      * 删除附件(微信)
      */
     public String webDeleteSingleFile(Long anId);
+
+    /**
+     * 微信查询开户成功后资料
+     * --不能直接通过wechat标识去查询tmp表，因为若是微信绑定已开户账户，则tmp表中wechat标识为空--
+     */
+    public String webFindSuccessAccountInfo(String anOpenId);
     
 }
