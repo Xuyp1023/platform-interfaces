@@ -126,7 +126,7 @@ public class WechatDefHandler implements WechatHandler {
             return basicMsg;
         } else {
             final TextMsg textMsg = new TextMsg(anEvent);
-            textMsg.setContent("欢迎关注前海拜特微信开发公众号!");
+            textMsg.setContent("欢迎关注前海拜特微信公众号!");
             return textMsg;
         }
     }
