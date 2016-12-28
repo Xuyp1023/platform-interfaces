@@ -4,17 +4,12 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Map;
 
-import org.codehaus.jackson.map.DeserializationConfig;
-import org.snaker.engine.helper.JsonHelper;
-
-import com.betterjr.common.mapper.BeanMapper;
 import com.betterjr.common.mapper.JsonMapper;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.google.common.collect.Maps;
 
 /*
- * 
+ *
  * 流程输入参数：
 1.流程指令
 2.流程类型
@@ -36,89 +31,89 @@ public class FlowInput implements Serializable{
     public static final String ReasonPara="reason";
     public static final String CoreOperOrgPara="coreOperOrg";
     public static final String FinancerOperOrgPara="financerOperOrg";
-   
-   
-	private FlowCommand command; //审批必填
-	private FlowType type;//启动必填
-	private BigDecimal money;//启动&审批必填
-	private String operator;//启动&审批必填
-	private Long businessId;//启动&审批必填
-	private String rollbackNodeId;//审批可选
-	private String reason;//审批可选
-	private String coreOperOrg;//启动必填
-	private String financerOperOrg;//启动必填
-	
-	
-	public FlowCommand getCommand() {
-		return command;
-	}
-	public void setCommand(FlowCommand command) {
-		this.command = command;
-	}
-	public BigDecimal getMoney() {
-		return money;
-	}
-	public void setMoney(BigDecimal money) {
-		this.money = money;
-	}
-	public String getOperator() {
-		return operator;
-	}
-	public void setOperator(String operator) {
-		this.operator = operator;
-	}
 
-	public Long getBusinessId() {
+
+    private FlowCommand command; //审批必填
+    private FlowType type;//启动必填
+    private BigDecimal money;//启动&审批必填
+    private String operator;//启动&审批必填
+    private Long businessId;//启动&审批必填
+    private String rollbackNodeId;//审批可选
+    private String reason;//审批可选
+    private String coreOperOrg;//启动必填
+    private String financerOperOrg;//启动必填
+
+
+    public FlowCommand getCommand() {
+        return command;
+    }
+    public void setCommand(final FlowCommand command) {
+        this.command = command;
+    }
+    public BigDecimal getMoney() {
+        return money;
+    }
+    public void setMoney(final BigDecimal money) {
+        this.money = money;
+    }
+    public String getOperator() {
+        return operator;
+    }
+    public void setOperator(final String operator) {
+        this.operator = operator;
+    }
+
+    public Long getBusinessId() {
         return businessId;
     }
-    public void setBusinessId(Long businessId) {
+    public void setBusinessId(final Long businessId) {
         this.businessId = businessId;
     }
     public String getRollbackNodeId() {
-		return rollbackNodeId;
-	}
-	public void setRollbackNodeId(String rollbackNodeId) {
-		this.rollbackNodeId = rollbackNodeId;
-	}
-	public String getReason() {
-		return reason;
-	}
-	public void setReason(String reason) {
-		this.reason = reason;
-	}
-	
-	public FlowType getType() {
+        return rollbackNodeId;
+    }
+    public void setRollbackNodeId(final String rollbackNodeId) {
+        this.rollbackNodeId = rollbackNodeId;
+    }
+    public String getReason() {
+        return reason;
+    }
+    public void setReason(final String reason) {
+        this.reason = reason;
+    }
+
+    public FlowType getType() {
         return type;
     }
-    public void setType(FlowType type) {
+    public void setType(final FlowType type) {
         this.type = type;
     }
 
     public String getCoreOperOrg() {
         return coreOperOrg;
     }
-    public void setCoreOperOrg(String coreOperOrg) {
+    public void setCoreOperOrg(final String coreOperOrg) {
         this.coreOperOrg = coreOperOrg;
     }
     public String getFinancerOperOrg() {
         return financerOperOrg;
     }
-    public void setFinancerOperOrg(String financerOperOrg) {
+    public void setFinancerOperOrg(final String financerOperOrg) {
         this.financerOperOrg = financerOperOrg;
     }
     public Map<String, Object> toExecMap(){
-	    Map<String, Object> map = Maps.newHashMap();
-	    map.put(FlowInput.CommandPara, this.getCommand()==null?null:this.getCommand().name());
-	    map.put(FlowInput.BusinessIdPara, this.getBusinessId());
-	    map.put(FlowInput.MoneyPara, this.getMoney());
-	    map.put(FlowInput.OperatorPara, this.getOperator());
-	    map.put(FlowInput.ReasonPara, this.getReason());
-	    map.put(FlowInput.RollbackNodeIdPara, this.getRollbackNodeId());
-	    return map;
-	}
-    
+        final Map<String, Object> map = Maps.newHashMap();
+        map.put(FlowInput.CommandPara, this.getCommand()==null?null:this.getCommand().name());
+        map.put(FlowInput.BusinessIdPara, this.getBusinessId());
+        map.put(FlowInput.MoneyPara, this.getMoney());
+        map.put(FlowInput.OperatorPara, this.getOperator());
+        map.put(FlowInput.ReasonPara, this.getReason());
+        map.put(FlowInput.RollbackNodeIdPara, this.getRollbackNodeId());
+        return map;
+    }
+
     public Map<String, Object> toStartMap(){
-        Map<String, Object> map = Maps.newHashMap();
+        final Map<String, Object> map = Maps.newHashMap();
         map.put(FlowInput.TypePara,this.getType()==null?null:this.getType().name());
         map.put(FlowInput.BusinessIdPara, this.getBusinessId());
         map.put(FlowInput.MoneyPara, this.getMoney());
@@ -127,11 +122,11 @@ public class FlowInput implements Serializable{
         map.put(FlowInput.CoreOperOrgPara, this.getCoreOperOrg());
         return map;
     }
-	
-	public static FlowInput toObject(String variable){
-	    JsonMapper mapper=new JsonMapper();
-	    mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-	    return mapper.fromJson(variable, FlowInput.class);
-	}
+
+    public static FlowInput toObject(final String variable){
+        final JsonMapper mapper=new JsonMapper();
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        return mapper.fromJson(variable, FlowInput.class);
+    }
 
 }
