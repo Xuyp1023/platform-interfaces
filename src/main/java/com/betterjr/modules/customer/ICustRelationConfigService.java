@@ -2,6 +2,8 @@ package com.betterjr.modules.customer;
 
 import java.util.Map;
 
+import com.betterjr.modules.customer.data.FactorBusinessRequestData;
+
 public interface ICustRelationConfigService {
 
     /***
@@ -108,4 +110,11 @@ public interface ICustRelationConfigService {
      * @return
      */
     public String webFindCustRelateAduitRecord(Long anCustNo);
+    
+    /***
+     * 查询客户的基本业务信息
+     * @param anCustNo 客户号
+     * @return
+     */
+    public FactorBusinessRequestData findBusinessCustInfo(Long anCustNo);
 }
