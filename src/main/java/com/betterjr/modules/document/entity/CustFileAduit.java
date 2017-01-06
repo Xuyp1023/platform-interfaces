@@ -318,6 +318,6 @@ public class CustFileAduit implements BetterjrEntity {
         anAuditInfo.regDate = BetterDateUtils.getNumDate();
         anAuditInfo.regTime = BetterDateUtils.getNumTime();
         anAuditInfo.modiDate = BetterDateUtils.getNumDate();
-        anAuditInfo.operNo = UserUtils.getOperatorInfo().getOperCode();//getUser().getId().toString();
+        anAuditInfo.operNo = UserUtils.getOperatorInfo().getId().toString();//getUser().getId().toString();
     }
 }
