@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Access(AccessType.FIELD)
 @Entity
 @Table(name = "T_CUST_FILEITEM")
-public class CustFileItem implements BetterjrEntity {
+public class CustFileItem implements BetterjrEntity,java.io.Serializable {
     /**
      * 编号
      */

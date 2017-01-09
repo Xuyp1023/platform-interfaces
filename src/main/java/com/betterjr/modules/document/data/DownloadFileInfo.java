@@ -5,10 +5,10 @@ import com.betterjr.mapper.entity.ReferClass;
 import com.betterjr.modules.document.entity.CustFileItem;
 
 @ReferClass(CustFileItem.class)
-public class DownloadFileInfo extends CustFileItem  implements  BaseRemoteEntity{
-     private static final long serialVersionUID = -5481313383219607025L;
+public class DownloadFileInfo extends CustFileItem  implements  BaseRemoteEntity, java.io.Serializable{
+     private static final long serialVersionUID = 6995726576721339354L;
 
-     /**
+    /**
       * 合作伙伴中客户号
       */
      private String partnerCode;

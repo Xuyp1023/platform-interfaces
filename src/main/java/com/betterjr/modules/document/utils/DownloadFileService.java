@@ -140,8 +140,10 @@ public class DownloadFileService extends Thread {
         }
     }
 
-    protected static class FileAccessInfo{
-       private final long createTime;
+    protected static class FileAccessInfo implements java.io.Serializable{
+ 
+        private static final long serialVersionUID = 3687687291699715190L;
+    private final long createTime;
        private final DownloadFileInfo  fileInfo;
        private final long validTime;
        public FileAccessInfo(DownloadFileInfo anFileInfo, Integer anValidTime){
