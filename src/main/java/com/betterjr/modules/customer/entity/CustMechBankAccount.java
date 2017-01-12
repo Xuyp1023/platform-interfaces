@@ -287,7 +287,7 @@ public class CustMechBankAccount implements BetterjrEntity {
     /**
      * 开户许可证核准号
      */
-    @Column(name = "C_OPEN_LICENSE", columnDefinition = "CHAR")
+    @Column(name = "C_OPEN_LICENSE", columnDefinition = "VARCHAR")
     @MetaData(value = "开户许可证核准号", comments = "开户许可证核准号")
     private String openLicense;
     
