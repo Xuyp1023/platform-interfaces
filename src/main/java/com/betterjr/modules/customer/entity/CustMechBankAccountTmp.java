@@ -321,6 +321,13 @@ public class CustMechBankAccountTmp implements BetterjrEntity {
     @Column(name = "N_BATCHNO", columnDefinition = "INTEGER")
     @MetaData(value = "附件", comments = "附件")
     private Long batchNo;
+    
+    /**
+     * 开户许可证核准号
+     */
+    @Column(name = "C_OPEN_LICENSE", columnDefinition = "CHAR")
+    @MetaData(value = "开户许可证核准号", comments = "开户许可证核准号")
+    private String openLicense;
 
     private static final long serialVersionUID = 1468812783852L;
 
@@ -644,6 +651,14 @@ public class CustMechBankAccountTmp implements BetterjrEntity {
         this.batchNo = batchNo;
     }
 
+    public String getOpenLicense() {
+        return this.openLicense;
+    }
+
+    public void setOpenLicense(String anOpenLicense) {
+        this.openLicense = anOpenLicense;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
@@ -690,6 +705,7 @@ public class CustMechBankAccountTmp implements BetterjrEntity {
         sb.append(", tmpType=").append(tmpType);
         sb.append(", tmpOperType=").append(tmpOperType);
         sb.append(", batchNo=").append(batchNo);
+        sb.append(", openLicense=").append(openLicense);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -746,6 +762,7 @@ public class CustMechBankAccountTmp implements BetterjrEntity {
                 && (this.getRefId() == null ? other.getRefId() == null : this.getRefId().equals(other.getRefId()))
                 && (this.getTmpType() == null ? other.getTmpType() == null : this.getTmpType().equals(other.getTmpType()))
                 && (this.getTmpOperType() == null ? other.getTmpOperType() == null : this.getTmpOperType().equals(other.getTmpOperType()))
+                && (this.getOpenLicense() == null ? other.getOpenLicense() == null : this.getOpenLicense().equals(other.getOpenLicense()))
                 && (this.getBatchNo() == null ? other.getBatchNo() == null : this.getBatchNo().equals(other.getBatchNo()));
     }
 
@@ -792,6 +809,7 @@ public class CustMechBankAccountTmp implements BetterjrEntity {
         result = prime * result + ((getRefId() == null) ? 0 : getRefId().hashCode());
         result = prime * result + ((getTmpType() == null) ? 0 : getTmpType().hashCode());
         result = prime * result + ((getTmpOperType() == null) ? 0 : getTmpOperType().hashCode());
+        result = prime * result + ((getOpenLicense() == null) ? 0 : getOpenLicense().hashCode());
         result = prime * result + ((getBatchNo() == null) ? 0 : getBatchNo().hashCode());
         return result;
     }
@@ -813,6 +831,7 @@ public class CustMechBankAccountTmp implements BetterjrEntity {
         this.bankName = anBankAccount.getBankName();
         this.isDefault = anBankAccount.getIsDefault();
         this.cityNo = anBankAccount.getCityNo();
+        this.openLicense = anBankAccount.getOpenLicense();
     }
 
     public void initAddValue(final String anBusinStatus, final String anTmpType, final Long anVersion) {
@@ -850,6 +869,7 @@ public class CustMechBankAccountTmp implements BetterjrEntity {
         this.bankName = anBankAccountTmp.getBankName();
         this.isDefault = anBankAccountTmp.getIsDefault();
         this.cityNo = anBankAccountTmp.getCityNo();
+        this.openLicense = anBankAccountTmp.getOpenLicense();
 
         this.tmpOperType = anBankAccountTmp.getTmpOperType();
         this.tmpType = anBankAccountTmp.getTmpType();
@@ -877,6 +897,7 @@ public class CustMechBankAccountTmp implements BetterjrEntity {
         this.bankName = anBankAccount.getBankName();
         this.isDefault = anBankAccount.getIsDefault();
         this.cityNo = anBankAccount.getCityNo();
+        this.openLicense = anBankAccount.getOpenLicense();
 
         this.businStatus = anBusinStatus;
     }
@@ -914,5 +935,6 @@ public class CustMechBankAccountTmp implements BetterjrEntity {
         this.isDefault = anBankAccount.getIsDefault();
         this.cityNo = anBankAccount.getCityNo();
         this.custNo = anBankAccount.getCustNo();
+        this.openLicense = anBankAccount.getOpenLicense();
     }
 }
