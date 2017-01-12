@@ -289,7 +289,7 @@ public class CustMechBankAccount implements BetterjrEntity {
      */
     @Column(name = "C_OPEN_LICENSE", columnDefinition = "CHAR")
     @MetaData(value = "开户许可证核准号", comments = "开户许可证核准号")
-    private Long openLicense;
+    private String openLicense;
     
     /**
      * 附件
@@ -588,11 +588,11 @@ public class CustMechBankAccount implements BetterjrEntity {
         this.batchNo = batchNo;
     }
 
-    public Long getOpenLicense() {
+    public String getOpenLicense() {
         return this.openLicense;
     }
 
-    public void setOpenLicense(Long anOpenLicense) {
+    public void setOpenLicense(String anOpenLicense) {
         this.openLicense = anOpenLicense;
     }
 
