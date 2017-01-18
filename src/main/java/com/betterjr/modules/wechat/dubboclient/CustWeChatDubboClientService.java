@@ -25,6 +25,7 @@ import com.betterjr.common.utils.BTAssert;
 import com.betterjr.common.utils.JedisUtils;
 import com.betterjr.common.utils.UserUtils;
 import com.betterjr.modules.account.entity.CustOperatorInfo;
+import com.betterjr.modules.customer.ICustMechBaseService;
 import com.betterjr.modules.document.ICustFileService;
 import com.betterjr.modules.document.entity.CustFileItem;
 import com.betterjr.modules.wechat.ICustWeChatService;
@@ -51,10 +52,13 @@ public class CustWeChatDubboClientService {
 
 
     @Reference(interfaceClass = ICustWeChatService.class)
-    ICustWeChatService wechatService;
+    private ICustWeChatService wechatService;
 
     @Reference(interfaceClass=ICustFileService.class)
     private ICustFileService custFileService;
+
+    @Reference(interfaceClass = ICustMechBaseService.class)
+    private ICustMechBaseService baseInfoService;
 
     private MPAccount mpAccount = null;
 
@@ -65,6 +69,14 @@ public class CustWeChatDubboClientService {
      */
     public Map<String, Object> saveLogin(final AccessToken anToken){
         return this.wechatService.saveLogin(anToken);
+    }
+
+    /**
+     * 获取当前用户角色
+     * @return
+     */
+    public String webGetCurrentRole() {
+        return this.baseInfoService.webGetCurrentRole();
     }
 
     /**
@@ -314,7 +326,7 @@ public class CustWeChatDubboClientService {
     public CustFileItem fileDownload(final Long anId) {
         return custFileService.findOne(anId);
     }
- 
+
     /**
      *
      */
