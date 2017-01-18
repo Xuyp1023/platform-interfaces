@@ -27,6 +27,11 @@ public interface ICustMechBaseService {
     public String webCheckOrgType(String anRole);
 
     /**
+     * 取当前用户的机构角色
+     */
+    public String webGetCurrentRole();
+
+    /**
      * 查询当前操作员下的所有机构-对WEB提供
      *
      * @return
