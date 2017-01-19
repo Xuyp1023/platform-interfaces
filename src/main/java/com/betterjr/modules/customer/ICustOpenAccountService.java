@@ -3,6 +3,7 @@ package com.betterjr.modules.customer;
 import java.util.Map;
 
 import com.betterjr.common.annotation.NoSession;
+import com.betterjr.modules.customer.entity.CustOpenAccountTmp;
 
 /**
  * 开户流水
@@ -191,5 +192,15 @@ public interface ICustOpenAccountService {
      * --不能直接通过wechat标识去查询tmp表，因为若是微信绑定已开户账户，则tmp表中wechat标识为空--
      */
     public String webFindSuccessAccountInfo(String anOpenId);
+
+    /**
+     * 根据custNo查询开户信息
+     */
+    public CustOpenAccountTmp findAccountInfoByCustNo(Long anCustNo);
+
+    /**
+     * 保理公司查询客户信息
+     */
+    public String webQueryCustInfoByPlatform(String anFlag, int anPageNum, int anPageSize);
     
 }
