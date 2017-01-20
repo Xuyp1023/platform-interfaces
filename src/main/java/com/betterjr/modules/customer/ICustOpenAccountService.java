@@ -199,7 +199,7 @@ public interface ICustOpenAccountService {
     public CustOpenAccountTmp findAccountInfoByCustNo(Long anCustNo);
 
     /**
-     * 保理公司查询客户信息
+     * 平台查询客户信息
      */
     public String webQueryCustInfoByPlatform(String anFlag, int anPageNum, int anPageSize);
     
