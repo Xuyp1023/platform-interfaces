@@ -372,5 +372,10 @@ public interface ICustRelationService {
      */
     public CustRelation findRelationWithCustCorp(final Long anCustNo, final String anPartnerCustNo, final String anCustCorp);
 
+    /**
+     * 保理公司查询企业信息
+     */
+    public String webQueryCustInfoByFactor(String anRelateType, String anFlag, int anPageNum, int anPageSize);
+
 
 }
