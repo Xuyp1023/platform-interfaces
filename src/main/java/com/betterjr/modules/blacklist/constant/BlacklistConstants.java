@@ -13,7 +13,7 @@ public interface BlacklistConstants {
     /**
      * 类型:0-个人;
      */
-    String BLACKLIST_TYPE_PERSONAL = "1";
+    String BLACKLIST_TYPE_PERSONAL = "0";
     /**
      * 类型:1-机构;
      */
