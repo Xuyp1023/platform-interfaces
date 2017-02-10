@@ -25,7 +25,7 @@ public class FactorBusinessRequestData implements Serializable {
     private String mobileNo;
     private String email;
     private String address;
-    private String post;
+    private String zipCode;
     private String orgCode;
     private String taxCode;
     private String bankAccount;
@@ -104,11 +104,11 @@ public class FactorBusinessRequestData implements Serializable {
     public void setAddress(String anAddress) {
         this.address = anAddress;
     }
-    public String getPost() {
-        return this.post;
+    public String getZipCode() {
+        return this.zipCode;
     }
-    public void setPost(String anPost) {
-        this.post = anPost;
+    public void setZipCode(String anZipCode) {
+        this.zipCode = anZipCode;
     }
     
     public String getOrgCode() {
