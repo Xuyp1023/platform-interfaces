@@ -265,7 +265,6 @@ public class CustMechBase implements BetterjrEntity {
     /**
      * 成立日期
      */
-    @JsonIgnore
     @Column(name = "D_SETUP_DATE",  columnDefinition="VARCHAR" )
     @MetaData( value="成立日期", comments = "成立日期")
     private String setupDate;
@@ -287,7 +286,6 @@ public class CustMechBase implements BetterjrEntity {
     /**
      * 传真
      */
-    @JsonIgnore
     @Column(name = "C_FAX",  columnDefinition="VARCHAR" )
     @MetaData( value="传真", comments = "传真")
     private String fax;
@@ -295,7 +293,6 @@ public class CustMechBase implements BetterjrEntity {
     /**
      * 移动电话
      */
-    @JsonIgnore
     @Column(name = "C_MOBILE",  columnDefinition="VARCHAR" )
     @MetaData( value="移动电话", comments = "移动电话")
     private String mobile;
