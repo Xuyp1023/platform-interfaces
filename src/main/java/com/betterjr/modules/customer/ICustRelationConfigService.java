@@ -117,4 +117,11 @@ public interface ICustRelationConfigService {
      * @return
      */
     public FactorBusinessRequestData findBusinessCustInfo(Long anCustNo);
+
+    /**
+     * 平台查询用户键值对
+     * @param anCustType
+     * @return
+     */
+	String webFindCustByPlatform(String anCustType);
 }
