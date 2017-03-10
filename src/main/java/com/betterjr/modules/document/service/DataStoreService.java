@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.betterjr.common.data.CheckDataResult;
 import com.betterjr.common.exception.BytterTradeException;
+import com.betterjr.common.utils.BTAssert;
 import com.betterjr.common.utils.FileUtils;
 import com.betterjr.common.web.AjaxObject;
 import com.betterjr.modules.document.IAgencyAuthFileGroupService;
@@ -188,6 +189,16 @@ public class DataStoreService {
     }
 
     /**
+     * 跟据BatchNo，加载文档数据流
+     * @param batchNo
+     */
+	public InputStream loadFromStoreByBatchNo(Long anBatchNo) {
+		CustFileItem fileItem = this.fileItemService.findOneByBatchNo(anBatchNo);
+		BTAssert.notNull(fileItem, "没有找到fileItem");
+		return loadFromStore(fileItem);
+	}
+    
+    /**
      * 根据文档ID信息，加载文档数据流
      * 
      * @param anFileId
@@ -271,4 +282,6 @@ public class DataStoreService {
 
         return fileManager.findSize(anFilePath);
     }
+
+
 }
