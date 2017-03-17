@@ -1,6 +1,8 @@
 package com.betterjr.modules.wechat.util;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -108,7 +110,16 @@ public class WechatDefHandler implements WechatHandler {
     @Override
     public BasicMsg eClick(final MenuEvent event) {
         final TextMsg text_msg = new TextMsg(event);
-        text_msg.setContent(event.getEventKey());
+        if (event.getEventKey().equals("联系我们")){
+            text_msg.setContent("我在这里\n" +
+                    new SimpleDateFormat("yyyy年MM月dd日").format(new Date()) + "\n\n" +
+                    "400电话：400-8864-168\n" +
+                    "联系电话：0755-33000719\n" +
+                    "联系地址：深圳市福田区车公庙泰然六路雪松大厦B座8楼");
+        } else {
+            text_msg.setContent(event.getEventKey());
+        }
+
         return text_msg;
     }
 
