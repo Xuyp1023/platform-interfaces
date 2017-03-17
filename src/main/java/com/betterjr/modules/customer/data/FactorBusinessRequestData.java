@@ -32,6 +32,7 @@ public class FactorBusinessRequestData implements Serializable {
     private String bankName;
     private String bankAccountName;
     private String fax;
+    private String post;
     public Long getCustNo() {
         return this.custNo;
     }
@@ -148,8 +149,12 @@ public class FactorBusinessRequestData implements Serializable {
     public void setFax(String anFax) {
         this.fax = anFax;
     }
-    
-    
+    public String getPost() {
+        return this.post;
+    }
+    public void setPost(String anPost) {
+        this.post = anPost;
+    }
     public FactorBusinessRequestData(){
         
     }
