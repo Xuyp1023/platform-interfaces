@@ -126,4 +126,11 @@ public interface ICustMechBankAccountService {
      * 查询银行账户代表详情-临时流水表
      */
     public String webFindInsteadRecord(Long anInsteadRecordId);
+
+    /**
+     * @param anTmpAcco
+     * @param anTmpAccoName
+     * @return
+     */
+    public CustMechBankAccount findCustMechBankAccount(String anBankAcco, String anBankAccoName);
 }
