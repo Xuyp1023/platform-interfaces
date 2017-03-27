@@ -51,7 +51,7 @@ public interface ICustRelationConfigService {
      * @param anCustNo
      * @return
      */
-    public String webFindCustAduitTempFile(Long anRelateCustNo);
+    public String webFindCustAduitTempFile(Long anRelateCustNo,Long anSelectCustNo);
     
     /***
      * 保存临时文件
@@ -79,7 +79,7 @@ public interface ICustRelationConfigService {
      * @param anRelationCustNo 关联电子合同服务的客户号
      * @return
      */
-    public String webAddFactorCustRelation(String anFactorCustType,String anWosCustType,String anFactorCustStr,String anWosCustStr);
+    public String webAddFactorCustRelation(String anFactorCustType,String anWosCustType,String anFactorCustStr,String anWosCustStr,Long anCustNo);
     
     /***
      * 查询保理业务申请基础数据
@@ -94,7 +94,7 @@ public interface ICustRelationConfigService {
      * @param anFileIds 上传的文件列表(以,分隔)
      * @param anCustType 客户类型
      */
-    public String webSaveCustAduitTempFile(Long anRelateCustNo,String anFileIds,String anCustType);
+    public String webSaveCustAduitTempFile(Long anRelateCustNo,String anFileIds,String anCustType,Long anCustNo);
     
     /***
      * 查询关联临时文件
@@ -109,7 +109,7 @@ public interface ICustRelationConfigService {
      * @param anCustNo
      * @return
      */
-    public String webFindCustRelateAduitRecord(Long anCustNo);
+    public String webFindCustRelateAduitRecord(Long anCustNo, Long anSelectCustNo,String anRelateType);
     
     /***
      * 查询客户的基本业务信息
