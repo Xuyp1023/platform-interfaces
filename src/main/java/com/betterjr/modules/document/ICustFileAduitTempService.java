@@ -14,7 +14,7 @@ public interface ICustFileAduitTempService {
      * @param anAgencyAuthorFileGroupList
      * @return
      */
-    public List<CustFileItem> findCustAduitTemp(Long anCustNo,List<AgencyAuthorFileGroup> anAgencyAuthorFileGroupList);
+    public List<CustFileItem> findCustAduitTemp(Long anCustNo,Long anSelectCustNo,List<AgencyAuthorFileGroup> anAgencyAuthorFileGroupList);
     
     /***
      * 保存临时文件
@@ -28,7 +28,7 @@ public interface ICustFileAduitTempService {
      * @param anAgencyAuthorFileGroupList 文件类型列表
      * @return
      */
-    public boolean checkCustFileAduitTempExist(Long anCustNo,List<AgencyAuthorFileGroup> anAgencyAuthorFileGroupList);
+    public boolean checkCustFileAduitTempExist(Long anCustNo,Long anSelectCustNo,List<AgencyAuthorFileGroup> anAgencyAuthorFileGroupList);
     
     /***
      * 删除临时审核附件关系表数据
