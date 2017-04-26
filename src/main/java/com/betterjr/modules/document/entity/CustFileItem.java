@@ -1,7 +1,5 @@
 package com.betterjr.modules.document.entity;
 
-import java.io.File;
-
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;

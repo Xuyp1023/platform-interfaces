@@ -8,6 +8,7 @@ import com.betterjr.modules.document.data.AccountAduitData;
 import com.betterjr.modules.document.data.FileStoreType;
 import com.betterjr.modules.document.entity.CustFileAduit;
 import com.betterjr.modules.document.entity.CustFileItem;
+import com.betterjr.modules.document.entity.CustResolveFile;
 
 public interface ICustFileService {
 
@@ -180,5 +181,28 @@ public interface ICustFileService {
      * @return
      */
     public List<CustFileItem> findCustFileAduit(Long anCustNo,Long anRelateCustNo);
+
+
+    /**
+     * 插入文件解析日志记录信息
+     * @param anResolveFile
+     * @return
+     */
+    public CustResolveFile webSaveAddResolveFile(CustResolveFile anResolveFile);
+
+
+    public boolean sendResolveMessage(CustResolveFile anResolveFile);
+
+
+    public void saveModifyResolveFile(Map<String, Object> anResolveFileMap);
+    
+    public void saveModifyResolveFile(CustResolveFile anResolveFile);
+
+    /**
+     * 查询上传文件详情，并且已经是有batchid
+     * @param anId
+     * @return
+     */
+    public CustFileItem findOneAndButchId(Long anId);
      
 }
