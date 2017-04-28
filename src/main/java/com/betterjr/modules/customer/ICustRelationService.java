@@ -104,6 +104,8 @@ public interface ICustRelationService {
      * @return
      */
     public String webQueryCoreKeyAndValue(Long anCustNo);
+    
+    public List<CustRelation> queryCoreList(final Long anCustNo);
 
     /**
      * 供应商下拉列表查询,使用于核心企业查询
