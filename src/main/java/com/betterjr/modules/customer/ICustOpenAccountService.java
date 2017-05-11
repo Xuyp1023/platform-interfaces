@@ -12,22 +12,22 @@ import com.betterjr.modules.customer.entity.CustOpenAccountTmp;
  *
  */
 public interface ICustOpenAccountService {
-    
+
     /**
      * 检查申请机构名称是否存在
      */
     public String webCheckCustExistsByCustName(String anCustName);
-    
+
     /**
      * 检查组织机构代码证是否存在
      */
     public String webCheckCustExistsByIdentNo(String anIdentNo);
-    
+
     /**
      * 检查营业执照号码是否存在
      */
     public String webCheckCustExistsByBusinLicence(String anBusinLicence);
-    
+
     /**
      * 检查银行账号是否存在
      */
@@ -135,7 +135,7 @@ public interface ICustOpenAccountService {
      * @return
      */
     public String webQueryAuditWorkflowById(Long anOpenAccountId);
-    
+
     /**
      *读取开户的临时文件信息，用于远程开通业务
      * @param anCustNo 客户编号
@@ -143,18 +143,18 @@ public interface ICustOpenAccountService {
      */
     @NoSession
     public Map<String, Object> findOpenTempAccountInfo(Long anCustNo);
-    
-    
+
+
     /**
      * 开户申请提交
      */
     public String webSaveOpenAccountApplySubmit(Map<String, Object> anMap, Long anOperId, String anFileList);
-    
+
     /**
      * 查询开户资料
      */
     public String webFindAccountTmpInfo(String anOpenId);
-    
+
     /**
      * 根据开户id和文件id保存附件
      */
@@ -164,14 +164,14 @@ public interface ICustOpenAccountService {
      * 根据batchNo生成对应文件类型Map Json对象(微信使用)
      */
     public String webFindAccountFileByBatChNo(Long anBatchNo);
-    
+
     public String findOpenAccountStatus(String anOpenId);
 
     /**
      * 发送手机短信验证码
      */
     public String webSendValidMessage(String anMobileNo);
-    
+
     /**
      * 根据operOrg查询apply状态
      */
@@ -202,5 +202,10 @@ public interface ICustOpenAccountService {
      * 平台查询客户信息
      */
     public String webQueryCustInfoByPlatform(String anFlag, int anPageNum, int anPageSize);
-    
+
+    /**
+     * @return
+     */
+    public String webCustInfoByPlatformSelect();
+
 }
