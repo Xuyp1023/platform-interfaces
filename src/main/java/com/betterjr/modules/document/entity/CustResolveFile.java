@@ -55,14 +55,14 @@ public class CustResolveFile implements Serializable{
     /**
      * 注册日期
      */
-    @Column(name = "D_REGDATE", columnDefinition = "VARCHAR")
+    @Column(name = "D_REG_DATE", columnDefinition = "VARCHAR")
     @MetaData(value = "注册日期", comments = "注册日期")
     private String regDate;
 
     /**
      * 注册时间
      */
-    @Column(name = "D_REGTIME", columnDefinition = "VARCHAR")
+    @Column(name = "T_REG_TIME", columnDefinition = "VARCHAR")
     @MetaData(value = "注册时间", comments = "注册时间")
     private String regTime;
     
