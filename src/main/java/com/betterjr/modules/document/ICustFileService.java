@@ -189,8 +189,14 @@ public interface ICustFileService {
      * @return
      */
     public CustResolveFile webSaveAddResolveFile(CustResolveFile anResolveFile);
-
-
+    
+    /**
+     * 查询解析记录
+     * @param anResolveFileId
+     * @return
+     */
+    public String webfindResolveFile(Long anResolveFileId);
+   
     public boolean sendResolveMessage(CustResolveFile anResolveFile);
 
 
