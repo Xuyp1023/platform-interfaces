@@ -136,6 +136,7 @@ public interface ICustMechBankAccountService {
      */
     public CustMechBankAccount findCustMechBankAccount(String anBankAcco, String anBankAccoName);
 
+
 	String webQueryBankAccountKeyAndValue(Long anCustNo);
 
 	/**
@@ -144,4 +145,8 @@ public interface ICustMechBankAccountService {
 	 * @return
 	 */
 	String webFindCustMechBankAccount(String anBankAcco);
+
+    
+    public String webFindSysBankCodeList(Map<String, Object> anParam);
+
 }

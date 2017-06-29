@@ -504,6 +504,11 @@ public class CustOpenAccountTmp implements BetterjrEntity {
     @MetaData(value = "登录密码加密SALT(仅微信有)", comments = "登录密码加密SALT(仅微信有)")
     @JsonIgnore
     private String loginPasswordSalt;
+    
+    @Column(name = "c_pay_sys_num", columnDefinition = "VARCHAR")
+    @MetaData(value = "联行号", comments = "联行号")
+    @JsonIgnore
+    private String paySysNum;
 
     private static final long serialVersionUID = 1468812783872L;
 
@@ -1034,6 +1039,14 @@ public class CustOpenAccountTmp implements BetterjrEntity {
     public void setLoginPasswordSalt(String anLoginPasswordSalt) {
         this.loginPasswordSalt = anLoginPasswordSalt;
     }
+    
+    public String getPaySysNum() {
+        return this.paySysNum;
+    }
+
+    public void setPaySysNum(String anPaySysNum) {
+        this.paySysNum = anPaySysNum;
+    }
 
     @Override
     public String toString() {
@@ -1107,6 +1120,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         sb.append(", loginUserName=").append(loginUserName);
         sb.append(", loginPassword=").append(loginPassword);
         sb.append(", loginPasswordSalt=").append(loginPasswordSalt);
+        sb.append(", paySysNum=").append(paySysNum);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
