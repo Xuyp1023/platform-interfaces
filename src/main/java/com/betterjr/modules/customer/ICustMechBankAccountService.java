@@ -133,4 +133,6 @@ public interface ICustMechBankAccountService {
      * @return
      */
     public CustMechBankAccount findCustMechBankAccount(String anBankAcco, String anBankAccoName);
+    
+    public String webFindSysBankCodeList(Map<String, Object> anParam);
 }
