@@ -151,4 +151,10 @@ public interface ICustMechBaseService {
      * @return
      */
     public String webFindWechatLoginInfo();
+    
+    /**
+     * 查询企业平台id
+     * @return
+     */
+    public Long findPlatCustNo();
 }
