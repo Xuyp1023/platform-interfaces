@@ -366,6 +366,12 @@ public interface ICustRelationService {
     public String webQueryCoreCust(Long anCoreCustNo);
     
     /**
+     * 查询所有的供应商
+     * 
+     */
+    public String webQueryAllCust();
+    
+    /**
      * 根据关联方简称和关联方客户编号查询客户关联关系信息
      * @param anCustNo 客户号
      * @param anCustCorp 关联方简称
@@ -379,5 +385,5 @@ public interface ICustRelationService {
      */
     public String webQueryCustInfoByFactor(String anRelateType, String anFlag, int anPageNum, int anPageSize);
 
-
+    
 }
