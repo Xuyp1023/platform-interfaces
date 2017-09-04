@@ -216,6 +216,14 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
     @MetaData(value = "合作方系统客户编号", comments = "合作方系统客户编号")
     private String partnerCustNo;
     
+    /**
+     * 是否是内部企业  0 不是   1 内部保理公司
+     */
+    @Column(name = "C_IS_INSIDE", columnDefinition = "VARCHAR")
+    @MetaData(value = "是否是内部企业  0 不是   1 内部保理公司", comments = "是否是内部企业  0 不是   1 内部保理公司")
+    private String isInside;
+    
+    
     private static final long serialVersionUID = 1468812783874L;
 
     public Long getId() {
@@ -424,6 +432,14 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
 
     public void setPartnerCustNo(String anPartnerCustNo) {
         this.partnerCustNo = anPartnerCustNo;
+    }
+
+    public String getIsInside() {
+        return this.isInside;
+    }
+
+    public void setIsInside(String anIsInside) {
+        this.isInside = anIsInside;
     }
 
     @Override
