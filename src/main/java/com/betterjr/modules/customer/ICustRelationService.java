@@ -385,5 +385,18 @@ public interface ICustRelationService {
      */
     public String webQueryCustInfoByFactor(String anRelateType, String anFlag, int anPageNum, int anPageSize);
 
+    /**
+     * 通过核心企业id查询保理公司列表
+     * @param anCoreCustNo
+     * @return
+     */
+    public List<SimpleDataEntity> queryFactoryByCore(Long anCoreCustNo);
     
+    /**
+     * 企业合作银行下拉列表查询
+     * @param anCustNo
+     * @return
+     */
+    public String webQueryBankInfoKeyAndValue(final Long anCustNo);
+
 }

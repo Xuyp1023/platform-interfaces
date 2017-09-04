@@ -131,6 +131,10 @@ public interface CustomerConstants {
      */
     String RELATE_TYPE_ELEC_CONTRACT = "5";
     /**
+     * 关联关系类型:6-客户(供应商,经销商,核心企业,保理机构)与银行
+     */
+    String RELATE_TYPE_BANK_CONTRACT = "6";
+    /**
      * 客户白名单状态：0-未开通;
      */
     String RELATE_STATUS_UNDO = "0";
