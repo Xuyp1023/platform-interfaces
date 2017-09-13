@@ -383,7 +383,7 @@ public interface ICustRelationService {
     /**
      * 保理公司查询企业信息
      */
-    public String webQueryCustInfoByFactor(String anRelateType, String anFlag, int anPageNum, int anPageSize);
+    public String webQueryCustInfoByFactor(String anRelateType,String anBusinStatus, String anFlag, int anPageNum, int anPageSize);
 
     /**
      * 通过核心企业id查询保理公司列表
@@ -391,6 +391,8 @@ public interface ICustRelationService {
      * @return
      */
     public List<SimpleDataEntity> queryFactoryByCore(Long anCoreCustNo);
+    
+    public List<Long> queryNoInsideFactoryByCore(Long anCoreCustNo);
     
     /**
      * 企业合作银行下拉列表查询
