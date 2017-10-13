@@ -14,13 +14,14 @@ import com.betterjr.common.selectkey.SerialGenerator;
 import com.betterjr.common.utils.BetterDateUtils;
 import com.betterjr.common.utils.UserUtils;
 import com.betterjr.modules.customer.constants.CustomerConstants;
+import com.betterjr.modules.customer.data.ICustAuditEntityFace;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @Access(AccessType.FIELD)
 @Entity
 @Table(name = "t_cust_mech_base_tmp")
-public class CustMechBaseTmp implements BetterjrEntity {
+public class CustMechBaseTmp implements BetterjrEntity, ICustAuditEntityFace {
     /**
      * 编号
      */
@@ -32,22 +33,22 @@ public class CustMechBaseTmp implements BetterjrEntity {
     /**
      * 代录记录/变更申请 编号
      */
-    @Column(name = "L_PARENTID",  columnDefinition="INTEGER" )
-    @MetaData( value="代录记录/变更申请 编号", comments = "代录记录/变更申请 编号")
+    @Column(name = "L_PARENTID", columnDefinition = "INTEGER")
+    @MetaData(value = "代录记录/变更申请 编号", comments = "代录记录/变更申请 编号")
     private Long parentId;
 
     /**
      * 客户编号
      */
-    @Column(name = "L_CUSTNO",  columnDefinition="INTEGER" )
-    @MetaData( value="客户编号", comments = "客户编号")
+    @Column(name = "L_CUSTNO", columnDefinition = "INTEGER")
+    @MetaData(value = "客户编号", comments = "客户编号")
     private Long custNo;
 
     /**
      * 客户全称
      */
-    @Column(name = "C_CUSTNAME",  columnDefinition="VARCHAR" )
-    @MetaData( value="客户全称", comments = "客户全称")
+    @Column(name = "C_CUSTNAME", columnDefinition = "VARCHAR")
+    @MetaData(value = "客户全称", comments = "客户全称")
     private String custName;
 
     /**
@@ -78,8 +79,8 @@ public class CustMechBaseTmp implements BetterjrEntity {
     /**
      * 企业类型: 0国有企业 1集体所有制企业 2私营企业 3股份制企业 4联营企业 5外商投资企业 6港澳台投资企业 7股份合作企业
      */
-    @Column(name = "C_CORP_TYPE",  columnDefinition="VARCHAR" )
-    @MetaData( value="企业类型", comments = "企业类型: 0国有企业 1集体所有制企业 2私营企业 3股份制企业 4联营企业 5外商投资企业 6港澳台投资企业 7股份合作企业")
+    @Column(name = "C_CORP_TYPE", columnDefinition = "VARCHAR")
+    @MetaData(value = "企业类型", comments = "企业类型: 0国有企业 1集体所有制企业 2私营企业 3股份制企业 4联营企业 5外商投资企业 6港澳台投资企业 7股份合作企业")
     private String corpType;
 
     /**
@@ -1062,9 +1063,9 @@ public class CustMechBaseTmp implements BetterjrEntity {
                 && (this.getOrgCode() == null ? other.getOrgCode() == null : this.getOrgCode().equals(other.getOrgCode()))
                 && (this.getBusinLicence() == null ? other.getBusinLicence() == null : this.getBusinLicence().equals(other.getBusinLicence()))
                 && (this.getBusinLicenceRegDate() == null ? other.getBusinLicenceRegDate() == null
-                : this.getBusinLicenceRegDate().equals(other.getBusinLicenceRegDate()))
+                        : this.getBusinLicenceRegDate().equals(other.getBusinLicenceRegDate()))
                 && (this.getBusinLicenceValidDate() == null ? other.getBusinLicenceValidDate() == null
-                : this.getBusinLicenceValidDate().equals(other.getBusinLicenceValidDate()))
+                        : this.getBusinLicenceValidDate().equals(other.getBusinLicenceValidDate()))
                 && (this.getRegCapital() == null ? other.getRegCapital() == null : this.getRegCapital().equals(other.getRegCapital()))
                 && (this.getPaidCapital() == null ? other.getPaidCapital() == null : this.getPaidCapital().equals(other.getPaidCapital()))
                 && (this.getPerson() == null ? other.getPerson() == null : this.getPerson().equals(other.getPerson()))
@@ -1072,7 +1073,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
                 && (this.getPremisesYear() == null ? other.getPremisesYear() == null : this.getPremisesYear().equals(other.getPremisesYear()))
                 && (this.getPremisesType() == null ? other.getPremisesType() == null : this.getPremisesType().equals(other.getPremisesType()))
                 && (this.getPremisesAddress() == null ? other.getPremisesAddress() == null
-                : this.getPremisesAddress().equals(other.getPremisesAddress()))
+                        : this.getPremisesAddress().equals(other.getPremisesAddress()))
                 && (this.getBusinScope() == null ? other.getBusinScope() == null : this.getBusinScope().equals(other.getBusinScope()))
                 && (this.getSetupDate() == null ? other.getSetupDate() == null : this.getSetupDate().equals(other.getSetupDate()))
                 && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
@@ -1198,6 +1199,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
 
     /**
      * 使用正式表数据建立流水数据
+     * 
      * @param anCustMechBase
      */
     public void initAddValue(final CustMechBase anCustMechBase, final String anTmpType, final String anBusinStatus) {
@@ -1258,7 +1260,7 @@ public class CustMechBaseTmp implements BetterjrEntity {
         this.modiDate = BetterDateUtils.getNumDate();
         this.modiTime = BetterDateUtils.getNumTime();
         /*
-        this.custNo = anCustMechBaseTmp.getCustNo();
+         * this.custNo = anCustMechBaseTmp.getCustNo();
          */
         this.custName = anCustMechBaseTmp.getCustName();
         this.address = anCustMechBaseTmp.getAddress();

@@ -14,238 +14,239 @@ import com.betterjr.common.selectkey.SerialGenerator;
 import com.betterjr.common.utils.BetterDateUtils;
 import com.betterjr.common.utils.UserUtils;
 import com.betterjr.modules.customer.constants.CustomerConstants;
+import com.betterjr.modules.customer.data.ICustAuditEntityFace;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @Access(AccessType.FIELD)
 @Entity
 @Table(name = "t_cust_mech_law_tmp")
-public class CustMechLawTmp implements BetterjrEntity {
+public class CustMechLawTmp implements BetterjrEntity, ICustAuditEntityFace {
     /**
      * 编号
      */
     @Id
-    @Column(name = "ID",  columnDefinition="INTEGER" )
-    @MetaData( value="编号", comments = "编号")
+    @Column(name = "ID", columnDefinition = "INTEGER")
+    @MetaData(value = "编号", comments = "编号")
     private Long id;
-    
+
     /**
      * 代录记录/变更申请 编号
      */
-    @Column(name = "L_PARENTID",  columnDefinition="INTEGER" )
-    @MetaData( value="代录记录/变更申请 编号", comments = "代录记录/变更申请 编号")
+    @Column(name = "L_PARENTID", columnDefinition = "INTEGER")
+    @MetaData(value = "代录记录/变更申请 编号", comments = "代录记录/变更申请 编号")
     private Long parentId;
 
     /**
      * 数据版本号
      */
     @JsonIgnore
-    @Column(name = "N_VERSION",  columnDefinition="INTEGER" )
-    @MetaData( value="数据版本号", comments = "数据版本号")
+    @Column(name = "N_VERSION", columnDefinition = "INTEGER")
+    @MetaData(value = "数据版本号", comments = "数据版本号")
     private Long version;
 
     /**
      * 姓名
      */
-    @Column(name = "C_NAME",  columnDefinition="VARCHAR" )
-    @MetaData( value="姓名", comments = "姓名")
+    @Column(name = "C_NAME", columnDefinition = "VARCHAR")
+    @MetaData(value = "姓名", comments = "姓名")
     private String name;
 
     /**
      * 证件类型:0-身份证，1-护照，2-军官证，3-士兵证，4-回乡证，5-户口本，6-外国护照
      */
-    @Column(name = "C_IDENTTYPE",  columnDefinition="CHAR" )
-    @MetaData( value="证件类型:0-身份证", comments = "证件类型:0-身份证，1-护照，2-军官证，3-士兵证，4-回乡证，5-户口本，6-外国护照")
+    @Column(name = "C_IDENTTYPE", columnDefinition = "CHAR")
+    @MetaData(value = "证件类型:0-身份证", comments = "证件类型:0-身份证，1-护照，2-军官证，3-士兵证，4-回乡证，5-户口本，6-外国护照")
     private String identType;
 
     /**
      * 证件号码
      */
-    @Column(name = "C_IDENTNO",  columnDefinition="VARCHAR" )
-    @MetaData( value="证件号码", comments = "证件号码")
+    @Column(name = "C_IDENTNO", columnDefinition = "VARCHAR")
+    @MetaData(value = "证件号码", comments = "证件号码")
     private String identNo;
 
     /**
      * 证件有效期
      */
     @JsonSerialize(using = CustDateJsonSerializer.class)
-    @Column(name = "D_VALIDDATE",  columnDefinition="VARCHAR" )
-    @MetaData( value="证件有效期", comments = "证件有效期")
+    @Column(name = "D_VALIDDATE", columnDefinition = "VARCHAR")
+    @MetaData(value = "证件有效期", comments = "证件有效期")
     private String validDate;
 
     /**
      * 性别 0女 1男
      */
-    @Column(name = "C_SEX",  columnDefinition="CHAR" )
-    @MetaData( value="性别 0女 1男", comments = "性别 0女 1男")
+    @Column(name = "C_SEX", columnDefinition = "CHAR")
+    @MetaData(value = "性别 0女 1男", comments = "性别 0女 1男")
     private String sex;
 
     /**
      * 出生日期
      */
     @JsonSerialize(using = CustDateJsonSerializer.class)
-    @Column(name = "D_BIRTHDATE",  columnDefinition="VARCHAR" )
-    @MetaData( value="出生日期", comments = "出生日期")
+    @Column(name = "D_BIRTHDATE", columnDefinition = "VARCHAR")
+    @MetaData(value = "出生日期", comments = "出生日期")
     private String birthdate;
 
     /**
      * 电话
      */
-    @Column(name = "C_PHONE",  columnDefinition="VARCHAR" )
-    @MetaData( value="电话", comments = "电话")
+    @Column(name = "C_PHONE", columnDefinition = "VARCHAR")
+    @MetaData(value = "电话", comments = "电话")
     private String phone;
 
     /**
      * 教育水平 0初级中学 1高级中学 2大学专科 3大学本科 4硕士研究生 5博士研究生
      */
-    @Column(name = "C_EDU_LEVEL",  columnDefinition="CHAR" )
-    @MetaData( value="教育水平 0初级中学 1高级中学 2大学专科 3大学本科 4硕士研究生 5博士研究生", comments = "教育水平 0初级中学 1高级中学 2大学专科 3大学本科 4硕士研究生 5博士研究生")
+    @Column(name = "C_EDU_LEVEL", columnDefinition = "CHAR")
+    @MetaData(value = "教育水平 0初级中学 1高级中学 2大学专科 3大学本科 4硕士研究生 5博士研究生", comments = "教育水平 0初级中学 1高级中学 2大学专科 3大学本科 4硕士研究生 5博士研究生")
     private String eduLevel;
 
     /**
      * 婚姻状况: 0未婚 1已婚 2离异
      */
-    @Column(name = "C_MARTIAL_STATUS",  columnDefinition="CHAR" )
-    @MetaData( value="婚姻状况: 0未婚 1已婚 2离异", comments = "婚姻状况: 0未婚 1已婚 2离异")
+    @Column(name = "C_MARTIAL_STATUS", columnDefinition = "CHAR")
+    @MetaData(value = "婚姻状况: 0未婚 1已婚 2离异", comments = "婚姻状况: 0未婚 1已婚 2离异")
     private String martialStatus;
 
     /**
      * 籍贯
      */
-    @Column(name = "C_NATIVE_PLACE",  columnDefinition="VARCHAR" )
-    @MetaData( value="籍贯", comments = "籍贯")
+    @Column(name = "C_NATIVE_PLACE", columnDefinition = "VARCHAR")
+    @MetaData(value = "籍贯", comments = "籍贯")
     private String nativePlace;
 
     /**
      * 地址
      */
-    @Column(name = "C_ADDRESS",  columnDefinition="VARCHAR" )
-    @MetaData( value="地址", comments = "地址")
+    @Column(name = "C_ADDRESS", columnDefinition = "VARCHAR")
+    @MetaData(value = "地址", comments = "地址")
     private String address;
 
     /**
      * 附件
      */
-    @Column(name = "N_BATCHNO",  columnDefinition="INTEGER" )
-    @MetaData( value="附件", comments = "附件")
+    @Column(name = "N_BATCHNO", columnDefinition = "INTEGER")
+    @MetaData(value = "附件", comments = "附件")
     private Long batchNo;
 
     /**
      * 创建人(操作员)ID号
      */
     @JsonIgnore
-    @Column(name = "L_REG_OPERID",  columnDefinition="INTEGER" )
-    @MetaData( value="创建人(操作员)ID号", comments = "创建人(操作员)ID号")
+    @Column(name = "L_REG_OPERID", columnDefinition = "INTEGER")
+    @MetaData(value = "创建人(操作员)ID号", comments = "创建人(操作员)ID号")
     private Long regOperId;
 
     /**
      * 创建人(操作员)姓名
      */
     @JsonIgnore
-    @Column(name = "C_REG_OPERNAME",  columnDefinition="VARCHAR" )
-    @MetaData( value="创建人(操作员)姓名", comments = "创建人(操作员)姓名")
+    @Column(name = "C_REG_OPERNAME", columnDefinition = "VARCHAR")
+    @MetaData(value = "创建人(操作员)姓名", comments = "创建人(操作员)姓名")
     private String regOperName;
 
     /**
      * 创建日期
      */
     @JsonSerialize(using = CustDateJsonSerializer.class)
-    @Column(name = "D_REG_DATE",  columnDefinition="VARCHAR" )
-    @MetaData( value="创建日期", comments = "创建日期")
+    @Column(name = "D_REG_DATE", columnDefinition = "VARCHAR")
+    @MetaData(value = "创建日期", comments = "创建日期")
     private String regDate;
 
     /**
      * 创建时间
      */
     @JsonIgnore
-    @Column(name = "T_REG_TIME",  columnDefinition="VARCHAR" )
-    @MetaData( value="创建时间", comments = "创建时间")
+    @Column(name = "T_REG_TIME", columnDefinition = "VARCHAR")
+    @MetaData(value = "创建时间", comments = "创建时间")
     private String regTime;
 
     /**
      * 修改人(操作员)ID号
      */
     @JsonIgnore
-    @Column(name = "L_MODI_OPERID",  columnDefinition="INTEGER" )
-    @MetaData( value="修改人(操作员)ID号", comments = "修改人(操作员)ID号")
+    @Column(name = "L_MODI_OPERID", columnDefinition = "INTEGER")
+    @MetaData(value = "修改人(操作员)ID号", comments = "修改人(操作员)ID号")
     private Long modiOperId;
 
     /**
      * 修改人(操作员)姓名
      */
     @JsonIgnore
-    @Column(name = "C_MODI_OPERNAME",  columnDefinition="VARCHAR" )
-    @MetaData( value="修改人(操作员)姓名", comments = "修改人(操作员)姓名")
+    @Column(name = "C_MODI_OPERNAME", columnDefinition = "VARCHAR")
+    @MetaData(value = "修改人(操作员)姓名", comments = "修改人(操作员)姓名")
     private String modiOperName;
 
     /**
      * 修改日期
      */
     @JsonSerialize(using = CustDateJsonSerializer.class)
-    @Column(name = "D_MODI_DATE",  columnDefinition="VARCHAR" )
-    @MetaData( value="修改日期", comments = "修改日期")
+    @Column(name = "D_MODI_DATE", columnDefinition = "VARCHAR")
+    @MetaData(value = "修改日期", comments = "修改日期")
     private String modiDate;
 
     /**
      * 修改时间
      */
     @JsonIgnore
-    @Column(name = "T_MODI_TIME",  columnDefinition="VARCHAR" )
-    @MetaData( value="修改时间", comments = "修改时间")
+    @Column(name = "T_MODI_TIME", columnDefinition = "VARCHAR")
+    @MetaData(value = "修改时间", comments = "修改时间")
     private String modiTime;
 
     /**
      * 操作机构
      */
     @JsonIgnore
-    @Column(name = "C_OPERORG",  columnDefinition="VARCHAR" )
-    @MetaData( value="操作机构", comments = "操作机构")
+    @Column(name = "C_OPERORG", columnDefinition = "VARCHAR")
+    @MetaData(value = "操作机构", comments = "操作机构")
     private String operOrg;
 
     /**
-     * 使用状态:0未使用  1使用中  2已使用
+     * 使用状态:0未使用 1使用中 2已使用
      */
-    @Column(name = "C_BUSIN_STATUS",  columnDefinition="CHAR" )
-    @MetaData( value="使用状态:0未使用  1使用中  2已使用", comments = "使用状态:0未使用  1使用中  2已使用")
+    @Column(name = "C_BUSIN_STATUS", columnDefinition = "CHAR")
+    @MetaData(value = "使用状态:0未使用  1使用中  2已使用", comments = "使用状态:0未使用  1使用中  2已使用")
     private String businStatus;
 
-    @Column(name = "C_LAST_STATUS",  columnDefinition="CHAR" )
-    @MetaData( value="", comments = "")
+    @Column(name = "C_LAST_STATUS", columnDefinition = "CHAR")
+    @MetaData(value = "", comments = "")
     private String lastStatus;
 
     /**
      * 客户编号
      */
-    @Column(name = "L_CUSTNO",  columnDefinition="INTEGER" )
-    @MetaData( value="客户编号", comments = "客户编号")
+    @Column(name = "L_CUSTNO", columnDefinition = "INTEGER")
+    @MetaData(value = "客户编号", comments = "客户编号")
     private Long custNo;
-    
+
     /**
      * 客户全称
      */
-    @Column(name = "C_CUSTNAME",  columnDefinition="VARCHAR" )
-    @MetaData( value="客户全称", comments = "客户全称")
+    @Column(name = "C_CUSTNAME", columnDefinition = "VARCHAR")
+    @MetaData(value = "客户全称", comments = "客户全称")
     private String custName;
 
     /**
      * 引用编号
      */
-    @Column(name = "L_REF_ID",  columnDefinition="INTEGER" )
-    @MetaData( value="引用编号", comments = "引用编号")
+    @Column(name = "L_REF_ID", columnDefinition = "INTEGER")
+    @MetaData(value = "引用编号", comments = "引用编号")
     private Long refId;
 
     /**
-     * 流水类型:0 代录  1 变更  2 暂存
+     * 流水类型:0 代录 1 变更 2 暂存
      */
-    @Column(name = "C_TMP_TYPE",  columnDefinition="CHAR" )
-    @MetaData( value="流水类型:0 代录  1 变更  2 暂存", comments = "流水类型:0 代录  1 变更  2 暂存")
+    @Column(name = "C_TMP_TYPE", columnDefinition = "CHAR")
+    @MetaData(value = "流水类型:0 代录  1 变更  2 暂存", comments = "流水类型:0 代录  1 变更  2 暂存")
     private String tmpType;
 
     /**
-     * 流水操作类型:0 新增  1 修改  2 删除  3 未改变
+     * 流水操作类型:0 新增 1 修改 2 删除 3 未改变
      */
-    @Column(name = "C_TMP_OPER_TYPE",  columnDefinition="CHAR" )
-    @MetaData( value="流水操作类型", comments = "流水操作类型:0 新增  1 修改  2 删除  3 未改变")
+    @Column(name = "C_TMP_OPER_TYPE", columnDefinition = "CHAR")
+    @MetaData(value = "流水操作类型", comments = "流水操作类型:0 新增  1 修改  2 删除  3 未改变")
     private String tmpOperType;
 
     private static final long serialVersionUID = 1468812783866L;
@@ -254,7 +255,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -262,7 +263,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return version;
     }
 
-    public void setVersion(Long version) {
+    public void setVersion(final Long version) {
         this.version = version;
     }
 
@@ -270,7 +271,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name == null ? null : name.trim();
     }
 
@@ -278,7 +279,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return identType;
     }
 
-    public void setIdentType(String identType) {
+    public void setIdentType(final String identType) {
         this.identType = identType == null ? null : identType.trim();
     }
 
@@ -286,7 +287,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return identNo;
     }
 
-    public void setIdentNo(String identNo) {
+    public void setIdentNo(final String identNo) {
         this.identNo = identNo == null ? null : identNo.trim();
     }
 
@@ -294,7 +295,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return validDate;
     }
 
-    public void setValidDate(String validDate) {
+    public void setValidDate(final String validDate) {
         this.validDate = validDate == null ? null : validDate.trim();
     }
 
@@ -302,7 +303,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(final String sex) {
         this.sex = sex == null ? null : sex.trim();
     }
 
@@ -310,7 +311,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return birthdate;
     }
 
-    public void setBirthdate(String birthdate) {
+    public void setBirthdate(final String birthdate) {
         this.birthdate = birthdate == null ? null : birthdate.trim();
     }
 
@@ -318,7 +319,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(final String phone) {
         this.phone = phone == null ? null : phone.trim();
     }
 
@@ -326,7 +327,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return eduLevel;
     }
 
-    public void setEduLevel(String eduLevel) {
+    public void setEduLevel(final String eduLevel) {
         this.eduLevel = eduLevel == null ? null : eduLevel.trim();
     }
 
@@ -334,7 +335,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return martialStatus;
     }
 
-    public void setMartialStatus(String martialStatus) {
+    public void setMartialStatus(final String martialStatus) {
         this.martialStatus = martialStatus == null ? null : martialStatus.trim();
     }
 
@@ -342,7 +343,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return nativePlace;
     }
 
-    public void setNativePlace(String nativePlace) {
+    public void setNativePlace(final String nativePlace) {
         this.nativePlace = nativePlace == null ? null : nativePlace.trim();
     }
 
@@ -350,15 +351,16 @@ public class CustMechLawTmp implements BetterjrEntity {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(final String address) {
         this.address = address == null ? null : address.trim();
     }
 
+    @Override
     public Long getBatchNo() {
         return batchNo;
     }
 
-    public void setBatchNo(Long batchNo) {
+    public void setBatchNo(final Long batchNo) {
         this.batchNo = batchNo;
     }
 
@@ -366,7 +368,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return regOperId;
     }
 
-    public void setRegOperId(Long regOperId) {
+    public void setRegOperId(final Long regOperId) {
         this.regOperId = regOperId;
     }
 
@@ -374,7 +376,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return regOperName;
     }
 
-    public void setRegOperName(String regOperName) {
+    public void setRegOperName(final String regOperName) {
         this.regOperName = regOperName == null ? null : regOperName.trim();
     }
 
@@ -382,7 +384,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return regDate;
     }
 
-    public void setRegDate(String regDate) {
+    public void setRegDate(final String regDate) {
         this.regDate = regDate == null ? null : regDate.trim();
     }
 
@@ -390,7 +392,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return regTime;
     }
 
-    public void setRegTime(String regTime) {
+    public void setRegTime(final String regTime) {
         this.regTime = regTime == null ? null : regTime.trim();
     }
 
@@ -398,7 +400,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return modiOperId;
     }
 
-    public void setModiOperId(Long modiOperId) {
+    public void setModiOperId(final Long modiOperId) {
         this.modiOperId = modiOperId;
     }
 
@@ -406,7 +408,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return modiOperName;
     }
 
-    public void setModiOperName(String modiOperName) {
+    public void setModiOperName(final String modiOperName) {
         this.modiOperName = modiOperName == null ? null : modiOperName.trim();
     }
 
@@ -414,7 +416,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return modiDate;
     }
 
-    public void setModiDate(String modiDate) {
+    public void setModiDate(final String modiDate) {
         this.modiDate = modiDate == null ? null : modiDate.trim();
     }
 
@@ -422,7 +424,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return modiTime;
     }
 
-    public void setModiTime(String modiTime) {
+    public void setModiTime(final String modiTime) {
         this.modiTime = modiTime == null ? null : modiTime.trim();
     }
 
@@ -430,7 +432,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return operOrg;
     }
 
-    public void setOperOrg(String operOrg) {
+    public void setOperOrg(final String operOrg) {
         this.operOrg = operOrg == null ? null : operOrg.trim();
     }
 
@@ -438,7 +440,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return businStatus;
     }
 
-    public void setBusinStatus(String businStatus) {
+    public void setBusinStatus(final String businStatus) {
         this.businStatus = businStatus == null ? null : businStatus.trim();
     }
 
@@ -446,23 +448,24 @@ public class CustMechLawTmp implements BetterjrEntity {
         return lastStatus;
     }
 
-    public void setLastStatus(String lastStatus) {
+    public void setLastStatus(final String lastStatus) {
         this.lastStatus = lastStatus == null ? null : lastStatus.trim();
     }
 
+    @Override
     public Long getCustNo() {
         return custNo;
     }
 
-    public void setCustNo(Long custNo) {
+    public void setCustNo(final Long custNo) {
         this.custNo = custNo;
     }
-    
+
     public String getCustName() {
         return custName;
     }
 
-    public void setCustName(String anCustName) {
+    public void setCustName(final String anCustName) {
         custName = anCustName;
     }
 
@@ -470,7 +473,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return refId;
     }
 
-    public void setRefId(Long refId) {
+    public void setRefId(final Long refId) {
         this.refId = refId;
     }
 
@@ -478,7 +481,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return tmpType;
     }
 
-    public void setTmpType(String tmpType) {
+    public void setTmpType(final String tmpType) {
         this.tmpType = tmpType == null ? null : tmpType.trim();
     }
 
@@ -486,7 +489,7 @@ public class CustMechLawTmp implements BetterjrEntity {
         return tmpOperType;
     }
 
-    public void setTmpOperType(String tmpOperType) {
+    public void setTmpOperType(final String tmpOperType) {
         this.tmpOperType = tmpOperType == null ? null : tmpOperType.trim();
     }
 
@@ -494,13 +497,13 @@ public class CustMechLawTmp implements BetterjrEntity {
         return parentId;
     }
 
-    public void setParentId(Long anParentId) {
+    public void setParentId(final Long anParentId) {
         parentId = anParentId;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
@@ -541,7 +544,7 @@ public class CustMechLawTmp implements BetterjrEntity {
     }
 
     @Override
-    public boolean equals(Object that) {
+    public boolean equals(final Object that) {
         if (this == that) {
             return true;
         }
@@ -551,38 +554,38 @@ public class CustMechLawTmp implements BetterjrEntity {
         if (getClass() != that.getClass()) {
             return false;
         }
-        CustMechLawTmp other = (CustMechLawTmp) that;
+        final CustMechLawTmp other = (CustMechLawTmp) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
                 && (this.getParentId() == null ? other.getParentId() == null : this.getParentId().equals(other.getParentId()))
-            && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getIdentType() == null ? other.getIdentType() == null : this.getIdentType().equals(other.getIdentType()))
-            && (this.getIdentNo() == null ? other.getIdentNo() == null : this.getIdentNo().equals(other.getIdentNo()))
-            && (this.getValidDate() == null ? other.getValidDate() == null : this.getValidDate().equals(other.getValidDate()))
-            && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
-            && (this.getBirthdate() == null ? other.getBirthdate() == null : this.getBirthdate().equals(other.getBirthdate()))
-            && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
-            && (this.getEduLevel() == null ? other.getEduLevel() == null : this.getEduLevel().equals(other.getEduLevel()))
-            && (this.getMartialStatus() == null ? other.getMartialStatus() == null : this.getMartialStatus().equals(other.getMartialStatus()))
-            && (this.getNativePlace() == null ? other.getNativePlace() == null : this.getNativePlace().equals(other.getNativePlace()))
-            && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
-            && (this.getBatchNo() == null ? other.getBatchNo() == null : this.getBatchNo().equals(other.getBatchNo()))
-            && (this.getRegOperId() == null ? other.getRegOperId() == null : this.getRegOperId().equals(other.getRegOperId()))
-            && (this.getRegOperName() == null ? other.getRegOperName() == null : this.getRegOperName().equals(other.getRegOperName()))
-            && (this.getRegDate() == null ? other.getRegDate() == null : this.getRegDate().equals(other.getRegDate()))
-            && (this.getRegTime() == null ? other.getRegTime() == null : this.getRegTime().equals(other.getRegTime()))
-            && (this.getModiOperId() == null ? other.getModiOperId() == null : this.getModiOperId().equals(other.getModiOperId()))
-            && (this.getModiOperName() == null ? other.getModiOperName() == null : this.getModiOperName().equals(other.getModiOperName()))
-            && (this.getModiDate() == null ? other.getModiDate() == null : this.getModiDate().equals(other.getModiDate()))
-            && (this.getModiTime() == null ? other.getModiTime() == null : this.getModiTime().equals(other.getModiTime()))
-            && (this.getOperOrg() == null ? other.getOperOrg() == null : this.getOperOrg().equals(other.getOperOrg()))
-            && (this.getBusinStatus() == null ? other.getBusinStatus() == null : this.getBusinStatus().equals(other.getBusinStatus()))
-            && (this.getLastStatus() == null ? other.getLastStatus() == null : this.getLastStatus().equals(other.getLastStatus()))
-            && (this.getCustNo() == null ? other.getCustNo() == null : this.getCustNo().equals(other.getCustNo()))
-            && (this.getCustName() == null ? other.getCustName() == null : this.getCustName().equals(other.getCustName()))
-            && (this.getRefId() == null ? other.getRefId() == null : this.getRefId().equals(other.getRefId()))
-            && (this.getTmpType() == null ? other.getTmpType() == null : this.getTmpType().equals(other.getTmpType()))
-            && (this.getTmpOperType() == null ? other.getTmpOperType() == null : this.getTmpOperType().equals(other.getTmpOperType()));
+                && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
+                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+                && (this.getIdentType() == null ? other.getIdentType() == null : this.getIdentType().equals(other.getIdentType()))
+                && (this.getIdentNo() == null ? other.getIdentNo() == null : this.getIdentNo().equals(other.getIdentNo()))
+                && (this.getValidDate() == null ? other.getValidDate() == null : this.getValidDate().equals(other.getValidDate()))
+                && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
+                && (this.getBirthdate() == null ? other.getBirthdate() == null : this.getBirthdate().equals(other.getBirthdate()))
+                && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
+                && (this.getEduLevel() == null ? other.getEduLevel() == null : this.getEduLevel().equals(other.getEduLevel()))
+                && (this.getMartialStatus() == null ? other.getMartialStatus() == null : this.getMartialStatus().equals(other.getMartialStatus()))
+                && (this.getNativePlace() == null ? other.getNativePlace() == null : this.getNativePlace().equals(other.getNativePlace()))
+                && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
+                && (this.getBatchNo() == null ? other.getBatchNo() == null : this.getBatchNo().equals(other.getBatchNo()))
+                && (this.getRegOperId() == null ? other.getRegOperId() == null : this.getRegOperId().equals(other.getRegOperId()))
+                && (this.getRegOperName() == null ? other.getRegOperName() == null : this.getRegOperName().equals(other.getRegOperName()))
+                && (this.getRegDate() == null ? other.getRegDate() == null : this.getRegDate().equals(other.getRegDate()))
+                && (this.getRegTime() == null ? other.getRegTime() == null : this.getRegTime().equals(other.getRegTime()))
+                && (this.getModiOperId() == null ? other.getModiOperId() == null : this.getModiOperId().equals(other.getModiOperId()))
+                && (this.getModiOperName() == null ? other.getModiOperName() == null : this.getModiOperName().equals(other.getModiOperName()))
+                && (this.getModiDate() == null ? other.getModiDate() == null : this.getModiDate().equals(other.getModiDate()))
+                && (this.getModiTime() == null ? other.getModiTime() == null : this.getModiTime().equals(other.getModiTime()))
+                && (this.getOperOrg() == null ? other.getOperOrg() == null : this.getOperOrg().equals(other.getOperOrg()))
+                && (this.getBusinStatus() == null ? other.getBusinStatus() == null : this.getBusinStatus().equals(other.getBusinStatus()))
+                && (this.getLastStatus() == null ? other.getLastStatus() == null : this.getLastStatus().equals(other.getLastStatus()))
+                && (this.getCustNo() == null ? other.getCustNo() == null : this.getCustNo().equals(other.getCustNo()))
+                && (this.getCustName() == null ? other.getCustName() == null : this.getCustName().equals(other.getCustName()))
+                && (this.getRefId() == null ? other.getRefId() == null : this.getRefId().equals(other.getRefId()))
+                && (this.getTmpType() == null ? other.getTmpType() == null : this.getTmpType().equals(other.getTmpType()))
+                && (this.getTmpOperType() == null ? other.getTmpOperType() == null : this.getTmpOperType().equals(other.getTmpOperType()));
     }
 
     @Override
@@ -622,38 +625,38 @@ public class CustMechLawTmp implements BetterjrEntity {
         result = prime * result + ((getTmpOperType() == null) ? 0 : getTmpOperType().hashCode());
         return result;
     }
-    
-    public void initAddValue(String anTmpType, String anBusinStatus, Long anCustNo, String anCustName) {
+
+    public void initAddValue(final String anTmpType, final String anBusinStatus, final Long anCustNo, final String anCustName) {
         this.id = SerialGenerator.getLongValue("CustMechLawTmp.id");
-        
+
         this.regOperId = UserUtils.getOperatorInfo().getId();
         this.regOperName = UserUtils.getOperatorInfo().getName();
         this.regDate = BetterDateUtils.getNumDate();
         this.regTime = BetterDateUtils.getNumTime();
-        
+
         this.modiOperId = UserUtils.getOperatorInfo().getId();
         this.modiOperName = UserUtils.getOperatorInfo().getName();
         this.modiDate = BetterDateUtils.getNumDate();
         this.modiTime = BetterDateUtils.getNumTime();
-        
+
         this.operOrg = UserUtils.getOperatorInfo().getOperOrg();
         this.businStatus = anBusinStatus;
-        
+
         this.custNo = anCustNo;
         this.custName = anCustName;
-        
+
         this.tmpType = anTmpType;
         this.tmpOperType = CustomerConstants.TMP_OPER_TYPE_MODIFY;// 只有修改操作
     }
-    
-    public void initAddValue(String anTmpType, Long anCustNo, String anCustName) {
+
+    public void initAddValue(final String anTmpType, final Long anCustNo, final String anCustName) {
         this.initAddValue(anTmpType, CustomerConstants.TMP_STATUS_NEW, anCustNo, anCustName);
     }
 
     // 从法人信息建立 流水记录
-    public void initAddValue(CustMechLaw anCustMechLaw, String anTmpType, String anBusinStatus) {
+    public void initAddValue(final CustMechLaw anCustMechLaw, final String anTmpType, final String anBusinStatus) {
         this.initAddValue(anTmpType, anBusinStatus, anCustMechLaw.getCustNo(), anCustMechLaw.getCustName());
-        
+
         this.address = anCustMechLaw.getAddress();
         this.batchNo = anCustMechLaw.getBatchNo();
         this.birthdate = anCustMechLaw.getBirthdate();
@@ -667,23 +670,22 @@ public class CustMechLawTmp implements BetterjrEntity {
         this.sex = anCustMechLaw.getSex();
         this.validDate = anCustMechLaw.getValidDate();
     }
-    
-    
+
     public void initModifyValue(final String anBusinStatus) {
         this.modiOperId = UserUtils.getOperatorInfo().getId();
         this.modiOperName = UserUtils.getOperatorInfo().getName();
         this.modiDate = BetterDateUtils.getNumDate();
         this.modiTime = BetterDateUtils.getNumTime();
-        
+
         this.businStatus = anBusinStatus;
     }
-    
+
     public void initModifyValue(final CustMechLawTmp anCustMechLawTmp) {
         this.modiOperId = UserUtils.getOperatorInfo().getId();
         this.modiOperName = UserUtils.getOperatorInfo().getName();
         this.modiDate = BetterDateUtils.getNumDate();
         this.modiTime = BetterDateUtils.getNumTime();
-        
+
         this.address = anCustMechLawTmp.getAddress();
         this.batchNo = anCustMechLawTmp.getBatchNo();
         this.birthdate = anCustMechLawTmp.getBirthdate();
@@ -697,12 +699,11 @@ public class CustMechLawTmp implements BetterjrEntity {
         this.sex = anCustMechLawTmp.getSex();
         this.validDate = anCustMechLawTmp.getValidDate();
         /*
-        this.custNo = anCustMechLawTmp.getCustNo();
-        */
+         * this.custNo = anCustMechLawTmp.getCustNo();
+         */
         this.custName = anCustMechLawTmp.getCustName();
 
         this.businStatus = anCustMechLawTmp.getBusinStatus();
     }
-
 
 }
