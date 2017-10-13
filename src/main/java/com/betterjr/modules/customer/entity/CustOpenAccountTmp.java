@@ -14,13 +14,14 @@ import com.betterjr.common.mapper.CustTimeJsonSerializer;
 import com.betterjr.common.selectkey.SerialGenerator;
 import com.betterjr.common.utils.BetterDateUtils;
 import com.betterjr.common.utils.UserUtils;
+import com.betterjr.modules.customer.data.ICustAuditEntityFace;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @Access(AccessType.FIELD)
 @Entity
 @Table(name = "t_cust_open_account_tmp")
-public class CustOpenAccountTmp implements BetterjrEntity {
+public class CustOpenAccountTmp implements BetterjrEntity, ICustAuditEntityFace {
     /**
      * 编号
      */
@@ -207,7 +208,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
     @Column(name = "C_OPER_IDENTTYPE", columnDefinition = "CHAR")
     @MetaData(value = "经办人证件类型", comments = "经办人证件类型")
     private String operIdenttype;
-    
+
     /**
      * 经办人其他证件类型
      */
@@ -271,7 +272,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
     @Column(name = "C_LAW_IDENTTYPE", columnDefinition = "VARCHAR")
     @MetaData(value = "法人证件类型", comments = "法人证件类型")
     private String lawIdentType;
-    
+
     /**
      * 法人其他证件类型
      */
@@ -333,12 +334,11 @@ public class CustOpenAccountTmp implements BetterjrEntity {
     @MetaData(value = "创建时间", comments = "创建时间")
     private String regTime;
 
-    
     /**
      * 税务登记证号
      */
-    @Column(name = "C_TAX_NO",  columnDefinition="VARCHAR" )
-    @MetaData( value="税务登记证号", comments = "税务登记证号")
+    @Column(name = "C_TAX_NO", columnDefinition = "VARCHAR")
+    @MetaData(value = "税务登记证号", comments = "税务登记证号")
     private String taxNo;
 
     /**
@@ -419,14 +419,14 @@ public class CustOpenAccountTmp implements BetterjrEntity {
     @Column(name = "C_CORELIST", columnDefinition = "VARCHAR")
     @MetaData(value = "核心企业列表", comments = "核心企业列表")
     private String coreList;
-    
+
     /**
      * 开户许可证核准号
      */
     @Column(name = "C_OPEN_LICENSE", columnDefinition = "VARCHAR")
     @MetaData(value = "开户许可证核准号", comments = "开户许可证核准号")
     private String openLicense;
-    
+
     /**
      * 微信用户标识
      */
@@ -434,7 +434,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
     @MetaData(value = "微信用户标识", comments = "微信用户标识")
     @JsonIgnore
     private String wechatOpenId;
-    
+
     /**
      * 交易密码(仅微信有)
      */
@@ -442,21 +442,21 @@ public class CustOpenAccountTmp implements BetterjrEntity {
     @MetaData(value = "交易密码(仅微信有)", comments = "交易密码(仅微信有)")
     @JsonIgnore
     private String dealPassword;
-    
+
     /**
      * 角色：供应商、经销商
      */
     @Column(name = "C_ROLE", columnDefinition = "VARCHAR")
     @MetaData(value = "角色：供应商、经销商", comments = "角色：供应商、经销商")
     private String role;
-    
+
     /**
      * 数据来源:0:PC自主开户,1:PC平台代录,2:微信平台代录
      */
     @Column(name = "C_DATA_SOURCE", columnDefinition = "VARCHAR")
     @MetaData(value = "数据来源:0:PC自主开户,1:PC平台代录,2:微信平台代录", comments = "数据来源:0:PC自主开户,1:PC平台代录,2:微信平台代录")
     private String dataSource;
-    
+
     /**
      * 激活日期
      */
@@ -472,7 +472,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
     @Column(name = "T_ACTIVE_TIME", columnDefinition = "VARCHAR")
     @MetaData(value = "激活时间", comments = "激活时间")
     private String activeTime;
-    
+
     /**
      * 交易密码加密salt(仅微信有)
      */
@@ -480,7 +480,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
     @MetaData(value = "交易密码加密salt(仅微信有)", comments = "交易密码加密salt(仅微信有)")
     @JsonIgnore
     private String dealPasswordSalt;
-    
+
     /**
      * 用户登录名(仅微信有)
      */
@@ -488,7 +488,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
     @MetaData(value = "用户登录名(仅微信有)", comments = "用户登录名(仅微信有)")
     @JsonIgnore
     private String loginUserName;
-    
+
     /**
      * 登录密码加密(仅微信有)
      */
@@ -496,7 +496,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
     @MetaData(value = "登录密码(仅微信有)", comments = "登录密码(仅微信有)")
     @JsonIgnore
     private String loginPassword;
-    
+
     /**
      * 登录密码加密SALT(仅微信有)
      */
@@ -504,7 +504,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
     @MetaData(value = "登录密码加密SALT(仅微信有)", comments = "登录密码加密SALT(仅微信有)")
     @JsonIgnore
     private String loginPasswordSalt;
-    
+
     @Column(name = "c_pay_sys_num", columnDefinition = "VARCHAR")
     @MetaData(value = "联行号", comments = "联行号")
     @JsonIgnore
@@ -516,7 +516,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -524,7 +524,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return custNo;
     }
 
-    public void setCustNo(Long custNo) {
+    public void setCustNo(final Long custNo) {
         this.custNo = custNo;
     }
 
@@ -532,7 +532,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return custName;
     }
 
-    public void setCustName(String custName) {
+    public void setCustName(final String custName) {
         this.custName = custName == null ? null : custName.trim();
     }
 
@@ -540,7 +540,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return identNo;
     }
 
-    public void setIdentNo(String identNo) {
+    public void setIdentNo(final String identNo) {
         this.identNo = identNo == null ? null : identNo.trim();
     }
 
@@ -548,7 +548,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return identType;
     }
 
-    public void setIdentType(String identType) {
+    public void setIdentType(final String identType) {
         this.identType = identType == null ? null : identType.trim();
     }
 
@@ -556,7 +556,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return validDate;
     }
 
-    public void setValidDate(String validDate) {
+    public void setValidDate(final String validDate) {
         this.validDate = validDate == null ? null : validDate.trim();
     }
 
@@ -564,7 +564,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return businLicence;
     }
 
-    public void setBusinLicence(String businLicence) {
+    public void setBusinLicence(final String businLicence) {
         this.businLicence = businLicence == null ? null : businLicence.trim();
     }
 
@@ -572,7 +572,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return businLicenceRegDate;
     }
 
-    public void setBusinLicenceRegDate(String businLicenceRegDate) {
+    public void setBusinLicenceRegDate(final String businLicenceRegDate) {
         this.businLicenceRegDate = businLicenceRegDate == null ? null : businLicenceRegDate.trim();
     }
 
@@ -580,7 +580,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return businLicenceValidDate;
     }
 
-    public void setBusinLicenceValidDate(String businLicenceValidDate) {
+    public void setBusinLicenceValidDate(final String businLicenceValidDate) {
         this.businLicenceValidDate = businLicenceValidDate == null ? null : businLicenceValidDate.trim();
     }
 
@@ -588,7 +588,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(final String address) {
         this.address = address == null ? null : address.trim();
     }
 
@@ -596,7 +596,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return zipCode;
     }
 
-    public void setZipCode(String zipCode) {
+    public void setZipCode(final String zipCode) {
         this.zipCode = zipCode == null ? null : zipCode.trim();
     }
 
@@ -604,7 +604,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(final String phone) {
         this.phone = phone == null ? null : phone.trim();
     }
 
@@ -612,7 +612,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return fax;
     }
 
-    public void setFax(String fax) {
+    public void setFax(final String fax) {
         this.fax = fax == null ? null : fax.trim();
     }
 
@@ -620,7 +620,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email == null ? null : email.trim();
     }
 
@@ -628,7 +628,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return bankAcco;
     }
 
-    public void setBankAcco(String bankAcco) {
+    public void setBankAcco(final String bankAcco) {
         this.bankAcco = bankAcco == null ? null : bankAcco.trim();
     }
 
@@ -636,7 +636,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return bankAccoName;
     }
 
-    public void setBankAccoName(String bankAccoName) {
+    public void setBankAccoName(final String bankAccoName) {
         this.bankAccoName = bankAccoName == null ? null : bankAccoName.trim();
     }
 
@@ -644,7 +644,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return bankNo;
     }
 
-    public void setBankNo(String bankNo) {
+    public void setBankNo(final String bankNo) {
         this.bankNo = bankNo == null ? null : bankNo.trim();
     }
 
@@ -652,7 +652,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return bankCityno;
     }
 
-    public void setBankCityno(String bankCityno) {
+    public void setBankCityno(final String bankCityno) {
         this.bankCityno = bankCityno == null ? null : bankCityno.trim();
     }
 
@@ -660,7 +660,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return bankName;
     }
 
-    public void setBankName(String bankName) {
+    public void setBankName(final String bankName) {
         this.bankName = bankName == null ? null : bankName.trim();
     }
 
@@ -668,7 +668,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return operName;
     }
 
-    public void setOperName(String operName) {
+    public void setOperName(final String operName) {
         this.operName = operName == null ? null : operName.trim();
     }
 
@@ -676,7 +676,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return operIdenttype;
     }
 
-    public void setOperIdenttype(String operIdenttype) {
+    public void setOperIdenttype(final String operIdenttype) {
         this.operIdenttype = operIdenttype == null ? null : operIdenttype.trim();
     }
 
@@ -684,7 +684,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return operIdentno;
     }
 
-    public void setOperIdentno(String operIdentno) {
+    public void setOperIdentno(final String operIdentno) {
         this.operIdentno = operIdentno == null ? null : operIdentno.trim();
     }
 
@@ -692,7 +692,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return operValiddate;
     }
 
-    public void setOperValiddate(String operValiddate) {
+    public void setOperValiddate(final String operValiddate) {
         this.operValiddate = operValiddate == null ? null : operValiddate.trim();
     }
 
@@ -700,7 +700,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return operMobile;
     }
 
-    public void setOperMobile(String operMobile) {
+    public void setOperMobile(final String operMobile) {
         this.operMobile = operMobile == null ? null : operMobile.trim();
     }
 
@@ -708,7 +708,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return operEmail;
     }
 
-    public void setOperEmail(String operEmail) {
+    public void setOperEmail(final String operEmail) {
         this.operEmail = operEmail == null ? null : operEmail.trim();
     }
 
@@ -716,7 +716,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return operPhone;
     }
 
-    public void setOperPhone(String operPhone) {
+    public void setOperPhone(final String operPhone) {
         this.operPhone = operPhone == null ? null : operPhone.trim();
     }
 
@@ -724,7 +724,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return operFaxNo;
     }
 
-    public void setOperFaxNo(String operFaxNo) {
+    public void setOperFaxNo(final String operFaxNo) {
         this.operFaxNo = operFaxNo == null ? null : operFaxNo.trim();
     }
 
@@ -732,7 +732,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return lawName;
     }
 
-    public void setLawName(String lawName) {
+    public void setLawName(final String lawName) {
         this.lawName = lawName == null ? null : lawName.trim();
     }
 
@@ -740,7 +740,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return lawIdentType;
     }
 
-    public void setLawIdentType(String lawIdentType) {
+    public void setLawIdentType(final String lawIdentType) {
         this.lawIdentType = lawIdentType == null ? null : lawIdentType.trim();
     }
 
@@ -748,7 +748,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return lawIdentNo;
     }
 
-    public void setLawIdentNo(String lawIdentNo) {
+    public void setLawIdentNo(final String lawIdentNo) {
         this.lawIdentNo = lawIdentNo == null ? null : lawIdentNo.trim();
     }
 
@@ -756,7 +756,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return lawValidDate;
     }
 
-    public void setLawValidDate(String lawValidDate) {
+    public void setLawValidDate(final String lawValidDate) {
         this.lawValidDate = lawValidDate == null ? null : lawValidDate.trim();
     }
 
@@ -764,7 +764,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return batchNo;
     }
 
-    public void setBatchNo(Long batchNo) {
+    public void setBatchNo(final Long batchNo) {
         this.batchNo = batchNo;
     }
 
@@ -772,7 +772,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return regOperId;
     }
 
-    public void setRegOperId(Long regOperId) {
+    public void setRegOperId(final Long regOperId) {
         this.regOperId = regOperId;
     }
 
@@ -780,7 +780,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return regOperName;
     }
 
-    public void setRegOperName(String regOperName) {
+    public void setRegOperName(final String regOperName) {
         this.regOperName = regOperName == null ? null : regOperName.trim();
     }
 
@@ -788,7 +788,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return regDate;
     }
 
-    public void setRegDate(String regDate) {
+    public void setRegDate(final String regDate) {
         this.regDate = regDate == null ? null : regDate.trim();
     }
 
@@ -796,7 +796,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return regTime;
     }
 
-    public void setRegTime(String regTime) {
+    public void setRegTime(final String regTime) {
         this.regTime = regTime == null ? null : regTime.trim();
     }
 
@@ -804,7 +804,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return modiOperId;
     }
 
-    public void setModiOperId(Long modiOperId) {
+    public void setModiOperId(final Long modiOperId) {
         this.modiOperId = modiOperId;
     }
 
@@ -812,7 +812,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return modiOperName;
     }
 
-    public void setModiOperName(String modiOperName) {
+    public void setModiOperName(final String modiOperName) {
         this.modiOperName = modiOperName == null ? null : modiOperName.trim();
     }
 
@@ -820,7 +820,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return modiDate;
     }
 
-    public void setModiDate(String modiDate) {
+    public void setModiDate(final String modiDate) {
         this.modiDate = modiDate == null ? null : modiDate.trim();
     }
 
@@ -828,7 +828,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return modiTime;
     }
 
-    public void setModiTime(String modiTime) {
+    public void setModiTime(final String modiTime) {
         this.modiTime = modiTime == null ? null : modiTime.trim();
     }
 
@@ -836,7 +836,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return businStatus;
     }
 
-    public void setBusinStatus(String businStatus) {
+    public void setBusinStatus(final String businStatus) {
         this.businStatus = businStatus == null ? null : businStatus.trim();
     }
 
@@ -844,7 +844,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return lastStatus;
     }
 
-    public void setLastStatus(String lastStatus) {
+    public void setLastStatus(final String lastStatus) {
         this.lastStatus = lastStatus == null ? null : lastStatus.trim();
     }
 
@@ -852,7 +852,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return operOrg;
     }
 
-    public void setOperOrg(String operOrg) {
+    public void setOperOrg(final String operOrg) {
         this.operOrg = operOrg == null ? null : operOrg.trim();
     }
 
@@ -860,7 +860,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return tmpType;
     }
 
-    public void setTmpType(String tmpType) {
+    public void setTmpType(final String tmpType) {
         this.tmpType = tmpType == null ? null : tmpType.trim();
     }
 
@@ -868,7 +868,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return tmpOperType;
     }
 
-    public void setTmpOperType(String tmpOperType) {
+    public void setTmpOperType(final String tmpOperType) {
         this.tmpOperType = tmpOperType == null ? null : tmpOperType.trim();
     }
 
@@ -876,7 +876,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return orgCode;
     }
 
-    public void setOrgCode(String orgCode) {
+    public void setOrgCode(final String orgCode) {
         this.orgCode = orgCode;
     }
 
@@ -884,7 +884,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return parentId;
     }
 
-    public void setParentId(Long anParentId) {
+    public void setParentId(final Long anParentId) {
         parentId = anParentId;
     }
 
@@ -892,7 +892,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return applyDate;
     }
 
-    public void setApplyDate(String anApplyDate) {
+    public void setApplyDate(final String anApplyDate) {
         applyDate = anApplyDate;
     }
 
@@ -900,7 +900,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return applyTime;
     }
 
-    public void setApplyTime(String anApplyTime) {
+    public void setApplyTime(final String anApplyTime) {
         applyTime = anApplyTime;
     }
 
@@ -908,7 +908,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return auditDate;
     }
 
-    public void setAuditDate(String anAuditDate) {
+    public void setAuditDate(final String anAuditDate) {
         auditDate = anAuditDate;
     }
 
@@ -916,7 +916,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return auditTime;
     }
 
-    public void setAuditTime(String anAuditTime) {
+    public void setAuditTime(final String anAuditTime) {
         auditTime = anAuditTime;
     }
 
@@ -924,7 +924,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return coreList;
     }
 
-    public void setCoreList(String coreList) {
+    public void setCoreList(final String coreList) {
         this.coreList = coreList;
     }
 
@@ -932,7 +932,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return this.openLicense;
     }
 
-    public void setOpenLicense(String anOpenLicense) {
+    public void setOpenLicense(final String anOpenLicense) {
         this.openLicense = anOpenLicense;
     }
 
@@ -940,7 +940,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return this.taxNo;
     }
 
-    public void setTaxNo(String anTaxNo) {
+    public void setTaxNo(final String anTaxNo) {
         this.taxNo = anTaxNo;
     }
 
@@ -948,7 +948,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return this.wechatOpenId;
     }
 
-    public void setWechatOpenId(String anWechatOpenId) {
+    public void setWechatOpenId(final String anWechatOpenId) {
         this.wechatOpenId = anWechatOpenId;
     }
 
@@ -956,7 +956,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return this.dealPassword;
     }
 
-    public void setDealPassword(String anDealPassword) {
+    public void setDealPassword(final String anDealPassword) {
         this.dealPassword = anDealPassword;
     }
 
@@ -964,7 +964,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return this.role;
     }
 
-    public void setRole(String anRole) {
+    public void setRole(final String anRole) {
         this.role = anRole;
     }
 
@@ -972,7 +972,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return this.operOtherIdenttype;
     }
 
-    public void setOperOtherIdenttype(String anOperOtherIdenttype) {
+    public void setOperOtherIdenttype(final String anOperOtherIdenttype) {
         this.operOtherIdenttype = anOperOtherIdenttype;
     }
 
@@ -980,7 +980,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return this.lawOtherIdentType;
     }
 
-    public void setLawOtherIdentType(String anLawOtherIdentType) {
+    public void setLawOtherIdentType(final String anLawOtherIdentType) {
         this.lawOtherIdentType = anLawOtherIdentType;
     }
 
@@ -988,7 +988,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return this.dataSource;
     }
 
-    public void setDataSource(String anDataSource) {
+    public void setDataSource(final String anDataSource) {
         this.dataSource = anDataSource;
     }
 
@@ -996,7 +996,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return this.activeDate;
     }
 
-    public void setActiveDate(String anActiveDate) {
+    public void setActiveDate(final String anActiveDate) {
         this.activeDate = anActiveDate;
     }
 
@@ -1004,7 +1004,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return this.activeTime;
     }
 
-    public void setActiveTime(String anActiveTime) {
+    public void setActiveTime(final String anActiveTime) {
         this.activeTime = anActiveTime;
     }
 
@@ -1012,7 +1012,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return this.dealPasswordSalt;
     }
 
-    public void setDealPasswordSalt(String anDealPasswordSalt) {
+    public void setDealPasswordSalt(final String anDealPasswordSalt) {
         this.dealPasswordSalt = anDealPasswordSalt;
     }
 
@@ -1020,7 +1020,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return this.loginUserName;
     }
 
-    public void setLoginUserName(String anLoginUserName) {
+    public void setLoginUserName(final String anLoginUserName) {
         this.loginUserName = anLoginUserName;
     }
 
@@ -1028,7 +1028,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return this.loginPassword;
     }
 
-    public void setLoginPassword(String anLoginPassword) {
+    public void setLoginPassword(final String anLoginPassword) {
         this.loginPassword = anLoginPassword;
     }
 
@@ -1036,21 +1036,21 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         return this.loginPasswordSalt;
     }
 
-    public void setLoginPasswordSalt(String anLoginPasswordSalt) {
+    public void setLoginPasswordSalt(final String anLoginPasswordSalt) {
         this.loginPasswordSalt = anLoginPasswordSalt;
     }
-    
+
     public String getPaySysNum() {
         return this.paySysNum;
     }
 
-    public void setPaySysNum(String anPaySysNum) {
+    public void setPaySysNum(final String anPaySysNum) {
         this.paySysNum = anPaySysNum;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
@@ -1127,7 +1127,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
     }
 
     @Override
-    public boolean equals(Object that) {
+    public boolean equals(final Object that) {
         if (this == that) {
             return true;
         }
@@ -1137,7 +1137,7 @@ public class CustOpenAccountTmp implements BetterjrEntity {
         if (getClass() != that.getClass()) {
             return false;
         }
-        CustOpenAccountTmp other = (CustOpenAccountTmp) that;
+        final CustOpenAccountTmp other = (CustOpenAccountTmp) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
                 && (this.getParentId() == null ? other.getParentId() == null : this.getParentId().equals(other.getParentId()))
                 && (this.getApplyDate() == null ? other.getApplyDate() == null : this.getApplyDate().equals(other.getApplyDate()))
@@ -1197,14 +1197,18 @@ public class CustOpenAccountTmp implements BetterjrEntity {
                 && (this.getDealPassword() == null ? other.getDealPassword() == null : this.getDealPassword().equals(other.getDealPassword()))
                 && (this.getRole() == null ? other.getRole() == null : this.getRole().equals(other.getRole()))
                 && (this.getDataSource() == null ? other.getDataSource() == null : this.getDataSource().equals(other.getDataSource()))
-                && (this.getOperOtherIdenttype() == null ? other.getOperOtherIdenttype() == null : this.getOperOtherIdenttype().equals(other.getOperOtherIdenttype()))
-                && (this.getLawOtherIdentType() == null ? other.getLawOtherIdentType() == null : this.getLawOtherIdentType().equals(other.getLawOtherIdentType()))
+                && (this.getOperOtherIdenttype() == null ? other.getOperOtherIdenttype() == null
+                        : this.getOperOtherIdenttype().equals(other.getOperOtherIdenttype()))
+                && (this.getLawOtherIdentType() == null ? other.getLawOtherIdentType() == null
+                        : this.getLawOtherIdentType().equals(other.getLawOtherIdentType()))
                 && (this.getActiveDate() == null ? other.getActiveDate() == null : this.getActiveDate().equals(other.getActiveDate()))
                 && (this.getActiveTime() == null ? other.getActiveTime() == null : this.getActiveTime().equals(other.getActiveTime()))
-                && (this.getDealPasswordSalt() == null ? other.getDealPasswordSalt() == null : this.getDealPasswordSalt().equals(other.getDealPasswordSalt()))
+                && (this.getDealPasswordSalt() == null ? other.getDealPasswordSalt() == null
+                        : this.getDealPasswordSalt().equals(other.getDealPasswordSalt()))
                 && (this.getLoginUserName() == null ? other.getLoginUserName() == null : this.getLoginUserName().equals(other.getLoginUserName()))
                 && (this.getLoginPassword() == null ? other.getLoginPassword() == null : this.getLoginPassword().equals(other.getLoginPassword()))
-                && (this.getLoginPasswordSalt() == null ? other.getLoginPasswordSalt() == null : this.getLoginPasswordSalt().equals(other.getLoginPasswordSalt()))
+                && (this.getLoginPasswordSalt() == null ? other.getLoginPasswordSalt() == null
+                        : this.getLoginPasswordSalt().equals(other.getLoginPasswordSalt()))
                 && (this.getCoreList() == null ? other.getCoreList() == null : this.getCoreList().equals(other.getCoreList()));
     }
 

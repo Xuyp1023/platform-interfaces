@@ -13,12 +13,13 @@ import com.betterjr.common.selectkey.SerialGenerator;
 import com.betterjr.common.utils.BetterDateUtils;
 import com.betterjr.common.utils.UserUtils;
 import com.betterjr.modules.customer.constants.CustomerConstants;
+import com.betterjr.modules.customer.data.ICustAuditEntityFace;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Access(AccessType.FIELD)
 @Entity
 @Table(name = "t_cust_mech_bankacco_tmp")
-public class CustMechBankAccountTmp implements BetterjrEntity {
+public class CustMechBankAccountTmp implements BetterjrEntity, ICustAuditEntityFace {
     /**
      * 编号
      */
@@ -321,7 +322,7 @@ public class CustMechBankAccountTmp implements BetterjrEntity {
     @Column(name = "N_BATCHNO", columnDefinition = "INTEGER")
     @MetaData(value = "附件", comments = "附件")
     private Long batchNo;
-    
+
     /**
      * 开户许可证核准号
      */
@@ -655,7 +656,7 @@ public class CustMechBankAccountTmp implements BetterjrEntity {
         return this.openLicense;
     }
 
-    public void setOpenLicense(String anOpenLicense) {
+    public void setOpenLicense(final String anOpenLicense) {
         this.openLicense = anOpenLicense;
     }
 
