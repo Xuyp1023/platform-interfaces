@@ -86,25 +86,9 @@ public class VideoMsg extends BasicMsg {
 
     @Override
     public String toString() {
-        return "VideoMsg [toUserName="
-               + toUserName
-               + ", fromUserName="
-               + fromUserName
-               + ", createTime="
-               + createTime
-               + ", msgType="
-               + msgType
-               + ", msgId="
-               + msgId
-               + ", mediaId="
-               + mediaId
-               + ", thumbMediaId="
-               + thumbMediaId
-               + ", title="
-               + title
-               + ", description="
-               + description
-               + "]";
+        return "VideoMsg [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime=" + createTime
+                + ", msgType=" + msgType + ", msgId=" + msgId + ", mediaId=" + mediaId + ", thumbMediaId="
+                + thumbMediaId + ", title=" + title + ", description=" + description + "]";
     }
 
 }

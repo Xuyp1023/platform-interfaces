@@ -60,7 +60,7 @@ public class AccessToken implements Serializable {
     }
 
     public boolean isAvailable() {
-        if (! StringUtils.isEmpty(accessToken) && this.expiresIn >= System.currentTimeMillis()) {
+        if (!StringUtils.isEmpty(accessToken) && this.expiresIn >= System.currentTimeMillis()) {
             return true;
         }
         return false;

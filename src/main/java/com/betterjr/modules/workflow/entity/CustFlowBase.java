@@ -1,89 +1,93 @@
 package com.betterjr.modules.workflow.entity;
 
-import com.alibaba.fastjson.annotation.JSONField;
-import com.betterjr.common.annotation.*;
-import com.betterjr.common.entity.BetterjrEntity;
-import com.betterjr.common.mapper.CustDateToStrJsonSerializer;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.betterjr.common.annotation.MetaData;
+import com.betterjr.common.entity.BetterjrEntity;
+import com.betterjr.common.mapper.CustDateToStrJsonSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @Access(AccessType.FIELD)
 @Entity
 @Table(name = "t_cust_flow_base")
 public class CustFlowBase implements BetterjrEntity {
-    public static final String selectKey="CustFlowBase.id";
+    public static final String selectKey = "CustFlowBase.id";
     /**
      * 流程编号
      */
-//    @JsonIgnore
+    // @JsonIgnore
     @Id
-    @Column(name = "ID",  columnDefinition="INTEGER" )
-    @MetaData( value="流程编号", comments = "流程编号")
+    @Column(name = "ID", columnDefinition = "INTEGER")
+    @MetaData(value = "流程编号", comments = "流程编号")
     private Long id;
 
     /**
      * 流程类型
      */
-    @Column(name = "C_FLOW_TYPE",  columnDefinition="VARCHAR" )
-    @MetaData( value="流程类型", comments = "流程类型")
+    @Column(name = "C_FLOW_TYPE", columnDefinition = "VARCHAR")
+    @MetaData(value = "流程类型", comments = "流程类型")
     private String flowType;
 
     /**
      * 监控人编号
      */
-    @Column(name = "L_MONITOR_OPERID",  columnDefinition="INTEGER" )
-    @MetaData( value="监控人编号", comments = "监控人编号")
+    @Column(name = "L_MONITOR_OPERID", columnDefinition = "INTEGER")
+    @MetaData(value = "监控人编号", comments = "监控人编号")
     private Long monitorOperId;
 
     /**
      * 监控人名称
      */
-    @Column(name = "C_MONITOR_OPERNAME",  columnDefinition="VARCHAR" )
-    @MetaData( value="监控人名称", comments = "监控人名称")
+    @Column(name = "C_MONITOR_OPERNAME", columnDefinition = "VARCHAR")
+    @MetaData(value = "监控人名称", comments = "监控人名称")
     private String monitorOperName;
 
     /**
      * 组织机构
      */
-    @Column(name = "C_OPERORG",  columnDefinition="VARCHAR" )
-    @MetaData( value="组织机构", comments = "组织机构")
+    @Column(name = "C_OPERORG", columnDefinition = "VARCHAR")
+    @MetaData(value = "组织机构", comments = "组织机构")
     private String operOrg;
 
     /**
      * 注册日期
      */
     @JsonSerialize(using = CustDateToStrJsonSerializer.class)
-    @Column(name = "T_REGDATE",  columnDefinition="DateTime" )
-    @MetaData( value="注册日期", comments = "注册日期")
+    @Column(name = "T_REGDATE", columnDefinition = "DateTime")
+    @MetaData(value = "注册日期", comments = "注册日期")
     private Date regDate;
 
     /**
      * 修改日期
      */
     @JsonSerialize(using = CustDateToStrJsonSerializer.class)
-    @Column(name = "T_MODIDATE",  columnDefinition="DateTime" )
-    @MetaData( value="修改日期", comments = "修改日期")
+    @Column(name = "T_MODIDATE", columnDefinition = "DateTime")
+    @MetaData(value = "修改日期", comments = "修改日期")
     private Date modiDate;
 
     /**
      * 注册人编号
      */
-    @Column(name = "L_REG_OPERID",  columnDefinition="INTEGER" )
-    @MetaData( value="注册人编号", comments = "注册人编号")
+    @Column(name = "L_REG_OPERID", columnDefinition = "INTEGER")
+    @MetaData(value = "注册人编号", comments = "注册人编号")
     private Long regOperId;
 
     /**
      * 注册人姓名
      */
-    @Column(name = "C_REG_OPERNAME",  columnDefinition="VARCHAR" )
-    @MetaData( value="注册人姓名", comments = "注册人姓名")
+    @Column(name = "C_REG_OPERNAME", columnDefinition = "VARCHAR")
+    @MetaData(value = "注册人姓名", comments = "注册人姓名")
     private String regOperName;
-    
+
     @Transient
     private List<CustFlowStep> stepList;
 
@@ -202,14 +206,22 @@ public class CustFlowBase implements BetterjrEntity {
         }
         CustFlowBase other = (CustFlowBase) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getFlowType() == null ? other.getFlowType() == null : this.getFlowType().equals(other.getFlowType()))
-            && (this.getMonitorOperId() == null ? other.getMonitorOperId() == null : this.getMonitorOperId().equals(other.getMonitorOperId()))
-            && (this.getMonitorOperName() == null ? other.getMonitorOperName() == null : this.getMonitorOperName().equals(other.getMonitorOperName()))
-            && (this.getOperOrg() == null ? other.getOperOrg() == null : this.getOperOrg().equals(other.getOperOrg()))
-            && (this.getRegDate() == null ? other.getRegDate() == null : this.getRegDate().equals(other.getRegDate()))
-            && (this.getModiDate() == null ? other.getModiDate() == null : this.getModiDate().equals(other.getModiDate()))
-            && (this.getRegOperId() == null ? other.getRegOperId() == null : this.getRegOperId().equals(other.getRegOperId()))
-            && (this.getRegOperName() == null ? other.getRegOperName() == null : this.getRegOperName().equals(other.getRegOperName()));
+                && (this.getFlowType() == null ? other.getFlowType() == null
+                        : this.getFlowType().equals(other.getFlowType()))
+                && (this.getMonitorOperId() == null ? other.getMonitorOperId() == null
+                        : this.getMonitorOperId().equals(other.getMonitorOperId()))
+                && (this.getMonitorOperName() == null ? other.getMonitorOperName() == null
+                        : this.getMonitorOperName().equals(other.getMonitorOperName()))
+                && (this.getOperOrg() == null ? other.getOperOrg() == null
+                        : this.getOperOrg().equals(other.getOperOrg()))
+                && (this.getRegDate() == null ? other.getRegDate() == null
+                        : this.getRegDate().equals(other.getRegDate()))
+                && (this.getModiDate() == null ? other.getModiDate() == null
+                        : this.getModiDate().equals(other.getModiDate()))
+                && (this.getRegOperId() == null ? other.getRegOperId() == null
+                        : this.getRegOperId().equals(other.getRegOperId()))
+                && (this.getRegOperName() == null ? other.getRegOperName() == null
+                        : this.getRegOperName().equals(other.getRegOperName()));
     }
 
     @Override

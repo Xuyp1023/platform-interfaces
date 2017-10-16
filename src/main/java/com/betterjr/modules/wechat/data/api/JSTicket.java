@@ -2,6 +2,8 @@ package com.betterjr.modules.wechat.data.api;
 
 import java.io.Serializable;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.betterjr.common.utils.BetterStringUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -50,7 +52,7 @@ public class JSTicket implements Serializable {
     }
 
     public boolean isAvailable() {
-        if (!BetterStringUtils.isEmpty(ticket) && this.expiresIn >= System.currentTimeMillis()) {
+        if (!StringUtils.isEmpty(ticket) && this.expiresIn >= System.currentTimeMillis()) {
             return true;
         }
         return false;

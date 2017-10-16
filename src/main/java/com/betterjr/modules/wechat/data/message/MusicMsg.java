@@ -91,27 +91,9 @@ public class MusicMsg extends BasicMsg {
 
     @Override
     public String toString() {
-        return "MusicMsg [toUserName="
-               + toUserName
-               + ", fromUserName="
-               + fromUserName
-               + ", createTime="
-               + createTime
-               + ", msgType="
-               + msgType
-               + ", msgId="
-               + msgId
-               + ", title="
-               + title
-               + ", description="
-               + description
-               + ", musicUrl="
-               + musicUrl
-               + ", HQMusicUrl="
-               + HQMusicUrl
-               + ", thumbMediaId="
-               + thumbMediaId
-               + "]";
+        return "MusicMsg [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime=" + createTime
+                + ", msgType=" + msgType + ", msgId=" + msgId + ", title=" + title + ", description=" + description
+                + ", musicUrl=" + musicUrl + ", HQMusicUrl=" + HQMusicUrl + ", thumbMediaId=" + thumbMediaId + "]";
     }
 
 }

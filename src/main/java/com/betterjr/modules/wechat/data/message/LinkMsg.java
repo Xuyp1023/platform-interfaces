@@ -58,22 +58,8 @@ public class LinkMsg extends BasicMsg {
 
     @Override
     public String toString() {
-        return "LinkMsg [toUserName="
-               + toUserName
-               + ", fromUserName="
-               + fromUserName
-               + ", createTime="
-               + createTime
-               + ", msgType="
-               + msgType
-               + ", msgId="
-               + msgId
-               + ", title="
-               + title
-               + ", description="
-               + description
-               + ", url="
-               + url
-               + "]";
+        return "LinkMsg [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime=" + createTime
+                + ", msgType=" + msgType + ", msgId=" + msgId + ", title=" + title + ", description=" + description
+                + ", url=" + url + "]";
     }
 }

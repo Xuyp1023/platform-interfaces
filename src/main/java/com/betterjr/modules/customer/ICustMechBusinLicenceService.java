@@ -17,14 +17,14 @@ public interface ICustMechBusinLicenceService {
      * @return
      */
     public String webFindBusinLicence(Long anCustNo);
-    
+
     /**
      * 营业执照税务登记证号
      * @param anCustNo
      * @return
      */
     public String findBusinLicenceTaxNo(Long anCustNo);
-    
+
     /**
      * 营业执照-变更详情
      * 

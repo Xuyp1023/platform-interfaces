@@ -1,6 +1,5 @@
 package com.betterjr.modules.customer;
 
-
 import java.util.List;
 import java.util.Map;
 
@@ -8,7 +7,6 @@ import com.betterjr.common.annotation.NoSession;
 import com.betterjr.common.data.SimpleDataEntity;
 import com.betterjr.modules.customer.data.CustRelationData;
 import com.betterjr.modules.customer.entity.CustRelation;
-
 
 public interface ICustRelationService {
 
@@ -29,7 +27,8 @@ public interface ICustRelationService {
      * @param anPostscript
      * @return
      */
-    public String webSaveCustRelation(Long anCustNo, String anProviderCustList, String anFactorCustList, String anPostscript);
+    public String webSaveCustRelation(Long anCustNo, String anProviderCustList, String anFactorCustList,
+            String anPostscript);
 
     /**
      * 开通保理业务融资审批流程
@@ -104,7 +103,7 @@ public interface ICustRelationService {
      * @return
      */
     public String webQueryCoreKeyAndValue(Long anCustNo);
-    
+
     public List<CustRelation> queryCoreList(final Long anCustNo);
 
     /**
@@ -163,7 +162,7 @@ public interface ICustRelationService {
      * @return
      */
     public String webQueryFactorCustRelation(Long anFactorNo, String anCreditType);
-    
+
     /**
      * 查询保理结构所有关系客户
      * 
@@ -171,7 +170,6 @@ public interface ICustRelationService {
      * @return
      */
     public String webQueryFactorAllCust(Long anFactorNo);
-    
 
     /****
      * 查询客户号根据类型返回关联关系信息
@@ -179,13 +177,13 @@ public interface ICustRelationService {
      * @param anCreditType 关系类型
      * @return 关系列表
      */
-    public List<CustRelationData> webQueryCustRelationData(Long anCustNo,String anCreditType);
+    public List<CustRelationData> webQueryCustRelationData(Long anCustNo, String anCreditType);
 
     /**
      * @return
      */
     public String webQueryFactorRelation(Long anCustNo);
-    
+
     /**
      * 微信端,获取当前客户的保理公司
      * 
@@ -193,11 +191,11 @@ public interface ICustRelationService {
      */
     public String webQueryFactorRelation();
 
-
     /**
      *
      */
     public String webQueryOpenedFactor(Long anCustNo);
+
     /**
      * 检查客户保理,
      * 客户只能是供应商|经销商|核心企业
@@ -212,7 +210,7 @@ public interface ICustRelationService {
      * @return
      */
     @NoSession
-    public CustRelation findOneRelation_OLD(Long anCustNo, Long anRelateCustno,String anPartnerCustNo);
+    public CustRelation findOneRelation_OLD(Long anCustNo, Long anRelateCustno, String anPartnerCustNo);
 
     /**
      * 更新关联关系的状态
@@ -235,7 +233,6 @@ public interface ICustRelationService {
     @NoSession
     public Long findCustNoByBankInfo(String anBankAccountName, String anBankAccount);
 
-
     /**
      * 根据从核心企业上传的客户信息，保存客户与核心企业的关系；数据来自对象 CoreSupplierInfo <BR>
      * 处理逻辑：检查核心企业编码加上其余的熟悉 先检查客户号是否存在，如果存在，根据核心企业编码和客户号来检查，<BR>
@@ -247,10 +244,9 @@ public interface ICustRelationService {
      * @param anCoreCustNo 核心企业编码
      * @return
      */
-    
+
     @NoSession
     public boolean saveAndCheckCust(Map<String, Object> anValues, String anCoreCustName, Long anCoreCustNo);
-
 
     /**
      * 微信端查询当前客户信息
@@ -258,7 +254,6 @@ public interface ICustRelationService {
      * @return
      */
     public String webFindWechatCurrentCustInfo();
-
 
     /**
      * 微信端开通保理融资业务申请
@@ -276,7 +271,7 @@ public interface ICustRelationService {
      */
     @NoSession
     public void saveOrUpdateCustFactor(CustRelation anRelation);
-    
+
     /**
      * 根据保理公司客户号，查找系统中的客户号
      * 
@@ -288,7 +283,6 @@ public interface ICustRelationService {
      */
     @NoSession
     public Long findCustNoByScfId(String anScfId, String anAgencyNo);
-    
 
     /**
      * 根据客户号获得在保理公司的关联号
@@ -298,7 +292,7 @@ public interface ICustRelationService {
      */
     @NoSession
     public String findScfIdByCustNo(Long anCustNo, String anAgencyNo);
-    
+
     /**
      * 查询核心企业关联的保理机构，用于获取核心企业额度信息
      * @param anAgencyNo
@@ -306,7 +300,6 @@ public interface ICustRelationService {
      */
     @NoSession
     public List<CustRelation> findFactorRelaByCoreCustNo(String anAgencyNo);
-    
 
     /**
      * 查询状态为处理中的业务，包括1：已申请和5：取消中的关联关系
@@ -315,14 +308,14 @@ public interface ICustRelationService {
      */
     @NoSession
     public List<CustRelation> findFactorRelaByRough(String anAgencyNo);
-    
+
     /**
      * 查询需要调用远程开户接口的信息
      * @return
      */
     @NoSession
     public List<CustRelation> findAppAccountRequest();
-    
+
     /**
      * 根据ID，查找单个关联信息
      * @param anRelationId
@@ -340,16 +333,15 @@ public interface ICustRelationService {
      */
     @NoSession
     public String checkCoreCustomer(Long anCustNo, String anAgencyNo);
-    
+
     /**
      *保存远程调用的接口信息 
      * @param anId 关系ID
      * @param anScfId 远端的客户信息
      * @param anStatus 处理状态
-     */    
+     */
     @NoSession
     public void saveFactorRelationInfo(Long anId, String anScfId, String anStatus);
-    
 
     /**
      * 保理机构客户查询,适用于根据核心企业，查询关联保理机构的供应商或经销商
@@ -364,13 +356,13 @@ public interface ICustRelationService {
      * 
      */
     public String webQueryCoreCust(Long anCoreCustNo);
-    
+
     /**
      * 查询所有的供应商
      * 
      */
     public String webQueryAllCust();
-    
+
     /**
      * 根据关联方简称和关联方客户编号查询客户关联关系信息
      * @param anCustNo 客户号
@@ -378,12 +370,14 @@ public interface ICustRelationService {
      * @param anPartnerCustNo 关联方客户号
      * @return
      */
-    public CustRelation findRelationWithCustCorp(final Long anCustNo, final String anPartnerCustNo, final String anCustCorp);
+    public CustRelation findRelationWithCustCorp(final Long anCustNo, final String anPartnerCustNo,
+            final String anCustCorp);
 
     /**
      * 保理公司查询企业信息
      */
-    public String webQueryCustInfoByFactor(String anRelateType,String anBusinStatus, String anFlag, int anPageNum, int anPageSize);
+    public String webQueryCustInfoByFactor(String anRelateType, String anBusinStatus, String anFlag, int anPageNum,
+            int anPageSize);
 
     /**
      * 通过核心企业id查询保理公司列表
@@ -391,9 +385,9 @@ public interface ICustRelationService {
      * @return
      */
     public List<SimpleDataEntity> queryFactoryByCore(Long anCoreCustNo);
-    
+
     public List<Long> queryNoInsideFactoryByCore(Long anCoreCustNo);
-    
+
     /**
      * 企业合作银行下拉列表查询
      * @param anCustNo

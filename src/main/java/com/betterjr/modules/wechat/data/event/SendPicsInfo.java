@@ -44,7 +44,7 @@ public class SendPicsInfo {
         this.picList = picList;
     }
 
-    @ Override
+    @Override
     public String toString() {
         return "SendPicsInfo [count=" + count + ", picList=" + picList + "]";
     }

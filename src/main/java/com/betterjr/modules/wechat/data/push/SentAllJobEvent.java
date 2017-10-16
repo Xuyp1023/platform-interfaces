@@ -110,29 +110,11 @@ public class SentAllJobEvent extends SentTmlJobEvent {
         this.errorCnt = errorCnt;
     }
 
-    @ Override
+    @Override
     public String toString() {
-        return "SenAllJobEvent [toUserName="
-               + toUserName
-               + ", fromUserName="
-               + fromUserName
-               + ", createTime="
-               + createTime
-               + ", msgType="
-               + msgType
-               + ", event="
-               + event
-               + ", eventKey="
-               + eventKey
-               + ", totalCnt="
-               + totalCnt
-               + ", filterCnt="
-               + filterCnt
-               + ", sentCnt="
-               + sentCnt
-               + ", errorCnt="
-               + errorCnt
-               + "]";
+        return "SenAllJobEvent [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime="
+                + createTime + ", msgType=" + msgType + ", event=" + event + ", eventKey=" + eventKey + ", totalCnt="
+                + totalCnt + ", filterCnt=" + filterCnt + ", sentCnt=" + sentCnt + ", errorCnt=" + errorCnt + "]";
     }
 
 }

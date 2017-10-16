@@ -73,24 +73,8 @@ public class LocationMsg extends BasicMsg {
 
     @Override
     public String toString() {
-        return "LocationMsg [toUserName="
-               + toUserName
-               + ", fromUserName="
-               + fromUserName
-               + ", createTime="
-               + createTime
-               + ", msgType="
-               + msgType
-               + ", msgId="
-               + msgId
-               + ", x="
-               + x
-               + ", y="
-               + y
-               + ", scale="
-               + scale
-               + ", label="
-               + label
-               + "]";
+        return "LocationMsg [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime=" + createTime
+                + ", msgType=" + msgType + ", msgId=" + msgId + ", x=" + x + ", y=" + y + ", scale=" + scale
+                + ", label=" + label + "]";
     }
 }

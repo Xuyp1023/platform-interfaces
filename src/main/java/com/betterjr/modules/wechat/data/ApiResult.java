@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.betterjr.common.mapper.JsonMapper;
- 
+
 /**
  * 封装微信api返回结果, 输出实体类
  * 
@@ -16,7 +16,7 @@ import com.betterjr.common.mapper.JsonMapper;
 public class ApiResult {
 
     private static final Logger log = LoggerFactory.getLogger(ApiResult.class);
- 
+
     private Map<String, Object> content;
     private String json;
     private Integer errCode;
@@ -32,7 +32,7 @@ public class ApiResult {
 
         if (log.isInfoEnabled()) {
             log.info("Wechat api result: " + json);
-            log.info(" error:"+this.getErrCNMsg());
+            log.info(" error:" + this.getErrCNMsg());
         }
     }
 
@@ -68,13 +68,14 @@ public class ApiResult {
         return (this.errCode == null || this.errCode.intValue() == 0);
     }
 
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("errCode=").append(errCode);
         sb.append(", json=").append(json);
-        sb.append(", content=").append(content); 
+        sb.append(", content=").append(content);
         sb.append("]");
 
         return sb.toString();

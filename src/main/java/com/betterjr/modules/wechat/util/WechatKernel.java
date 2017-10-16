@@ -142,7 +142,8 @@ public class WechatKernel {
         final String ts = get("timestamp");
         final String nonce = get("nonce");
 
-        if (sign == null || sign.length() > 128 || ts == null || ts.length() > 128 || nonce == null || nonce.length() > 128) {
+        if (sign == null || sign.length() > 128 || ts == null || ts.length() > 128 || nonce == null
+                || nonce.length() > 128) {
             log.warn("接入微信服务器认证的加密参数为空或是长度大于128.");
             return "error";
         }
@@ -219,8 +220,7 @@ public class WechatKernel {
         final String msgtype = msgHandler.getValues().get("msgType");
         if ("event".equals(msgtype)) {
             return handleEventMsg();
-        }
-        else {
+        } else {
             return handleNormalMsg();
         }
     }
@@ -420,7 +420,8 @@ public class WechatKernel {
 
     public AccessToken findUserAuth2(final String anCode) {
         if (StringUtils.isNotBlank(anCode)) {
-            final String apiUrl = String.format(user_auth2_info, this.mpAct.getAppId(), this.mpAct.getAppSecret(), anCode);
+            final String apiUrl = String.format(user_auth2_info, this.mpAct.getAppId(), this.mpAct.getAppSecret(),
+                    anCode);
             AccessToken at = null;
             ApiResult ar = null;
             ar = ApiResult.create(HttpTool.get(apiUrl));

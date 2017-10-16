@@ -28,7 +28,7 @@ public class PicItem {
         this.picMd5Sum = picMd5Sum;
     }
 
-    @ Override
+    @Override
     public String toString() {
         return "PicItem [picMd5Sum=" + picMd5Sum + "]";
     }

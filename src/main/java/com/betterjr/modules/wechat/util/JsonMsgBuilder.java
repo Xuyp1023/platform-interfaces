@@ -40,12 +40,8 @@ public class JsonMsgBuilder {
      *            客服消息
      */
     void msgPrefix(final BasicMsg msg) {
-        msgBuf.append("\"touser\":\"")
-        .append(msg.getToUserName())
-        .append("\",");
-        msgBuf.append("\"msgtype\":\"")
-        .append(msg.getMsgType())
-        .append("\",");
+        msgBuf.append("\"touser\":\"").append(msg.getToUserName()).append("\",");
+        msgBuf.append("\"msgtype\":\"").append(msg.getMsgType()).append("\",");
     }
 
     /**
@@ -57,9 +53,7 @@ public class JsonMsgBuilder {
     public JsonMsgBuilder text(final TextMsg msg) {
         msgPrefix(msg);
         msgBuf.append("\"text\": {");
-        msgBuf.append(" \"content\":\"")
-        .append(msg.getContent())
-        .append("\"");
+        msgBuf.append(" \"content\":\"").append(msg.getContent()).append("\"");
         msgBuf.append("}");
         return this;
     }
@@ -73,9 +67,7 @@ public class JsonMsgBuilder {
     public JsonMsgBuilder image(final ImageMsg msg) {
         msgPrefix(msg);
         msgBuf.append("\"image\": {");
-        msgBuf.append(" \"media_id\":\"")
-        .append(msg.getMediaId())
-        .append("\"");
+        msgBuf.append(" \"media_id\":\"").append(msg.getMediaId()).append("\"");
         msgBuf.append("}");
         return this;
     }
@@ -89,9 +81,7 @@ public class JsonMsgBuilder {
     public JsonMsgBuilder voice(final VoiceMsg msg) {
         msgPrefix(msg);
         msgBuf.append("\"voice\": {");
-        msgBuf.append(" \"media_id\":\"")
-        .append(msg.getMediaId())
-        .append("\"");
+        msgBuf.append(" \"media_id\":\"").append(msg.getMediaId()).append("\"");
         msgBuf.append("}");
         return this;
     }
@@ -105,18 +95,10 @@ public class JsonMsgBuilder {
     public JsonMsgBuilder video(final VideoMsg msg) {
         msgPrefix(msg);
         msgBuf.append("\"video\": {");
-        msgBuf.append(" \"media_id\":\"")
-        .append(msg.getMediaId())
-        .append("\",");
-        msgBuf.append(" \"thumb_media_id\":\"")
-        .append(msg.getThumbMediaId())
-        .append("\",");
-        msgBuf.append(" \"title\":\"")
-        .append(msg.getTitle())
-        .append("\",");
-        msgBuf.append(" \"description\":\"")
-        .append(msg.getDescription())
-        .append("\"");
+        msgBuf.append(" \"media_id\":\"").append(msg.getMediaId()).append("\",");
+        msgBuf.append(" \"thumb_media_id\":\"").append(msg.getThumbMediaId()).append("\",");
+        msgBuf.append(" \"title\":\"").append(msg.getTitle()).append("\",");
+        msgBuf.append(" \"description\":\"").append(msg.getDescription()).append("\"");
         msgBuf.append("}");
         return this;
     }
@@ -129,21 +111,11 @@ public class JsonMsgBuilder {
     public JsonMsgBuilder music(final MusicMsg msg) {
         msgPrefix(msg);
         msgBuf.append("\"music\": {");
-        msgBuf.append(" \"title\":\"")
-        .append(msg.getTitle())
-        .append("\",");
-        msgBuf.append(" \"description\":\"")
-        .append(msg.getDescription())
-        .append("\",");
-        msgBuf.append(" \"musicurl\":\"")
-        .append(msg.getMusicUrl())
-        .append("\",");
-        msgBuf.append(" \"hqmusicurl\":\"")
-        .append(msg.getHQMusicUrl())
-        .append("\",");
-        msgBuf.append(" \"thumb_media_id\":\"")
-        .append(msg.getThumbMediaId())
-        .append("\"");
+        msgBuf.append(" \"title\":\"").append(msg.getTitle()).append("\",");
+        msgBuf.append(" \"description\":\"").append(msg.getDescription()).append("\",");
+        msgBuf.append(" \"musicurl\":\"").append(msg.getMusicUrl()).append("\",");
+        msgBuf.append(" \"hqmusicurl\":\"").append(msg.getHQMusicUrl()).append("\",");
+        msgBuf.append(" \"thumb_media_id\":\"").append(msg.getThumbMediaId()).append("\"");
         msgBuf.append("}");
         return this;
     }
@@ -160,17 +132,10 @@ public class JsonMsgBuilder {
         for (final Article art : msg.getArticles()) {
             art_buf.setLength(0);
             art_buf.append("{");
-            art_buf.append(" \"title\":\"")
-            .append(art.getTitle())
-            .append("\",");
-            art_buf.append(" \"description\":\"")
-            .append(art.getDescription())
-            .append("\",");
-            art_buf.append(" \"picurl\":\"")
-            .append(art.getPicUrl())
-            .append("\",");
-            art_buf.append(" \"url\":\"")
-            .append(art.getUrl());
+            art_buf.append(" \"title\":\"").append(art.getTitle()).append("\",");
+            art_buf.append(" \"description\":\"").append(art.getDescription()).append("\",");
+            art_buf.append(" \"picurl\":\"").append(art.getPicUrl()).append("\",");
+            art_buf.append(" \"url\":\"").append(art.getUrl());
             art_buf.append("\"},");
         }
         art_buf.deleteCharAt(art_buf.lastIndexOf(","));
@@ -196,23 +161,12 @@ public class JsonMsgBuilder {
      * @param tmls
      *            模板数据
      */
-    public JsonMsgBuilder template(final String openId,
-            final String tmlId,
-            final String topColor,
-            final String url,
+    public JsonMsgBuilder template(final String openId, final String tmlId, final String topColor, final String url,
             final Collection<WechatPushTempField> anTmls) {
-        msgBuf.append("\"touser\":\"")
-        .append(openId)
-        .append("\",");
-        msgBuf.append("\"template_id\":\"")
-        .append(tmlId)
-        .append("\",");
-        msgBuf.append("\"url\":\"")
-        .append(url)
-        .append("\",");
-        msgBuf.append("\"topcolor\":\"")
-        .append(topColor)
-        .append("\",");
+        msgBuf.append("\"touser\":\"").append(openId).append("\",");
+        msgBuf.append("\"template_id\":\"").append(tmlId).append("\",");
+        msgBuf.append("\"url\":\"").append(url).append("\",");
+        msgBuf.append("\"topcolor\":\"").append(topColor).append("\",");
         msgBuf.append("\"data\":{");
 
         final StringBuffer data = new StringBuffer("");

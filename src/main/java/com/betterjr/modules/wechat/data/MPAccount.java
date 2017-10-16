@@ -121,7 +121,6 @@ public class MPAccount implements Serializable {
         this.pass = pass;
     }
 
-
     public String getWechatUrl() {
         return wechatUrl;
     }
@@ -132,24 +131,8 @@ public class MPAccount implements Serializable {
 
     @Override
     public String toString() {
-        return "MPAccount [mpId="
-                + mpId
-                + ", nickName="
-                + nickName
-                + ", appId="
-                + appId
-                + ", appSecret="
-                + appSecret
-                + ", token="
-                + token
-                + ", AESKey="
-                + AESKey
-                + ", mpType="
-                + mpType
-                + ", pass="
-                + pass
-                + ", wechatUrl="
-                + wechatUrl
-                + "]";
+        return "MPAccount [mpId=" + mpId + ", nickName=" + nickName + ", appId=" + appId + ", appSecret=" + appSecret
+                + ", token=" + token + ", AESKey=" + AESKey + ", mpType=" + mpType + ", pass=" + pass + ", wechatUrl="
+                + wechatUrl + "]";
     }
 }

@@ -47,11 +47,10 @@ public class NewsMsg extends BasicMsg {
     }
 
     public List<Article> getArticles() {
-        if (! Collections3.isEmpty(articles) && articles.size() > 10) {
+        if (!Collections3.isEmpty(articles) && articles.size() > 10) {
             this.articles = articles.subList(0, 10);
             setCount(10);
-        }
-        else {
+        } else {
             this.setCount(articles.size());
         }
         return articles;
@@ -63,20 +62,7 @@ public class NewsMsg extends BasicMsg {
 
     @Override
     public String toString() {
-        return "NewsMsg [toUserName="
-               + toUserName
-               + ", fromUserName="
-               + fromUserName
-               + ", createTime="
-               + createTime
-               + ", msgType="
-               + msgType
-               + ", msgId="
-               + msgId
-               + ", count="
-               + count
-               + ", articles="
-               + articles
-               + "]";
+        return "NewsMsg [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime=" + createTime
+                + ", msgType=" + msgType + ", msgId=" + msgId + ", count=" + count + ", articles=" + articles + "]";
     }
 }

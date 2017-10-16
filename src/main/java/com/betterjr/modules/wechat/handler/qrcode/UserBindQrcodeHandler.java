@@ -40,15 +40,13 @@ public class UserBindQrcodeHandler implements QrcodeHandler {
         final String fromUserName = anEvent.getFromUserName();
         if (StringUtils.startsWith(anEvent.getEventKey(), "qrscene_")) {// 关注带参数场景扫描
             eventKey = StringUtils.substring(anEvent.getEventKey(), 8);
-        }
-        else {
+        } else {
             eventKey = anEvent.getEventKey();
         }
         final String operName = wechatDubboClientService.saveBindingWeChat(eventKey, fromUserName);
         if (StringUtils.isBlank(operName)) {
             textMsg.setContent("欢迎关注前海拜特微信开发公众号! 账户绑定扫描失败，账户绑定扫描只能一次，请重新获取扫描二维码。");
-        }
-        else {
+        } else {
             textMsg.setContent("账户绑定已扫描，操作员是：" + operName + "，请继续在平台输入交易密码！");
         }
 

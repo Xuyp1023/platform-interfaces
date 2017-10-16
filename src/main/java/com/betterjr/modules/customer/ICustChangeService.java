@@ -13,19 +13,19 @@ public interface ICustChangeService {
      * @return
      */
     public String webQueryChangeApplyList(Map<String, Object> anParam, int anFlag, int anPageNum, int anPageSize);
-    
+
     /**
      * 变更申请 审核通过
      * @return
      */
-    public String webAuditPassChangeApply(Long anId,  String anReason);
-    
+    public String webAuditPassChangeApply(Long anId, String anReason);
+
     /**
      * 变更申请 审核驳回
      * @return
      */
     public String webAuditRejectChangeApply(Long anId, String anReason);
-    
+
     /**
      * 变更申请 作废
      * @return

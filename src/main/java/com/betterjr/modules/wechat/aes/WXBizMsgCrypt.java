@@ -1,6 +1,5 @@
 package com.betterjr.modules.wechat.aes;
 
- 
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Arrays;
@@ -14,7 +13,6 @@ import org.apache.commons.codec.binary.Base64;
 
 import com.betterjr.modules.wechat.util.XmlMsgBuilder;
 
- 
 /**
  * 提供接收和推送给公众平台消息的加解密接口(UTF8编码的字符串).
  * <ol>
@@ -88,8 +86,7 @@ public class WXBizMsgCrypt {
             if (flag) {
                 char c = (char) (int) (Math.random() * 26 + 97);
                 sb.append(c);
-            }
-            else {
+            } else {
                 sb.append(ran.nextInt(10));
             }
         }
@@ -253,10 +250,8 @@ public class WXBizMsgCrypt {
      * @throws AesException
      *             执行失败，请查看该异常的错误码和具体的错误信息
      */
-    public String decryptMsg(String msgSignature,
-                             String timeStamp,
-                             String nonce,
-                             InputStream postData) throws AesException {
+    public String decryptMsg(String msgSignature, String timeStamp, String nonce, InputStream postData)
+            throws AesException {
 
         // 密钥，公众账号的app secret
         // 提取密文

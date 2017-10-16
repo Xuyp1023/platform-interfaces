@@ -81,7 +81,6 @@ public interface ICustMechBaseService {
      */
     public CustMechBase findBaseInfo(Long anCustNo);
 
-
     /**
      * 公司基本信息-变更详情
      *
@@ -151,7 +150,7 @@ public interface ICustMechBaseService {
      * @return
      */
     public String webFindWechatLoginInfo();
-    
+
     /**
      * 查询企业平台id
      * @return

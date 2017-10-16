@@ -7,7 +7,7 @@ import java.io.UnsupportedEncodingException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
- 
+
 /**
  * 输入流与字符串处理工具
  *
@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 public class StreamTool {
 
     private static final Logger log = LoggerFactory.getLogger(StreamTool.class);
+
     /**
      * 将字符串转换成输入流
      *

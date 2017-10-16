@@ -11,7 +11,7 @@ import com.betterjr.modules.wechat.data.api.WechatPushTempField;
  * @author zhoucy
  */
 public interface MessageAPI {
-    
+
     /**
      * 发模板消息地址
      */

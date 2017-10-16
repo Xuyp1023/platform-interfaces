@@ -21,9 +21,9 @@ public interface TemplateAPI {
      */
     String add_template = "/template/api_add_template?access_token=";
 
-     /**
-      * 获取模板列表
-      */    
+    /**
+     * 获取模板列表
+     */
     String list_template = "/template/get_all_private_template?access_token=";
 
     /**
@@ -45,7 +45,7 @@ public interface TemplateAPI {
      * @return 模板Id
      */
     String getTemplateId(String tmlShortId);
-    
+
     List<MessageTemplate> findTemplateList();
-    
+
 }

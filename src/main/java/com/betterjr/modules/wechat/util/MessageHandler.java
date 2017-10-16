@@ -18,7 +18,8 @@ public class MessageHandler extends DefaultHandler2 {
 
     private static final Logger log = LoggerFactory.getLogger(MessageHandler.class);
 
-    private static final String[] DEF_TOKENS = new String[] { "xml", "ScanCodeInfo", "SendLocationInfo", "SendPicsInfo", "PicList", "item" };
+    private static final String[] DEF_TOKENS = new String[] { "xml", "ScanCodeInfo", "SendLocationInfo", "SendPicsInfo",
+            "PicList", "item" };
     // 节点属性值
     private String attrVal;
 

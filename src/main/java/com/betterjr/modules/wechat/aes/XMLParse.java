@@ -37,16 +37,13 @@ class XMLParse {
                 private String temp;
 
                 @Override
-                public void startElement(String uri,
-                                         String localName,
-                                         String qName,
-                                         Attributes attributes) throws SAXException {
+                public void startElement(String uri, String localName, String qName, Attributes attributes)
+                        throws SAXException {
                     super.startElement(uri, localName, qName, attributes);
                 }
 
                 @Override
-                public void endElement(String uri, String localName, String qName)
-                        throws SAXException {
+                public void endElement(String uri, String localName, String qName) throws SAXException {
                     if (qName.equalsIgnoreCase("Encrypt")) {
                         result[1] = temp;
                         return;

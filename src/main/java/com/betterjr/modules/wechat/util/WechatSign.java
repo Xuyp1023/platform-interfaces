@@ -30,7 +30,8 @@ public final class WechatSign {
         String signature = "";
 
         // 注意这里参数名必须全部小写，且必须有序
-        final String string1 = "jsapi_ticket=" + jsapi_ticket + "&noncestr=" + nonce_str + "&timestamp=" + timestamp + "&url=" + url;
+        final String string1 = "jsapi_ticket=" + jsapi_ticket + "&noncestr=" + nonce_str + "&timestamp=" + timestamp
+                + "&url=" + url;
 
         try {
             final MessageDigest crypt = MessageDigest.getInstance("SHA-1");
@@ -43,7 +44,7 @@ public final class WechatSign {
         }
 
         ret.put("url", url);
-        //ret.put("jsapi_ticket", jsapi_ticket);
+        // ret.put("jsapi_ticket", jsapi_ticket);
         ret.put("nonceStr", nonce_str);
         ret.put("timestamp", timestamp);
         ret.put("signature", signature);

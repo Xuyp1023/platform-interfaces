@@ -144,7 +144,6 @@ public interface ICustOpenAccountService {
     @NoSession
     public Map<String, Object> findOpenTempAccountInfo(Long anCustNo);
 
-
     /**
      * 开户申请提交
      */
@@ -158,7 +157,7 @@ public interface ICustOpenAccountService {
     /**
      * 根据开户id和文件id保存附件
      */
-    public String webSaveSingleFileLink(Long anId,String anFileTypeName, String anFileMediaId);
+    public String webSaveSingleFileLink(Long anId, String anFileTypeName, String anFileMediaId);
 
     /**
      * 根据batchNo生成对应文件类型Map Json对象(微信使用)

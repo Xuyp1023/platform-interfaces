@@ -49,19 +49,8 @@ public class TextMsg extends BasicMsg {
 
     @Override
     public String toString() {
-        return "TextMsg [toUserName="
-               + toUserName
-               + ", fromUserName="
-               + fromUserName
-               + ", createTime="
-               + createTime
-               + ", msgType="
-               + msgType
-               + ", content="
-               + content
-               + ", msgId="
-               + msgId
-               + "]";
+        return "TextMsg [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime=" + createTime
+                + ", msgType=" + msgType + ", content=" + content + ", msgId=" + msgId + "]";
     }
 
 }

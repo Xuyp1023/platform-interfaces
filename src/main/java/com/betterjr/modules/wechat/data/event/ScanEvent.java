@@ -30,23 +30,10 @@ public class ScanEvent extends BasicEvent {
         this.ticket = ticket;
     }
 
-    @ Override
+    @Override
     public String toString() {
-        return "ScanEvent [toUserName="
-               + toUserName
-               + ", fromUserName="
-               + fromUserName
-               + ", createTime="
-               + createTime
-               + ", msgType="
-               + msgType
-               + ", event="
-               + event
-               + ", eventKey="
-               + eventKey
-               + ", ticket="
-               + ticket
-               + "]";
+        return "ScanEvent [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime=" + createTime
+                + ", msgType=" + msgType + ", event=" + event + ", eventKey=" + eventKey + ", ticket=" + ticket + "]";
     }
 
 }

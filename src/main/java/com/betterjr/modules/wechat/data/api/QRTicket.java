@@ -51,12 +51,6 @@ public class QRTicket {
 
     @Override
     public String toString() {
-        return "QRTicket [ticket="
-               + ticket
-               + ", expireSeconds="
-               + expireSeconds
-               + ", url="
-               + url
-               + "]";
+        return "QRTicket [ticket=" + ticket + ", expireSeconds=" + expireSeconds + ", url=" + url + "]";
     }
 }

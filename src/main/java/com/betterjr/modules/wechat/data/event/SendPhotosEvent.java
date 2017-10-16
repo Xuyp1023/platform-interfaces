@@ -38,8 +38,9 @@ public class SendPhotosEvent extends MenuEvent {
 
     @Override
     public String toString() {
-        return "ScanSysPhotoEvent [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime=" + createTime + ", msgType="
-                + msgType + ", event=" + event + ", eventKey=" + eventKey + ", sendPicsInfo=" + sendPicsInfo + "]";
+        return "ScanSysPhotoEvent [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime="
+                + createTime + ", msgType=" + msgType + ", event=" + event + ", eventKey=" + eventKey
+                + ", sendPicsInfo=" + sendPicsInfo + "]";
     }
 
 }

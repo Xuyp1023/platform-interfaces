@@ -34,7 +34,6 @@ public interface UserAPI {
      */
     String batch_user_info = "/user/info/batchget?access_token=";
 
-    
     /**
      * 设置用户备注名
      * 
@@ -74,5 +73,5 @@ public interface UserAPI {
      * @return 关注用户{@link Follower}
      */
     List<Follower> getFollowers(Collection<Follower2> users);
-    
+
 }

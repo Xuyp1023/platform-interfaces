@@ -90,7 +90,7 @@ public class HttpTool {
         try {
             resp = connFactory.doGet(url, null);
             int statusCode = resp.getStatusLine().getStatusCode();
-            if (statusCode >= 200 && statusCode < 300){
+            if (statusCode >= 200 && statusCode < 300) {
                 Header hh = resp.getFirstHeader("Content-disposition");
                 if (log.isInfoEnabled()) {
                     log.info("Get download file info: %s", hh);
@@ -98,8 +98,7 @@ public class HttpTool {
                 String cd = "";
                 if (hh == null) {
                     cd = SerialGenerator.uuid();
-                }
-                else{
+                } else {
                     cd = hh.getValue();
                     cd = cd.substring(cd.indexOf(FILE_NAME_FLAG) + FILE_NAME_FLAG.length());
                 }
@@ -119,18 +118,20 @@ public class HttpTool {
                 return tmpfile;
             }
             String statusMessage = resp.getStatusLine().getReasonPhrase();
-            throw new BytterValidException(String.format("Download file [%s] failed. status: %d, content: %s", url, statusCode, statusMessage));
+            throw new BytterValidException(String.format("Download file [%s] failed. status: %d, content: %s", url,
+                    statusCode, statusMessage));
         }
         catch (Exception e) {
             throw BytterException.unchecked(e);
         }
-        finally{
+        finally {
             if (resp != null) {
                 EntityUtils.consumeQuietly(resp.getEntity());
             }
         }
     }
-    public static void main(String[] args){
-       System.out.println(SerialGenerator.uuid()); 
+
+    public static void main(String[] args) {
+        System.out.println(SerialGenerator.uuid());
     }
 }

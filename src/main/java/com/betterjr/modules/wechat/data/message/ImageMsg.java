@@ -47,21 +47,8 @@ public class ImageMsg extends BasicMsg {
 
     @Override
     public String toString() {
-        return "ImageMsg [toUserName="
-               + toUserName
-               + ", fromUserName="
-               + fromUserName
-               + ", createTime="
-               + createTime
-               + ", msgType="
-               + msgType
-               + ", msgId="
-               + msgId
-               + ", picUrl="
-               + picUrl
-               + ", mediaId="
-               + mediaId
-               + "]";
+        return "ImageMsg [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime=" + createTime
+                + ", msgType=" + msgType + ", msgId=" + msgId + ", picUrl=" + picUrl + ", mediaId=" + mediaId + "]";
     }
 
 }

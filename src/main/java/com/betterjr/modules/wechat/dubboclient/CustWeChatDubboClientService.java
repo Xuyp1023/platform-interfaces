@@ -50,11 +50,10 @@ import com.betterjr.modules.wechat.util.WechatSign;
 public class CustWeChatDubboClientService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
-
     @Reference(interfaceClass = ICustWeChatService.class)
     private ICustWeChatService wechatService;
 
-    @Reference(interfaceClass=ICustFileService.class)
+    @Reference(interfaceClass = ICustFileService.class)
     private ICustFileService custFileService;
 
     @Reference(interfaceClass = ICustMechBaseService.class)
@@ -67,7 +66,7 @@ public class CustWeChatDubboClientService {
      * @param anToken
      * @return
      */
-    public Map<String, Object> saveLogin(final AccessToken anToken){
+    public Map<String, Object> saveLogin(final AccessToken anToken) {
         return this.wechatService.saveLogin(anToken);
     }
 
@@ -109,7 +108,7 @@ public class CustWeChatDubboClientService {
      */
     public Object checkScanStatus() {
         final CustOperatorInfo operator = UserUtils.getOperatorInfo();
-        if (operator != null){
+        if (operator != null) {
             final String scanKey = WechatConstants.wechatScanPrefix + operator.getId();
             final String result = JedisUtils.get(scanKey);
             return result;
@@ -156,12 +155,12 @@ public class CustWeChatDubboClientService {
         while (true) {
             limitKey = (anWorkType * 10000 * 10000) + SerialGenerator.randomInt(10000 * 10000);
             tmpStr = String.valueOf(limitKey);
-            final String qrcodeKey = WechatConstants.wechatQrcodePrefix + tmpStr;            // 得到Qrcode key
+            final String qrcodeKey = WechatConstants.wechatQrcodePrefix + tmpStr; // 得到Qrcode key
             if (JedisUtils.exists(qrcodeKey) == false) {
                 final CustOperatorInfo operator = UserUtils.getOperatorInfo();
                 final String scanKey = WechatConstants.wechatScanPrefix + operator.getId(); // 得到 scan flag key
-                JedisUtils.setObject(qrcodeKey, operator, WechatConstants.scanTimeOut);        // scanTimeOut
-                JedisUtils.set(scanKey, WechatConstants.SCAN_NO, WechatConstants.scanTimeOut);                 // scanTimeOut
+                JedisUtils.setObject(qrcodeKey, operator, WechatConstants.scanTimeOut); // scanTimeOut
+                JedisUtils.set(scanKey, WechatConstants.SCAN_NO, WechatConstants.scanTimeOut); // scanTimeOut
                 break;
             }
         }
@@ -191,14 +190,14 @@ public class CustWeChatDubboClientService {
         final CustWeChatInfo wechatInfo = wechatService.findWeChatInfo(anFromUserName); // 通过用户OpenId找到系统中的wechatInfo
         if (wechatInfo != null) {
             final String qrcodeKey = WechatConstants.wechatQrcodePrefix + anEventKey; // 拿到wechatKey
-            final CustOperatorInfo operator = JedisUtils.getObject(qrcodeKey);            // 取到wechatKey 存储的用户信息  userId 即可
+            final CustOperatorInfo operator = JedisUtils.getObject(qrcodeKey); // 取到wechatKey 存储的用户信息 userId 即可
             if (operator != null) {
-                JedisUtils.delObject(qrcodeKey);                                        // delete qrcodeKey
+                JedisUtils.delObject(qrcodeKey); // delete qrcodeKey
                 final String scanKey = WechatConstants.wechatScanPrefix + operator.getId();
-                JedisUtils.set(scanKey, WechatConstants.SCAN_YES, WechatConstants.scanTimeOut); //置为已扫描
+                JedisUtils.set(scanKey, WechatConstants.SCAN_YES, WechatConstants.scanTimeOut); // 置为已扫描
 
                 final String userKey = WechatConstants.wechatUserPrefix + operator.getId();
-                JedisUtils.set(userKey, wechatInfo.getOpenId(), WechatConstants.userTimeOut);   // 给定超时时间
+                JedisUtils.set(userKey, wechatInfo.getOpenId(), WechatConstants.userTimeOut); // 给定超时时间
                 return operator.getName();
             }
         }
@@ -212,7 +211,8 @@ public class CustWeChatDubboClientService {
      * @param anLoginPassword
      * @return
      */
-    public String saveMobileTradePass(final String anNewPassword, final String anOkPassword, final String anLoginPassword) {
+    public String saveMobileTradePass(final String anNewPassword, final String anOkPassword,
+            final String anLoginPassword) {
         return wechatService.webSaveMobileTradePass(anNewPassword, anOkPassword, anLoginPassword);
     }
 

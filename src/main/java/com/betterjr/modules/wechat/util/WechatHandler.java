@@ -1,6 +1,13 @@
 package com.betterjr.modules.wechat.util;
 
-import com.betterjr.modules.wechat.data.event.*;
+import com.betterjr.modules.wechat.data.event.BasicEvent;
+import com.betterjr.modules.wechat.data.event.CustomServiceEvent;
+import com.betterjr.modules.wechat.data.event.LocationEvent;
+import com.betterjr.modules.wechat.data.event.MenuEvent;
+import com.betterjr.modules.wechat.data.event.ScanCodeEvent;
+import com.betterjr.modules.wechat.data.event.ScanEvent;
+import com.betterjr.modules.wechat.data.event.SendLocationInfoEvent;
+import com.betterjr.modules.wechat.data.event.SendPhotosEvent;
 import com.betterjr.modules.wechat.data.message.BasicMsg;
 import com.betterjr.modules.wechat.data.message.ImageMsg;
 import com.betterjr.modules.wechat.data.message.LinkMsg;

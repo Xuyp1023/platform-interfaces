@@ -17,7 +17,6 @@ import com.betterjr.common.utils.BetterDateUtils;
 import com.betterjr.common.utils.UserUtils;
 import com.betterjr.modules.account.entity.CustOperatorInfo;
 import com.betterjr.modules.customer.constants.CustomerConstants;
-import com.betterjr.modules.account.entity.CustOperatorInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -200,7 +199,7 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
     @Column(name = "C_LAST_STATUS", columnDefinition = "CHAR")
     @MetaData(value = "", comments = "")
     private String lastStatus;
-    
+
     /**
      * 合作方系统客户编号
      */
@@ -215,15 +214,14 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
     @Column(name = "C_PARTNER_CUSTNO", columnDefinition = "VARCHAR")
     @MetaData(value = "合作方系统客户编号", comments = "合作方系统客户编号")
     private String partnerCustNo;
-    
+
     /**
      * 是否是内部企业  0 不是   1 内部保理公司
      */
     @Column(name = "C_IS_INSIDE", columnDefinition = "VARCHAR")
     @MetaData(value = "是否是内部企业  0 不是   1 内部保理公司", comments = "是否是内部企业  0 不是   1 内部保理公司")
     private String isInside;
-    
-    
+
     private static final long serialVersionUID = 1468812783874L;
 
     public Long getId() {
@@ -330,34 +328,42 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
         this.operName = operName == null ? null : operName.trim();
     }
 
+    @Override
     public Long getRegOperId() {
         return regOperId;
     }
 
+    @Override
     public void setRegOperId(Long regOperId) {
         this.regOperId = regOperId;
     }
 
+    @Override
     public String getRegOperName() {
         return regOperName;
     }
 
+    @Override
     public void setRegOperName(String regOperName) {
         this.regOperName = regOperName == null ? null : regOperName.trim();
     }
 
+    @Override
     public String getRegDate() {
         return regDate;
     }
 
+    @Override
     public void setRegDate(String regDate) {
         this.regDate = regDate == null ? null : regDate.trim();
     }
 
+    @Override
     public String getRegTime() {
         return regTime;
     }
 
+    @Override
     public void setRegTime(String regTime) {
         this.regTime = regTime == null ? null : regTime.trim();
     }
@@ -366,6 +372,7 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
         return modiOperId;
     }
 
+    @Override
     public void setModiOperId(Long modiOperId) {
         this.modiOperId = modiOperId;
     }
@@ -374,6 +381,7 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
         return modiOperName;
     }
 
+    @Override
     public void setModiOperName(String modiOperName) {
         this.modiOperName = modiOperName == null ? null : modiOperName.trim();
     }
@@ -382,6 +390,7 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
         return modiDate;
     }
 
+    @Override
     public void setModiDate(String modiDate) {
         this.modiDate = modiDate == null ? null : modiDate.trim();
     }
@@ -390,6 +399,7 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
         return modiTime;
     }
 
+    @Override
     public void setModiTime(String modiTime) {
         this.modiTime = modiTime == null ? null : modiTime.trim();
     }
@@ -417,7 +427,7 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
     public void setLastStatus(String lastStatus) {
         this.lastStatus = lastStatus == null ? null : lastStatus.trim();
     }
- 
+
     public String getRelateCustCorp() {
         return this.relateCustCorp;
     }
@@ -491,28 +501,47 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
         CustRelation other = (CustRelation) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
                 && (this.getCustNo() == null ? other.getCustNo() == null : this.getCustNo().equals(other.getCustNo()))
-                && (this.getCustName() == null ? other.getCustName() == null : this.getCustName().equals(other.getCustName()))
-                && (this.getBankAcco() == null ? other.getBankAcco() == null : this.getBankAcco().equals(other.getBankAcco()))
-                && (this.getBankAccoName() == null ? other.getBankAccoName() == null : this.getBankAccoName().equals(other.getBankAccoName()))
-                && (this.getCustType() == null ? other.getCustType() == null : this.getCustType().equals(other.getCustType()))
+                && (this.getCustName() == null ? other.getCustName() == null
+                        : this.getCustName().equals(other.getCustName()))
+                && (this.getBankAcco() == null ? other.getBankAcco() == null
+                        : this.getBankAcco().equals(other.getBankAcco()))
+                && (this.getBankAccoName() == null ? other.getBankAccoName() == null
+                        : this.getBankAccoName().equals(other.getBankAccoName()))
+                && (this.getCustType() == null ? other.getCustType() == null
+                        : this.getCustType().equals(other.getCustType()))
                 && (this.getBtNo() == null ? other.getBtNo() == null : this.getBtNo().equals(other.getBtNo()))
                 && (this.getCorpId() == null ? other.getCorpId() == null : this.getCorpId().equals(other.getCorpId()))
-                && (this.getRelateCustno() == null ? other.getRelateCustno() == null : this.getRelateCustno().equals(other.getRelateCustno()))
-                && (this.getRelateCustname() == null ? other.getRelateCustname() == null : this.getRelateCustname().equals(other.getRelateCustname()))
-                && (this.getRelateType() == null ? other.getRelateType() == null : this.getRelateType().equals(other.getRelateType()))
+                && (this.getRelateCustno() == null ? other.getRelateCustno() == null
+                        : this.getRelateCustno().equals(other.getRelateCustno()))
+                && (this.getRelateCustname() == null ? other.getRelateCustname() == null
+                        : this.getRelateCustname().equals(other.getRelateCustname()))
+                && (this.getRelateType() == null ? other.getRelateType() == null
+                        : this.getRelateType().equals(other.getRelateType()))
                 && (this.getOperId() == null ? other.getOperId() == null : this.getOperId().equals(other.getOperId()))
-                && (this.getOperName() == null ? other.getOperName() == null : this.getOperName().equals(other.getOperName()))
-                && (this.getRegOperId() == null ? other.getRegOperId() == null : this.getRegOperId().equals(other.getRegOperId()))
-                && (this.getRegOperName() == null ? other.getRegOperName() == null : this.getRegOperName().equals(other.getRegOperName()))
-                && (this.getRegDate() == null ? other.getRegDate() == null : this.getRegDate().equals(other.getRegDate()))
-                && (this.getRegTime() == null ? other.getRegTime() == null : this.getRegTime().equals(other.getRegTime()))
-                && (this.getModiOperId() == null ? other.getModiOperId() == null : this.getModiOperId().equals(other.getModiOperId()))
-                && (this.getModiOperName() == null ? other.getModiOperName() == null : this.getModiOperName().equals(other.getModiOperName()))
-                && (this.getModiDate() == null ? other.getModiDate() == null : this.getModiDate().equals(other.getModiDate()))
-                && (this.getModiTime() == null ? other.getModiTime() == null : this.getModiTime().equals(other.getModiTime()))
-                && (this.getOperOrg() == null ? other.getOperOrg() == null : this.getOperOrg().equals(other.getOperOrg()))
-                && (this.getBusinStatus() == null ? other.getBusinStatus() == null : this.getBusinStatus().equals(other.getBusinStatus()))
-                && (this.getLastStatus() == null ? other.getLastStatus() == null : this.getLastStatus().equals(other.getLastStatus()));
+                && (this.getOperName() == null ? other.getOperName() == null
+                        : this.getOperName().equals(other.getOperName()))
+                && (this.getRegOperId() == null ? other.getRegOperId() == null
+                        : this.getRegOperId().equals(other.getRegOperId()))
+                && (this.getRegOperName() == null ? other.getRegOperName() == null
+                        : this.getRegOperName().equals(other.getRegOperName()))
+                && (this.getRegDate() == null ? other.getRegDate() == null
+                        : this.getRegDate().equals(other.getRegDate()))
+                && (this.getRegTime() == null ? other.getRegTime() == null
+                        : this.getRegTime().equals(other.getRegTime()))
+                && (this.getModiOperId() == null ? other.getModiOperId() == null
+                        : this.getModiOperId().equals(other.getModiOperId()))
+                && (this.getModiOperName() == null ? other.getModiOperName() == null
+                        : this.getModiOperName().equals(other.getModiOperName()))
+                && (this.getModiDate() == null ? other.getModiDate() == null
+                        : this.getModiDate().equals(other.getModiDate()))
+                && (this.getModiTime() == null ? other.getModiTime() == null
+                        : this.getModiTime().equals(other.getModiTime()))
+                && (this.getOperOrg() == null ? other.getOperOrg() == null
+                        : this.getOperOrg().equals(other.getOperOrg()))
+                && (this.getBusinStatus() == null ? other.getBusinStatus() == null
+                        : this.getBusinStatus().equals(other.getBusinStatus()))
+                && (this.getLastStatus() == null ? other.getLastStatus() == null
+                        : this.getLastStatus().equals(other.getLastStatus()));
     }
 
     @Override
@@ -550,7 +579,7 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
         this.id = SerialGenerator.getLongValue("CustRelation.id");
         CustOperatorInfo operator = UserUtils.getOperatorInfo();
         initValue(operator);
-        if (operator != null){
+        if (operator != null) {
             this.operId = operator.getId();
             this.operName = operator.getName();
             this.operOrg = operator.getOperOrg();
@@ -563,7 +592,7 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
         this.id = anCustRelation.getId();
 
         CustOperatorInfo operator = UserUtils.getOperatorInfo();
-        if (operator != null){
+        if (operator != null) {
             this.modiOperId = operator.getId();
             this.modiOperName = operator.getName();
         }
@@ -573,21 +602,21 @@ public class CustRelation extends BetterBaseEntity implements BetterjrEntity {
         this.businStatus = anCustRelation.getBusinStatus();
         this.operOrg = anCustRelation.getOperOrg();
     }
-    
-    public void initUploadInfo(String anCoreCustName, Long anCoreCustNo){
-       this.initValue(null);
-       this.id = SerialGenerator.getLongValue("CustRelation.id");
-       this.businStatus = CustomerConstants.RELATE_STATUS_UNDO;
-       this.relateCustno = anCoreCustNo;
-       this.relateCustname = anCoreCustName;
-       }
-       
+
+    public void initUploadInfo(String anCoreCustName, Long anCoreCustNo) {
+        this.initValue(null);
+        this.id = SerialGenerator.getLongValue("CustRelation.id");
+        this.businStatus = CustomerConstants.RELATE_STATUS_UNDO;
+        this.relateCustno = anCoreCustNo;
+        this.relateCustname = anCoreCustName;
+    }
+
     public void initWeChatValue(CustOperatorInfo anOperator) {
         this.id = SerialGenerator.getLongValue("CustRelation.id");
         this.operId = anOperator.getId();
         this.operName = anOperator.getName();
         this.operOrg = anOperator.getOperOrg();
-        
+
         this.regOperId = anOperator.getId();
         this.regOperName = anOperator.getName();
         this.regDate = BetterDateUtils.getNumDate();

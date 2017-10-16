@@ -1,5 +1,4 @@
 package com.betterjr.modules.wechat.util;
- 
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,12 +38,8 @@ public class XmlMsgBuilder {
      *            输出消息实体
      */
     void msgPrefix(BasicMsg msg) {
-        msgBuf.append("<ToUserName><![CDATA[")
-              .append(msg.getToUserName())
-              .append("]]></ToUserName>\n");
-        msgBuf.append("<FromUserName><![CDATA[")
-              .append(msg.getFromUserName())
-              .append("]]></FromUserName>\n");
+        msgBuf.append("<ToUserName><![CDATA[").append(msg.getToUserName()).append("]]></ToUserName>\n");
+        msgBuf.append("<FromUserName><![CDATA[").append(msg.getFromUserName()).append("]]></FromUserName>\n");
         msgBuf.append("<CreateTime>").append(msg.getCreateTime()).append("</CreateTime>\n");
         msgBuf.append("<MsgType><![CDATA[").append(msg.getMsgType()).append("]]></MsgType>\n");
     }
@@ -100,9 +95,7 @@ public class XmlMsgBuilder {
         msgBuf.append("<Video>");
         msgBuf.append("<MediaId><![CDATA[").append(msg.getMediaId()).append("]]></MediaId>\n");
         msgBuf.append("<Title><![CDATA[").append(msg.getTitle()).append("]]></Title>\n");
-        msgBuf.append("<Description><![CDATA[")
-              .append(msg.getDescription())
-              .append("]]></Description>\n");
+        msgBuf.append("<Description><![CDATA[").append(msg.getDescription()).append("]]></Description>\n");
         msgBuf.append("</Video>\n");
         return this;
     }
@@ -118,16 +111,10 @@ public class XmlMsgBuilder {
         msgPrefix(msg);
         msgBuf.append("<Music>");
         msgBuf.append("<Title><![CDATA[").append(msg.getTitle()).append("]]></Title>\n");
-        msgBuf.append("<Description><![CDATA[")
-              .append(msg.getDescription())
-              .append("]]></Description>\n");
+        msgBuf.append("<Description><![CDATA[").append(msg.getDescription()).append("]]></Description>\n");
         msgBuf.append("<MusicUrl><![CDATA[").append(msg.getMusicUrl()).append("]]></MusicUrl>\n");
-        msgBuf.append("<HQMusicUrl><![CDATA[")
-              .append(msg.getHQMusicUrl())
-              .append("]]></HQMusicUrl>\n");
-        msgBuf.append("<ThumbMediaId><![CDATA[")
-              .append(msg.getThumbMediaId())
-              .append("]]></ThumbMediaId>\n");
+        msgBuf.append("<HQMusicUrl><![CDATA[").append(msg.getHQMusicUrl()).append("]]></HQMusicUrl>\n");
+        msgBuf.append("<ThumbMediaId><![CDATA[").append(msg.getThumbMediaId()).append("]]></ThumbMediaId>\n");
         msgBuf.append("</Music>\n");
         return this;
     }
@@ -146,9 +133,7 @@ public class XmlMsgBuilder {
             item_buf.setLength(0);
             item_buf.append("<item>\n");
             item_buf.append("<Title><![CDATA[").append(art.getTitle()).append("]]></Title>\n");
-            item_buf.append("<Description><![CDATA[")
-                    .append(art.getDescription())
-                    .append("]]></Description>\n");
+            item_buf.append("<Description><![CDATA[").append(art.getDescription()).append("]]></Description>\n");
             item_buf.append("<PicUrl><![CDATA[").append(art.getPicUrl()).append("]]></PicUrl>\n");
             item_buf.append("<Url><![CDATA[").append(art.getUrl()).append("]]></Url>\n");
             item_buf.append("</item>\n");
@@ -186,9 +171,7 @@ public class XmlMsgBuilder {
         msgBuf.setLength(0);
         msgBuf.append("<xml>\n");
         msgBuf.append("<Encrypt><![CDATA[").append(xml).append("]]></Encrypt>\n");
-        msgBuf.append("<MsgSignature><![CDATA[")
-              .append(msgSignature)
-              .append("]]></MsgSignature>\n");
+        msgBuf.append("<MsgSignature><![CDATA[").append(msgSignature).append("]]></MsgSignature>\n");
         msgBuf.append("<TimeStamp>").append(timeStamp).append("</TimeStamp>\n");
         msgBuf.append("<Nonce><![CDATA[").append(nonce).append("]]></Nonce>\n");
         msgBuf.append("</xml>");

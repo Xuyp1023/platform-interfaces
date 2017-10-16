@@ -3,7 +3,6 @@ package com.betterjr.modules.wechat.data.api;
 import java.util.ArrayList;
 import java.util.List;
 
- 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -64,15 +63,8 @@ public class FollowList {
 
     @Override
     public String toString() {
-        return "FollowList [total="
-               + total
-               + ", count="
-               + count
-               + ", openIds="
-               + openIds
-               + ", nextOpenId="
-               + nextOpenId
-               + "]";
+        return "FollowList [total=" + total + ", count=" + count + ", openIds=" + openIds + ", nextOpenId=" + nextOpenId
+                + "]";
     }
 
 }
