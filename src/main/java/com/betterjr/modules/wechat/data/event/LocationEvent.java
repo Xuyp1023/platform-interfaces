@@ -58,25 +58,11 @@ public class LocationEvent extends BasicEvent {
         this.precision = precision;
     }
 
-    @ Override
+    @Override
     public String toString() {
-        return "LocationEvent [toUserName="
-               + toUserName
-               + ", fromUserName="
-               + fromUserName
-               + ", createTime="
-               + createTime
-               + ", msgType="
-               + msgType
-               + ", event="
-               + event
-               + ", latitude="
-               + latitude
-               + ", longitude="
-               + longitude
-               + ", precision="
-               + precision
-               + "]";
+        return "LocationEvent [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime="
+                + createTime + ", msgType=" + msgType + ", event=" + event + ", latitude=" + latitude + ", longitude="
+                + longitude + ", precision=" + precision + "]";
     }
 
 }

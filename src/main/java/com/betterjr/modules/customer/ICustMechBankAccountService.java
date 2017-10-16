@@ -1,9 +1,7 @@
 package com.betterjr.modules.customer;
 
-import java.util.List;
 import java.util.Map;
 
-import com.betterjr.common.data.SimpleDataEntity;
 import com.betterjr.modules.customer.entity.CustMechBankAccount;
 
 /**
@@ -136,19 +134,17 @@ public interface ICustMechBankAccountService {
      */
     public CustMechBankAccount findCustMechBankAccount(String anBankAcco, String anBankAccoName);
 
+    String webQueryBankAccountKeyAndValue(Long anCustNo);
 
-	String webQueryBankAccountKeyAndValue(Long anCustNo);
+    /**
+     * 根据银行账号查询银行信息
+     * @param anBankAcco
+     * @return
+     */
+    String webFindCustMechBankAccount(String anBankAcco);
 
-	/**
-	 * 根据银行账号查询银行信息
-	 * @param anBankAcco
-	 * @return
-	 */
-	String webFindCustMechBankAccount(String anBankAcco);
-	
-	CustMechBankAccount findCustMechBankAccount(String anBankAcco);
+    CustMechBankAccount findCustMechBankAccount(String anBankAcco);
 
-    
     public String webFindSysBankCodeList(Map<String, Object> anParam);
 
 }

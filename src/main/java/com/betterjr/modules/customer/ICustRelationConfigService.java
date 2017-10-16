@@ -12,10 +12,10 @@ public interface ICustRelationConfigService {
      * @param anCustNo
      * @return
      */
-    public String webFindCustInfo(String anCustType,Long anCustNo,String anCustName);
-    
+    public String webFindCustInfo(String anCustType, Long anCustNo, String anCustName);
+
     public String webFindCustType();
-    
+
     /*****
      * 添加关联关系
      * @param anCustType 客户所属类型
@@ -23,36 +23,37 @@ public interface ICustRelationConfigService {
      * @param anRelationCustNo 关联客户号
      * @return
      */
-    public String webAddCustRelation(String anCustType,Long anCustNo,String anRelationCustStr);
-    
+    public String webAddCustRelation(String anCustType, Long anCustNo, String anRelationCustStr);
+
     /****
      * 分页查询客户关系信息
      * @param anCustNo
      * @return
      */
-    public String webQueryCustRelation(Long anCustNo,String anFlag,int anPageNum,int anPageSize,String anRelationType);
-    
+    public String webQueryCustRelation(Long anCustNo, String anFlag, int anPageNum, int anPageSize,
+            String anRelationType);
+
     /****
      * 查询当前客户的类型 
      * @param anCustNo 客户号
      * @return
      */
     public String webFindCustTypeByCustNo();
-    
+
     /***
      * 查询电子合同服务商客户
      * @return
      */
     public String webFindElecAgreementServiceCust();
-    
+
     /***
      * 查询临时审核文件
      * @param anFactorNo
      * @param anCustNo
      * @return
      */
-    public String webFindCustAduitTempFile(Long anRelateCustNo,Long anSelectCustNo);
-    
+    public String webFindCustAduitTempFile(Long anRelateCustNo, Long anSelectCustNo);
+
     /***
      * 保存临时文件
      * @param anRelateCustNo
@@ -61,15 +62,16 @@ public interface ICustRelationConfigService {
      * @param anFileMediaId
      * @return
      */
-    public String webAddCustAduitTempFile(Long anRelateCustNo,String anFileTypeName, String anFileMediaId,String anCustType);
-    
+    public String webAddCustAduitTempFile(Long anRelateCustNo, String anFileTypeName, String anFileMediaId,
+            String anCustType);
+
     /****
      * 删除附件
      * @param anId
      * @return
      */
     public String webSaveDeleteCustAduitTempFile(Long anId);
-    
+
     /*****
      * 添加保理关联关系
      * @param anFactorCustType 保理客户所属类型
@@ -79,38 +81,40 @@ public interface ICustRelationConfigService {
      * @param anRelationCustNo 关联电子合同服务的客户号
      * @return
      */
-    public String webAddFactorCustRelation(String anFactorCustType,String anWosCustType,String anFactorCustStr,String anWosCustStr,Long anCustNo);
-    
+    public String webAddFactorCustRelation(String anFactorCustType, String anWosCustType, String anFactorCustStr,
+            String anWosCustStr, Long anCustNo);
+
     /***
      * 查询保理业务申请基础数据
      * @param anCustNo 申请客户号
      * @return
      */
     public String webFindFactorBusinessRequestData(Long anCustNo);
-    
+
     /***
      * 添加客户文件关系
      * @param anRelationCustNo 关联的客户号
      * @param anFileIds 上传的文件列表(以,分隔)
      * @param anCustType 客户类型
      */
-    public String webSaveCustAduitTempFile(Long anRelateCustNo,String anFileIds,String anCustType,Long anCustNo);
-    
+    public String webSaveCustAduitTempFile(Long anRelateCustNo, String anFileIds, String anCustType, Long anCustNo);
+
     /***
      * 查询关联临时文件
      * @param anCustNo 关联客户号
      * @return
      */
     public String webFindRelateAduitTempFile(Long anCustNo);
-    
+
     public String webSaveAcceptAduit(Map<String, Object> anMap);
+
     /***
      * 查询审核/受理记录
      * @param anCustNo
      * @return
      */
-    public String webFindCustRelateAduitRecord(Long anCustNo, Long anSelectCustNo,String anRelateType);
-    
+    public String webFindCustRelateAduitRecord(Long anCustNo, Long anSelectCustNo, String anRelateType);
+
     /***
      * 查询客户的基本业务信息
      * @param anCustNo 客户号
@@ -123,5 +127,5 @@ public interface ICustRelationConfigService {
      * @param anCustType
      * @return
      */
-	String webFindCustByPlatform(String anCustType);
+    String webFindCustByPlatform(String anCustType);
 }

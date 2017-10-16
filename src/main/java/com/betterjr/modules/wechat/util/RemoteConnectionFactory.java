@@ -20,6 +20,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 
@@ -42,13 +43,7 @@ import org.apache.http.config.SocketConfig;
 import org.apache.http.conn.socket.ConnectionSocketFactory;
 import org.apache.http.conn.socket.PlainConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.ssl.SSLContexts;
-
-import com.betterjr.common.exception.BettjerIOException;
-
 import org.apache.http.conn.ssl.TrustStrategy;
-import javax.net.ssl.HostnameVerifier;
-
 import org.apache.http.entity.StringEntity;
 import org.apache.http.entity.mime.FormBodyPart;
 import org.apache.http.entity.mime.HttpMultipartMode;
@@ -59,6 +54,10 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.impl.cookie.BasicClientCookie;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.ssl.SSLContexts;
+
+import com.betterjr.common.exception.BettjerIOException;
+
 /**
  * 链接处理工具类
  * @author zhoucy
@@ -97,9 +96,9 @@ public class RemoteConnectionFactory {
         if (this.useCookies) {
             httpClient = HttpClients.custom().setConnectionManager(poolConnManager).setDefaultCookieStore(cookieStore)
                     .setDefaultRequestConfig(requestConfig).build();
-        }
-        else {
-            httpClient = HttpClients.custom().setConnectionManager(poolConnManager).setDefaultRequestConfig(requestConfig).build();
+        } else {
+            httpClient = HttpClients.custom().setConnectionManager(poolConnManager)
+                    .setDefaultRequestConfig(requestConfig).build();
 
         }
 
@@ -107,6 +106,7 @@ public class RemoteConnectionFactory {
     }
 
     private static class TrustAnyHostnameVerifier implements HostnameVerifier {
+        @Override
         public boolean verify(String hostname, SSLSession session) {
 
             return true;
@@ -127,15 +127,15 @@ public class RemoteConnectionFactory {
             enConding = Charset.forName(anEnCoding);
             if (StringUtils.isNotBlank(ackEncoding)) {
                 this.ackEncoding = Charset.forName(ackEncoding);
-            }
-            else {
+            } else {
                 this.ackEncoding = enConding;
             }
 
             // 连接超时时间，默认60秒
             int timeOut = 300;
             timeOut = timeOut * 1000;
-            requestConfig = RequestConfig.custom().setSocketTimeout(timeOut).setConnectTimeout(timeOut).setConnectionRequestTimeout(timeOut).build();
+            requestConfig = RequestConfig.custom().setSocketTimeout(timeOut).setConnectTimeout(timeOut)
+                    .setConnectionRequestTimeout(timeOut).build();
             KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
 
             // 开阶段，信任所有的服务器，实施后，需要修改服务证书
@@ -237,13 +237,15 @@ public class RemoteConnectionFactory {
         return readStream(this.doGet(url));
     }
 
-    public InputStream doGetForStream(String url, Map<String, Object> queryParams) throws URISyntaxException, ClientProtocolException, IOException {
+    public InputStream doGetForStream(String url, Map<String, Object> queryParams)
+            throws URISyntaxException, ClientProtocolException, IOException {
         HttpResponse response = this.doGet(url, queryParams);
 
         return response != null ? response.getEntity().getContent() : null;
     }
 
-    public StringBuilder doGetForString(String url, Map<String, Object> queryParams) throws URISyntaxException, ClientProtocolException, IOException {
+    public StringBuilder doGetForString(String url, Map<String, Object> queryParams)
+            throws URISyntaxException, ClientProtocolException, IOException {
 
         return readStream(this.doGetForStream(url, queryParams));
     }
@@ -260,7 +262,8 @@ public class RemoteConnectionFactory {
      * @throws IOException
      * @throws ClientProtocolException
      */
-    public CloseableHttpResponse doGet(String url, Map<String, Object> queryParams) throws URISyntaxException, ClientProtocolException, IOException {
+    public CloseableHttpResponse doGet(String url, Map<String, Object> queryParams)
+            throws URISyntaxException, ClientProtocolException, IOException {
         HttpGet gm = new HttpGet();
         URIBuilder builder = new URIBuilder(url);
         // 填入查询参数
@@ -284,7 +287,8 @@ public class RemoteConnectionFactory {
      * @throws IOException
      * @throws ClientProtocolException
      */
-    public StringBuilder doPost(String anUrl, String anBody) throws URISyntaxException, ClientProtocolException, IOException {
+    public StringBuilder doPost(String anUrl, String anBody)
+            throws URISyntaxException, ClientProtocolException, IOException {
         HttpPost pm = new HttpPost();
         URIBuilder builder = new URIBuilder(anUrl);
         pm.setURI(builder.build());
@@ -328,7 +332,8 @@ public class RemoteConnectionFactory {
      * @throws HttpException
      * @throws IOException
      */
-    public StringBuilder multipartPost(String anUrl, List<FormBodyPart> anFormParts) throws URISyntaxException, ClientProtocolException, IOException {
+    public StringBuilder multipartPost(String anUrl, List<FormBodyPart> anFormParts)
+            throws URISyntaxException, ClientProtocolException, IOException {
         CloseableHttpResponse response = null;
         try {
             response = multipartPost(anUrl, null, anFormParts);
@@ -336,15 +341,15 @@ public class RemoteConnectionFactory {
             return sb;
         }
         finally {
-            if (response != null){
+            if (response != null) {
                 response.close();
             }
         }
 
     }
 
-    public CloseableHttpResponse multipartPost(String url, Map<String, Object> queryParams, List<FormBodyPart> formParts)
-            throws URISyntaxException, ClientProtocolException, IOException {
+    public CloseableHttpResponse multipartPost(String url, Map<String, Object> queryParams,
+            List<FormBodyPart> formParts) throws URISyntaxException, ClientProtocolException, IOException {
 
         HttpPost pm = new HttpPost();
         URIBuilder builder = new URIBuilder(url);
@@ -356,7 +361,8 @@ public class RemoteConnectionFactory {
 
         // 填入表单参数
         if (formParts != null && formParts.size() > 0) {
-            MultipartEntityBuilder entityBuilder = MultipartEntityBuilder.create().setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
+            MultipartEntityBuilder entityBuilder = MultipartEntityBuilder.create()
+                    .setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
             for (FormBodyPart formPart : formParts) {
                 entityBuilder = entityBuilder.addPart(formPart.getName(), formPart.getBody());
             }
@@ -433,6 +439,7 @@ public class RemoteConnectionFactory {
 
     class AnyTrustStrategy implements TrustStrategy {
 
+        @Override
         public boolean isTrusted(X509Certificate[] chain, String authType) throws CertificateException {
             return true;
         }

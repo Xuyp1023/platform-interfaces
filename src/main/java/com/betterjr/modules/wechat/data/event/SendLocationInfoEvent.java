@@ -81,29 +81,10 @@ public class SendLocationInfoEvent extends MenuEvent {
 
     @Override
     public String toString() {
-        return "SendLocationInfoEvent [toUserName="
-               + toUserName
-               + ", fromUserName="
-               + fromUserName
-               + ", createTime="
-               + createTime
-               + ", msgType="
-               + msgType
-               + ", event="
-               + event
-               + ", eventKey="
-               + eventKey
-               + ", locationX="
-               + locationX
-               + ", locationY="
-               + locationY
-               + ", scale="
-               + scale
-               + ", label="
-               + label
-               + ", poiname="
-               + poiname
-               + "]";
+        return "SendLocationInfoEvent [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime="
+                + createTime + ", msgType=" + msgType + ", event=" + event + ", eventKey=" + eventKey + ", locationX="
+                + locationX + ", locationY=" + locationY + ", scale=" + scale + ", label=" + label + ", poiname="
+                + poiname + "]";
     }
 
 }

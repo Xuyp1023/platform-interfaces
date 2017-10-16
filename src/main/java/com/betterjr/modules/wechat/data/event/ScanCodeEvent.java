@@ -44,25 +44,11 @@ public class ScanCodeEvent extends BasicEvent {
         this.scanResult = scanResult;
     }
 
-    @ Override
+    @Override
     public String toString() {
-        return "ScanCodeEvent [toUserName="
-               + toUserName
-               + ", fromUserName="
-               + fromUserName
-               + ", createTime="
-               + createTime
-               + ", msgType="
-               + msgType
-               + ", event="
-               + event
-               + ", eventKey="
-               + eventKey
-               + ", scanType="
-               + scanType
-               + ", scanResult="
-               + scanResult
-               + "]";
+        return "ScanCodeEvent [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime="
+                + createTime + ", msgType=" + msgType + ", event=" + event + ", eventKey=" + eventKey + ", scanType="
+                + scanType + ", scanResult=" + scanResult + "]";
     }
 
 }

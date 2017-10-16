@@ -5,7 +5,7 @@ import java.io.Serializable;
 import com.betterjr.common.mapper.BeanMapper;
 import com.betterjr.modules.workflow.entity.CustFlowNode;
 
-public class CustFlowNodeData implements Serializable{
+public class CustFlowNodeData implements Serializable {
 
     /**
      * 节点编号
@@ -16,7 +16,7 @@ public class CustFlowNodeData implements Serializable{
      * 系统节点编号
      */
     private Long sysNodeId;
-    
+
     /**
      * 系统节点名称
      */
@@ -31,7 +31,7 @@ public class CustFlowNodeData implements Serializable{
      * 是否必选，0=不是必选，1=必选
      */
     private String must;
-    
+
     /**
      * 类型名称 (当前系统中， 类型名称=流程类型)
      */
@@ -110,8 +110,8 @@ public class CustFlowNodeData implements Serializable{
     public void setNodeRole(String nodeRole) {
         this.nodeRole = nodeRole;
     }
-    
-    public CustFlowNode toEntity(){
+
+    public CustFlowNode toEntity() {
         return BeanMapper.map(this, CustFlowNode.class);
     }
 }

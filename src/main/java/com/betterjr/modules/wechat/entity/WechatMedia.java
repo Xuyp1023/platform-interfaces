@@ -85,14 +85,13 @@ public class WechatMedia implements BetterjrEntity {
     /**
      * 使用状态:0未使用  1使用中  2已使用 供后期使用
      */
-    @Column(name = "C_BUSIN_STATUS",  columnDefinition="CHAR" )
-    @MetaData( value="使用状态", comments = "使用状态:0未使用  1使用中  2已使用")
+    @Column(name = "C_BUSIN_STATUS", columnDefinition = "CHAR")
+    @MetaData(value = "使用状态", comments = "使用状态:0未使用  1使用中  2已使用")
     private String businStatus;
 
-    @Column(name = "C_LAST_STATUS",  columnDefinition="CHAR" )
-    @MetaData( value="", comments = "")
+    @Column(name = "C_LAST_STATUS", columnDefinition = "CHAR")
+    @MetaData(value = "", comments = "")
     private String lastStatus;
-
 
     private static final long serialVersionUID = 4706960214937874478L;
 
@@ -151,7 +150,6 @@ public class WechatMedia implements BetterjrEntity {
     public void setMediaType(final String mediaType) {
         this.mediaType = mediaType == null ? null : mediaType.trim();
     }
-
 
     public Long getOperId() {
         return operId;
@@ -241,15 +239,22 @@ public class WechatMedia implements BetterjrEntity {
                 && (this.getOpenId() == null ? other.getOpenId() == null : this.getOpenId().equals(other.getOpenId()))
                 && (this.getAppId() == null ? other.getAppId() == null : this.getAppId().equals(other.getAppId()))
                 && (this.getFileId() == null ? other.getFileId() == null : this.getFileId().equals(other.getFileId()))
-                && (this.getRegDate() == null ? other.getRegDate() == null : this.getRegDate().equals(other.getRegDate()))
-                && (this.getRegTime() == null ? other.getRegTime() == null : this.getRegTime().equals(other.getRegTime()))
+                && (this.getRegDate() == null ? other.getRegDate() == null
+                        : this.getRegDate().equals(other.getRegDate()))
+                && (this.getRegTime() == null ? other.getRegTime() == null
+                        : this.getRegTime().equals(other.getRegTime()))
                 && (this.getOperId() == null ? other.getOperId() == null : this.getOperId().equals(other.getOperId()))
-                && (this.getOperName() == null ? other.getOperName() == null : this.getOperName().equals(other.getOperName()))
+                && (this.getOperName() == null ? other.getOperName() == null
+                        : this.getOperName().equals(other.getOperName()))
                 && (this.getCustNo() == null ? other.getCustNo() == null : this.getCustNo().equals(other.getCustNo()))
-                && (this.getOperOrg() == null ? other.getOperOrg() == null : this.getOperOrg().equals(other.getOperOrg()))
-                && (this.getBusinStatus() == null ? other.getBusinStatus() == null : this.getBusinStatus().equals(other.getBusinStatus()))
-                && (this.getLastStatus() == null ? other.getLastStatus() == null : this.getLastStatus().equals(other.getLastStatus()))
-                && (this.getMediaType() == null ? other.getMediaType() == null : this.getMediaType().equals(other.getMediaType()));
+                && (this.getOperOrg() == null ? other.getOperOrg() == null
+                        : this.getOperOrg().equals(other.getOperOrg()))
+                && (this.getBusinStatus() == null ? other.getBusinStatus() == null
+                        : this.getBusinStatus().equals(other.getBusinStatus()))
+                && (this.getLastStatus() == null ? other.getLastStatus() == null
+                        : this.getLastStatus().equals(other.getLastStatus()))
+                && (this.getMediaType() == null ? other.getMediaType() == null
+                        : this.getMediaType().equals(other.getMediaType()));
     }
 
     @Override
@@ -272,7 +277,8 @@ public class WechatMedia implements BetterjrEntity {
         return result;
     }
 
-    public void initDefValue(final String anAppId, final String anOpenId, final String anMediaType, final Long anFileId) {
+    public void initDefValue(final String anAppId, final String anOpenId, final String anMediaType,
+            final Long anFileId) {
         this.id = SerialGenerator.getLongValue("WechatMedia.id");
         this.regDate = BetterDateUtils.getNumDate();
         this.regTime = BetterDateUtils.getNumTime();

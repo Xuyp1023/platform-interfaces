@@ -1,73 +1,78 @@
 package com.betterjr.modules.workflow.entity;
 
-import com.betterjr.common.annotation.*;
-import com.betterjr.common.entity.BetterjrEntity;
-import com.betterjr.modules.workflow.data.AuditType;
-import com.betterjr.modules.workflow.data.CustFlowNodeData;
-import com.betterjr.modules.workflow.data.FlowNodeRole;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OrderBy;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.betterjr.common.annotation.MetaData;
+import com.betterjr.common.entity.BetterjrEntity;
+import com.betterjr.modules.workflow.data.CustFlowNodeData;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Access(AccessType.FIELD)
 @Entity
 @Table(name = "t_cust_flow_steps")
-public class CustFlowStep implements BetterjrEntity,Comparable{
-    public static final String selectKey="CustFlowStep.id";
+public class CustFlowStep implements BetterjrEntity, Comparable {
+    public static final String selectKey = "CustFlowStep.id";
     /**
      * 流程step编号
      */
-    //@JsonIgnore
+    // @JsonIgnore
     @Id
-    @Column(name = "ID",  columnDefinition="INTEGER" )
-    @MetaData( value="流程step编号", comments = "流程step编号")
+    @Column(name = "ID", columnDefinition = "INTEGER")
+    @MetaData(value = "流程step编号", comments = "流程step编号")
     private Long id;
 
     /**
      * 流程基本信息编号
      */
-    @Column(name = "L_FLOWBASE_ID",  columnDefinition="INTEGER" )
-    @MetaData( value="流程基本信息编号", comments = "流程基本信息编号")
+    @Column(name = "L_FLOWBASE_ID", columnDefinition = "INTEGER")
+    @MetaData(value = "流程基本信息编号", comments = "流程基本信息编号")
     private Long flowBaseId;
 
     /**
      * 节点名称
      */
-    @Column(name = "C_NODE_NAME",  columnDefinition="VARCHAR" )
-    @MetaData( value="节点名称", comments = "节点名称")
+    @Column(name = "C_NODE_NAME", columnDefinition = "VARCHAR")
+    @MetaData(value = "节点名称", comments = "节点名称")
     private String nodeName;
 
     /**
      * 节点编号
      */
-    @Column(name = "L_NODE_ID",  columnDefinition="INTEGER" )
-    @MetaData( value="节点编号", comments = "节点编号")
+    @Column(name = "L_NODE_ID", columnDefinition = "INTEGER")
+    @MetaData(value = "节点编号", comments = "节点编号")
     private Long nodeId;
-    
+
     /**
      * 节点角色
      */
-    @Column(name = "C_NODE_ROLE",  columnDefinition="VARCHAR" )
-    @MetaData( value="节点角色", comments = "节点角色")
+    @Column(name = "C_NODE_ROLE", columnDefinition = "VARCHAR")
+    @MetaData(value = "节点角色", comments = "节点角色")
     private String nodeRole;
 
     /**
      * 审批方式 01 串行 02 并行
      */
-    @Column(name = "C_AUDIT_TYPE",  columnDefinition="VARCHAR" )
-    @MetaData( value="审批方式 serial, 串行 parallel 并行", comments = "审批方式 serial, 串行 parallel 并行")
+    @Column(name = "C_AUDIT_TYPE", columnDefinition = "VARCHAR")
+    @MetaData(value = "审批方式 serial, 串行 parallel 并行", comments = "审批方式 serial, 串行 parallel 并行")
     private String auditType;
 
     /**
      * step顺序
      */
     @OrderBy()
-    @Column(name = "N_ORDER_NUM",  columnDefinition="INTEGER" )
-    @MetaData( value="step顺序", comments = "step顺序")
+    @Column(name = "N_ORDER_NUM", columnDefinition = "INTEGER")
+    @MetaData(value = "step顺序", comments = "step顺序")
     private Integer orderNum;
-    
+
     @Transient
     private List<CustFlowStepApprovers> stepApprovers;
     @Transient
@@ -121,10 +126,8 @@ public class CustFlowStep implements BetterjrEntity,Comparable{
     }
 
     public void setAuditType(String auditType) {
-        this.auditType = auditType ;
+        this.auditType = auditType;
     }
-    
-
 
     public Integer getOrderNum() {
         return orderNum;
@@ -181,11 +184,15 @@ public class CustFlowStep implements BetterjrEntity,Comparable{
         }
         CustFlowStep other = (CustFlowStep) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getFlowBaseId() == null ? other.getFlowBaseId() == null : this.getFlowBaseId().equals(other.getFlowBaseId()))
-            && (this.getNodeName() == null ? other.getNodeName() == null : this.getNodeName().equals(other.getNodeName()))
-            && (this.getNodeId() == null ? other.getNodeId() == null : this.getNodeId().equals(other.getNodeId()))
-            && (this.getAuditType() == null ? other.getAuditType() == null : this.getAuditType().equals(other.getAuditType()))
-            && (this.getOrderNum() == null ? other.getOrderNum() == null : this.getOrderNum().equals(other.getOrderNum()));
+                && (this.getFlowBaseId() == null ? other.getFlowBaseId() == null
+                        : this.getFlowBaseId().equals(other.getFlowBaseId()))
+                && (this.getNodeName() == null ? other.getNodeName() == null
+                        : this.getNodeName().equals(other.getNodeName()))
+                && (this.getNodeId() == null ? other.getNodeId() == null : this.getNodeId().equals(other.getNodeId()))
+                && (this.getAuditType() == null ? other.getAuditType() == null
+                        : this.getAuditType().equals(other.getAuditType()))
+                && (this.getOrderNum() == null ? other.getOrderNum() == null
+                        : this.getOrderNum().equals(other.getOrderNum()));
     }
 
     @Override
@@ -201,12 +208,12 @@ public class CustFlowStep implements BetterjrEntity,Comparable{
         return result;
     }
 
-	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		if(o instanceof CustFlowStep){
-			return this.getOrderNum().compareTo(((CustFlowStep)o).getOrderNum());
-		}
-		return 1;
-	}
+    @Override
+    public int compareTo(Object o) {
+        // TODO Auto-generated method stub
+        if (o instanceof CustFlowStep) {
+            return this.getOrderNum().compareTo(((CustFlowStep) o).getOrderNum());
+        }
+        return 1;
+    }
 }

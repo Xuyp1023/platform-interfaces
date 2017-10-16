@@ -484,6 +484,7 @@ public class CustMechBaseTmp implements BetterjrEntity, ICustAuditEntityFace {
         id = anId;
     }
 
+    @Override
     public Long getCustNo() {
         return custNo;
     }
@@ -828,6 +829,7 @@ public class CustMechBaseTmp implements BetterjrEntity, ICustAuditEntityFace {
         this.cityNo = cityNo == null ? null : cityNo.trim();
     }
 
+    @Override
     public Long getBatchNo() {
         return batchNo;
     }
@@ -948,6 +950,7 @@ public class CustMechBaseTmp implements BetterjrEntity, ICustAuditEntityFace {
         this.tmpOperType = tmpOperType == null ? null : tmpOperType.trim();
     }
 
+    @Override
     public Long getParentId() {
         return parentId;
     }
@@ -1040,68 +1043,113 @@ public class CustMechBaseTmp implements BetterjrEntity, ICustAuditEntityFace {
         }
         final CustMechBaseTmp other = (CustMechBaseTmp) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-                && (this.getParentId() == null ? other.getParentId() == null : this.getParentId().equals(other.getParentId()))
+                && (this.getParentId() == null ? other.getParentId() == null
+                        : this.getParentId().equals(other.getParentId()))
                 && (this.getCustNo() == null ? other.getCustNo() == null : this.getCustNo().equals(other.getCustNo()))
-                && (this.getCustName() == null ? other.getCustName() == null : this.getCustName().equals(other.getCustName()))
-                && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
-                && (this.getEngName() == null ? other.getEngName() == null : this.getEngName().equals(other.getEngName()))
-                && (this.getCategory() == null ? other.getCategory() == null : this.getCategory().equals(other.getCategory()))
-                && (this.getCorpType() == null ? other.getCorpType() == null : this.getCorpType().equals(other.getCorpType()))
-                && (this.getNationType() == null ? other.getNationType() == null : this.getNationType().equals(other.getNationType()))
-                && (this.getCapitalType() == null ? other.getCapitalType() == null : this.getCapitalType().equals(other.getCapitalType()))
-                && (this.getLawName() == null ? other.getLawName() == null : this.getLawName().equals(other.getLawName()))
-                && (this.getLawPhone() == null ? other.getLawPhone() == null : this.getLawPhone().equals(other.getLawPhone()))
-                && (this.getLawIdentNo() == null ? other.getLawIdentNo() == null : this.getLawIdentNo().equals(other.getLawIdentNo()))
-                && (this.getLawIdentType() == null ? other.getLawIdentType() == null : this.getLawIdentType().equals(other.getLawIdentType()))
-                && (this.getLawValidDate() == null ? other.getLawValidDate() == null : this.getLawValidDate().equals(other.getLawValidDate()))
-                && (this.getRegAddress() == null ? other.getRegAddress() == null : this.getRegAddress().equals(other.getRegAddress()))
-                && (this.getCorpVocation() == null ? other.getCorpVocation() == null : this.getCorpVocation().equals(other.getCorpVocation()))
-                && (this.getCorpProperty() == null ? other.getCorpProperty() == null : this.getCorpProperty().equals(other.getCorpProperty()))
+                && (this.getCustName() == null ? other.getCustName() == null
+                        : this.getCustName().equals(other.getCustName()))
+                && (this.getVersion() == null ? other.getVersion() == null
+                        : this.getVersion().equals(other.getVersion()))
+                && (this.getEngName() == null ? other.getEngName() == null
+                        : this.getEngName().equals(other.getEngName()))
+                && (this.getCategory() == null ? other.getCategory() == null
+                        : this.getCategory().equals(other.getCategory()))
+                && (this.getCorpType() == null ? other.getCorpType() == null
+                        : this.getCorpType().equals(other.getCorpType()))
+                && (this.getNationType() == null ? other.getNationType() == null
+                        : this.getNationType().equals(other.getNationType()))
+                && (this.getCapitalType() == null ? other.getCapitalType() == null
+                        : this.getCapitalType().equals(other.getCapitalType()))
+                && (this.getLawName() == null ? other.getLawName() == null
+                        : this.getLawName().equals(other.getLawName()))
+                && (this.getLawPhone() == null ? other.getLawPhone() == null
+                        : this.getLawPhone().equals(other.getLawPhone()))
+                && (this.getLawIdentNo() == null ? other.getLawIdentNo() == null
+                        : this.getLawIdentNo().equals(other.getLawIdentNo()))
+                && (this.getLawIdentType() == null ? other.getLawIdentType() == null
+                        : this.getLawIdentType().equals(other.getLawIdentType()))
+                && (this.getLawValidDate() == null ? other.getLawValidDate() == null
+                        : this.getLawValidDate().equals(other.getLawValidDate()))
+                && (this.getRegAddress() == null ? other.getRegAddress() == null
+                        : this.getRegAddress().equals(other.getRegAddress()))
+                && (this.getCorpVocation() == null ? other.getCorpVocation() == null
+                        : this.getCorpVocation().equals(other.getCorpVocation()))
+                && (this.getCorpProperty() == null ? other.getCorpProperty() == null
+                        : this.getCorpProperty().equals(other.getCorpProperty()))
                 && (this.getInvest() == null ? other.getInvest() == null : this.getInvest().equals(other.getInvest()))
-                && (this.getInstType() == null ? other.getInstType() == null : this.getInstType().equals(other.getInstType()))
-                && (this.getCustClass() == null ? other.getCustClass() == null : this.getCustClass().equals(other.getCustClass()))
-                && (this.getOrgCode() == null ? other.getOrgCode() == null : this.getOrgCode().equals(other.getOrgCode()))
-                && (this.getBusinLicence() == null ? other.getBusinLicence() == null : this.getBusinLicence().equals(other.getBusinLicence()))
+                && (this.getInstType() == null ? other.getInstType() == null
+                        : this.getInstType().equals(other.getInstType()))
+                && (this.getCustClass() == null ? other.getCustClass() == null
+                        : this.getCustClass().equals(other.getCustClass()))
+                && (this.getOrgCode() == null ? other.getOrgCode() == null
+                        : this.getOrgCode().equals(other.getOrgCode()))
+                && (this.getBusinLicence() == null ? other.getBusinLicence() == null
+                        : this.getBusinLicence().equals(other.getBusinLicence()))
                 && (this.getBusinLicenceRegDate() == null ? other.getBusinLicenceRegDate() == null
                         : this.getBusinLicenceRegDate().equals(other.getBusinLicenceRegDate()))
                 && (this.getBusinLicenceValidDate() == null ? other.getBusinLicenceValidDate() == null
                         : this.getBusinLicenceValidDate().equals(other.getBusinLicenceValidDate()))
-                && (this.getRegCapital() == null ? other.getRegCapital() == null : this.getRegCapital().equals(other.getRegCapital()))
-                && (this.getPaidCapital() == null ? other.getPaidCapital() == null : this.getPaidCapital().equals(other.getPaidCapital()))
+                && (this.getRegCapital() == null ? other.getRegCapital() == null
+                        : this.getRegCapital().equals(other.getRegCapital()))
+                && (this.getPaidCapital() == null ? other.getPaidCapital() == null
+                        : this.getPaidCapital().equals(other.getPaidCapital()))
                 && (this.getPerson() == null ? other.getPerson() == null : this.getPerson().equals(other.getPerson()))
-                && (this.getPremisesArea() == null ? other.getPremisesArea() == null : this.getPremisesArea().equals(other.getPremisesArea()))
-                && (this.getPremisesYear() == null ? other.getPremisesYear() == null : this.getPremisesYear().equals(other.getPremisesYear()))
-                && (this.getPremisesType() == null ? other.getPremisesType() == null : this.getPremisesType().equals(other.getPremisesType()))
+                && (this.getPremisesArea() == null ? other.getPremisesArea() == null
+                        : this.getPremisesArea().equals(other.getPremisesArea()))
+                && (this.getPremisesYear() == null ? other.getPremisesYear() == null
+                        : this.getPremisesYear().equals(other.getPremisesYear()))
+                && (this.getPremisesType() == null ? other.getPremisesType() == null
+                        : this.getPremisesType().equals(other.getPremisesType()))
                 && (this.getPremisesAddress() == null ? other.getPremisesAddress() == null
                         : this.getPremisesAddress().equals(other.getPremisesAddress()))
-                && (this.getBusinScope() == null ? other.getBusinScope() == null : this.getBusinScope().equals(other.getBusinScope()))
-                && (this.getSetupDate() == null ? other.getSetupDate() == null : this.getSetupDate().equals(other.getSetupDate()))
-                && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
-                && (this.getZipCode() == null ? other.getZipCode() == null : this.getZipCode().equals(other.getZipCode()))
+                && (this.getBusinScope() == null ? other.getBusinScope() == null
+                        : this.getBusinScope().equals(other.getBusinScope()))
+                && (this.getSetupDate() == null ? other.getSetupDate() == null
+                        : this.getSetupDate().equals(other.getSetupDate()))
+                && (this.getAddress() == null ? other.getAddress() == null
+                        : this.getAddress().equals(other.getAddress()))
+                && (this.getZipCode() == null ? other.getZipCode() == null
+                        : this.getZipCode().equals(other.getZipCode()))
                 && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
                 && (this.getFax() == null ? other.getFax() == null : this.getFax().equals(other.getFax()))
                 && (this.getMobile() == null ? other.getMobile() == null : this.getMobile().equals(other.getMobile()))
                 && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
                 && (this.getWechat() == null ? other.getWechat() == null : this.getWechat().equals(other.getWechat()))
                 && (this.getQq() == null ? other.getQq() == null : this.getQq().equals(other.getQq()))
-                && (this.getWebaddr() == null ? other.getWebaddr() == null : this.getWebaddr().equals(other.getWebaddr()))
-                && (this.getCorpName() == null ? other.getCorpName() == null : this.getCorpName().equals(other.getCorpName()))
+                && (this.getWebaddr() == null ? other.getWebaddr() == null
+                        : this.getWebaddr().equals(other.getWebaddr()))
+                && (this.getCorpName() == null ? other.getCorpName() == null
+                        : this.getCorpName().equals(other.getCorpName()))
                 && (this.getCityNo() == null ? other.getCityNo() == null : this.getCityNo().equals(other.getCityNo()))
-                && (this.getBatchNo() == null ? other.getBatchNo() == null : this.getBatchNo().equals(other.getBatchNo()))
-                && (this.getRegOperId() == null ? other.getRegOperId() == null : this.getRegOperId().equals(other.getRegOperId()))
-                && (this.getRegOperName() == null ? other.getRegOperName() == null : this.getRegOperName().equals(other.getRegOperName()))
-                && (this.getRegDate() == null ? other.getRegDate() == null : this.getRegDate().equals(other.getRegDate()))
-                && (this.getRegTime() == null ? other.getRegTime() == null : this.getRegTime().equals(other.getRegTime()))
-                && (this.getModiOperId() == null ? other.getModiOperId() == null : this.getModiOperId().equals(other.getModiOperId()))
-                && (this.getModiOperName() == null ? other.getModiOperName() == null : this.getModiOperName().equals(other.getModiOperName()))
-                && (this.getModiDate() == null ? other.getModiDate() == null : this.getModiDate().equals(other.getModiDate()))
-                && (this.getModiTime() == null ? other.getModiTime() == null : this.getModiTime().equals(other.getModiTime()))
-                && (this.getOperOrg() == null ? other.getOperOrg() == null : this.getOperOrg().equals(other.getOperOrg()))
-                && (this.getBusinStatus() == null ? other.getBusinStatus() == null : this.getBusinStatus().equals(other.getBusinStatus()))
-                && (this.getLastStatus() == null ? other.getLastStatus() == null : this.getLastStatus().equals(other.getLastStatus()))
+                && (this.getBatchNo() == null ? other.getBatchNo() == null
+                        : this.getBatchNo().equals(other.getBatchNo()))
+                && (this.getRegOperId() == null ? other.getRegOperId() == null
+                        : this.getRegOperId().equals(other.getRegOperId()))
+                && (this.getRegOperName() == null ? other.getRegOperName() == null
+                        : this.getRegOperName().equals(other.getRegOperName()))
+                && (this.getRegDate() == null ? other.getRegDate() == null
+                        : this.getRegDate().equals(other.getRegDate()))
+                && (this.getRegTime() == null ? other.getRegTime() == null
+                        : this.getRegTime().equals(other.getRegTime()))
+                && (this.getModiOperId() == null ? other.getModiOperId() == null
+                        : this.getModiOperId().equals(other.getModiOperId()))
+                && (this.getModiOperName() == null ? other.getModiOperName() == null
+                        : this.getModiOperName().equals(other.getModiOperName()))
+                && (this.getModiDate() == null ? other.getModiDate() == null
+                        : this.getModiDate().equals(other.getModiDate()))
+                && (this.getModiTime() == null ? other.getModiTime() == null
+                        : this.getModiTime().equals(other.getModiTime()))
+                && (this.getOperOrg() == null ? other.getOperOrg() == null
+                        : this.getOperOrg().equals(other.getOperOrg()))
+                && (this.getBusinStatus() == null ? other.getBusinStatus() == null
+                        : this.getBusinStatus().equals(other.getBusinStatus()))
+                && (this.getLastStatus() == null ? other.getLastStatus() == null
+                        : this.getLastStatus().equals(other.getLastStatus()))
                 && (this.getRefId() == null ? other.getRefId() == null : this.getRefId().equals(other.getRefId()))
-                && (this.getTmpType() == null ? other.getTmpType() == null : this.getTmpType().equals(other.getTmpType()))
-                && (this.getTmpOperType() == null ? other.getTmpOperType() == null : this.getTmpOperType().equals(other.getTmpOperType()));
+                && (this.getTmpType() == null ? other.getTmpType() == null
+                        : this.getTmpType().equals(other.getTmpType()))
+                && (this.getTmpOperType() == null ? other.getTmpOperType() == null
+                        : this.getTmpOperType().equals(other.getTmpOperType()));
     }
 
     @Override

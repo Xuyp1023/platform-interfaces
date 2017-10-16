@@ -16,7 +16,6 @@ public interface ICustMechCooperationService {
      */
     public String webAddCooperation(Map<String, Object> anParam);
 
-
     /**
      * 
      * @param anCustNo
@@ -32,7 +31,6 @@ public interface ICustMechCooperationService {
      * @return
      */
     public String webSaveCooperation(Map<String, Object> anParam, Long anId);
-
 
     public String webSaveDeleteCooperation(Long anId);
 }

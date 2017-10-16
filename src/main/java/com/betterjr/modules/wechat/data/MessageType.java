@@ -9,47 +9,47 @@ public enum MessageType {
     /**
      * 新功能
      */
-    def, 
+    def,
     /**
      * 文本消息
      */
-    text, 
+    text,
     /**
      * 图像消息
      */
-    image, 
+    image,
     /**
      * 语音消息
      */
-    voice, 
+    voice,
     /**
      * 视频消息
      */
-    video, 
+    video,
     /**
      * 小视频消息
     */
-    shortvideo, 
+    shortvideo,
     /**
      * 地理位置消息
      */
-    location, 
+    location,
     /**
      * 链接消息
      */
-    link, 
+    link,
     /**
      * 音乐消息
      */
-    music, 
+    music,
     /**
      * 多图文消息
      */
-    news, 
+    news,
     /**
      * 群发消息中的图文消息
      */
-    mpnews, 
+    mpnews,
     /**
      * 群发消息中的视频消息
      */

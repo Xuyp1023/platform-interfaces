@@ -26,7 +26,7 @@ public final class QrcodeHandlerFactory {
 
     public static QrcodeHandler createQrcodeHandler(final int anWorkQRCode) {
         QrcodeHandler instance = null;
-        if (anWorkQRCode >= 100000000 &&  anWorkQRCode <= 199999999) { //这个范围为绑定事件
+        if (anWorkQRCode >= 100000000 && anWorkQRCode <= 199999999) { // 这个范围为绑定事件
             instance = new UserBindQrcodeHandler();
         }
 

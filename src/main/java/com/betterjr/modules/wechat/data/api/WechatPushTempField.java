@@ -5,7 +5,7 @@ package com.betterjr.modules.wechat.data.api;
  *
  * @author zhoucy
  */
-public class WechatPushTempField implements java.io.Serializable  {
+public class WechatPushTempField implements java.io.Serializable {
 
     /**
      *
@@ -39,7 +39,7 @@ public class WechatPushTempField implements java.io.Serializable  {
      */
     public WechatPushTempField(final String name, final String value) {
         this.name = name;
-        //this.color = "#119EF3";
+        // this.color = "#119EF3";
         this.value = value;
     }
 
@@ -84,7 +84,7 @@ public class WechatPushTempField implements java.io.Serializable  {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append("[");
         sb.append("name =").append(name);

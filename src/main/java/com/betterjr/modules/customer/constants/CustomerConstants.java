@@ -4,39 +4,39 @@ public interface CustomerConstants {
     // 状态
     String ITEM_ENABLED = "1";
     String ITEM_DISABLED = "0";
-    
+
     // 审核状态
     String NORMAL_STATUS = "0";
     String PASS_STATUS = "1";
     String REJECT_STATUS = "2";
-    
+
     // 审核类型: 0开户审核 1代录申请审核 2代录审核 3变更审核 4客户关系审核
     String AUDIT_TYPE_OPENACCOUNT = "0";
     String AUDIT_TYPE_INSTEADAPPLY = "1";
     String AUDIT_TYPE_INSTEADRECORD = "2";
     String AUDIT_TYPE_CHANGEAPPLY = "3";
     String AUDIT_TYPE_CUSTRELATION = "4";
-    
+
     // 审核步骤
     String AUDIT_STEP_AUDIT = "0";
     String AUDIT_STEP_REVIEW = "1";
     String AUDIT_STEP_CONFIRM = "2";
     String AUDIT_STEP_TYPEIN = "3";
     String AUDIT_STEP_SELF = "4";
-    
+
     // 审核结果: 0审核通过 1审核驳回
     String AUDIT_RESULT_PASS = "0";
     String AUDIT_RESULT_REJECT = "1";
     String AUDIT_RESULT_CANCEL = "2";
 
-    // 流水使用状态: 0未使用  1使用中  2已使用 3驳回4自主开户
+    // 流水使用状态: 0未使用 1使用中 2已使用 3驳回4自主开户
     String TMP_STATUS_NEW = "0";
     String TMP_STATUS_USEING = "1";
     String TMP_STATUS_USED = "2";
     String TMP_STATUS_REFUSE = "3";
     String TMP_STATUS_OWN = "4";
 
-    // 流水类型:0 代录 1 变更 2 暂存  3 初始信息
+    // 流水类型:0 代录 1 变更 2 暂存 3 初始信息
     String TMP_TYPE_INSTEAD = "0";
     String TMP_TYPE_CHANGE = "1";
     String TMP_TYPE_TEMPSTORE = "2";
@@ -69,7 +69,7 @@ public interface CustomerConstants {
     // 申请类型：0开户代录，1变更代录
     String INSTEAD_APPLY_TYPE_OPENACCOUNT = "0";
     String INSTEAD_APPLY_TYPE_CHANGE = "1";
-    
+
     // 开户申请类型:0:PC自主开户,1:PC平台代录,2:微信平台代录
     String OPEN_ACCOUNT_TYPE_PC_OWN = "0";
     String OPEN_ACCOUNT_TYPE_PC_INSTEAD = "1";
@@ -94,13 +94,13 @@ public interface CustomerConstants {
     String INSTEAD_RECORD_STATUS_CONFIRM_PASS = "4";
     String INSTEAD_RECORD_STATUS_CONFIRM_REJECT = "5";
     String INSTEAD_RECORD_STATUS_CANCEL = "6";
-    
+
     // 状态，0未开通，1已申请，2已受理， 3已审核，4已驳回
-    String RELATION_STATUS_NO="0";
-    String RELATION_STATUS_REQUEST="1";
-    String RELATION_STATUS_ACCEPT="2";
-    String RELATION_STATUS_ADUIT="3";
-    String RELATION_STATUS_BACK="4";
+    String RELATION_STATUS_NO = "0";
+    String RELATION_STATUS_REQUEST = "1";
+    String RELATION_STATUS_ACCEPT = "2";
+    String RELATION_STATUS_ADUIT = "3";
+    String RELATION_STATUS_BACK = "4";
 
     // 字段
     String ID = "id";
@@ -182,10 +182,10 @@ public interface CustomerConstants {
      * 客户类型:1-个人;
      */
     String CUSTOMER_TYPE_PERSONAL = "1";
-    
-    String CUSTOMER_OPEN_SCF_ACCOUNT ="CUSTOMER_OPEN_SCF_ACCOUNT";
-    
-    String CUSTOMER_ADUIT_OPEN_SCF_ACCOUNT ="CUSTOMER_ADUIT_OPEN_SCF_ACCOUNT";
-    
-    String CUSTOMER_SCF_REQUEST ="CUSTOMER_SCF_REQUEST";
+
+    String CUSTOMER_OPEN_SCF_ACCOUNT = "CUSTOMER_OPEN_SCF_ACCOUNT";
+
+    String CUSTOMER_ADUIT_OPEN_SCF_ACCOUNT = "CUSTOMER_ADUIT_OPEN_SCF_ACCOUNT";
+
+    String CUSTOMER_SCF_REQUEST = "CUSTOMER_SCF_REQUEST";
 }

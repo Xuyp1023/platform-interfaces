@@ -31,7 +31,8 @@ public interface INotificationProfileService {
     /**
      * 修改消息通道模板
      */
-    public String webSaveNotificationChannelProfile(Map<String, Object> anParam, Long anChannelProfileId, final Long anCustNo);
+    public String webSaveNotificationChannelProfile(Map<String, Object> anParam, Long anChannelProfileId,
+            final Long anCustNo);
 
     /**
      * 查询消息通知模板变量表

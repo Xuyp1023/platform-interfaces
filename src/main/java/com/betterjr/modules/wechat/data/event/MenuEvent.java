@@ -17,21 +17,10 @@ public class MenuEvent extends BasicEvent {
         super(values);
     }
 
-    @ Override
+    @Override
     public String toString() {
-        return "MenuEvent [toUserName="
-               + toUserName
-               + ", fromUserName="
-               + fromUserName
-               + ", createTime="
-               + createTime
-               + ", msgType="
-               + msgType
-               + ", event="
-               + event
-               + ", eventKey="
-               + eventKey
-               + "]";
+        return "MenuEvent [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime=" + createTime
+                + ", msgType=" + msgType + ", event=" + event + ", eventKey=" + eventKey + "]";
     }
 
 }

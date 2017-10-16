@@ -46,7 +46,7 @@ public class Follower {
      * 形头像），用户没有头像时该项为空
      */
     private String headimgurl;
-    
+
     /**
      * 用户关注时间，为时间戳。如果用户曾多次关注，则取最后关注时间
      */
@@ -171,33 +171,10 @@ public class Follower {
 
     @Override
     public String toString() {
-        return "Follower [subscribe="
-               + subscribe
-               + ", openid="
-               + openid
-               + ", nickname="
-               + nickname
-               + ", sex="
-               + sex
-               + ", city="
-               + city
-               + ", country="
-               + country
-               + ", province="
-               + province
-               + ", language="
-               + language
-               + ", headimgurl="
-               + headimgurl
-               + ", subscribeTime="
-               + subscribeTime
-               + ", unionid="
-               + unionid
-               + ", remark="
-               + remark
-               + ", groupid="
-               + groupid
-               + "]";
+        return "Follower [subscribe=" + subscribe + ", openid=" + openid + ", nickname=" + nickname + ", sex=" + sex
+                + ", city=" + city + ", country=" + country + ", province=" + province + ", language=" + language
+                + ", headimgurl=" + headimgurl + ", subscribeTime=" + subscribeTime + ", unionid=" + unionid
+                + ", remark=" + remark + ", groupid=" + groupid + "]";
     }
 
 }

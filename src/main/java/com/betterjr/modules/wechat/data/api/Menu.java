@@ -92,8 +92,7 @@ public class Menu {
         setType(type);
         if (EventType.VIEW.name().equals(type)) {
             setUrl(val);
-        }
-        else {
+        } else {
             setKey(val);
         }
     }
@@ -140,17 +139,8 @@ public class Menu {
 
     @Override
     public String toString() {
-        return "Menu [name="
-               + name
-               + ", type="
-               + type
-               + ", key="
-               + key
-               + ", url="
-               + url
-               + ", subButtons="
-               + subButtons
-               + "]";
+        return "Menu [name=" + name + ", type=" + type + ", key=" + key + ", url=" + url + ", subButtons=" + subButtons
+                + "]";
     }
 
 }

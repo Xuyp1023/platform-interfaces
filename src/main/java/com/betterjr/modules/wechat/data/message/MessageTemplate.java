@@ -68,6 +68,7 @@ public class MessageTemplate implements java.io.Serializable {
         this.example = anExample;
     }
 
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[");

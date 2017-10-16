@@ -57,25 +57,9 @@ public class CustomServiceEvent extends BasicEvent {
 
     @Override
     public String toString() {
-        return "CustomServiceEvent [toUserName="
-               + toUserName
-               + ", fromUserName="
-               + fromUserName
-               + ", createTime="
-               + createTime
-               + ", msgType="
-               + msgType
-               + ", event="
-               + event
-               + ", eventKey="
-               + eventKey
-               + ", kfAccount="
-               + kfAccount
-               + ", fromKfAccount="
-               + fromKfAccount
-               + ", toKfAccount="
-               + toKfAccount
-               + "]";
+        return "CustomServiceEvent [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime="
+                + createTime + ", msgType=" + msgType + ", event=" + event + ", eventKey=" + eventKey + ", kfAccount="
+                + kfAccount + ", fromKfAccount=" + fromKfAccount + ", toKfAccount=" + toKfAccount + "]";
     }
 
 }

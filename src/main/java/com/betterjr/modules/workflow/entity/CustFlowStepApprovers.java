@@ -1,66 +1,72 @@
 package com.betterjr.modules.workflow.entity;
 
-import com.betterjr.common.annotation.*;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.betterjr.common.annotation.MetaData;
 import com.betterjr.common.entity.BetterjrEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import javax.persistence.*;
 
 @Access(AccessType.FIELD)
 @Entity
 @Table(name = "t_cust_flow_step_approvers")
 public class CustFlowStepApprovers implements BetterjrEntity {
-    public static final String selectKey="CustFlowStepApprovers.id";
-    public static final Integer MaxWeight=100;
-    public static final Integer MinWeight=1;
+    public static final String selectKey = "CustFlowStepApprovers.id";
+    public static final Integer MaxWeight = 100;
+    public static final Integer MinWeight = 1;
     /**
      * 编号
      */
-//    @JsonIgnore
+    // @JsonIgnore
     @Id
-    @Column(name = "ID",  columnDefinition="INTEGER" )
-    @MetaData( value="编号", comments = "编号")
+    @Column(name = "ID", columnDefinition = "INTEGER")
+    @MetaData(value = "编号", comments = "编号")
     private Long id;
     /**
      * 流程step编号
      */
-    @Column(name = "L_STEP_ID",  columnDefinition="INTEGER" )
-    @MetaData( value="流程step编号", comments = "流程step编号")
+    @Column(name = "L_STEP_ID", columnDefinition = "INTEGER")
+    @MetaData(value = "流程step编号", comments = "流程step编号")
     private Long stepId;
 
     /**
      * 审批人编号
      */
-    @Column(name = "L_OPERID",  columnDefinition="INTEGER" )
-    @MetaData( value="审批人编号", comments = "审批人编号")
+    @Column(name = "L_OPERID", columnDefinition = "INTEGER")
+    @MetaData(value = "审批人编号", comments = "审批人编号")
     private Long auditOperId;
-    
+
     /**
      * 审批人名称
      */
     @Id
-    @Column(name = "C_OPERNAME",  columnDefinition="VARCHAR" )
-    @MetaData( value="审批人名称", comments = "审批人名称")
+    @Column(name = "C_OPERNAME", columnDefinition = "VARCHAR")
+    @MetaData(value = "审批人名称", comments = "审批人名称")
     private String auditOperName;
 
     /**
      * 审批金额段编号
      */
-    @Column(name = "L_MONEY_ID",  columnDefinition="INTEGER" )
-    @MetaData( value="审批金额段编号", comments = "审批金额段编号")
+    @Column(name = "L_MONEY_ID", columnDefinition = "INTEGER")
+    @MetaData(value = "审批金额段编号", comments = "审批金额段编号")
     private Long auditMoneyId;
-    
+
     /**
      * 审批权重,取值范围为>=0,<=100; 同一个审批step，多个审批人的总权重>=100立即进入下一步，任意一个审批人驳回，则驳回，任意一个审批人不通过则审批业务终止
      */
-    @Column(name = "N_WEIGHT",  columnDefinition="INTEGER" )
-    @MetaData( value="审批权重,取值范围为>=0,<=100; 同一个审批step", comments = "审批权重,取值范围为>=0,<=100; 同一个审批step，多个审批人的总权重>=100立即进入下一步，任意一个审批人驳回，则驳回，任意一个审批人不通过则审批业务终止")
+    @Column(name = "N_WEIGHT", columnDefinition = "INTEGER")
+    @MetaData(value = "审批权重,取值范围为>=0,<=100; 同一个审批step", comments = "审批权重,取值范围为>=0,<=100; 同一个审批step，多个审批人的总权重>=100立即进入下一步，任意一个审批人驳回，则驳回，任意一个审批人不通过则审批业务终止")
     private Integer weight;
-    
+
     @Transient
     @JsonIgnore
     private CustFlowMoney money;
-    
+
     private static final long serialVersionUID = 1469677920734L;
 
     public Long getStepId() {
@@ -118,8 +124,7 @@ public class CustFlowStepApprovers implements BetterjrEntity {
     public void setAuditOperName(String auditOperName) {
         this.auditOperName = auditOperName;
     }
-    
-    
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -149,9 +154,11 @@ public class CustFlowStepApprovers implements BetterjrEntity {
         }
         CustFlowStepApprovers other = (CustFlowStepApprovers) that;
         return (this.getStepId() == null ? other.getStepId() == null : this.getStepId().equals(other.getStepId()))
-            && (this.getAuditOperId() == null ? other.getAuditOperId() == null : this.getAuditOperId().equals(other.getAuditOperId()))
-            && (this.getAuditMoneyId() == null ? other.getAuditMoneyId() == null : this.getAuditMoneyId().equals(other.getAuditMoneyId()))
-            && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()));
+                && (this.getAuditOperId() == null ? other.getAuditOperId() == null
+                        : this.getAuditOperId().equals(other.getAuditOperId()))
+                && (this.getAuditMoneyId() == null ? other.getAuditMoneyId() == null
+                        : this.getAuditMoneyId().equals(other.getAuditMoneyId()))
+                && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()));
     }
 
     @Override

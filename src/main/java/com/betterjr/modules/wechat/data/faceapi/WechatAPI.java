@@ -5,8 +5,8 @@ package com.betterjr.modules.wechat.data.faceapi;
  * 
  * @author zhoucy
  */
-public interface WechatAPI extends CredentialAPI, MenuAPI, MediaAPI, GroupsAPI, QRCodeAPI, UserAPI,
-        TemplateAPI, MessageAPI {
+public interface WechatAPI
+        extends CredentialAPI, MenuAPI, MediaAPI, GroupsAPI, QRCodeAPI, UserAPI, TemplateAPI, MessageAPI {
 
     /**
      * 微信公众平台API入口

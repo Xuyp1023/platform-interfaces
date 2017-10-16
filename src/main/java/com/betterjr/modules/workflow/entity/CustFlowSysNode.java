@@ -1,8 +1,14 @@
 package com.betterjr.modules.workflow.entity;
 
-import com.betterjr.common.annotation.*;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.betterjr.common.annotation.MetaData;
 import com.betterjr.common.entity.BetterjrEntity;
-import javax.persistence.*;
 
 @Access(AccessType.FIELD)
 @Entity
@@ -12,36 +18,36 @@ public class CustFlowSysNode implements BetterjrEntity {
      * 系统节点编号
      */
     @Id
-    @Column(name = "ID",  columnDefinition="INTEGER" )
-    @MetaData( value="系统节点编号", comments = "系统节点编号")
+    @Column(name = "ID", columnDefinition = "INTEGER")
+    @MetaData(value = "系统节点编号", comments = "系统节点编号")
     private Long id;
 
     /**
      * 类型名称 (当前系统中， 类型名称=流程类型)
      */
-    @Column(name = "C_FLOW_TYPE_NAME",  columnDefinition="VARCHAR" )
-    @MetaData( value="类型名称", comments = "类型名称")
+    @Column(name = "C_FLOW_TYPE_NAME", columnDefinition = "VARCHAR")
+    @MetaData(value = "类型名称", comments = "类型名称")
     private String flowTypeName;
 
     /**
      * 流程类型
      */
-    @Column(name = "C_FLOW_TYPE",  columnDefinition="VARCHAR" )
-    @MetaData( value="流程类型", comments = "流程类型")
+    @Column(name = "C_FLOW_TYPE", columnDefinition = "VARCHAR")
+    @MetaData(value = "流程类型", comments = "流程类型")
     private String flowType;
 
     /**
      * 系统节点名称
      */
-    @Column(name = "C_NODE_NAME",  columnDefinition="VARCHAR" )
-    @MetaData( value="系统节点名称", comments = "系统节点名称")
+    @Column(name = "C_NODE_NAME", columnDefinition = "VARCHAR")
+    @MetaData(value = "系统节点名称", comments = "系统节点名称")
     private String nodeName;
-    
+
     /**
      * 系统节点角色
      */
-    @Column(name = "C_NODE_ROLE",  columnDefinition="VARCHAR" )
-    @MetaData( value="系统节点角色", comments = "系统节点角色")
+    @Column(name = "C_NODE_ROLE", columnDefinition = "VARCHAR")
+    @MetaData(value = "系统节点角色", comments = "系统节点角色")
     private String nodeRole;
 
     private static final long serialVersionUID = 1469677920732L;
@@ -114,9 +120,12 @@ public class CustFlowSysNode implements BetterjrEntity {
         }
         CustFlowSysNode other = (CustFlowSysNode) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getFlowTypeName() == null ? other.getFlowTypeName() == null : this.getFlowTypeName().equals(other.getFlowTypeName()))
-            && (this.getFlowType() == null ? other.getFlowType() == null : this.getFlowType().equals(other.getFlowType()))
-            && (this.getNodeName() == null ? other.getNodeName() == null : this.getNodeName().equals(other.getNodeName()));
+                && (this.getFlowTypeName() == null ? other.getFlowTypeName() == null
+                        : this.getFlowTypeName().equals(other.getFlowTypeName()))
+                && (this.getFlowType() == null ? other.getFlowType() == null
+                        : this.getFlowType().equals(other.getFlowType()))
+                && (this.getNodeName() == null ? other.getNodeName() == null
+                        : this.getNodeName().equals(other.getNodeName()));
     }
 
     @Override

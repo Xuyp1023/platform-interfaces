@@ -46,24 +46,10 @@ public class SentTmlJobEvent extends BasicEvent {
         this.status = status;
     }
 
-    @ Override
+    @Override
     public String toString() {
-        return "TemplateJobEvent [toUserName="
-               + toUserName
-               + ", fromUserName="
-               + fromUserName
-               + ", createTime="
-               + createTime
-               + ", msgType="
-               + msgType
-               + ", event="
-               + event
-               + ", eventKey="
-               + eventKey
-               + ", msgId="
-               + msgId
-               + ", status="
-               + status
-               + "]";
+        return "TemplateJobEvent [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime="
+                + createTime + ", msgType=" + msgType + ", event=" + event + ", eventKey=" + eventKey + ", msgId="
+                + msgId + ", status=" + status + "]";
     }
 }

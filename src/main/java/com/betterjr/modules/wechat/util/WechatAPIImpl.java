@@ -86,9 +86,10 @@ public class WechatAPIImpl implements WechatAPI {
             ar = ApiResult.create(HttpTool.get(url));
             if (ar.isSuccess()) {
                 at = jsonMapper.fromJson(ar.getJson(), AccessToken.class);
-                //atmcMap.put(mpAct.getMpId(), at);
+                // atmcMap.put(mpAct.getMpId(), at);
                 if (at != null) {
-                    JedisUtils.setObject(WechatConstants.wechatAccessTokenPrefix + mpAct.getMpId(), at, (int)at.getOrginExpireSec());
+                    JedisUtils.setObject(WechatConstants.wechatAccessTokenPrefix + mpAct.getMpId(), at,
+                            (int) at.getOrginExpireSec());
                 }
             }
 
@@ -142,7 +143,8 @@ public class WechatAPIImpl implements WechatAPI {
         }
         if (at == null || !at.isAvailable()) {
             // ++ 分布式加锁
-            new SimpleLock(WechatConstants.wechatAccessTokenLockPrefix + mpAct.getMpId()).wrap(this::refreshAccessToken);
+            new SimpleLock(WechatConstants.wechatAccessTokenLockPrefix + mpAct.getMpId())
+                    .wrap(this::refreshAccessToken);
             at = JedisUtils.getObject(WechatConstants.wechatAccessTokenPrefix + mpAct.getMpId());
         }
         return at.getAccessToken();
@@ -370,7 +372,8 @@ public class WechatAPIImpl implements WechatAPI {
                 return true;
             }
 
-            log.error("Move mp[%s] openId[%s] to groups[%d] failed. There try %d items.", mpAct.getMpId(), openId, groupId, i);
+            log.error("Move mp[%s] openId[%s] to groups[%d] failed. There try %d items.", mpAct.getMpId(), openId,
+                    groupId, i);
         }
 
         throw new BytterValidException(ar.getJson());
@@ -442,7 +445,8 @@ public class WechatAPIImpl implements WechatAPI {
                 return jsonMapper.fromJson(jsonMapper.toJson(ar.getContent()), QRTicket.class);
             }
 
-            log.info("Create mp[%s] scene[%s] qrcode failed. There try %d items.", mpAct.getMpId(), data.get("action_name"), i);
+            log.info("Create mp[%s] scene[%s] qrcode failed. There try %d items.", mpAct.getMpId(),
+                    data.get("action_name"), i);
         }
 
         throw new BytterValidException(ar.getJson());
@@ -476,7 +480,8 @@ public class WechatAPIImpl implements WechatAPI {
                 return true;
             }
 
-            log.error("Update mp[%s] user[%s] remark[%s] failed. There try %d items.", mpAct.getMpId(), openId, remark, i);
+            log.error("Update mp[%s] user[%s] remark[%s] failed. There try %d items.", mpAct.getMpId(), openId, remark,
+                    i);
         }
 
         throw new BytterValidException(ar.getJson());
@@ -503,7 +508,8 @@ public class WechatAPIImpl implements WechatAPI {
 
     @Override
     public Follower getFollower(final String openId, final String lang) {
-        final String url = mergeCgiBinUrl(user_info, getAccessToken(), openId, StringUtils.defaultIfBlank(lang, "zh_CN"));
+        final String url = mergeCgiBinUrl(user_info, getAccessToken(), openId,
+                StringUtils.defaultIfBlank(lang, "zh_CN"));
         ApiResult ar = null;
         for (int i = 0; i < RETRY_COUNT; i++) {
             ar = ApiResult.create(HttpTool.get(url));
@@ -569,7 +575,8 @@ public class WechatAPIImpl implements WechatAPI {
     }
 
     @Override
-    public long sendTemplateMsg(final String openId, final String tmlId, final String topColor, final String url,  final WechatPushTempField... tmls) {
+    public long sendTemplateMsg(final String openId, final String tmlId, final String topColor, final String url,
+            final WechatPushTempField... tmls) {
 
         return sendTemplateMsg(openId, tmlId, topColor, url, Arrays.asList(tmls));
     }
@@ -580,16 +587,18 @@ public class WechatAPIImpl implements WechatAPI {
      * @param anWechatPushTemp
      * @return
      */
-    public long sendTemplateMessage(final String anOpenId, final WechatPushTemplate anWechatPushTemp){
-        if (anWechatPushTemp != null){
+    public long sendTemplateMessage(final String anOpenId, final WechatPushTemplate anWechatPushTemp) {
+        if (anWechatPushTemp != null) {
 
-            return sendTemplateMsg(anOpenId, anWechatPushTemp.getTempId(), anWechatPushTemp.getTempId(), anWechatPushTemp.getInvokeUrl(), anWechatPushTemp.getFields());
+            return sendTemplateMsg(anOpenId, anWechatPushTemp.getTempId(), anWechatPushTemp.getTempId(),
+                    anWechatPushTemp.getInvokeUrl(), anWechatPushTemp.getFields());
         }
 
         return -1;
     }
 
-    public long sendTemplateMsg(final String openId, final String tmlId, final String topColor, final String url, final Collection<WechatPushTempField> anTmls) {
+    public long sendTemplateMsg(final String openId, final String tmlId, final String topColor, final String url,
+            final Collection<WechatPushTempField> anTmls) {
         final String apiurl = mergeCgiBinUrl(send_template + getAccessToken());
         ApiResult ar = null;
         final String data = JsonMsgBuilder.create().template(openId, tmlId, topColor, url, anTmls).build();
@@ -612,8 +621,10 @@ public class WechatAPIImpl implements WechatAPI {
         for (int i = 0; i < RETRY_COUNT; i++) {
             ar = ApiResult.create(HttpTool.get(url));
             if (ar.isSuccess()) {
-                // Map<String, Object> button = jsonMapper.fromJson(jsonMapper.toJson(ar.get("template_list")), Map.class);
-                return JsonMapper.jacksonToCollection(jsonMapper.toJson(ar.get("template_list")), MessageTemplate.class);
+                // Map<String, Object> button = jsonMapper.fromJson(jsonMapper.toJson(ar.get("template_list")),
+                // Map.class);
+                return JsonMapper.jacksonToCollection(jsonMapper.toJson(ar.get("template_list")),
+                        MessageTemplate.class);
             }
 
             log.error("Get mp[%s] custom template failed. There try %d items.", mpAct.getAppId(), i + 1);

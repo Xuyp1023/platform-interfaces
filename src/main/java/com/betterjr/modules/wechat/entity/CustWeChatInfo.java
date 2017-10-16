@@ -1,15 +1,21 @@
 package com.betterjr.modules.wechat.entity;
 
-import com.betterjr.common.annotation.*;
+import java.util.Date;
+
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.betterjr.common.annotation.MetaData;
 import com.betterjr.common.data.BetterBaseEntity;
 import com.betterjr.common.entity.BetterjrEntity;
 import com.betterjr.common.utils.BetterDateUtils;
 import com.betterjr.modules.wechat.data.event.BasicEvent;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import java.util.Date;
-
-import javax.persistence.*;
 
 @Access(AccessType.FIELD)
 @Entity
@@ -307,18 +313,22 @@ public class CustWeChatInfo extends BetterBaseEntity implements BetterjrEntity {
         this.businStatus = businStatus == null ? null : businStatus.trim();
     }
 
+    @Override
     public String getRegDate() {
         return regDate;
     }
 
+    @Override
     public void setRegDate(String regDate) {
         this.regDate = regDate == null ? null : regDate.trim();
     }
 
+    @Override
     public String getRegTime() {
         return regTime;
     }
 
+    @Override
     public void setRegTime(String regTime) {
         this.regTime = regTime == null ? null : regTime.trim();
     }
@@ -327,6 +337,7 @@ public class CustWeChatInfo extends BetterBaseEntity implements BetterjrEntity {
         return modiDate;
     }
 
+    @Override
     public void setModiDate(String modiDate) {
         this.modiDate = modiDate == null ? null : modiDate.trim();
     }
@@ -335,6 +346,7 @@ public class CustWeChatInfo extends BetterBaseEntity implements BetterjrEntity {
         return modiTime;
     }
 
+    @Override
     public void setModiTime(String modiTime) {
         this.modiTime = modiTime == null ? null : modiTime.trim();
     }
@@ -427,26 +439,43 @@ public class CustWeChatInfo extends BetterBaseEntity implements BetterjrEntity {
                 && (this.getOpenId() == null ? other.getOpenId() == null : this.getOpenId().equals(other.getOpenId()))
                 && (this.getSubscribeStatus() == null ? other.getSubscribeStatus() == null
                         : this.getSubscribeStatus().equals(other.getSubscribeStatus()))
-                && (this.getNickName() == null ? other.getNickName() == null : this.getNickName().equals(other.getNickName()))
-                && (this.getCustSex() == null ? other.getCustSex() == null : this.getCustSex().equals(other.getCustSex()))
-                && (this.getCityName() == null ? other.getCityName() == null : this.getCityName().equals(other.getCityName()))
-                && (this.getProvinceName() == null ? other.getProvinceName() == null : this.getProvinceName().equals(other.getProvinceName()))
-                && (this.getCountryName() == null ? other.getCountryName() == null : this.getCountryName().equals(other.getCountryName()))
-                && (this.getSubscribeTime() == null ? other.getSubscribeTime() == null : this.getSubscribeTime().equals(other.getSubscribeTime()))
-                && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
-                && (this.getGroupId() == null ? other.getGroupId() == null : this.getGroupId().equals(other.getGroupId()))
-                && (this.getTagIdList() == null ? other.getTagIdList() == null : this.getTagIdList().equals(other.getTagIdList()))
-                && (this.getOperOrg() == null ? other.getOperOrg() == null : this.getOperOrg().equals(other.getOperOrg()))
-                && (this.getBusinStatus() == null ? other.getBusinStatus() == null : this.getBusinStatus().equals(other.getBusinStatus()))
-                && (this.getRegDate() == null ? other.getRegDate() == null : this.getRegDate().equals(other.getRegDate()))
-                && (this.getRegTime() == null ? other.getRegTime() == null : this.getRegTime().equals(other.getRegTime()))
-                && (this.getModiDate() == null ? other.getModiDate() == null : this.getModiDate().equals(other.getModiDate()))
-                && (this.getModiTime() == null ? other.getModiTime() == null : this.getModiTime().equals(other.getModiTime()))
+                && (this.getNickName() == null ? other.getNickName() == null
+                        : this.getNickName().equals(other.getNickName()))
+                && (this.getCustSex() == null ? other.getCustSex() == null
+                        : this.getCustSex().equals(other.getCustSex()))
+                && (this.getCityName() == null ? other.getCityName() == null
+                        : this.getCityName().equals(other.getCityName()))
+                && (this.getProvinceName() == null ? other.getProvinceName() == null
+                        : this.getProvinceName().equals(other.getProvinceName()))
+                && (this.getCountryName() == null ? other.getCountryName() == null
+                        : this.getCountryName().equals(other.getCountryName()))
+                && (this.getSubscribeTime() == null ? other.getSubscribeTime() == null
+                        : this.getSubscribeTime().equals(other.getSubscribeTime()))
+                && (this.getDescription() == null ? other.getDescription() == null
+                        : this.getDescription().equals(other.getDescription()))
+                && (this.getGroupId() == null ? other.getGroupId() == null
+                        : this.getGroupId().equals(other.getGroupId()))
+                && (this.getTagIdList() == null ? other.getTagIdList() == null
+                        : this.getTagIdList().equals(other.getTagIdList()))
+                && (this.getOperOrg() == null ? other.getOperOrg() == null
+                        : this.getOperOrg().equals(other.getOperOrg()))
+                && (this.getBusinStatus() == null ? other.getBusinStatus() == null
+                        : this.getBusinStatus().equals(other.getBusinStatus()))
+                && (this.getRegDate() == null ? other.getRegDate() == null
+                        : this.getRegDate().equals(other.getRegDate()))
+                && (this.getRegTime() == null ? other.getRegTime() == null
+                        : this.getRegTime().equals(other.getRegTime()))
+                && (this.getModiDate() == null ? other.getModiDate() == null
+                        : this.getModiDate().equals(other.getModiDate()))
+                && (this.getModiTime() == null ? other.getModiTime() == null
+                        : this.getModiTime().equals(other.getModiTime()))
                 && (this.getUnSubscribeTime() == null ? other.getUnSubscribeTime() == null
                         : this.getUnSubscribeTime().equals(other.getUnSubscribeTime()))
                 && (this.getOperId() == null ? other.getOperId() == null : this.getOperId().equals(other.getOperId()))
-                && (this.getOperName() == null ? other.getOperName() == null : this.getOperName().equals(other.getOperName()))
-                && (this.getFirstLogin() == null ? other.getFirstLogin() == null : this.getFirstLogin().equals(other.getFirstLogin()))
+                && (this.getOperName() == null ? other.getOperName() == null
+                        : this.getOperName().equals(other.getOperName()))
+                && (this.getFirstLogin() == null ? other.getFirstLogin() == null
+                        : this.getFirstLogin().equals(other.getFirstLogin()))
                 && (this.getCustNo() == null ? other.getCustNo() == null : this.getCustNo().equals(other.getCustNo()));
     }
 
@@ -509,7 +538,7 @@ public class CustWeChatInfo extends BetterBaseEntity implements BetterjrEntity {
 
     @Override
     public void setModiOperId(Long anValue) {
-        
+
     }
 
     public String getModiOperName() {
@@ -527,14 +556,11 @@ public class CustWeChatInfo extends BetterBaseEntity implements BetterjrEntity {
     public void putCustSex(int anSex) {
         if (anSex == 0) {
             this.custSex = "3";
-        }
-        else if (anSex == 2) {
+        } else if (anSex == 2) {
             this.custSex = "0";
-        }
-        else if (anSex == 1) {
+        } else if (anSex == 1) {
             this.custSex = "1";
-        }
-        else {
+        } else {
             this.custSex = "3";
         }
     }
@@ -546,8 +572,7 @@ public class CustWeChatInfo extends BetterBaseEntity implements BetterjrEntity {
         }
         if ("0".equals(anSubStatus)) {
             this.businStatus = "0";
-        }
-        else if ("1".equals(anSubStatus)) {
+        } else if ("1".equals(anSubStatus)) {
             if ("3".equals(this.businStatus)) {
                 this.businStatus = "1";
             }

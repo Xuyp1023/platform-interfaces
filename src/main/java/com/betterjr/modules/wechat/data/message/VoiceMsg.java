@@ -72,22 +72,8 @@ public class VoiceMsg extends BasicMsg {
 
     @Override
     public String toString() {
-        return "VoiceMsg [toUserName="
-               + toUserName
-               + ", fromUserName="
-               + fromUserName
-               + ", createTime="
-               + createTime
-               + ", msgType="
-               + msgType
-               + ", msgId="
-               + msgId
-               + ", mediaId="
-               + mediaId
-               + ", format="
-               + format
-               + ", recognition="
-               + recognition
-               + "]";
+        return "VoiceMsg [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime=" + createTime
+                + ", msgType=" + msgType + ", msgId=" + msgId + ", mediaId=" + mediaId + ", format=" + format
+                + ", recognition=" + recognition + "]";
     }
 }

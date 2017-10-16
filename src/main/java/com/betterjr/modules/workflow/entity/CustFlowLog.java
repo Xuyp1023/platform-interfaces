@@ -1,8 +1,14 @@
 package com.betterjr.modules.workflow.entity;
 
-import com.betterjr.common.annotation.*;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.betterjr.common.annotation.MetaData;
 import com.betterjr.common.entity.BetterjrEntity;
-import javax.persistence.*;
 
 @Access(AccessType.FIELD)
 @Entity
@@ -12,85 +18,85 @@ public class CustFlowLog implements BetterjrEntity {
      * 编号
      */
     @Id
-    @Column(name = "ID",  columnDefinition="INTEGER" )
-    @MetaData( value="编号", comments = "编号")
+    @Column(name = "ID", columnDefinition = "INTEGER")
+    @MetaData(value = "编号", comments = "编号")
     private Long id;
 
     /**
      * 审批动作
      */
-    @Column(name = "C_ACTION",  columnDefinition="VARCHAR" )
-    @MetaData( value="审批动作", comments = "审批动作")
+    @Column(name = "C_ACTION", columnDefinition = "VARCHAR")
+    @MetaData(value = "审批动作", comments = "审批动作")
     private String action;
 
     /**
      * 审批意见
      */
-    @Column(name = "C_OPINION",  columnDefinition="VARCHAR" )
-    @MetaData( value="审批意见", comments = "审批意见")
+    @Column(name = "C_OPINION", columnDefinition = "VARCHAR")
+    @MetaData(value = "审批意见", comments = "审批意见")
     private String opinion;
 
     /**
      * 审批日期
      */
-    @Column(name = "D_REG_DATE",  columnDefinition="VARCHAR" )
-    @MetaData( value="审批日期", comments = "审批日期")
+    @Column(name = "D_REG_DATE", columnDefinition = "VARCHAR")
+    @MetaData(value = "审批日期", comments = "审批日期")
     private String regDate;
 
     /**
      * 审批人名称
      */
-    @Column(name = "C_OPERNAME",  columnDefinition="VARCHAR" )
-    @MetaData( value="审批人名称", comments = "审批人名称")
+    @Column(name = "C_OPERNAME", columnDefinition = "VARCHAR")
+    @MetaData(value = "审批人名称", comments = "审批人名称")
     private String operName;
 
     /**
      * 审批人编号
      */
-    @Column(name = "L_OPERID",  columnDefinition="INTEGER" )
-    @MetaData( value="审批人编号", comments = "审批人编号")
+    @Column(name = "L_OPERID", columnDefinition = "INTEGER")
+    @MetaData(value = "审批人编号", comments = "审批人编号")
     private Long operId;
 
     /**
      * 组织机构
      */
-    @Column(name = "C_OPERORG",  columnDefinition="VARCHAR" )
-    @MetaData( value="组织机构", comments = "组织机构")
+    @Column(name = "C_OPERORG", columnDefinition = "VARCHAR")
+    @MetaData(value = "组织机构", comments = "组织机构")
     private String operOrg;
 
     /**
      * 任务编号
      */
-    @Column(name = "C_TASK_ID",  columnDefinition="VARCHAR" )
-    @MetaData( value="任务编号", comments = "任务编号")
+    @Column(name = "C_TASK_ID", columnDefinition = "VARCHAR")
+    @MetaData(value = "任务编号", comments = "任务编号")
     private String taskId;
 
     /**
      * 任务名称
      */
-    @Column(name = "C_TASK_NAME",  columnDefinition="VARCHAR" )
-    @MetaData( value="任务名称", comments = "任务名称")
+    @Column(name = "C_TASK_NAME", columnDefinition = "VARCHAR")
+    @MetaData(value = "任务名称", comments = "任务名称")
     private String taskName;
 
     /**
      * 流程实例编号
      */
-    @Column(name = "C_PROC_INST_ID",  columnDefinition="VARCHAR" )
-    @MetaData( value="流程实例编号", comments = "流程实例编号")
+    @Column(name = "C_PROC_INST_ID", columnDefinition = "VARCHAR")
+    @MetaData(value = "流程实例编号", comments = "流程实例编号")
     private String procInstId;
 
     /**
      * 表单编号
      */
-    @Column(name = "L_BUSINESSID",  columnDefinition="INTEGER" )
-    @MetaData( value="表单编号", comments = "表单编号")
+    @Column(name = "L_BUSINESSID", columnDefinition = "INTEGER")
+    @MetaData(value = "表单编号", comments = "表单编号")
     private Long businId;
 
     /**
      * 流程类型
      */
-    @Column(name = "C_FLOW_TYPE",  columnDefinition="VARCHAR" )
-    @MetaData( value="流程类型", comments = "流程类型")
+    @Column(name = "C_FLOW_TYPE", columnDefinition = "VARCHAR")
+    @MetaData(value = "流程类型", comments = "流程类型")
     private String flowType;
 
     private static final long serialVersionUID = -6335770109426577424L;
@@ -227,17 +233,25 @@ public class CustFlowLog implements BetterjrEntity {
         }
         CustFlowLog other = (CustFlowLog) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getAction() == null ? other.getAction() == null : this.getAction().equals(other.getAction()))
-            && (this.getOpinion() == null ? other.getOpinion() == null : this.getOpinion().equals(other.getOpinion()))
-            && (this.getRegDate() == null ? other.getRegDate() == null : this.getRegDate().equals(other.getRegDate()))
-            && (this.getOperName() == null ? other.getOperName() == null : this.getOperName().equals(other.getOperName()))
-            && (this.getOperId() == null ? other.getOperId() == null : this.getOperId().equals(other.getOperId()))
-            && (this.getOperOrg() == null ? other.getOperOrg() == null : this.getOperOrg().equals(other.getOperOrg()))
-            && (this.getTaskId() == null ? other.getTaskId() == null : this.getTaskId().equals(other.getTaskId()))
-            && (this.getTaskName() == null ? other.getTaskName() == null : this.getTaskName().equals(other.getTaskName()))
-            && (this.getProcInstId() == null ? other.getProcInstId() == null : this.getProcInstId().equals(other.getProcInstId()))
-            && (this.getBusinId() == null ? other.getBusinId() == null : this.getBusinId().equals(other.getBusinId()))
-            && (this.getFlowType() == null ? other.getFlowType() == null : this.getFlowType().equals(other.getFlowType()));
+                && (this.getAction() == null ? other.getAction() == null : this.getAction().equals(other.getAction()))
+                && (this.getOpinion() == null ? other.getOpinion() == null
+                        : this.getOpinion().equals(other.getOpinion()))
+                && (this.getRegDate() == null ? other.getRegDate() == null
+                        : this.getRegDate().equals(other.getRegDate()))
+                && (this.getOperName() == null ? other.getOperName() == null
+                        : this.getOperName().equals(other.getOperName()))
+                && (this.getOperId() == null ? other.getOperId() == null : this.getOperId().equals(other.getOperId()))
+                && (this.getOperOrg() == null ? other.getOperOrg() == null
+                        : this.getOperOrg().equals(other.getOperOrg()))
+                && (this.getTaskId() == null ? other.getTaskId() == null : this.getTaskId().equals(other.getTaskId()))
+                && (this.getTaskName() == null ? other.getTaskName() == null
+                        : this.getTaskName().equals(other.getTaskName()))
+                && (this.getProcInstId() == null ? other.getProcInstId() == null
+                        : this.getProcInstId().equals(other.getProcInstId()))
+                && (this.getBusinId() == null ? other.getBusinId() == null
+                        : this.getBusinId().equals(other.getBusinId()))
+                && (this.getFlowType() == null ? other.getFlowType() == null
+                        : this.getFlowType().equals(other.getFlowType()));
     }
 
     @Override

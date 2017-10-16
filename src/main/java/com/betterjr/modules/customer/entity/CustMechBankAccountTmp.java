@@ -604,6 +604,7 @@ public class CustMechBankAccountTmp implements BetterjrEntity, ICustAuditEntityF
         this.lastStatus = lastStatus == null ? null : lastStatus.trim();
     }
 
+    @Override
     public Long getCustNo() {
         return custNo;
     }
@@ -636,6 +637,7 @@ public class CustMechBankAccountTmp implements BetterjrEntity, ICustAuditEntityF
         this.tmpOperType = tmpOperType == null ? null : tmpOperType.trim();
     }
 
+    @Override
     public Long getParentId() {
         return parentId;
     }
@@ -644,6 +646,7 @@ public class CustMechBankAccountTmp implements BetterjrEntity, ICustAuditEntityF
         parentId = anParentId;
     }
 
+    @Override
     public Long getBatchNo() {
         return batchNo;
     }
@@ -725,46 +728,80 @@ public class CustMechBankAccountTmp implements BetterjrEntity, ICustAuditEntityF
         }
         final CustMechBankAccountTmp other = (CustMechBankAccountTmp) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-                && (this.getParentId() == null ? other.getParentId() == null : this.getParentId().equals(other.getParentId()))
-                && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
-                && (this.getIsDefault() == null ? other.getIsDefault() == null : this.getIsDefault().equals(other.getIsDefault()))
-                && (this.getTradeAcco() == null ? other.getTradeAcco() == null : this.getTradeAcco().equals(other.getTradeAcco()))
+                && (this.getParentId() == null ? other.getParentId() == null
+                        : this.getParentId().equals(other.getParentId()))
+                && (this.getVersion() == null ? other.getVersion() == null
+                        : this.getVersion().equals(other.getVersion()))
+                && (this.getIsDefault() == null ? other.getIsDefault() == null
+                        : this.getIsDefault().equals(other.getIsDefault()))
+                && (this.getTradeAcco() == null ? other.getTradeAcco() == null
+                        : this.getTradeAcco().equals(other.getTradeAcco()))
                 && (this.getBankNo() == null ? other.getBankNo() == null : this.getBankNo().equals(other.getBankNo()))
-                && (this.getBankName() == null ? other.getBankName() == null : this.getBankName().equals(other.getBankName()))
-                && (this.getBankAcco() == null ? other.getBankAcco() == null : this.getBankAcco().equals(other.getBankAcco()))
-                && (this.getBankAccoName() == null ? other.getBankAccoName() == null : this.getBankAccoName().equals(other.getBankAccoName()))
-                && (this.getBankBranch() == null ? other.getBankBranch() == null : this.getBankBranch().equals(other.getBankBranch()))
+                && (this.getBankName() == null ? other.getBankName() == null
+                        : this.getBankName().equals(other.getBankName()))
+                && (this.getBankAcco() == null ? other.getBankAcco() == null
+                        : this.getBankAcco().equals(other.getBankAcco()))
+                && (this.getBankAccoName() == null ? other.getBankAccoName() == null
+                        : this.getBankAccoName().equals(other.getBankAccoName()))
+                && (this.getBankBranch() == null ? other.getBankBranch() == null
+                        : this.getBankBranch().equals(other.getBankBranch()))
                 && (this.getNetNo() == null ? other.getNetNo() == null : this.getNetNo().equals(other.getNetNo()))
-                && (this.getPayCenter() == null ? other.getPayCenter() == null : this.getPayCenter().equals(other.getPayCenter()))
-                && (this.getEndFrozenDate() == null ? other.getEndFrozenDate() == null : this.getEndFrozenDate().equals(other.getEndFrozenDate()))
-                && (this.getContractNo() == null ? other.getContractNo() == null : this.getContractNo().equals(other.getContractNo()))
-                && (this.getAuthStatus() == null ? other.getAuthStatus() == null : this.getAuthStatus().equals(other.getAuthStatus()))
-                && (this.getSignStatus() == null ? other.getSignStatus() == null : this.getSignStatus().equals(other.getSignStatus()))
-                && (this.getIdentType() == null ? other.getIdentType() == null : this.getIdentType().equals(other.getIdentType()))
-                && (this.getIdentNo() == null ? other.getIdentNo() == null : this.getIdentNo().equals(other.getIdentNo()))
+                && (this.getPayCenter() == null ? other.getPayCenter() == null
+                        : this.getPayCenter().equals(other.getPayCenter()))
+                && (this.getEndFrozenDate() == null ? other.getEndFrozenDate() == null
+                        : this.getEndFrozenDate().equals(other.getEndFrozenDate()))
+                && (this.getContractNo() == null ? other.getContractNo() == null
+                        : this.getContractNo().equals(other.getContractNo()))
+                && (this.getAuthStatus() == null ? other.getAuthStatus() == null
+                        : this.getAuthStatus().equals(other.getAuthStatus()))
+                && (this.getSignStatus() == null ? other.getSignStatus() == null
+                        : this.getSignStatus().equals(other.getSignStatus()))
+                && (this.getIdentType() == null ? other.getIdentType() == null
+                        : this.getIdentType().equals(other.getIdentType()))
+                && (this.getIdentNo() == null ? other.getIdentNo() == null
+                        : this.getIdentNo().equals(other.getIdentNo()))
                 && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
-                && (this.getBakupAcco() == null ? other.getBakupAcco() == null : this.getBakupAcco().equals(other.getBakupAcco()))
-                && (this.getCountyName() == null ? other.getCountyName() == null : this.getCountyName().equals(other.getCountyName()))
-                && (this.getCityName() == null ? other.getCityName() == null : this.getCityName().equals(other.getCityName()))
+                && (this.getBakupAcco() == null ? other.getBakupAcco() == null
+                        : this.getBakupAcco().equals(other.getBakupAcco()))
+                && (this.getCountyName() == null ? other.getCountyName() == null
+                        : this.getCountyName().equals(other.getCountyName()))
+                && (this.getCityName() == null ? other.getCityName() == null
+                        : this.getCityName().equals(other.getCityName()))
                 && (this.getCityNo() == null ? other.getCityNo() == null : this.getCityNo().equals(other.getCityNo()))
-                && (this.getRegOperId() == null ? other.getRegOperId() == null : this.getRegOperId().equals(other.getRegOperId()))
-                && (this.getRegOperName() == null ? other.getRegOperName() == null : this.getRegOperName().equals(other.getRegOperName()))
-                && (this.getRegDate() == null ? other.getRegDate() == null : this.getRegDate().equals(other.getRegDate()))
-                && (this.getRegTime() == null ? other.getRegTime() == null : this.getRegTime().equals(other.getRegTime()))
-                && (this.getModiOperId() == null ? other.getModiOperId() == null : this.getModiOperId().equals(other.getModiOperId()))
-                && (this.getModiOperName() == null ? other.getModiOperName() == null : this.getModiOperName().equals(other.getModiOperName()))
-                && (this.getModiDate() == null ? other.getModiDate() == null : this.getModiDate().equals(other.getModiDate()))
-                && (this.getModiTime() == null ? other.getModiTime() == null : this.getModiTime().equals(other.getModiTime()))
-                && (this.getOperOrg() == null ? other.getOperOrg() == null : this.getOperOrg().equals(other.getOperOrg()))
-                && (this.getAccoStatus() == null ? other.getAccoStatus() == null : this.getAccoStatus().equals(other.getAccoStatus()))
-                && (this.getBusinStatus() == null ? other.getBusinStatus() == null : this.getBusinStatus().equals(other.getBusinStatus()))
-                && (this.getLastStatus() == null ? other.getLastStatus() == null : this.getLastStatus().equals(other.getLastStatus()))
+                && (this.getRegOperId() == null ? other.getRegOperId() == null
+                        : this.getRegOperId().equals(other.getRegOperId()))
+                && (this.getRegOperName() == null ? other.getRegOperName() == null
+                        : this.getRegOperName().equals(other.getRegOperName()))
+                && (this.getRegDate() == null ? other.getRegDate() == null
+                        : this.getRegDate().equals(other.getRegDate()))
+                && (this.getRegTime() == null ? other.getRegTime() == null
+                        : this.getRegTime().equals(other.getRegTime()))
+                && (this.getModiOperId() == null ? other.getModiOperId() == null
+                        : this.getModiOperId().equals(other.getModiOperId()))
+                && (this.getModiOperName() == null ? other.getModiOperName() == null
+                        : this.getModiOperName().equals(other.getModiOperName()))
+                && (this.getModiDate() == null ? other.getModiDate() == null
+                        : this.getModiDate().equals(other.getModiDate()))
+                && (this.getModiTime() == null ? other.getModiTime() == null
+                        : this.getModiTime().equals(other.getModiTime()))
+                && (this.getOperOrg() == null ? other.getOperOrg() == null
+                        : this.getOperOrg().equals(other.getOperOrg()))
+                && (this.getAccoStatus() == null ? other.getAccoStatus() == null
+                        : this.getAccoStatus().equals(other.getAccoStatus()))
+                && (this.getBusinStatus() == null ? other.getBusinStatus() == null
+                        : this.getBusinStatus().equals(other.getBusinStatus()))
+                && (this.getLastStatus() == null ? other.getLastStatus() == null
+                        : this.getLastStatus().equals(other.getLastStatus()))
                 && (this.getCustNo() == null ? other.getCustNo() == null : this.getCustNo().equals(other.getCustNo()))
                 && (this.getRefId() == null ? other.getRefId() == null : this.getRefId().equals(other.getRefId()))
-                && (this.getTmpType() == null ? other.getTmpType() == null : this.getTmpType().equals(other.getTmpType()))
-                && (this.getTmpOperType() == null ? other.getTmpOperType() == null : this.getTmpOperType().equals(other.getTmpOperType()))
-                && (this.getOpenLicense() == null ? other.getOpenLicense() == null : this.getOpenLicense().equals(other.getOpenLicense()))
-                && (this.getBatchNo() == null ? other.getBatchNo() == null : this.getBatchNo().equals(other.getBatchNo()));
+                && (this.getTmpType() == null ? other.getTmpType() == null
+                        : this.getTmpType().equals(other.getTmpType()))
+                && (this.getTmpOperType() == null ? other.getTmpOperType() == null
+                        : this.getTmpOperType().equals(other.getTmpOperType()))
+                && (this.getOpenLicense() == null ? other.getOpenLicense() == null
+                        : this.getOpenLicense().equals(other.getOpenLicense()))
+                && (this.getBatchNo() == null ? other.getBatchNo() == null
+                        : this.getBatchNo().equals(other.getBatchNo()));
     }
 
     @Override
@@ -876,7 +913,8 @@ public class CustMechBankAccountTmp implements BetterjrEntity, ICustAuditEntityF
         this.tmpType = anBankAccountTmp.getTmpType();
     }
 
-    public void initModifyValue(final CustMechBankAccountTmp anCustMechBankAccountTmp, final String anBusinStatus, final Long anVersion) {
+    public void initModifyValue(final CustMechBankAccountTmp anCustMechBankAccountTmp, final String anBusinStatus,
+            final Long anVersion) {
         this.initModifyValue(anCustMechBankAccountTmp);
 
         this.businStatus = anBusinStatus;
@@ -908,7 +946,8 @@ public class CustMechBankAccountTmp implements BetterjrEntity, ICustAuditEntityF
      * @param anTmpTypeInitdata
      * @param anTmpStatusUsed
      */
-    public void initAddValue(final CustMechBankAccount anBankAccount, final String anTmpType, final String anBusinStatus) {
+    public void initAddValue(final CustMechBankAccount anBankAccount, final String anTmpType,
+            final String anBusinStatus) {
         this.id = SerialGenerator.getLongValue("CustMechBankAccountTmp.id");
 
         this.regOperId = UserUtils.getOperatorInfo().getId();

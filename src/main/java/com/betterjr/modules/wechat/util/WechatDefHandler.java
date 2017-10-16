@@ -39,7 +39,7 @@ import com.betterjr.modules.wechat.handler.qrcode.QrcodeHandlerFactory;
 public class WechatDefHandler implements WechatHandler {
     private final CustWeChatDubboClientService wechatDubboClientService;
 
-    public WechatDefHandler(final CustWeChatDubboClientService anWechatDubboClientService){
+    public WechatDefHandler(final CustWeChatDubboClientService anWechatDubboClientService) {
         wechatDubboClientService = anWechatDubboClientService;
     }
 
@@ -91,7 +91,8 @@ public class WechatDefHandler implements WechatHandler {
     @Override
     public BasicMsg location(final LocationMsg msg) {
         final TextMsg text_msg = new TextMsg(msg);
-        text_msg.setContent(BetterStringUtils.join("\n", msg.getX(), msg.getY(), String.valueOf(msg.getScale()), msg.getLabel()));
+        text_msg.setContent(
+                BetterStringUtils.join("\n", msg.getX(), msg.getY(), String.valueOf(msg.getScale()), msg.getLabel()));
         return text_msg;
     }
 
@@ -110,12 +111,9 @@ public class WechatDefHandler implements WechatHandler {
     @Override
     public BasicMsg eClick(final MenuEvent event) {
         final TextMsg text_msg = new TextMsg(event);
-        if (event.getEventKey().equals("联系我们")){
-            text_msg.setContent("我在这里\n" +
-                    new SimpleDateFormat("yyyy年MM月dd日").format(new Date()) + "\n\n" +
-                    "400电话：400-8864-168\n" +
-                    "联系电话：0755-33000719\n" +
-                    "联系地址：深圳市福田区车公庙泰然六路雪松大厦B座8楼");
+        if (event.getEventKey().equals("联系我们")) {
+            text_msg.setContent("我在这里\n" + new SimpleDateFormat("yyyy年MM月dd日").format(new Date()) + "\n\n"
+                    + "400电话：400-8864-168\n" + "联系电话：0755-33000719\n" + "联系地址：深圳市福田区车公庙泰然六路雪松大厦B座8楼");
         } else {
             text_msg.setContent(event.getEventKey());
         }
@@ -124,8 +122,7 @@ public class WechatDefHandler implements WechatHandler {
     }
 
     @Override
-    public void eView(final MenuEvent event) {
-    }
+    public void eView(final MenuEvent event) {}
 
     @Override
     public BasicMsg eSub(final BasicEvent anEvent) {
@@ -143,7 +140,7 @@ public class WechatDefHandler implements WechatHandler {
     }
 
     @Override
-    public void eUnSub(final BasicEvent anEvent){
+    public void eUnSub(final BasicEvent anEvent) {
         wechatDubboClientService.saveWeChatInfo(anEvent, EventType.unsubscribe);
     }
 
@@ -162,7 +159,8 @@ public class WechatDefHandler implements WechatHandler {
     @Override
     public BasicMsg eScanCodePush(final ScanCodeEvent event) {
         final TextMsg text_msg = new TextMsg(event);
-        text_msg.setContent(BetterStringUtils.join("\n", event.getEventKey(), event.getScanType(), event.getScanResult()));
+        text_msg.setContent(
+                BetterStringUtils.join("\n", event.getEventKey(), event.getScanType(), event.getScanResult()));
         return text_msg;
     }
 
@@ -174,8 +172,10 @@ public class WechatDefHandler implements WechatHandler {
     @Override
     public BasicMsg ePicSysPhoto(final SendPhotosEvent event) {
         final TextMsg text_msg = new TextMsg(event);
-        text_msg.setContent(BetterStringUtils.join("\n", event.getEventKey(), String.valueOf(event.getSendPicsInfo().getCount()),
-                String.valueOf(event.getSendPicsInfo().getPicList()), String.valueOf(event.getSendPicsInfo().getPicList().get(0).getPicMd5Sum())));
+        text_msg.setContent(
+                BetterStringUtils.join("\n", event.getEventKey(), String.valueOf(event.getSendPicsInfo().getCount()),
+                        String.valueOf(event.getSendPicsInfo().getPicList()),
+                        String.valueOf(event.getSendPicsInfo().getPicList().get(0).getPicMd5Sum())));
         return text_msg;
     }
 
@@ -198,22 +198,17 @@ public class WechatDefHandler implements WechatHandler {
     }
 
     @Override
-    public void eSentTmplJobFinish(final SentTmlJobEvent event) {
-    }
+    public void eSentTmplJobFinish(final SentTmlJobEvent event) {}
 
     @Override
-    public void eSentAllJobFinish(final SentAllJobEvent event) {
-    }
+    public void eSentAllJobFinish(final SentAllJobEvent event) {}
 
     @Override
-    public void eCreateKfSession(final CustomServiceEvent event) {
-    }
+    public void eCreateKfSession(final CustomServiceEvent event) {}
 
     @Override
-    public void eCloseKfSession(final CustomServiceEvent event) {
-    }
+    public void eCloseKfSession(final CustomServiceEvent event) {}
 
     @Override
-    public void eSwitchKfSession(final CustomServiceEvent event) {
-    }
+    public void eSwitchKfSession(final CustomServiceEvent event) {}
 }
