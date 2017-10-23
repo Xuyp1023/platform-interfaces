@@ -59,6 +59,7 @@ public interface CustomerConstants {
     String ITEM_CONTACTER = "5";
     String ITEM_BANKACCOUNT = "6";
     String ITEM_OPENACCOUNT = "7";
+    String ITEM_FUND_FILE = "9";
 
     // 变更申请状态：0未审核 1审核通过 2审核驳回 3作废
     String CHANGE_APPLY_STATUS_NEW = "0";

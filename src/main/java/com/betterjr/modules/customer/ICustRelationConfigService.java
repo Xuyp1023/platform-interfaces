@@ -128,4 +128,17 @@ public interface ICustRelationConfigService {
      * @return
      */
     String webFindCustByPlatform(String anCustType);
+
+    /***
+     * 查询销售机构对应需要上传的文件类型列表
+     * @Title: findAgencyFileType 
+     * @Description: TODO(机构文件类型) 
+     * @param @param anAgencyNo
+     * @param @return 文件类型列表
+     * @return List<AgencyAuthorFileGroup> 返回类型 
+     * @throws 
+     * @author hubl
+     * @date 2017年10月17日 上午11:35:19
+     */
+    String webFindAgencyFileType(final String anAgencyNo);
 }
